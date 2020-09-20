@@ -7,6 +7,8 @@
         "build": "next build",
         "release": "standard-version",
         "release:major": "standard-version -- --release-as major",
+        "release:minor": "standard-version -- --release-as minor",
+        "release:patch": "standard-version -- --release-as patch",
         "start": "next start",
         "commit": "git-cz",
         "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
