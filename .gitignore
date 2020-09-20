@@ -51,8 +51,18 @@ node_modules/
 .next
 out
 
+# production
+/build
+
 # VSCode
 .vscode
 
 # JetBrains
 .idea
+
+# misc
+.DS_Store
+*.pem
+
+# vercel
+.vercel
