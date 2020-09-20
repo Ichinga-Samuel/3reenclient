@@ -1,5 +1,5 @@
-import React from 'react'
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 
 const HomePage: React.FC = () => {
     return (
@@ -7,8 +7,9 @@ const HomePage: React.FC = () => {
             <Head>
                 <title>3reenshop</title>
             </Head>
-            <h1>Welcome to 3reen e-commerce app - 3reenshop</h1></>
-    )
-}
+            <h1>Welcome to 3reen e-commerce app - 3reenshop</h1>
+        </>
+    );
+};
 
 export default HomePage;

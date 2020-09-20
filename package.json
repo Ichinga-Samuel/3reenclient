@@ -1,29 +1,33 @@
 {
-  "name": "3reenshop-client",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "next": "^9.5.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "@types/node": "^14.11.1",
-    "@types/react": "^16.9.49",
-    "@types/react-dom": "^16.9.8",
-    "@typescript-eslint/eslint-plugin": "^4.1.1",
-    "@typescript-eslint/parser": "^4.1.1",
-    "eslint": "^7.9.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.6",
-    "prettier": "^2.1.2",
-    "typescript": "^4.0.3"
-  }
+    "name": "3reenshop-client",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
+        "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+        "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix --cache",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "next": "^9.5.3",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "@types/node": "^14.11.1",
+        "@types/react": "^16.9.49",
+        "@types/react-dom": "^16.9.8",
+        "@typescript-eslint/eslint-plugin": "^4.1.1",
+        "@typescript-eslint/parser": "^4.1.1",
+        "eslint": "^7.9.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.6",
+        "prettier": "^2.1.2",
+        "typescript": "^4.0.3"
+    }
 }
