@@ -1,9 +1,13 @@
+# top-most EditorConfig file
 root = true
 
+# Unix-style newlines with a newline ending every file
 [*]
-indent_style = space
-indent_size = 2
-charset = utf-8
 end_of_line = lf
 trim_trailing_whitespace = true
 insert_final_newline = true
+
+# Indentation override for all JS|JSX|TS|TSX files under src directory
+[src/**/*.{js,jsx,ts,tsx}]
+indent_style = space
+indent_size = 3

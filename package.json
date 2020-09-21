@@ -14,7 +14,10 @@
         "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
         "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
         "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix --cache",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest --passWithNoTests --no-cache --runInBand",
+        "test:watch": "yarn test --watch",
+        "test:staged": "cross-env CI=true yarn test --findRelatedTests",
+        "test:ci": "yarn test --coverage"
     },
     "dependencies": {
         "next": "^9.5.3",
@@ -22,12 +25,18 @@
         "react-dom": "^16.13.1"
     },
     "devDependencies": {
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.0.4",
+        "@testing-library/user-event": "^12.1.5",
+        "@types/jest": "^26.0.14",
         "@types/node": "^14.11.1",
         "@types/react": "^16.9.49",
         "@types/react-dom": "^16.9.8",
+        "@types/testing-library__react": "^10.2.0",
         "@typescript-eslint/eslint-plugin": "^4.1.1",
         "@typescript-eslint/parser": "^4.1.1",
         "commitizen": "^4.2.1",
+        "cross-env": "^7.0.2",
         "cz-conventional-changelog": "3.3.0",
         "eslint": "^7.9.0",
         "eslint-config-prettier": "^6.11.0",
@@ -35,9 +44,13 @@
         "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-react": "^7.20.6",
         "husky": "^4.3.0",
+        "identity-obj-proxy": "^3.0.0",
+        "jest": "^26.4.2",
+        "jest-watch-typeahead": "^0.6.1",
         "lint-staged": "^10.4.0",
         "prettier": "^2.1.2",
         "standard-version": "^9.0.0",
+        "ts-jest": "^26.4.0",
         "typescript": "^4.0.3"
     },
     "config": {
