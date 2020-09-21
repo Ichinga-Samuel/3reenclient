@@ -53,6 +53,20 @@
         "ts-jest": "^26.4.0",
         "typescript": "^4.0.3"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+            "pre-push": "yarn test:ci"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write",
+            "yarn test:staged"
+        ]
+    },
     "config": {
         "commitizen": {
             "path": "./node_modules/cz-conventional-changelog"

@@ -1,5 +1,5 @@
 module.exports = {
-    roots: ["<rootDir>/src/", "<rootDir>/tests/"],
+    roots: ['<rootDir>/src/', '<rootDir>/tests/'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
     setupFilesAfterEnv: ['<rootDir>/tests/setupTests.ts'],
     preset: 'ts-jest',
@@ -12,7 +12,7 @@ module.exports = {
     moduleNameMapper: {
         '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-            '<rootDir>/test/__mocks__/fileMock.js',
+            '<rootDir>/tests/__mocks__/fileMock.js',
     },
     testRegex: '(/__test__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$',
     collectCoverageFrom: [
