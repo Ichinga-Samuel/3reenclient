@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import HomePage from '../index';
+import HomePage from '../../src/pages/index';
 
-describe('<App />', () => {
+describe('HomePage', () => {
     it('renders HomePage component correctly', () => {
         render(<HomePage />);
         expect(
