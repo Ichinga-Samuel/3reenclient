@@ -10,7 +10,6 @@
         "release:minor": "standard-version -- --release-as minor",
         "release:patch": "standard-version -- --release-as patch",
         "start": "next start",
-        "commit": "git-cz",
         "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
         "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
         "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix --cache",
