@@ -9,42 +9,45 @@ on:
 
 jobs:
   lint:
-    name: audit code style
+    name: Audit Code Style
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Prepare Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install Dependencies
-        run: yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-jsx-a11y eslint-plugin-react
-
-      - name: Run Audits
-        run: yarn lint
-  build:
-    name: Running unit Tests
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
-
-    steps:
-      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Dependencies
+
+      - name: Installing Dependencies
+        run: yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-jsx-a11y eslint-plugin-react
+
+      - name: Running Audits
+        run: yarn lint
+  build:
+    name: Run All Tests
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Installing Dependencies
         run: yarn
-      - name: run test
+      - name: Running test
         run: yarn test
