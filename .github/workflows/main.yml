@@ -1,4 +1,4 @@
-name: CI Action
+name: Automated Tests and Linting Audit
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   lint:
-    name: Audit Code Style
+    name: Linting Audit - Code Style
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,6 +24,12 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Installing Dependencies
         run: yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-jsx-a11y eslint-plugin-react
@@ -47,7 +53,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Installing Dependencies
         run: yarn install --frozen-lockfile
+
       - name: Running tests
-        run: yarn test
+        run: yarn test:ci

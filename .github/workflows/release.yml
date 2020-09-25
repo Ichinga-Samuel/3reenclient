@@ -1,4 +1,4 @@
-name: Release CI
+name: Automated Semantic Versioning
 
 on:
   push:
@@ -15,6 +15,10 @@ jobs:
         node-version: [12.x]
 
     steps:
+      - uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
@@ -23,11 +27,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Installing Dependencies
         run: yarn install --frozen-lockfile
 
       - name: Running tests
-        run: yarn test
+        run: yarn test:ci
 
       - name: Create new release
         env:
