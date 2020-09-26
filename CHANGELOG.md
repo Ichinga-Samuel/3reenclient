@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/3reenshop/3reenshop-client/compare/v1.0.2...v1.0.3) (2020-09-26)
+
+
+### Bug Fixes
+
+* add authentication to release workflow and add node modules caching ([#4](https://github.com/3reenshop/3reenshop-client/issues/4)) ([d2064dd](https://github.com/3reenshop/3reenshop-client/commit/d2064ddcfe9972898820ea5da60e575372af64ce))
+
 ### [1.0.2](https://github.com/3reenshop/3reenshop-client/compare/v1.0.1...v1.0.2) (2020-09-24)
 
 ### 1.0.1 (2020-09-23)
