@@ -1,4 +1,4 @@
-name: Automated Tests and Linting Audit
+name: Automated Tests, Audits and Automated Release
 
 on:
   push:
@@ -8,10 +8,10 @@ on:
       - develop
 
 jobs:
-  lint:
-    name: Linting Audit - Code Style
+  test:
+    name: Run Automated Tests and Linting Audit
     runs-on: ubuntu-latest
-
+    # set Node.js versions
     strategy:
       matrix:
         node-version: [12.x]
@@ -20,39 +20,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      # Use a Node.js version from list
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Installing Dependencies
-        run: yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-jsx-a11y eslint-plugin-react
-
-      - name: Running Audits
-        run: yarn lint
-  build:
-    name: Run All Tests
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
+      # cache node modules for faster test
       - name: Cache node modules
         uses: actions/cache@v2
         with:
@@ -62,5 +36,83 @@ jobs:
       - name: Installing Dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Running Linting Audits
+        run: yarn lint
+
+        env:
+          CI: true
       - name: Running tests
         run: yarn test:ci
+  lighthouse:
+    name: Light House CI
+    runs-on: ubuntu-latest
+    # Waits for test jobs for each Node.js version to complete
+    needs: [ test ]
+    # set Node.js versions
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      # Use a Node.js version from list
+      - name: Use Node.js  ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      # cache node modules for faster audit
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      # installs  Dependencies
+      - name: Install Dependencies and Build
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+      # Run Lighthouse Audit
+      - name: Run Lighthouse Audit
+        run: |
+          npm install -g @lhci/cli@0.4.x
+          lhci autorun --upload.token=${{ secrets.LHCI_SERVER_TOKEN }} --upload.githubToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }} --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  release:
+    name: Release
+    # Only release on push to master
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    # Waits for test jobs for each Node.js version to complete
+    needs: [ test ]
+    # set Node.js versions
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      # Use a Node.js version from list
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      # cache node modules for faster release
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      # installs  Dependencies
+      - name: Installing Dependencies
+        run: yarn install --frozen-lockfile
+      # creates a new release
+      - name: Create new release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: yarn release
