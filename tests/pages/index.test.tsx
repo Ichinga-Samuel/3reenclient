@@ -1,12 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import HomePage from '../../src/pages/index';
+import HomePage from '@/pages/index';
 
 describe('HomePage', () => {
-    it('renders HomePage component correctly', () => {
+    it('should render HomePage component correctly', async () => {
         render(<HomePage />);
-        expect(
-            screen.getByRole('heading', { name: /Welcome to 3reen e-commerce app - 3reenshop/i }),
-        ).toBeInTheDocument();
+        expect(screen.getByRole('heading', { name: /Welcome to 3reenshop e-commerce app/i })).toBeInTheDocument();
     });
 });

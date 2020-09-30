@@ -1,13 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
+import Heading from '@/components/Heading';
+import Box from '@/components/Box';
 
 const HomePage: React.FC = () => {
     return (
         <>
             <Head>
-                <title>3reenshop</title>
+                <title>3reenshop | Home</title>
             </Head>
-            <h1>Welcome to 3reen e-commerce app - 3reenshop</h1>
+            <Box>
+                <Heading style={{ fontSize: '30px' }}>
+                    Welcome to 3reenshop e-commerce <span>app</span>
+                </Heading>
+            </Box>
         </>
     );
 };

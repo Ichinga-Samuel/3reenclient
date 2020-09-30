@@ -1,0 +1,16 @@
+{
+  "extends": ["config:base", ":pinAllExceptPeerDependencies"],
+  "semanticCommits": "enabled",
+  "stabilityDays": 3,
+  "prCreation": "not-pending",
+  "labels": ["type: dependencies"]
+  "automerge": true,
+  "lockFileMaintenance": { "enabled": true },
+  "packageRules": [
+    { "packagePatterns": ["*"] },
+    { "depTypeList": ["dependencies"], "groupName": "dependencies" },
+    { "depTypeList": ["devDependencies"], "groupName": "devDependencies" }
+  ],
+  "reviewers": ["team:@3reenshop/front-end"],
+  "vulnerabilityAlerts": { "enabled": true }
+}

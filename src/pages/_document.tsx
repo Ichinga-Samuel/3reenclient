@@ -1,16 +1,16 @@
 import React from 'react';
-import Document, { DocumentInitialProps, DocumentContext, Html, Head, Main, NextScript } from 'next/document';
+import Document, { DocumentProps, Html, Head, Main, NextScript } from 'next/document';
 
-export default class MyDocument extends Document {
-    static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
-        const initialProps = await Document.getInitialProps(ctx);
-        return { ...initialProps };
-    }
-
+export default class MyDocument extends Document<DocumentProps> {
     render(): JSX.Element {
         return (
             <Html>
-                <Head />
+                <Head>
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap"
+                        rel="stylesheet"
+                    />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

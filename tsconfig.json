@@ -18,7 +18,11 @@
         "declaration": true, // Generate corresponding .d.ts file
         "noUnusedLocals": true, // Report errors on unused locals
         "noUnusedParameters": true, // Report errors on unused parameters
-        "noFallthroughCasesInSwitch": true // Report errors for fallthrough cases in switch statement
+        "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": ["./*"]
+        }
     },
     "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"], // *** The files TypeScript should type check ***
     "exclude": ["node_modules", ".next", "out"] // *** The files to not type check ***

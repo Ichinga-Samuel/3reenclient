@@ -1,0 +1,32 @@
+:root {
+    --s0: 1rem;
+    --s1: calc(var(--s0) * var(--ratio));
+    --s2: calc(var(--s0) * var(--ratio) * var(--ratio));
+    --s3: calc(var(--s0) * var(--ratio) * var(--ratio) * var(--ratio));
+
+    --ratio: 1.414;
+    --s-1: calc(var(--s0) / var(--ratio));
+    --s-2: calc(var(--s0) / var(--ratio) / var(--ratio));
+    --s-3: calc(var(--s0) / var(--ratio) / var(--ratio) / var(--ratio));
+
+    --primary-color: #f1f1f1;
+    --secondary-color: #e7e7e7;
+    --black-100: #0b0c0c;
+    --black-80: #424242;
+    --black-60: #555759;
+    --black-50: #626a6e;
+
+    font-size: 105%;
+    color: var(--black-100);
+}
+
+html {
+    background: var(--primary-color);
+    max-width: 100%;
+}
+
+body {
+    background: linear-gradient(315deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', system-ui, sans-serif !important;
+}
