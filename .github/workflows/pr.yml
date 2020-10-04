@@ -1,15 +1,20 @@
-name: Automated Tests, Audits and Automated Release
+name: PR Workflow
 
 on:
-  push:
   pull_request:
     branches:
+      # PR events on master branch
       - master
+      # PR events on develop branch
+      - develop
+  push:
+    branches:
+      # Push events on develop branch
       - develop
 
 jobs:
-  test:
-    name: Run Automated Tests and Linting Audit
+  lint:
+    name: Linting Audit
     runs-on: ubuntu-latest
     # set Node.js versions
     strategy:
@@ -33,34 +38,74 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      - name: Installing Dependencies
+      # installs  Dependencies
+      - name: Install Dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Running Linting Audits
+      # Run linting audits
+      - name: Run Lint Audits
         run: yarn lint
-
+        # set environment variables
         env:
           CI: true
-      - name: Running tests
-        run: yarn test:ci
-  lighthouse:
-    name: Light House CI
+  test:
+    name: Automated Tests
     runs-on: ubuntu-latest
-    # Waits for test jobs for each Node.js version to complete
-    needs: [ test ]
+    # Waits for lint job for each Node.js version to complete
+    needs: lint
     # set Node.js versions
     strategy:
       matrix:
-        node-version: [ 12.x ]
+        node-version: [12.x]
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+      # Use a Node.js version from list
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # cache node modules for faster test
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+        # installs  Dependencies
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+        # Run automated tests
+      - name: Run tests
+        run: yarn test:ci
+
+        # set environment variables
+        env:
+          CI: true
+  lighthouse:
+    name: Light House Audit
+    runs-on: ubuntu-latest
+    # Waits for lint and test jobs for each Node.js version to complete
+    needs: [ lint, test ]
+    # set Node.js versions
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
       # Use a Node.js version from list
       - name: Use Node.js  ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       # cache node modules for faster audit
       - name: Cache node modules
         uses: actions/cache@v2
@@ -68,51 +113,25 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-      # installs  Dependencies
-      - name: Install Dependencies and Build
-        run: |
-          yarn install --frozen-lockfile
-          yarn build
-      # Run Lighthouse Audit
-      - name: Run Lighthouse Audit
-        run: |
-          npm install -g @lhci/cli@0.4.x
-          lhci autorun --upload.token=${{ secrets.LHCI_SERVER_TOKEN }} --upload.githubToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }} --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-
-  release:
-    name: Release
-    # Only release on push to master
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    # Waits for test jobs for each Node.js version to complete
-    needs: [ test ]
-    # set Node.js versions
-    strategy:
-      matrix:
-        node-version: [ 12.x ]
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      # Use a Node.js version from list
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      # cache node modules for faster release
-      - name: Cache node modules
+      # cache nextjs builds for faster builds
+      - name: Cache nextjs builds
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+
       # installs  Dependencies
-      - name: Installing Dependencies
+      - name: Install Dependencies
         run: yarn install --frozen-lockfile
-      # creates a new release
-      - name: Create new release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: yarn release
+
+      # installs  Dependencies
+      - name: Build
+        run: yarn build
+
+      # Run Lighthouse Audit
+      - name: Install Lighthouse
+        run: npm install -g @lhci/cli@0.4.x
+
+      # Run Lighthouse Audit
+      - name: Run Lighthouse Audit
+        run: lhci autorun
