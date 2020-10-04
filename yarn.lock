@@ -12978,7 +12978,7 @@ shipjs-lib@0.22.0:
     semver "6.3.0"
     shelljs "0.8.4"
 
-shipjs@^0.22.0:
+shipjs@0.22.0:
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/shipjs/-/shipjs-0.22.0.tgz#01641f12d464cc4442f1686c4174a36e3e6d351c"
   integrity sha512-43Ia3tnnM5lCOY0XqkoWZ55WqVRWO/b5ce51zh42TfHvNYhFL/5WYb9/avhUHs1ey0Rtxfq4YAAIjAyKx0RVhA==
