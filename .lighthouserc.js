@@ -26,8 +26,7 @@ module.exports = {
             },
         },
         upload: {
-            target: 'lhci',
-            serverBaseUrl: 'https://fathomless-basin-58227.herokuapp.com/',
+            target: 'temporary-public-storage',
         },
     },
 };
