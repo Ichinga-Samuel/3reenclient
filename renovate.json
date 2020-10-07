@@ -1,16 +1,21 @@
 {
     "extends": ["config:base", ":pinAllExceptPeerDependencies"],
+    "dependencyDashboard": true,
     "semanticCommits": "enabled",
     "stabilityDays": 3,
-    "prCreation": "not-pending",
-    "labels": ["type: dependencies"],
-    "automerge": true,
+    "prCreation": "status-success",
+    "labels": ["dependencies"],
     "lockFileMaintenance": { "enabled": true },
     "packageRules": [
         { "packagePatterns": ["*"] },
         { "depTypeList": ["dependencies"], "groupName": "dependencies" },
-        { "depTypeList": ["devDependencies"], "groupName": "devDependencies" }
+        { "depTypeList": ["devDependencies"], "groupName": "devDependencies" },
+        { "updateTypes": ["minor", "patch", "pin", "digest"], "automerge": true }
     ],
     "reviewers": ["team:@3reenshop/front-end"],
-    "vulnerabilityAlerts": { "enabled": true }
+    "vulnerabilityAlerts": {
+        "enabled": true,
+        "labels": ["security"],
+        "assignees": ["@Biosmatrix"]
+    }
 }
