@@ -1,5 +1,5 @@
 module.exports = {
-    stories: ['../src/**/*.stories.@(ts|tsx|js|jsx)'],
+    stories: ['../src/stories/*.stories.@(ts|tsx|js|jsx|mdx)'],
     addons: [
         '@storybook/preset-scss',
         '@storybook/addon-knobs',
@@ -7,18 +7,6 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-viewport',
         '@storybook/addon-backgrounds',
-        '@storybook/addon-docs/react',
+        '@storybook/addon-docs',
     ],
-    webpackFinal: async (config) => {
-        config.module.rules.push({
-            test: /\.(ts|tsx)$/,
-            loader: require.resolve('babel-loader'),
-            options: {
-                presets: [require.resolve('babel-preset-react-app')],
-            },
-        });
-
-        config.resolve.extensions.push('.ts', '.tsx');
-        return config;
-    },
 };

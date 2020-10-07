@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
 
@@ -7,7 +7,7 @@ type ButtonPropsType = {
     onClick?: () => void;
     className?: string;
     style?: React.CSSProperties;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: React.FC<ButtonPropsType> = ({ children, title, style, className, onClick, ...rest }) => {
     return (
