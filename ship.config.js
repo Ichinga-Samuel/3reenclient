@@ -6,7 +6,7 @@ module.exports = {
         exec(`git config --global user.name "Biosmatrix"`);
 
         exec('git checkout develop');
-        exec('git merge master');
+        exec('git merge main');
         exec('git push origin develop');
     },
 };

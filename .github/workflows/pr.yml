@@ -3,8 +3,8 @@ name: PR Workflow
 on:
   pull_request:
     branches:
-      # PR events on master branch
-      - master
+      # PR events on main branch
+      - main
       # PR events on develop branch
       - develop
   push:
