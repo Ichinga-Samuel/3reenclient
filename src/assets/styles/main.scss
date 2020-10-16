@@ -1,3 +1,4 @@
 @import "CSSReset";
-@import "global";
-@import "spacing";
+@import 'custom';
+@import "variables";
+@import '../scss/bootstrap.scss';
