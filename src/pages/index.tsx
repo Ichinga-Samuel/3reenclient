@@ -1,14 +1,20 @@
 import React from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import { Container, Row, Col, Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { Heading } from '@/components/Heading';
 
 const HomePage: React.FC = () => {
     return (
         <>
-            <Head>
-                <title>Home - 3reenshop</title>
-            </Head>
+            <NextSeo
+                title="Home"
+                description="The world best e-commence store"
+                openGraph={{
+                    title: 'Open Graph Title',
+                    description: 'Description of open graph video',
+                    url: 'https://www.3reenshop.com',
+                }}
+            />
             <Navbar bg="light" expand="lg">
                 <Container className="container-fluid">
                     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>

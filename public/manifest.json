@@ -1,0 +1,27 @@
+{
+  "name": "3reenshop",
+  "short_name": "3reenshop",
+  "description": "3reen is an e-commerce store.",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "144x144",
+      "purpose": "maskable any"
+    }
+  ]
+}

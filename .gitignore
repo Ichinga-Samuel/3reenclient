@@ -66,3 +66,7 @@ out
 
 # vercel
 .vercel
+
+# next-pwa
+**/public/workbox-*.js
+**/public/sw.js
