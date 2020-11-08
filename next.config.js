@@ -5,7 +5,7 @@ const withPWA = require('next-pwa');
 
 const nextConfig = {
     sassOptions: {
-        includePaths: [path.join(__dirname, 'src/assets/styles')],
+        includePaths: [path.join(__dirname, 'src/assets/styles/scss')],
     },
 };
 

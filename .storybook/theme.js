@@ -31,7 +31,7 @@ export default create({
     inputTextColor: 'black',
     inputBorderRadius: 5,
 
-    brandTitle: '3reenshop component library',
+    brandTitle: '3reenshop Component Library',
     brandUrl: 'https://3reenshop.com',
     brandImage: '',
 });
