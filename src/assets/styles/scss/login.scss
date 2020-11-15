@@ -1,0 +1,97 @@
+
+.wrap {
+   
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: rgba(255, 255, 255, 0.7);
+    align-items:center;
+    #form-section {
+        width: 100%;
+    }
+    #form-cover {
+        h1 {
+            text-align: center;
+            color:#590A5B;
+            padding: 0.6em;
+        }
+        background-color: white;
+        width: 60%;
+        height: 70vh;
+        position: relative;
+        top: 10%;
+        transform: translateY(-50%);
+        margin-left: 50%;
+        transform: translateX(-50%);
+        [type='submit'] {
+            margin-top: 1em;
+            display: block;
+            background-color:#590A5B;
+            border-radius: 30px;
+            padding: 1em;
+            width: 70px;
+            color: wheat;
+            margin-bottom: 0.8em;
+        }
+
+        .input {
+            display: block;
+            width: 40vw;
+            outline: none;
+            margin: auto;
+            height: 40px;
+            font-size: 1.4em;
+        }
+        .align-submit {
+            width: 40vw;
+            margin: auto;
+        }
+        .L-input {
+            border: 2px solid#590A5B;
+            padding-left: 1em;
+            border-radius: 30px;
+        }
+        form .input {
+            margin-bottom: 1em;
+        }
+        #social {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 30px;
+            .create-account-link {
+                color:#590A5B;
+                font-size: 1.2em;
+            }
+        }
+    }
+    #logo-section {
+        background-color: #590A5B;
+        width: 40vw;
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        #logo-wrap {
+            
+            width: 50%;
+            margin: auto;
+            border: 2px solid rgba(128, 0, 128, 0);
+        }
+        img {
+            display: block;
+            margin: auto;
+            height: 70px;
+            width: 70px;
+            margin-top: 50%;
+            transform: translateY(-50%);
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: -40px;
+            padding: 0;
+        }
+    }
+}
