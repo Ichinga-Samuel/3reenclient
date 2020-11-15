@@ -1,15 +1,9 @@
 import * as React from 'react';
 
-export interface ResetProps {
-    
-}
+
  
-export interface ResetState {
-    
-}
- 
-class Reset extends React.Component<ResetProps, ResetState> {
-    constructor(props: ResetProps) {
+class Reset extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             rEmail :''

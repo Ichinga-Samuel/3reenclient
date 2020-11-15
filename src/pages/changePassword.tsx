@@ -11,16 +11,10 @@ const BackgroundChange=()=>{
     )
 }
 
-export interface ChangePasswordProps {
-    
-}
+
  
-export interface ChangePasswordState {
-    
-}
- 
-class ChangePassword extends React.Component<ChangePasswordProps, ChangePasswordState> {
-    constructor(props: ChangePasswordProps) {
+class ChangePassword extends React.Component {
+    constructor(props) {
         super(props);
         this.state = { 
           password  : '' 
