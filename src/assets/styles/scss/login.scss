@@ -1,20 +1,24 @@
-
 .wrap {
-   
+    #nav-wrap {
+        visibility: hidden;
+    }
     overflow: hidden;
     width: 100vw;
     height: 100vh;
     display: flex;
     background: rgba(255, 255, 255, 0.7);
-    align-items:center;
+    align-items: center;
     #form-section {
         width: 100%;
     }
     #form-cover {
         h1 {
             text-align: center;
-            color:#590A5B;
+            color: #590a5b;
             padding: 0.6em;
+        }
+        h1 span {
+            display: block;
         }
         background-color: white;
         width: 60%;
@@ -27,7 +31,7 @@
         [type='submit'] {
             margin-top: 1em;
             display: block;
-            background-color:#590A5B;
+            background-color: #590a5b;
             border-radius: 30px;
             padding: 1em;
             width: 70px;
@@ -60,20 +64,19 @@
             justify-content: flex-end;
             margin-right: 30px;
             .create-account-link {
-                color:#590A5B;
+                color: #590a5b;
                 font-size: 1.2em;
             }
         }
     }
     #logo-section {
-        background-color: #590A5B;
+        background-color: #590a5b;
         width: 40vw;
-        height:100vh;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         #logo-wrap {
-            
             width: 50%;
             margin: auto;
             border: 2px solid rgba(128, 0, 128, 0);
@@ -92,6 +95,90 @@
             color: white;
             margin-top: -40px;
             padding: 0;
+        }
+    }
+}
+@media (max-width: 650px) {
+    .wrap {
+       
+        #logo-section {
+            visibility: hidden;
+            width: 0;
+        }
+        #nav-wrap {
+            visibility: visible;
+        }
+        #form-section {
+            width: 100vw;
+            height: 100%;
+          
+            #form-cover {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                grid-template-rows: 2fr 1fr 2fr 2fr;
+                h1 {
+                    text-align: center;
+                    color: #590a5b;
+                    padding: 0.6em;
+                    font-size: 2em;
+                    align-self: end;
+                }
+                h1 span{
+                    display: inline !important;
+                    
+                 
+                }
+             
+                form {
+                    display: block;
+                    margin: auto;
+                    width: 90%;
+                    .input {
+                        display: block;
+                        width: 100%;
+                        outline: none;
+                        margin: auto;
+                        height: 40px;
+                        font-size: 1.4em;
+                        margin-top: 10px;
+                    }
+                    .align-submit {
+                        width: 100%;
+                        margin: auto;
+                        [type='submit'] {
+                            margin-top: 1em;
+                            display: block;
+                            background-color: #590a5b;
+                            border-radius: 30px;
+                            padding: 1em;
+                            width: 100%;
+                            color: wheat;
+                            margin-bottom: 0.8em;
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+                #social {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    margin-top: 1.2em;
+                    margin-right: 30px;
+                    .create-account-link {
+                        color: #7f0c81;
+                        font-size: 1.3em;
+                        display: block;
+                        margin: auto;
+                        text-align: center;
+                        padding: 1.3em;
+                    }
+                    img {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+            }
         }
     }
 }

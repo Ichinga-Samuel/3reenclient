@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link';
+import Nav from '../components/Mobile/Login/topNav';
 //import styles from 'styled-components';
 
 const Background = () => {
@@ -36,10 +37,11 @@ class Login extends React.Component {
     render() {
         return (
             <div className="wrap">
+                <Nav />
                 <div id="form-section">
                     <div id="form-cover">
                         <h1>
-                            Login into <br /> your account
+                            Login into <span> your account </span>
                         </h1>
                         <form action="POST">
                             <input
@@ -72,7 +74,7 @@ class Login extends React.Component {
                         </form>
                         <div id="social">
                             <div>
-                                <p className="create-account-link">Login with</p>
+                                <p className="create-account-link">Log in with</p>
                                 <div id="socials-account">
                                     <a href="www.facebook.com">
                                         <img src="./img/fb-rounded-brand-white-64.png" alt="facebook icon" />
