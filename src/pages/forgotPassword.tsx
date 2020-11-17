@@ -22,7 +22,7 @@ class Reset extends React.Component {
                     </div>
                     <div id="cover-forgot-p">
                         <h1>Reset password</h1>
-                        <p>Plese enter your registered email address or phone number</p>
+                        <p>Please enter your registered email address or phone number</p>
                         <form action="POST">
                             <input type="text" className="F-input input" name="reset" placeholder="3reen@gmail.com" />
                             <input type="submit" value="send code" />

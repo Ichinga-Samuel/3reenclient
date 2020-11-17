@@ -1,5 +1,11 @@
+
 @import "CSSReset";
 @import "fonts";
 @import "variables";
 @import "global";
 @import 'custom';
+@import "./pages/login";
+@import "./pages/register";
+@import "./pages/resetPassword";
+@import "./pages/changePassword";
+@import "./pages/forgotPassword";

@@ -1,4 +1,7 @@
 .wrap {
+    .mobile-wrap{
+        display:none;
+    }
     #nav-wrap {
         visibility: hidden;
     }
@@ -99,19 +102,13 @@
     }
 }
 @media (max-width: 650px) {
-    .wrap {
-       
-        #logo-section {
-            visibility: hidden;
-            width: 0;
-        }
-        #nav-wrap {
-            visibility: visible;
-        }
+ 
+    .mobile-wrap {
+        display:block;
         #form-section {
             width: 100vw;
             height: 100%;
-          
+            display:none !important;
             #form-cover {
                 width: 100%;
                 height: 100%;
