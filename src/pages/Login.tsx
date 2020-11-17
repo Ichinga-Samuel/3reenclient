@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from 'next/link';
-import MobileLogin from '../components/Mobile/Login/body';
 //import styles from 'styled-components';
 
 const Background = () => {
@@ -37,7 +36,6 @@ class Login extends React.Component {
     render() {
         return (
             <div className="wrap">
-                <MobileLogin />
                 <div id="form-section">
                     <div id="form-cover">
                         <h1>
