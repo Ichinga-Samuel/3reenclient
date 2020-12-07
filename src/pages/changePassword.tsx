@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import Header from "../components/Header/Header";
 const BackgroundChange = () => {
     return (
         <div id="logo-section-R">
