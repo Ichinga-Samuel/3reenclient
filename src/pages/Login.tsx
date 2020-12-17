@@ -38,25 +38,22 @@ class Login extends React.Component {
             <div className="wrap">
                 <div id="form-section">
                     <div id="form-cover">
-                        <h1>
-                            Login into <br /> your account
-                        </h1>
+                        <h1>Login into your account</h1>
                         <form action="POST">
-                            <input
-                                type="text"
-                                name="Username"
-                                onChange={this.userInput}
-                                className="input L-input"
-                                id="username"
-                                placeholder="Username"
-                            />
-                            <input
-                                type="password"
-                                className="input  L-input"
-                                name="password"
-                                id="password"
-                                placeholder="Password"
-                            />
+                            <div className="L-I-arrange">
+                                <label htmlFor="username">Username</label>
+                                <input
+                                    type="text"
+                                    name="Username"
+                                    onChange={this.userInput}
+                                    className="input L-input"
+                                    id="username"
+                                />
+                            </div>
+                            <div className="L-I-arrange">
+                                <label htmlFor="password">Password</label>
+                                <input type="password" className="input  L-input" name="password" id="password" />
+                            </div>
                             <div className="align-submit">
                                 <Link href="forgotPassword">
                                     <a>forgot password?</a>
