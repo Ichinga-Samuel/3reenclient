@@ -54,7 +54,7 @@ export const TermsStyled = styled.div`
         }
 
         .acceptanceofterms {
-            width: 100%;
+            width: 90%;
         }
     }
 `;
