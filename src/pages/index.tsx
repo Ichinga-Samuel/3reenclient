@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
             </Head>
             <Box>
                 <Heading style={{ fontSize: '30px' }}>
-                    Welcome to 3reenshop e-commerce <span>app</span>
+                    Welcome to 3reenshop <span>app</span>
                 </Heading>
             </Box>
         </>
