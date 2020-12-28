@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Header from '../Header/Header';
 import { TermsStyled } from './Terms.styled';
 
@@ -14,7 +14,7 @@ const Terms = () => {
                     REFERENCE. IT IS THE RESPONSIBILITY OF YOU, THE USER, CUSTOMER, OR PROSPECTIVE CUSTOMER TO READ THE
                     TERMS AND CONDITIONS BEFORE PROCEEDING TO USE THIS SITE. IF YOU DO NOT EXPRESSLY AGREE TO ALL OF THE
                     TERMS AND CONDITIONS, THEN PLEASE DO NOT ACCESS OR USE OUR SITES OR OUR SERVICES. THIS TERMS OF
-                    SERVICE AGREEMENT IS EFFECTIVE AS OF TIME OF CINSENT BY USER.
+                    SERVICE AGREEMENT IS EFFECTIVE AS OF TIME OF
                 </p>
                 <p className="mt-5">
                     The following Terms of Service Agreement (the &quot TOS) is a legally binding agreement that shall
