@@ -1,28 +1,18 @@
 import * as React from 'react';
 //import Link from 'next/link';
 
-const BackgroundReg = () => {
-    return (
-        <div id="logo-section-R">
-            <div id="logo-wrap-R">
-                <img id="log-img-R" src="./icons/android-chrome-512x512.png" alt="logo" />
-            </div>
-        </div>
-    );
-};
-
 class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             fullname: '',
             email: '',
-            mobile: '',
-            password: '',
+            passwordInp: '',
+            passwordConfirmInp: '',
         };
         this.fullNameInp = this.fullNameInp.bind(this);
         this.emailInp = this.emailInp.bind(this);
-        this.mobileInp = this.mobileInp.bind(this);
+        this.passwordConfirmInp = this.passwordConfirmInp.bind(this);
         this.passwordInp = this.passwordInp.bind(this);
     }
     fullNameInp(event) {
@@ -35,51 +25,47 @@ class Register extends React.Component {
             email: event.target.value,
         });
     }
-    mobileInp(event) {
-        this.setState({
-            mobile: event.target.value,
-        });
-    }
     passwordInp(event) {
         this.setState({
             password: event.target.value,
         });
     }
+    passwordConfirmInp(event) {
+        this.setState({
+            passwordConfirmInp: event.target.value,
+        });
+    }
     render() {
-        const background = {
-            backgroundImage: 'url("./img/blue.png")',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-        };
         return (
-            <div className="wrap-register" style={background}>
-                <div id="form-register-c">
-                    <div></div>
+            <div className="wrap">
+                <h1>CUSTOMER REGISTRATION</h1>
+                <div id="form-section">
                     <div id="reg-f-cover">
-                        <h1>Create an account</h1>
-                        <h3>Fill up informations below</h3>
+                        <h1>REGISTER</h1>
+                        <p>Fill up informations below</p>
                         <form action="POST">
                             <div className="input-c">
                                 <label htmlFor="fullname">
-                                    Full Name
+                                    FULL NAME
                                     <input type="text" className="regInput input" name="fullname" id="fullname" />
                                 </label>
                             </div>
                             <div className="input-c">
                                 <label htmlFor="email">
-                                    Email <input type="email" className="regInput input" name="email" id="email" />
+                                    EMAIL ADDRESS{' '}
+                                    <input type="email" className="regInput input" name="email" id="email" />
                                 </label>
                             </div>
 
                             <div className="input-c">
                                 <label htmlFor="mobile">
-                                    Phone no{' '}
+                                    PASSWORD
                                     <input type="number" className="regInput input" name="Username" id="mobile" />
                                 </label>
                             </div>
                             <div className="input-c">
                                 <label htmlFor="pass">
-                                    Password{' '}
+                                    RE-ENTER PASSWORD
                                     <input type="password" className="regInput input" name="password" id="pass" />
                                 </label>
                             </div>
@@ -88,23 +74,24 @@ class Register extends React.Component {
                                 conditions in private policy
                             </label>
                             <div id="align-R-submit">
-                                <input type="submit" name="submit" id="submit" value="sign up" />
+                                <input type="submit" name="submit" id="submit" value="REGISTER" />
                             </div>
                         </form>
-                        <div>
-                            <a href="www.facebook.com">
-                                <img src="./img/fb-rounded-brand-white-64.png" alt="facebook icon" />
-                            </a>
-                            <a href="www.gmail.com">
-                                <img src="./img/gplus-rounded-brand-white-64.png" alt="gmail icon" />
-                            </a>
-                            <a href="www.twitter.com">
-                                <img src="./img/twitter-rounded-brand-white-64.png" alt="twitter icon" />
-                            </a>
-                            <p className="social-login-p">signup with social media</p>
+                        <div id="social">
+                            <button className="btn">
+                                <img src="" alt="" />
+                                LOG IN USING GOOGLE
+                            </button>
+                            <button className="btn">
+                                <img src="" alt="" />
+                                LOG IN USING FACEBOOK
+                            </button>
+                            <button className="btn">
+                                <img src="" alt="" />
+                                LOG IN USING TWITTER
+                            </button>
                         </div>
                     </div>
-                    <BackgroundReg />
                 </div>
             </div>
         );
