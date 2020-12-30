@@ -1,20 +1,23 @@
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 
-import Card from '@/components/Products/Cards';
+import Card from '@/components/Products/CardsLayout';
 import Categories from '@/components/Products/Categories';
 
+import { Page, FooterDiv, ImageHeader } from '@/components/Products/CardsLayout.styled';
 function products() {
     return (
-        <>
+        <Page>
             <Header />
-            <img src="/img/hp-omen.png" alt="hpomen" />
+            <ImageHeader>
+                <img src="/img/hp-omen.png" alt="hpomen" />
+            </ImageHeader>
             <Card />
-            <div>
+            <FooterDiv>
                 <Categories />
                 <Footer />
-            </div>
-        </>
+            </FooterDiv>
+        </Page>
     );
 }
 
