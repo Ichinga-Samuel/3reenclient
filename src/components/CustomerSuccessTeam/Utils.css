@@ -9,6 +9,18 @@
     max-width: 90%;
     margin: 0 auto;
 }
+li{
+    list-style: none;
+}
+.current{
+    background-color: #FFAF38;
+}
+.primary-color{
+    color: #590A5B;
+}
+.mgtop20{
+    margin-top: 20px;
+}
 .btn-primary{
     width: 100%;
     border: none;

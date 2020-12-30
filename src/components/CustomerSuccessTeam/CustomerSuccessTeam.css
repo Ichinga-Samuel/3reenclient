@@ -21,6 +21,7 @@ body{
   
 body{
     background-color: #ffffff;
+    color: rgba(0, 0, 0, 0.87);
     font-family: "Rubik", sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0;
@@ -54,11 +55,12 @@ body{
     font-size: 16px;
 }
 .cst-details{
-    position: sticky;
+    position: relative;
     margin-left: 300px;
+    max-width: 920px;
 }
 .user-id{
-    position: fixed;
+    position: absolute;
     right: 30px;
     top: 25px;
     display: flex;
@@ -70,8 +72,9 @@ body{
     font-size: 18px;
     color:  #590A5B;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 5px;
     position: sticky;
+    line-height: 15px;
 }
 .sales-rep{
     color: #590A5B;
@@ -81,12 +84,91 @@ body{
     margin-top: 70px;
     font-size: 36px;
     font-weight: 500;
+    margin-bottom: 50px;
 }
 .prod-info-box{
-    width: 920px;
+    width: 100%;
     position: relative;
     left: 50%;
-    right: 50%;
-    background-color: #ffffff;
+    background: #FFFFFF;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+    transform: translate(-50%, -50%);
+    padding: 10px 5px;
+    margin-top: 2px;
+}
+.prod-items{
+    display: flex;
+    flex-direction: row;
+}
+.prod-items > img{
+    width: 100px;
+    height: 60px;
+}
+.prod-view-dots{
+    margin-top: 15px;
+    margin-right: 20px;
+}
+.view-prod-btn{
+    position: absolute;
+    margin-left: -140px;
+    margin-top: -45px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 15px 30px rgba(50, 2, 52, 0.15);
+    width: 159.87px;
+    height: 36.86px;
+    text-align: center;
+    padding: 5px 0;
+}
+.pagination{
+    position: fixed;
+    left: 52%;
+    bottom: 5px;
+}
+.page{
+    border: 1px solid #333;
+    padding: 0 6px;
+    margin: 0 2px;
+    font-size: 12px;
+}
+.exit-view_product{
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+.view-product_content{
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15); 
+    padding: 10px 0;  
+}
+.view-product_columnA,
+.view-product_columnB{
+    width: 50%;
+    padding: 0 20px;
+}
+.view-product_columnA > img{
+    width: 470px;
+    height: 360px;
+    justify-self: start;
+}
+.product-tag_name{
+    font-size: 22px;
+    font-weight: 500;
+    color: #590A5B;
+    font-style: normal;
+}
+.product-tag_price{
+    font-size: 18px;
+    color: #FFAF38;
+    margin-top: 10px;
+}
+.product-tag_id,
+.product-tag_type,
+.product-tag_location{
+    font-size: 18px;
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.67)
+}
+.view-product_description{
+    margin-top: 30px;
 }
