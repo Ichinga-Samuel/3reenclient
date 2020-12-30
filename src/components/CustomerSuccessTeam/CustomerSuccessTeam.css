@@ -1,0 +1,92 @@
+html,
+body{
+  height: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    min-width: 300px;
+    overflow-x: hidden;
+    /*overflow-y: scroll; */
+    text-rendering: auto;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}
+  
+body{
+    background-color: #ffffff;
+    font-family: "Rubik", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;  line-height: 1.6;
+    cursor: pointer;
+    position: relative;
+}
+.sidebar{
+    width: 274px;
+    background: #320234;
+    color: #ffffff;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.sidebar-content{
+    margin-top: 40px;
+}
+.sidebar-content .sidebar-logo{
+    padding-left: 22px;
+}
+.log-out{
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+    background-color: transparent;
+    font-size: 16px;
+}
+.cst-details{
+    position: sticky;
+    margin-left: 300px;
+}
+.user-id{
+    position: fixed;
+    right: 30px;
+    top: 25px;
+    display: flex;
+}
+.user-id > img{
+    margin-right: 10px;
+}
+.user-name{
+    font-size: 18px;
+    color:  #590A5B;
+    font-weight: 600;
+    margin-top: 10px;
+    position: sticky;
+}
+.sales-rep{
+    color: #590A5B;
+    font-size: 16px;
+}
+.prod-info-content{
+    margin-top: 70px;
+    font-size: 36px;
+    font-weight: 500;
+}
+.prod-info-box{
+    width: 920px;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+}
