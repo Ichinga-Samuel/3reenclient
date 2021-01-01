@@ -59,9 +59,14 @@ body{
     margin-left: 300px;
     max-width: 920px;
 }
+.cst-details_view-product{
+    position: fixed;
+    margin-left: 300px;
+    max-width: 920px;
+}
 .user-id{
-    position: absolute;
-    right: 30px;
+    position: fixed;
+    right: 50px;
     top: 25px;
     display: flex;
 }
@@ -85,6 +90,11 @@ body{
     font-size: 36px;
     font-weight: 500;
     margin-bottom: 50px;
+}
+.order-info-content{
+    margin-top: 70px;
+    font-size: 36px;
+    font-weight: 500;
 }
 .prod-info-box{
     width: 100%;
@@ -131,15 +141,18 @@ body{
     font-size: 12px;
 }
 .exit-view_product{
-    margin-top: 80px;
+    margin-top: 90px;
     margin-bottom: 10px;
+    background-color: transparent;
 }
 .view-product_content{
     width: 100%;
-    height: 100%;
+    height: 460px;
     background: #FFFFFF;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15); 
     padding: 10px 0;  
+    position: relative;
+    overflow: auto;
 }
 .view-product_columnA,
 .view-product_columnB{
@@ -171,4 +184,26 @@ body{
 }
 .view-product_description{
     margin-top: 30px;
+}
+.view-availability{
+    padding: 30px 20px;
+}
+.view-btn-yes{
+    width: 150px;
+    height: 35px;
+    background-color: transparent;
+    border: 1.5px solid #FFAF38;
+    margin-left: 40px;
+}
+.view-btn-no{
+    width: 150px;
+    height: 35px;
+    background-color: transparent;
+    border: 1.5px solid #FFAF38;
+    margin-left: 20px;
+}
+.view-btn-yes:hover,
+.view-btn-no:hover{
+    background-color: #FFAF38;
+    color: #ffffff;
 }
