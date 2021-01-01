@@ -19,7 +19,7 @@ export const JumbotronStyled = styled.div`
         font-size: 3.2rem;
         font-weight: 400;
         line-height: 1.2;
-        margin-left: 1rem;
+        margin-left: 7rem;
     }
 
     .Container h1 span {
