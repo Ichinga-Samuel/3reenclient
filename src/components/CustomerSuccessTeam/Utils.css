@@ -2,9 +2,11 @@
     display: flex;
     justify-content: space-between;
 }
-table{
-    width: 100%;
-}
+/* table, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+  } */
+
 .col{
     display: flex;
 }
@@ -23,6 +25,12 @@ li{
 }
 .mgtop20{
     margin-top: 20px;
+}
+.mgtop10{
+    margin-top: 10px;
+}
+.mgbtn20{
+    margin-bottom: 20px;
 }
 .btn-primary{
     width: 100%;

@@ -11,6 +11,8 @@ import avatar from './Icons/Avatar.svg';
 import boxImg from './Images/Box-img.svg';
 import viewDots from './Icons/view-dots.svg';
 import exitViewProduct from './Icons/exit-view-product.svg';
+import notifyIcon from './Icons/notify.png';
+import lineIcon from './Icons/Line.svg';
 
 export default {
     title: 'img',
@@ -32,7 +34,7 @@ export const CustomerSuccessTeamSidebar = () => {
                     <span>Production Information</span>
                 </button>
                 <button className="btn-secondary">
-                    {/* <img src={} alt="" /> */}
+                    <img src={notifyIcon} alt="" />
                     <span>Order Notification</span>
                 </button>
                 <button className="btn-tertiary">REGISTER CUSTOMERS</button>
@@ -98,6 +100,9 @@ export const MainWrapper = () => {
                 <button className="page current">1</button>
                 <button className="page">2</button>
                 <button className="page">3</button>
+                <button className="next">
+                    <img src={lineIcon} alt="" />
+                </button>
             </div>
         </div>
     );
@@ -173,6 +178,104 @@ export const ViewProduct = () => {
     );
 };
 
+export const DeliveryDetails = () => {
+    return (
+        <div className="cst-details_view-product">
+            <div className="order-info-content">Order Notification</div>
+            <div className="col mgbtn20">
+                <div className="delivery-details current-button">
+                    <button>Delivery Details</button>
+                </div>
+                <div className="customer-review">
+                    <button>Customer Reviews</button>
+                </div>
+            </div>
+            <div className="order-product_content">
+                <table className="bottomBorder">
+                    <tr>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>State</th>
+                        <th>LGA</th>
+                        <th>Phone No.</th>
+                    </tr>
+                    <tr>
+                        <td>19/20/2020</td>
+                        <td>Macbook Air</td>
+                        <td>1</td>
+                        <td>John Joe</td>
+                        <td>
+                            123 Lafemi Street, beside <br /> Mobil Oil
+                        </td>
+                        <td>Lagos</td>
+                        <td>Ikeja</td>
+                        <td>+234802345678</td>
+                    </tr>
+                    <tr>
+                        <td>19/20/2020</td>
+                        <td>Macbook Air</td>
+                        <td>1</td>
+                        <td>John Joe</td>
+                        <td>
+                            123 Lafemi Street, beside <br /> Mobil Oil
+                        </td>
+                        <td>Lagos</td>
+                        <td>Ikeja</td>
+                        <td>+234802345678</td>
+                    </tr>
+                    <tr>
+                        <td>19/20/2020</td>
+                        <td>Macbook Air</td>
+                        <td>1</td>
+                        <td>John Joe</td>
+                        <td>
+                            123 Lafemi Street, beside <br /> Mobil Oil
+                        </td>
+                        <td>Lagos</td>
+                        <td>Ikeja</td>
+                        <td>+234802345678</td>
+                    </tr>
+                    <tr>
+                        <td>19/20/2020</td>
+                        <td>Macbook Air</td>
+                        <td>1</td>
+                        <td>John Joe</td>
+                        <td>
+                            123 Lafemi Street, beside <br /> Mobil Oil
+                        </td>
+                        <td>Lagos</td>
+                        <td>Ikeja</td>
+                        <td>+234802345678</td>
+                    </tr>
+                    <tr>
+                        <td>19/20/2020</td>
+                        <td>Macbook Air</td>
+                        <td>1</td>
+                        <td>John Joe</td>
+                        <td>
+                            123 Lafemi Street, beside <br /> Mobil Oil
+                        </td>
+                        <td>Lagos</td>
+                        <td>Ikeja</td>
+                        <td>+234802345678</td>
+                    </tr>
+                </table>
+                <div className="pagination">
+                    <button className="page current">1</button>
+                    <button className="page">2</button>
+                    <button className="page">3</button>
+                    <button className="next">
+                        <img src={lineIcon} alt="" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export const CustomerSuccessTeam = () => {
     return (
         <>
@@ -180,35 +283,24 @@ export const CustomerSuccessTeam = () => {
             <UserId />
             {/* <MainWrapper /> */}
             {/* <ViewProduct /> */}
+            {/* <DeliveryDetails /> */}
             <div className="cst-details_view-product">
                 <div className="order-info-content">Order Notification</div>
-                <div className="column">
-                    <p>Delivery Details</p>
-                    <p>Customer Review</p>
+                <div className="col mgbtn20">
+                    <div className="delivery-details">
+                        <button>Delivery Details</button>
+                    </div>
+                    <div className="customer-review current-button">
+                        <button>Customer Review</button>
+                    </div>
                 </div>
-                <div className="order-product_content">
-                    <table>
-                        <tr>
-                            <th>Date</th>
-                            <th>Product</th>
-                            <th>Qty</th>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>State</th>
-                            <th>LGA</th>
-                            <th>Phone No.</th>
-                        </tr>
-                        <tr>
-                            <th>19/20/2020</th>
-                            <th>Macbook Air</th>
-                            <th>1</th>
-                            <th>John Joe</th>
-                            <th>123 Lafemi Street, beside Mobil Oil</th>
-                            <th>Lagos</th>
-                            <th>Ikeja</th>
-                            <th>+234802345678</th>
-                        </tr>
-                    </table>
+                <div className="pagination">
+                    <button className="page current">1</button>
+                    <button className="page">2</button>
+                    <button className="page">3</button>
+                    <button className="next">
+                        <img src={lineIcon} alt="" />
+                    </button>
                 </div>
             </div>
         </>
