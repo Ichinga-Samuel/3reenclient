@@ -13,6 +13,7 @@ import viewDots from './Icons/view-dots.svg';
 import exitViewProduct from './Icons/exit-view-product.svg';
 import notifyIcon from './Icons/notify.png';
 import lineIcon from './Icons/Line.svg';
+import lineIcons from './Icons/Line-1.svg';
 
 export default {
     title: 'img',
@@ -291,7 +292,55 @@ export const CustomerSuccessTeam = () => {
                         <button>Delivery Details</button>
                     </div>
                     <div className="customer-review current-button">
-                        <button>Customer Review</button>
+                        <button>Customer Reviews</button>
+                    </div>
+                </div>
+                <div className="customer-review_details">
+                    <div className="col">
+                        <img src={boxImg} alt="" className="customer-review_img" />
+                        <div>
+                            <p>Fashion Bag</p>
+                            <p>Product Rating & Review</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src={lineIcons} alt="" />
+                    </div>
+                </div>
+                <div className="customer-review_details">
+                    <div className="col">
+                        <img src={boxImg} alt="" className="customer-review_img" />
+                        <div>
+                            <p>Fashion Bag</p>
+                            <p>Product Rating & Review</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src={lineIcons} alt="" />
+                    </div>
+                </div>
+                <div className="customer-review_details">
+                    <div className="col">
+                        <img src={boxImg} alt="" className="customer-review_img" />
+                        <div>
+                            <p>Fashion Bag</p>
+                            <p>Product Rating & Review</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src={lineIcons} alt="" />
+                    </div>
+                </div>
+                <div className="customer-review_details">
+                    <div className="col">
+                        <img src={boxImg} alt="" className="customer-review_img" />
+                        <div>
+                            <p>Fashion Bag</p>
+                            <p>Product Rating & Review</p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src={lineIcons} alt="" />
                     </div>
                 </div>
                 <div className="pagination">
