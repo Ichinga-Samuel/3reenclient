@@ -14,6 +14,13 @@ import exitViewProduct from './Icons/exit-view-product.svg';
 import notifyIcon from './Icons/notify.png';
 import lineIcon from './Icons/Line.svg';
 import lineIcons from './Icons/Line-1.svg';
+import star from './Icons/Star 1.svg';
+import star1 from './Icons/Star 2.svg';
+import group1 from './Icons/Group-5.svg';
+import group2 from './Icons/Group-4.svg';
+import group3 from './Icons/Group-3.svg';
+import group4 from './Icons/Group-2.svg';
+import group5 from './Icons/Group-1.svg';
 
 export default {
     title: 'img',
@@ -298,49 +305,37 @@ export const CustomerSuccessTeam = () => {
                 <div className="customer-review_details">
                     <div className="col">
                         <img src={boxImg} alt="" className="customer-review_img" />
-                        <div>
-                            <p>Fashion Bag</p>
+                        <div className="item_name">
+                            <h3>Fashion Bag</h3>
                             <p>Product Rating & Review</p>
                         </div>
                     </div>
-                    <div>
+                    <div className="mgrt-20 mgtop20">
                         <img src={lineIcons} alt="" />
                     </div>
-                </div>
-                <div className="customer-review_details">
-                    <div className="col">
-                        <img src={boxImg} alt="" className="customer-review_img" />
-                        <div>
-                            <p>Fashion Bag</p>
-                            <p>Product Rating & Review</p>
+                    <div className="product-rating">
+                        <h4>Product Ratings</h4>
+                        <div className="col">
+                            <div className="product-rating_col-1">
+                                <div className="fnsz-30 fsw-600 secondary-color">4.0/5</div>
+                                <div className="star-img col mgtop-4">
+                                    <img src={star} alt="" />
+                                    <img src={star} alt="" />
+                                    <img src={star} alt="" />
+                                    <img src={star} alt="" />
+                                    <img src={star1} alt="" />
+                                </div>
+                                <div className="fnsz-14">1223 Rating</div>
+                            </div>
+                            <div className="review-group">
+                                <img src={group1} alt="" />
+                                <img src={group2} alt="" />
+                                <img src={group3} alt="" />
+                                <img src={group4} alt="" />
+                                <img src={group5} alt="" />
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <img src={lineIcons} alt="" />
-                    </div>
-                </div>
-                <div className="customer-review_details">
-                    <div className="col">
-                        <img src={boxImg} alt="" className="customer-review_img" />
-                        <div>
-                            <p>Fashion Bag</p>
-                            <p>Product Rating & Review</p>
-                        </div>
-                    </div>
-                    <div>
-                        <img src={lineIcons} alt="" />
-                    </div>
-                </div>
-                <div className="customer-review_details">
-                    <div className="col">
-                        <img src={boxImg} alt="" className="customer-review_img" />
-                        <div>
-                            <p>Fashion Bag</p>
-                            <p>Product Rating & Review</p>
-                        </div>
-                    </div>
-                    <div>
-                        <img src={lineIcons} alt="" />
+                        <div>Product Review</div>
                     </div>
                 </div>
                 <div className="pagination">
