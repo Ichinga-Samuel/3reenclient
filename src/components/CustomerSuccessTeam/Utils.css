@@ -5,11 +5,17 @@
 .fnsz-30{
     font-size: 30px;
 }
+.fnsz-23{
+    font-size: 23px;
+}
 .fsw-600{
     font-weight: 600;
 }
 .fnsz-14{
     font-size: 14px;
+}
+.fnsz-12{
+    font-size: 12px;
 }
 .mgtop-4{
     margin-bottom: 4px;
@@ -36,11 +42,17 @@ li{
 .mgtop20{
     margin-top: 20px;
 }
+.mgtop15{
+    margin-top: 15px;
+}
 .mgrt-20{
     margin-right: 20px;
 }
 .mgtop10{
     margin-top: 10px;
+}
+.mgtop5{
+    margin-top: 5px;
 }
 .mgbtn20{
     margin-bottom: 20px;

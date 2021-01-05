@@ -64,6 +64,12 @@ body{
     margin-left: 300px;
     max-width: 920px;
 }
+.notify-user{
+    width: 25px;
+    height: 25px;
+    margin-right: 40px;
+    margin-top: 8px;
+}
 .user-id{
     position: fixed;
     right: 50px;
@@ -273,12 +279,12 @@ table.bottomBorder {
     position: relative;
     width: 915px;
     background-color: #ffffff;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     padding: 5px 3px;
-    z-index: 999;
+    z-index: 2;
 }
 .customer-review_img{
     width: 85px;
@@ -294,14 +300,19 @@ table.bottomBorder {
 .product-rating{
     position: absolute;
     width: 100%;
-    height: 350px;
-    background-color: #ffffff;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+    height: 335px;
+    background: #FFFFFF;
+    box-shadow: 0px 30px 15px rgba(0, 0, 0, 0.15);
     z-index: 2;
+    overflow-y: visible;
+    margin-left: -3px;
+    margin-top: 70.4px;
+    padding: 10px 40px;
+    z-index: 1;
 }
 .product-rating_col-1{
-    width: 168px;
-    height: 120px;
+    width: 140px;
+    height: 110px;
     background-color: #FAFAFA;
     text-align: center;
     justify-content: center;
@@ -309,11 +320,54 @@ table.bottomBorder {
     align-self: center;
     padding: 10px;
 }
-.star-img img{
-    margin: 0 2px;
-}
-.review-group{
+.review-group {
     width: 200px;
-    flex-direction: column;
-    flex-wrap: wrap;
+    margin-left: 20px;
+}
+.review-group div{
+    height: 20px;
+    margin-top: 3px;
+}
+.product-review-desc{
+    height: 70px;
+    font-size: 14px;
+    background: #FAFAFA;
+    padding: 2px 20px;
+}
+.star-img-1 img{
+    width: 15px;
+    height: 15px;
+}
+.review-txt{
+    width: 100%;
+    height: 30px;
+    background: #FAFAFA;
+    margin-top: 2px;
+    margin-right: 20px;
+}
+.review-submit{
+    width: 160px;
+    height: 30px;
+    margin-top: 2px;
+    font-size: 14px;
+    background: #FFAF38;
+    color: #ffffff;
+}
+.review-read_more{
+    text-align: center;
+    color: #590A5B;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.review-date{
+    color: rgba(0, 0, 0, 0.25);
+}
+.prod-num{
+    height: 23px;
+    background: #EEEEEE;
+    font-size: 14px;
+    margin-top: -3px;
+    margin-left: 15px;
+    padding: 0 7px;
+    color: rgba(0, 0, 0, 0.25);
 }

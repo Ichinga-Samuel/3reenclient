@@ -21,6 +21,7 @@ import group2 from './Icons/Group-4.svg';
 import group3 from './Icons/Group-3.svg';
 import group4 from './Icons/Group-2.svg';
 import group5 from './Icons/Group-1.svg';
+import notificationIcon from './Icons/notify-icon.svg';
 
 export default {
     title: 'img',
@@ -45,6 +46,10 @@ export const CustomerSuccessTeamSidebar = () => {
                     <img src={notifyIcon} alt="" />
                     <span>Order Notification</span>
                 </button>
+                <button className="btn-secondary">
+                    <img src={notifyIcon} alt="" />
+                    <span>Messages</span>
+                </button>
                 <button className="btn-tertiary">REGISTER CUSTOMERS</button>
                 <button className="log-out">
                     <img src={logOut} alt="" />
@@ -56,13 +61,18 @@ export const CustomerSuccessTeamSidebar = () => {
 
 export const UserId = () => {
     return (
-        <div className="user-id">
-            <img src={avatar} alt="userPhoto" />
-            <div className="user-details">
-                <div className="user-name">Jack Hanniel</div>
-                <div className="sales-rep">Customer Success Team</div>
+        <>
+            <div className="user-id">
+                <div className="notify-user">
+                    <img src={notificationIcon} alt="" />
+                </div>
+                <img src={avatar} alt="userPhoto" />
+                <div className="user-details">
+                    <div className="user-name">Jack Hanniel</div>
+                    <div className="sales-rep">Customer Success Team</div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
@@ -317,7 +327,7 @@ export const CustomerSuccessTeam = () => {
                         <h4>Product Ratings</h4>
                         <div className="col">
                             <div className="product-rating_col-1">
-                                <div className="fnsz-30 fsw-600 secondary-color">4.0/5</div>
+                                <div className="fnsz-23 fsw-600 secondary-color">4.0/5</div>
                                 <div className="star-img col mgtop-4">
                                     <img src={star} alt="" />
                                     <img src={star} alt="" />
@@ -325,17 +335,61 @@ export const CustomerSuccessTeam = () => {
                                     <img src={star} alt="" />
                                     <img src={star1} alt="" />
                                 </div>
-                                <div className="fnsz-14">1223 Rating</div>
+                                <div className="fnsz-12 mgtop5">1223 Rating</div>
                             </div>
                             <div className="review-group">
-                                <img src={group1} alt="" />
-                                <img src={group2} alt="" />
-                                <img src={group3} alt="" />
-                                <img src={group4} alt="" />
-                                <img src={group5} alt="" />
+                                <div>
+                                    <img src={group1} alt="" />
+                                </div>
+                                <div>
+                                    <img src={group2} alt="" />
+                                </div>
+                                <div>
+                                    <img src={group3} alt="" />
+                                </div>
+                                <div>
+                                    <img src={group4} alt="" />
+                                </div>
+                                <div>
+                                    <img src={group5} alt="" />
+                                </div>
                             </div>
                         </div>
-                        <div>Product Review</div>
+                        <div className="col mgtop15">
+                            <h4>Product Review</h4>
+                            <div className="prod-num">50</div>
+                        </div>
+                        <div className="prod-column">
+                            <div className="product-review-desc">
+                                <div className="column">
+                                    <div className="star-img-1">
+                                        <img src={star} alt="" />
+                                        <img src={star} alt="" />
+                                        <img src={star} alt="" />
+                                        <img src={star} alt="" />
+                                        <img src={star1} alt="" />
+                                    </div>
+                                    <div className="review-date">2020-12-31</div>
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel sagittis elementum
+                                    turpis eleifend pharetra, arcu, tempor in.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="col">
+                            <input
+                                type="text"
+                                name="text"
+                                id="text"
+                                placeholder="text message"
+                                className="review-txt"
+                            />
+                            <button type="submit" className="review-submit">
+                                Send Reply
+                            </button>
+                        </div>
+                        <p className="review-read_more">Read More Reviews</p>
                     </div>
                 </div>
                 <div className="pagination">
