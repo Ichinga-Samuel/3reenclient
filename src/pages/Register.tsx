@@ -1,5 +1,5 @@
 import * as React from 'react';
-//import Link from 'next/link';
+import Link from 'next/link';
 
 class Register extends React.Component {
     constructor(props) {
@@ -38,10 +38,10 @@ class Register extends React.Component {
     render() {
         return (
             <div className="wrap">
-                <h1>CUSTOMER REGISTRATION</h1>
-                <div id="form-section">
+                <h1 className="title">CUSTOMER REGISTRATION</h1>
+                <div className="form-section-r">
                     <div id="reg-f-cover">
-                        <h1>REGISTER</h1>
+                        <h1 className="action">REGISTER</h1>
                         <p>Fill up informations below</p>
                         <form action="POST">
                             <div className="input-c">
@@ -49,46 +49,52 @@ class Register extends React.Component {
                                     FULL NAME
                                     <input type="text" className="regInput input" name="fullname" id="fullname" />
                                 </label>
-                            </div>
-                            <div className="input-c">
+
                                 <label htmlFor="email">
                                     EMAIL ADDRESS{' '}
                                     <input type="email" className="regInput input" name="email" id="email" />
                                 </label>
-                            </div>
 
-                            <div className="input-c">
                                 <label htmlFor="mobile">
                                     PASSWORD
-                                    <input type="number" className="regInput input" name="Username" id="mobile" />
+                                    <input type="password" className="regInput input" name="Username" id="mobile" />
                                 </label>
-                            </div>
-                            <div className="input-c">
+
                                 <label htmlFor="pass">
                                     RE-ENTER PASSWORD
                                     <input type="password" className="regInput input" name="password" id="pass" />
                                 </label>
                             </div>
-                            <label htmlFor="terms">
+                            <label htmlFor="terms" id="terms-l">
                                 <input type="checkbox" className="" name="terms" id="terms" /> I accept terms and
                                 conditions in private policy
                             </label>
                             <div id="align-R-submit">
-                                <input type="submit" name="submit" id="submit" value="REGISTER" />
+                                <input type="submit" name="submit" id="submit-r" value="REGISTER" />
+                                <Link href="Login">
+                                    <a>Already have an account?Login</a>
+                                </Link>
                             </div>
                         </form>
-                        <div id="social">
-                            <button className="btn">
-                                <img src="" alt="" />
-                                LOG IN USING GOOGLE
+                        <div className="social">
+                            <button className="btn google">
+                                <span>
+                                    <img src="./img/googleI.png" alt="" />
+                                    LOG IN USING GOOGLE
+                                </span>
                             </button>
-                            <button className="btn">
-                                <img src="" alt="" />
-                                LOG IN USING FACEBOOK
+                            <button className="btn facebook">
+                                <span>
+                                    {' '}
+                                    <img src="./img/facebookI.png" alt="" />
+                                    LOG IN USING FACEBOOK
+                                </span>
                             </button>
-                            <button className="btn">
-                                <img src="" alt="" />
-                                LOG IN USING TWITTER
+                            <button className="btn twitter">
+                                <span>
+                                    <img src="./img/twitterI.png" alt="" />
+                                    LOG IN USING TWITTER
+                                </span>
                             </button>
                         </div>
                     </div>

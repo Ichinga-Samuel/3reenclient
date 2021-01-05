@@ -25,10 +25,10 @@ class Login extends React.Component {
     render() {
         return (
             <div className="wrap">
-                <h1>CUSTOMER LOGIN</h1>
-                <div id="form-section">
+                <h1 className="title">CUSTOMER LOGIN</h1>
+                <div className="form-section">
                     <div id="form-cover">
-                        <h1>Log In</h1>
+                        <h1 className="action">Log In</h1>
                         <p>Login into your account</p>
                         <form action="POST">
                             <div className="L-I-arrange">
@@ -57,24 +57,31 @@ class Login extends React.Component {
                                     type="submit"
                                     name="submit"
                                     onChange={this.passInput}
-                                    id="submit"
+                                    id="submit-l"
                                     className="btn"
-                                    value="Log in"
+                                    value="LOG IN"
                                 />
                             </div>
                         </form>
-                        <div id="social">
-                            <button className="btn">
-                                <img src="" alt="" />
-                                LOG IN USING GOOGLE
+                        <div className="social">
+                            <button className="btn google">
+                                <span>
+                                    <img src="./img/googleI.png" alt="" />
+                                    LOG IN USING GOOGLE
+                                </span>
                             </button>
-                            <button className="btn">
-                                <img src="" alt="" />
-                                LOG IN USING FACEBOOK
+                            <button className="btn facebook">
+                                <span>
+                                    {' '}
+                                    <img src="./img/facebookI.png" alt="" />
+                                    LOG IN USING FACEBOOK
+                                </span>
                             </button>
-                            <button className="btn">
-                                <img src="" alt="" />
-                                LOG IN USING TWITTER
+                            <button className="btn twitter">
+                                <span>
+                                    <img src="./img/twitterI.png" alt="" />
+                                    LOG IN USING TWITTER
+                                </span>
                             </button>
                         </div>
                     </div>
