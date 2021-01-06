@@ -60,7 +60,7 @@ li{
 .text-center{
     text-align: center;
 }
-.btn-primary{
+/* .btn-primary{
     width: 100%;
     border: none;
     background-color: #ffffff;
@@ -69,8 +69,8 @@ li{
     padding: 10px;
     font-size: 18px;
     text-align: start;
-}
-.btn-secondary{
+} */
+/* .btn-secondary{
     width: 100%;
     border: none;
     background-color: transparent;
@@ -80,8 +80,8 @@ li{
     font-size: 18px;
     margin: 10px 0;
     text-align: start;
-}
-.btn-tertiary{
+} */
+/* .btn-tertiary{
     width: 100%;
     border: none;
     background-color: #FFAF38;
@@ -91,22 +91,22 @@ li{
     font-size: 18px;
     text-align: start;
     padding-left: 30px;
-}
-.btn-primary > img{
+} */
+/* .btn-primary > img{
     position: absolute;
     left: 30px;
     width: 30px;
     height: 30px;
-}
-.btn-secondary > img{
+} */
+/* .btn-secondary > img{
     position: absolute;
     left: 30px;
     width: 25px;
     height: 25px;
-}
-.btn-primary > span{
+} */
+/* .btn-primary > span{
     margin-left: 50px;
-}
-.btn-secondary > span{
+} */
+/* .btn-secondary > span{
     margin-left: 50px;
-}
+} */

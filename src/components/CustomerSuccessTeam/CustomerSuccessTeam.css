@@ -32,28 +32,6 @@ body{
     cursor: pointer;
     position: relative;
 }
-.sidebar{
-    width: 274px;
-    background: #320234;
-    color: #ffffff;
-    position: fixed;
-    height: 100%;
-    left: 0;
-    top: 0;
-}
-.sidebar-content{
-    margin-top: 40px;
-}
-.sidebar-content .sidebar-logo{
-    padding-left: 22px;
-}
-.log-out{
-    position: fixed;
-    bottom: 0;
-    left: 10px;
-    background-color: transparent;
-    font-size: 16px;
-}
 .cst-details{
     position: relative;
     margin-left: 300px;
@@ -63,33 +41,6 @@ body{
     position: fixed;
     margin-left: 300px;
     max-width: 920px;
-}
-.notify-user{
-    width: 25px;
-    height: 25px;
-    margin-right: 40px;
-    margin-top: 8px;
-}
-.user-id{
-    position: fixed;
-    right: 50px;
-    top: 25px;
-    display: flex;
-}
-.user-id > img{
-    margin-right: 10px;
-}
-.user-name{
-    font-size: 18px;
-    color:  #590A5B;
-    font-weight: 600;
-    margin-top: 5px;
-    position: sticky;
-    line-height: 15px;
-}
-.sales-rep{
-    color: #590A5B;
-    font-size: 16px;
 }
 .prod-info-content{
     margin-top: 70px;
