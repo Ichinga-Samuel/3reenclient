@@ -1,5 +1,5 @@
 {
-  "name": "3reenshop-client",
+  "name": "start",
   "version": "1.0.5",
   "private": true,
   "scripts": {
@@ -109,5 +109,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/3reenshop/3reenshop-client.git",
+  "author": "JoelEkpenyong <joelekpenyong@gmail.com>",
+  "license": "MIT"
 }
