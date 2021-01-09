@@ -13,8 +13,7 @@ const Terms = () => {
                     OUR SERVICES, YOU HEREBY AGREE TO BE BOUND BY THE TERMS AND ALL TERMS INCORPORATED HEREIN BY
                     REFERENCE. IT IS THE RESPONSIBILITY OF YOU, THE USER, CUSTOMER, OR PROSPECTIVE CUSTOMER TO READ THE
                     TERMS AND CONDITIONS BEFORE PROCEEDING TO USE THIS SITE. IF YOU DO NOT EXPRESSLY AGREE TO ALL OF THE
-                    TERMS AND CONDITIONS, THEN PLEASE DO NOT ACCESS OR USE OUR SITES OR OUR SERVICES. THIS TERMS OF
-                    SERVICE AGREEMENT IS EFFECTIVE AS OF TIME OF
+                    TERMS AND CONDI
                 </p>
                 <p className="mt-5">
                     The following Terms of Service Agreement (the &quot TOS) is a legally binding agreement that shall
