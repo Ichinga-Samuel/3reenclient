@@ -8,11 +8,7 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            {/* {pathname === '/qualityassurance/login' && <Header />}
-             */}
-
             {pathname === '/qualityassurance/login' || pathname === '/qualityassurance/register' ? <Header /> : null}
-
             <main>{children}</main>
         </>
     );
