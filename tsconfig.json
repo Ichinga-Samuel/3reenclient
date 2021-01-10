@@ -24,6 +24,6 @@
             "@/*": ["./*"]
         }
     },
-    "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"], // *** The files TypeScript should type check ***
+    "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx", "src/pages/salesrepresentative/Header"], // *** The files TypeScript should type check ***
     "exclude": ["node_modules", ".next", "out"] // *** The files to not type check ***
 }

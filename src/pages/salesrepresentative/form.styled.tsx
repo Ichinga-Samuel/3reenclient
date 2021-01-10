@@ -1,20 +1,25 @@
 import styled from 'styled-components';
 
-export const LoginStyled = styled.div`
-    .login {
+export const FormStyled = styled.div`
+    form {
     }
 
-    .login h1 {
-        font-size: 3.2rem;
+    .form h1 {
+        font-size: 36px;
         line-height: 1.2;
 
         text-align: center;
 
-        font-size: 3rem;
-
-        font-weight: 500;
+        font-weight: 600;
+        margin: 20px 0 10px 0;
     }
 
+    .form h2 {
+        color: #590a5b;
+        font-size: 24px;
+        line-height: 1.2;
+        font-weight: 600;
+    }
     .card {
         border-radius: none;
         border: none;
@@ -45,7 +50,7 @@ export const LoginStyled = styled.div`
         text-transform: lowercase;
     }
 
-    .login-button {
+    .form-button {
         display: block;
         background-color: #590a5b;
         color: #fff;
@@ -56,13 +61,46 @@ export const LoginStyled = styled.div`
         outline: none;
         margin: auto;
     }
+    .password-reset-button {
+        background-color: gold;
+    }
 
-    .login-card {
+    .form-card {
         background-color: #fff;
         margin: auto;
     }
 
-    .login-card-body {
+    .form-card-body {
         padding: 20px;
+    }
+
+    a {
+        color: #590a5b;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .logo {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 70px 0 20px 0;
+    }
+
+    #reset {
+        width: 83%;
+        height: 77px;
+        font-size: 64px;
+        text-align: center;
+        border: none;
+        background-color: #e6e2e2;
+    }
+
+    .passowrd-reset {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
     }
 `;

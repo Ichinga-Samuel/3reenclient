@@ -1,16 +1,17 @@
-// import React from 'react';
-// import Header from '../Header/Header';
-import { LoginStyled } from './login.styled';
+import React from 'react';
+import Header from './Header/Header';
+import { FormStyled } from './form.styled';
+import Link from 'next/link';
 
 const Login = () => {
     return (
-        <LoginStyled>
-            {/* // <Header /> */}
-            <div className="login container">
+        <FormStyled>
+            <Header />
+            <div className="form container">
                 <h1>SALES RESPRESENTATIVE</h1>
-                <div className="login-card card col-lg-4 col-md-6">
+                <div className="form-card card col-lg-4 col-md-6">
                     <form>
-                        <div className="card-body p-5">
+                        <div className="form-body p-5">
                             <h2>Log in</h2>
                             <h3>Login into your account</h3>
 
@@ -24,14 +25,16 @@ const Login = () => {
                                 <input id="psw" className="" type="password" />
                             </div>
 
-                            <button className="login-button mt-5">LOG IN</button>
+                            <button className="form-button mt-5">LOG IN</button>
 
-                            <p className="forget-password">Forget Password ?</p>
+                            <p className="forget-password">
+                                <Link href="/salesrepresentative/passwordreset">Forget Password ? </Link>
+                            </p>
                         </div>
                     </form>
                 </div>
             </div>
-        </LoginStyled>
+        </FormStyled>
     );
 };
 

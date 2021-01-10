@@ -1,12 +1,14 @@
-import { LoginStyled } from './login.styled';
+import { FormStyled } from './form.styled';
+import Header from './Header/Header';
+import Link from 'next/link';
 
 const Register = () => {
     return (
-        <LoginStyled>
-            {/* // <Header /> */}
-            <div className="login container">
+        <FormStyled>
+            <Header />
+            <div className="form container">
                 <h1>SALES RESPRESENTATIVE</h1>
-                <div className="login-card card col-lg-6 col-md-6">
+                <div className="form-card card col-lg-7 col-md-6">
                     <form>
                         <div className="card-body p-5">
                             <h2>Register</h2>
@@ -46,13 +48,15 @@ const Register = () => {
                                     I accept Terms and Conditions in privancy policy
                                 </label>
                             </div>
-                            <button className="login-button mt-5 col-lg-8">Register</button>
-                            <p className="forget-password">Already have an account ? Log in .</p>
+                            <button className="form-button mt-5 col-lg-8">Register</button>
+                            <p className="forget-password">
+                                Already have an account ?<Link href="/salesrepresentative/login">Log in</Link> .
+                            </p>
                         </div>
                     </form>
                 </div>
             </div>
-        </LoginStyled>
+        </FormStyled>
     );
 };
 
