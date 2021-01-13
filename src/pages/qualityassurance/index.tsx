@@ -1,10 +1,12 @@
 import React from 'react';
-import Layout from '@/components/QualityAssusrance/Layout';
+import MainLayout from '@/components/QualityAssusrance/MainLayout';
 
 const qualityAssurance = () => {
     return (
         <>
-            <Layout />
+            <MainLayout>
+                <h1>QualityAssusrance</h1>
+            </MainLayout>
         </>
     );
 };
