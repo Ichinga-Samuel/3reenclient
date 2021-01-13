@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { ButtonHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.scss';

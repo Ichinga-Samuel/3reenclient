@@ -5,7 +5,7 @@ const BaseButton = styled.button`
     width: 100%;
     border: none;
     outline: none;
-    padding: 10px;
+    padding: 10px 0;
     font-size: 18px;
     text-align: start;
 
@@ -17,11 +17,16 @@ const BaseButton = styled.button`
     }
 
     & span {
-        margin-left: 50px;
+        margin-left: 60px;
     }
 `;
 
 export const PrimaryButton = styled(BaseButton)`
+    background-color: transparent;
+    color: #ffffff;
+`;
+
+export const CurrentButton = styled(BaseButton)`
     background-color: #ffffff;
     color: #590a5b;
 `;
@@ -29,7 +34,7 @@ export const PrimaryButton = styled(BaseButton)`
 export const SecondaryButton = styled(BaseButton)`
     background-color: transparent;
     color: #ffffff;
-    margin: 5px 0;
+    margin-top: 5px;
 
     & img {
         position: absolute;
@@ -51,4 +56,10 @@ export const LogOutButton = styled.button`
     left: 10px;
     background-color: transparent;
     font-size: 16px;
+`;
+
+export const ExitButton = styled.button`
+    margin-top: 90px;
+    margin-bottom: 10px;
+    background-color: transparent;
 `;
