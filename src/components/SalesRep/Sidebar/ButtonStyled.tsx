@@ -8,6 +8,7 @@ const BaseButton = styled.button`
     padding: 10px;
     font-size: 18px;
     text-align: start;
+    outline: none;
 
     & img {
         position: absolute;
@@ -24,12 +25,14 @@ const BaseButton = styled.button`
 export const PrimaryButton = styled(BaseButton)`
     background-color: #ffffff;
     color: #590a5b;
+    outline: none;
 `;
 
 export const SecondaryButton = styled(BaseButton)`
     background-color: transparent;
     color: #ffffff;
     margin: 5px 0;
+    outline: none;
 
     & img {
         position: absolute;
@@ -43,6 +46,7 @@ export const TertiaryButton = styled(BaseButton)`
     background-color: #ffaf38;
     color: #ffffff;
     padding-left: 30px;
+    outline: none;
 `;
 
 export const LogOutButton = styled.button`

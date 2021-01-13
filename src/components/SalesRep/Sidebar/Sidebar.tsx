@@ -12,9 +12,11 @@ export const SalesRepSidebar = () => {
                     <img src="/Icons/logo.png" alt="3reenshop logo" />
                 </div>
 
-                <PrimaryButton className="btn-primary img">
+                <PrimaryButton className="img">
                     <img src="/Icons/usermonitor.svg" alt="" />
-                    <span>User Monitor</span>
+                    <Link href="/salesrepresentative/usermonitor">
+                        <span>User Monitor</span>
+                    </Link>
                 </PrimaryButton>
 
                 <SecondaryButton>
