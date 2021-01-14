@@ -8,7 +8,11 @@ export const Ul = styled.div`
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 2.5;
-    list-style-type: none;
+    list-style-type: none
+`;
+
+export const Span = styled.span`
+    display:none;
 `;
 
 export const Title = styled.div`

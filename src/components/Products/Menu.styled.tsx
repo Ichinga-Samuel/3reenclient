@@ -5,6 +5,11 @@ export const First = styled.div`
     grid-template-columns: 100px auto;
     gap: 20px;
     padding: 20px 10px;
+
+    //medium screens
+    @media (min-width: 601px) and (max-width: 1024px) {
+        display: block;
+    }
 `;
 
 export const SearchHandle = styled.div`
@@ -36,12 +41,49 @@ export const SearchHandle = styled.div`
         width: 50px;
         height: 50px;
         border-radius: 5rem;
-        color: #878787;
+        color: #000;
+        padding: 10px;
         position: absolute;
         left: 0;
         top: 0;
         display: grid;
         place-items: center;
+    }
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+        .Search {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .Search input[type='text'] {
+            width: 90%;
+            height: 4.8rem;
+            padding: 1.5rem;
+            font-weight: 500;
+            border-radius: 8rem;
+            background: #ffffff;
+            box-shadow: 0px 4px 5px rgba(79, 0, 81, 0.1);
+        }
+
+        .Search input[placeholder] {
+            font-size: 1.4rem;
+            color: #878787;
+            font-weight: 500;
+        }
+
+        .Search .SearchBtn {
+            width: 6.2rem;
+            height: 4.8rem;
+            background-color: #000;
+            border-radius: 5rem;
+            color: white;
+            position: absolute;
+            left: 500px;
+            top: 0;
+            display:grid;
+            place-items: center;
+        }
     }
 `;
 
@@ -51,12 +93,17 @@ height: 50px;
 margin-left: 10px;
 padding: 0.5rem;
 color: #fff;
-background-color: green;
+background-color: #FFAF38;
 border-radius 8px;
 border: none; 
 font-weight: 500;
 font-size: 15px;
 line-height: 19px;
+
+//medium screens
+@media (min-width: 601px) and (max-width: 1024px) {
+        display: none;
+    }
 `;
 
 export const Image = styled.img`
@@ -65,4 +112,9 @@ export const Image = styled.img`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    //medium screens
+    @media (min-width: 601px) and (max-width: 1024px) {
+        display: none;
+    }
 `;

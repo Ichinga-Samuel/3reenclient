@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import fakeData from '@/components/Products/fakeData';
 import Menu from './Menu';
+import DropMenu from './DropMenu';
 
 import {
     Card,
@@ -51,6 +52,7 @@ const CardsLayout = () => {
             <Link href="/DetailsPage/ProductDetails">
                 <A>{allItems}</A>
             </Link>
+            <DropMenu title="Categories"  />
         </div>
     );
 };

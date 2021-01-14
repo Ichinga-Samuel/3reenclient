@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '@/components/Header/Header';
-// import Slider from '@/pages/DetailsPage/Slider'
 
 import { Page } from '@/components/Products/CardsLayout.styled';
 import {
@@ -14,7 +13,11 @@ import {
     ProductPrice,
     Btn,
     ProductDetail,
+    ImageDiv1,
+    ImageDiv2,
 } from '@/pages/DetailsPage/ProductDetails.styled';
+
+import Carousel1 from '@/pages/DetailsPage/Carousel1';
 
 const ProductDetails = () => {
     return (
@@ -22,8 +25,7 @@ const ProductDetails = () => {
             <Header />
             <Par1>
                 <SliderSpace>
-                    <img src="/img/phone.png" alt="phone" />
-                    <img src="/img/slider-btns.png" alt="sliders" />
+                    <Carousel1 />
                 </SliderSpace>
                 <div>
                     <ProductDets>
@@ -81,12 +83,12 @@ const ProductDetails = () => {
             </Par2>
 
             <Par3>
-                <div>
+                <ImageDiv1>
                     <img src="/img/matrix.png" alt="matrix" />
-                </div>
-                <div>
+                </ImageDiv1>
+                <ImageDiv2>
                     <img src="/img/metal.png" alt="metal" />
-                </div>
+                </ImageDiv2>
             </Par3>
         </Page>
     );

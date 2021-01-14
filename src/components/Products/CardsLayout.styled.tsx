@@ -11,6 +11,11 @@ export const FooterDiv = styled.div`
     justify-content: space-between;
     padding: 0.5rem;
     margin: 6rem;
+
+    //medium screens
+    @media (min-width: 601px) and (max-width: 1024px) {
+        display: none;
+    }
 `;
 
 export const ImageHeader = styled.div`
@@ -26,6 +31,19 @@ export const A = styled.div`
     padding-right: 0.5rem;
     margin-left: 6rem;
     margin-right: 6rem;
+
+    //medium screens
+
+    @media (min-width: 601px) and (max-width: 1024px) {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 0.5rem;
+        gap: 0.5rem;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
 `;
 
 export const Card = styled.div`
