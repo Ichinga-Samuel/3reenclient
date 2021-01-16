@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@/components/QualityAssusrance/CustomLink';
+import Link from '@/components/QualityAssusrance/components/CustomLink';
 // import LayoutStyles from '@/components/QualityAssusrance/styles/layout.module.css';
 import UtilStyles from '@/components/QualityAssusrance/styles/util.module.css';
 
@@ -30,7 +30,7 @@ const SideNav = () => {
                         </a>
                     </Link>
                     <Link href="/qualityassurance/messages">
-                        <a className={`${UtilStyles.textNormal} py-2 px-5 text-capitalize w-100`}>
+                        <a className={`${UtilStyles.textNormal} py-4 px-5 text-capitalize w-100`}>
                             <span className="nav-icon-stroke mr-3">
                                 <svg
                                     width="28"
@@ -44,7 +44,7 @@ const SideNav = () => {
                                         strokeWidth="2"
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        stroke="#fff"
+                                        // stroke="#fff"
                                     />
                                 </svg>
                             </span>
@@ -92,20 +92,32 @@ const SideNav = () => {
                         color: #fff;
                     }
 
+                    .nav-icon-stroke svg path {
+                        stroke: #fff;
+                    }
+
+                    a:hover,
+                    a:focus {
+                        text-decoration: none;
+                    }
+
                     a.active {
                         background-color: #fff;
                         color: #590a5b;
                     }
 
                     a.active .nav-icon-fill svg {
-                        fill: #590A5B;
-                        stroke: #590A5B;
+                        fill: #590a5b;
+                        stroke: #590a5b;
                     }
 
                     a.active .nav-icon-stroke svg {
-                        stroke: #590A5B;
+                        stroke: #590a5b;
                     }
-S
+
+                    a.active .nav-icon-stroke svg path {
+                        stroke: #590a5b;
+                    }
                 `}
             </style>
         </>

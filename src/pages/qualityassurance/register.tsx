@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@/components/QualityAssusrance/Layout';
+import Layout from '@/components/QualityAssusrance/layout/Layout';
 import { Form, Button } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -27,7 +27,7 @@ const Register = () => {
             }),
         }),
         onSubmit: (values) => {
-            console.dir(values);
+            alert(JSON.stringify(values, null, 2));
         },
     });
 

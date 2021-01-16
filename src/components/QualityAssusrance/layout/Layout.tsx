@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Header from './Header';
+import Header from '../navigation/Header';
 
 const Layout = ({ children }) => {
     const router = useRouter();

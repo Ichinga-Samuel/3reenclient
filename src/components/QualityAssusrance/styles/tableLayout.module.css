@@ -1,0 +1,16 @@
+.dataTable {
+    font-size: 1.6rem;
+    font-weight: 400 !important;
+    text-transform: capitalize;
+}
+
+.dataTable thead th {
+    font-weight: 700 !important;
+    text-transform: capitalize;
+    background-color: #fff !important;
+}
+
+.datePicker {
+    min-width: 25rem !important;
+    font-weight: 400;
+}

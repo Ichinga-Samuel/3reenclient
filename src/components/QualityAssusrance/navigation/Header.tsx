@@ -1,7 +1,7 @@
 import React from 'react';
 import layout from './styles/layout.module.css';
 import utilStyles from './styles/util.module.css';
-import Link from './CustomLink';
+import Link from '../components/CustomLink';
 
 const Header = () => {
     return (
