@@ -63,3 +63,10 @@ export const ExitButton = styled.button`
     margin-bottom: 10px;
     background-color: transparent;
 `;
+
+export const SubmitButton = styled.button`
+    width: 166px;
+    height: 41px;
+    color: #ffffff;
+    background: #ffaf38;
+`;
