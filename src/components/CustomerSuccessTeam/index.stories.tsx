@@ -1,7 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import './Utils.css';
-import './CustomerSuccessTeam.css';
 import { Homepage } from './HomePage.stories';
 import {
     PrimaryButton,
@@ -10,7 +8,10 @@ import {
     LogOutButton,
     CurrentButton,
 } from './Button/CustomerButtonStyled';
+import LinkTo from '@storybook/addon-links/react';
 import { Sidebar, SidebarContent } from './CustomerSidebar/CustomerSidebarStyled';
+import { Deliverydetails } from './CustomerOrderNotification.stories';
+import { Customermessage } from './CustomerMessage.stories';
 // import clipBoard from '../Icons/clipboard.svg';
 import logOut from './Icons/Log out.svg';
 import cstLogo from './Icons/CST-logo.svg';
@@ -18,8 +19,8 @@ import chatIcon from './Icons/chat-icon.svg';
 // import notifyIcon from '../Icons/notify.png';
 import notifyIcon1 from './Icons/notification 1-1.png';
 import clipBoard from './Icons/clipboard.svg';
-import { Deliverydetails } from './CustomerOrderNotification.stories';
-import { Customermessage } from './CustomerMessage.stories';
+import './Utils.css';
+import './CustomerSuccessTeam.css';
 
 export default {
     title: 'CustomerSuccessTeam',
@@ -34,11 +35,11 @@ export const Home = () => {
     );
 };
 
-export const Customerdeliverypage = () => {
+export const Customeroderypage = () => {
     return (
         <>
             <Deliverydetails />
-            <Customerdeliverysidebar />
+            <Customerordersidebar />
         </>
     );
 };
@@ -65,15 +66,19 @@ export const Homesidebar = () => {
                         <span>Production Information</span>
                     </CurrentButton>
 
-                    <SecondaryButton>
-                        <img src={notifyIcon1} alt="" />
-                        <span>Order Notification</span>
-                    </SecondaryButton>
+                    <LinkTo story="Customeroderypage">
+                        <SecondaryButton>
+                            <img src={notifyIcon1} alt="" />
+                            <span>Order Notification</span>
+                        </SecondaryButton>
+                    </LinkTo>
 
-                    <SecondaryButton>
-                        <img src={chatIcon} alt="" />
-                        <span>Messages</span>
-                    </SecondaryButton>
+                    <LinkTo story="Customermessagepage">
+                        <SecondaryButton>
+                            <img src={chatIcon} alt="" />
+                            <span>Messages</span>
+                        </SecondaryButton>
+                    </LinkTo>
 
                     <TertiaryButton>REGISTER CUSTOMERS</TertiaryButton>
 
@@ -85,27 +90,31 @@ export const Homesidebar = () => {
         </>
     );
 };
-export const Customerdeliverysidebar = () => {
+export const Customerordersidebar = () => {
     return (
         <>
             <Sidebar>
                 <SidebarContent>
                     <img src={cstLogo} alt="" />
 
-                    <PrimaryButton>
-                        <img src={clipBoard} alt="" />
-                        <span>Production Information</span>
-                    </PrimaryButton>
+                    <LinkTo story="Home">
+                        <PrimaryButton>
+                            <img src={clipBoard} alt="" />
+                            <span>Production Information</span>
+                        </PrimaryButton>
+                    </LinkTo>
 
                     <CurrentButton>
                         <img src={notifyIcon1} alt="" />
                         <span>Order Notification</span>
                     </CurrentButton>
 
-                    <SecondaryButton>
-                        <img src={chatIcon} alt="" />
-                        <span>Messages</span>
-                    </SecondaryButton>
+                    <LinkTo story="Customermessagepage">
+                        <SecondaryButton>
+                            <img src={chatIcon} alt="" />
+                            <span>Messages</span>
+                        </SecondaryButton>
+                    </LinkTo>
 
                     <TertiaryButton>REGISTER CUSTOMERS</TertiaryButton>
 
@@ -124,15 +133,19 @@ export const Customermessagesidebar = () => {
                 <SidebarContent>
                     <img src={cstLogo} alt="" />
 
-                    <PrimaryButton>
-                        <img src={clipBoard} alt="" />
-                        <span>Production Information</span>
-                    </PrimaryButton>
+                    <LinkTo story="Home">
+                        <PrimaryButton>
+                            <img src={clipBoard} alt="" />
+                            <span>Production Information</span>
+                        </PrimaryButton>
+                    </LinkTo>
 
-                    <SecondaryButton>
-                        <img src={notifyIcon1} alt="" />
-                        <span>Order Notification</span>
-                    </SecondaryButton>
+                    <LinkTo story="Customeroderypage">
+                        <SecondaryButton>
+                            <img src={notifyIcon1} alt="" />
+                            <span>Order Notification</span>
+                        </SecondaryButton>
+                    </LinkTo>
 
                     <CurrentButton>
                         <img src={chatIcon} alt="" />

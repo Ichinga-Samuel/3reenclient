@@ -26,7 +26,6 @@
 }
 .col{
     display: flex;
-    /* flex-wrap: wrap; */
 }
 .container{
     max-width: 90%;
