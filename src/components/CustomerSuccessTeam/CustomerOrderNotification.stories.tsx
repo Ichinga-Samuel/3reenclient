@@ -2,7 +2,7 @@
 import React from 'react';
 import { NotifyUser, UserId } from './User/User';
 import LinkTo from '@storybook/addon-links/react';
-import { Delivery } from './styles//DeliveryDetailsStyled';
+import { Delivery } from './styles/DeliveryDetailsStyled';
 import lineIcon from './Icons/Line.svg';
 import lineIcons from './Icons/Line-1.svg';
 import star from './Icons/Star 1.svg';
