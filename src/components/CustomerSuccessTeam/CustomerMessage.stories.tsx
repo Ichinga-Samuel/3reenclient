@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { UserId, NotifyUser } from './User/User';
-import { MessageContent } from './CustomerMessage/CustomerMessageStyled';
+import { MessageContent } from './styles//CustomerMessageStyled';
 import messager from './Icons/Avatar.svg';
 import messagerAvatar from './Icons/messager-avatar.svg';
 import shareIcon from './Icons/share-icon.svg';

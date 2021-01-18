@@ -2,7 +2,7 @@
 import React from 'react';
 import { NotifyUser, UserId } from './User/User';
 import LinkTo from '@storybook/addon-links/react';
-import { Delivery } from './CustomerDeliveryDetails/DeliveryDetailsStyled';
+import { Delivery } from './styles//DeliveryDetailsStyled';
 import lineIcon from './Icons/Line.svg';
 import lineIcons from './Icons/Line-1.svg';
 import star from './Icons/Star 1.svg';
@@ -14,7 +14,7 @@ import group4 from './Icons/Group-2.svg';
 import group5 from './Icons/Group-1.svg';
 import boxImg from './Images/Box-img.svg';
 import { Customerordersidebar } from './index.stories';
-import { ProductDetailsContent } from './CustomerProductDetails/ProductDetailsStyled';
+import { ProductDetailsContent } from './styles/ProductDetailsStyled';
 
 export default {
     title: 'CustomerSuccessTeam',

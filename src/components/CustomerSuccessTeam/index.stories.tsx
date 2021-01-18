@@ -9,7 +9,7 @@ import {
     CurrentButton,
 } from './Button/CustomerButtonStyled';
 import LinkTo from '@storybook/addon-links/react';
-import { Sidebar, SidebarContent } from './CustomerSidebar/CustomerSidebarStyled';
+import { Sidebar, SidebarContent } from './styles/CustomerSidebarStyled';
 import { Deliverydetails } from './CustomerOrderNotification.stories';
 import { Customermessage } from './CustomerMessage.stories';
 // import clipBoard from '../Icons/clipboard.svg';
