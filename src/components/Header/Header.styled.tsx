@@ -1,59 +1,65 @@
 import styled from 'styled-components';
 
-export const HeaderStyled = styled.nav`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: relative;
-    z-index: 100;
+export const HeaderStyled = styled.header`
+    .Header {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 15px;
+        margin: 5px;
+    }
 
     .Brand {
         //This is positioned because there are empty spaces in the logo
         position: relative;
         top: 0.4rem;
         right: 0.5rem;
+        grid-column: 1/2;
     }
-
-    .NavItems {
-        display: none;
+    .Input {
+        grid-column: 3/10;
+        display: flex;
     }
-
+    .Search {
+        width: 80%;
+        height: 4rem;
+        padding: 1.5rem;
+        font-weight: 500;
+        background: #ffffff;
+        box-shadow: 0px 4px 5px rgba(79, 0, 81, 0.1);
+    }
+    .Search input[placeholder] {
+        font-size: 1.4rem;
+        color: #878787;
+        font-weight: 500;
+    }
+    .SearchBtn {
+        width: 6.2rem;
+        height: 4rem;
+        background-color: #ffaf38;
+        color: white;
+        place-items: center;
+    }
+    .Cart {
+        grid-column: 11/11;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .Profile {
+        grid-column: 12/12;
+        margin-left: 15px;
+    }
     // medium screens
 
     @media @media (min-width: 601px) and (max-width: 1024px) {
-        .Cart,
+        /* .Cart,
         .Hamburger {
             display: none;
         }
 
         .Brand {
-        }
-
-        .NavItems {
-            display: flex;
-        }
-
-        .NavItems:last-child {
-            margin-right: 0;
-        }
-
-        .NavItems li {
-            list-style-type: none;
-            margin-right: 3.2rem;
-        }
-
-        .NavItems li:last-child a {
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: #878787;
-        }
-
-        .NavItems.active {
-            color: #590a5b;
-        }
+        } */
     }
 
     // large screens
@@ -61,39 +67,16 @@ export const HeaderStyled = styled.nav`
     @media (min-width: 1025px) {
         padding: 1rem 12.3rem;
 
-        .Cart,
+        /* .Cart,
         .Hamburger {
             display: none;
-        }
+        } */
 
-        .Brand {
+        /* .Brand {
             margin-right: auto;
             //This is positioned because there are empty spaces in the logo
             position: relative;
             top: 0.4rem;
-        }
-
-        .NavItems {
-            display: flex;
-            //This is done to make right margin look like UI
-            position: relative;
-            right: 15rem;
-        }
-
-        .NavItems li {
-            list-style-type: none;
-            margin-right: 3.2rem;
-        }
-
-        .NavItems li a {
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: #878787;
-        }
-
-        .NavItems.active {
-            color: #590a5b;
-        }
+        } */
     }
 `;

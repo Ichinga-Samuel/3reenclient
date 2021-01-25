@@ -36,7 +36,6 @@ export const JumbotronStyled = styled.div`
         width: 13.4rem;
         height: 5.2rem;
         margin-left: 1rem;
-        border-radius: 5rem;
         font-size: 1.8rem;
         text-transform: lowercase;
         font-weight: 400;

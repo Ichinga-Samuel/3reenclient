@@ -5,14 +5,37 @@ const Footer = () => {
     return (
         <FooterStyled>
             <footer className="Footer">
-                <div className="Search">
-                    <input type="text" placeholder="Search" />
-                    <div className="SearchBtn">
-                        <img src="/img/Vector.png" alt="search" />
-                    </div>
+                <div className="Contact">
+                    <p>Contact</p>
+                    <span>phone icon</span>
+                </div>
+                <div className="Sitemap">
+                    <p>Sitemap</p>
+                    <ul>
+                        <li>
+                            <a href="https://twitter.com">Online Store</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com">For Business</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com">About Us</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com">My Accout</a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com">Shopping Cart</a>
+                        </li>
+                    </ul>
+                </div>
+                <div className="Flutterwave">
+                    <p>Payment method</p>
+                    <img src="/img/flutterwave-logo-1.png" alt="flutterwave" />
                 </div>
                 <div className="Socials">
-                    <img src="/img/name-png-format-01-1.png" alt="3reen" />
+                    <p>Social Media</p>
+                    <img src="/img/name-png-format-01-1.png" alt="3reen" className="Logo" />
                     <ul className="Nav">
                         <li>
                             <a href="https://facebook.com">
@@ -30,9 +53,6 @@ const Footer = () => {
                             </a>
                         </li>
                     </ul>
-                </div>
-                <div className="Flutterwave">
-                    <img src="/img/flutterwave-logo-1.png" alt="flutterwave" />
                 </div>
             </footer>
         </FooterStyled>

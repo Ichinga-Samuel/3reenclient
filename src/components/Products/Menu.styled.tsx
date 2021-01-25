@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const First = styled.div`
     display: grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: repeat(12, 1fr);
     gap: 20px;
     padding: 20px 10px;
 
@@ -13,6 +13,9 @@ export const First = styled.div`
 `;
 
 export const SearchHandle = styled.div`
+    grid-column: 2/11;
+    margin-left: 30px;
+
     .Search {
         position: relative;
     }
@@ -81,7 +84,7 @@ export const SearchHandle = styled.div`
             position: absolute;
             left: 500px;
             top: 0;
-            display:grid;
+            display: grid;
             place-items: center;
         }
     }
