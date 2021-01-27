@@ -28,7 +28,7 @@ export const HeaderStyled = styled.header`
         box-shadow: 0px 4px 5px rgba(79, 0, 81, 0.1);
     }
     .Search input[placeholder] {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         color: #878787;
         font-weight: 500;
     }
