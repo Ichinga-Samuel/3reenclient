@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SigninStyled = styled.div`
     background: #590A5B;
-     min-height: 200vh;
+     min-height: 230vh;
     width: 100%;
     display:  flex;
     flex-direction: column;
@@ -28,8 +28,12 @@ export const SigninStyled = styled.div`
         color: #ffffff;  
     }
 
+    @media (max-width: 1100px) {
+        min-height: 220vh;   
+    }
+
     @media (max-width: 768px) {
-        min-height: 130vh;
+        min-height: 110vh;
 
         .intro{
             margin-top: 50px;
@@ -38,6 +42,7 @@ export const SigninStyled = styled.div`
             font-size: 2rem;
         }
     }
+
     @media (max-width: 403px) {
         .intro p{
             font-size: 1.5rem;
@@ -55,9 +60,13 @@ export const LoginForm = styled.form`
           background: #ffffff;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-        img{
+        .logo-div{
+            padding: 20px;
+            border: 5px solid #590A5B;
+            border-radius: 60px; 
             margin-top: 100px;
         }
+
 
         .header-div{
             width: 50%;
@@ -67,7 +76,7 @@ export const LoginForm = styled.form`
             justify-content: space-between;
             color: #590A5B;
             margin-top: 100px;
-            margin-bottom: 50px
+            margin-bottom: 100px
         }
 
         .header-div h4{
@@ -193,77 +202,86 @@ export const LoginForm = styled.form`
 
             top: 160px;
 
+            .logo-div{
+                padding: 10px;
+                border: 3px solid #590A5B;
+                border-radius: 30px; 
+                margin-top: 50px;
+            }
+
             img{
                 width: 30px;
             }
 
 
-            img{
-                margin-top: 50px;
-            }
+        
             .header-div{
                 width: 80%;
-                margin-top: 200px;
+                height: 40px;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                align-items: center;
             }
             .input-group{
-                width: 80%;
+                width:80%;
                 height: 50px;
             }
             .input-group input{
                 height: 25px;
-                font-size: 1rem;
+                font-size: 1.3rem;
             }
 
             button{
                 height: 25px;
                 font-size: 10px;
+                border-radius: 20px;
             }
             
             .header-div h4{
               font-size: 2rem
             }
 
-            .header-div{
-                margin-top: 30px;
-                margin-bottom: 10px;
-            }
 
                 .header-div p{
                     font-size: 1.5rem;
-                    margin-top: 10px;
-                    
+                    margin-top: 0;            
+                }
+
+                .header-div h4{
+                    display: none;
                 }
             .input-group label{
                 font-size: 1rem
             }
             p{
-                font-size: .5rem;
+                font-size: 1rem;
+                margin-bottom: 20px;
             }
             a{
-                font-size: .5rem;
-                margin-bottom: 50px;
+                font-size: 1rem;
+                margin-bottom: 70px;
             }
         }
 
         @media (max-width: 403px) {
 
-            width: 80%;
+            width: 90%;
 
-            .header-div h4{
-              font-size: 1.5rem
+            .header-div{
+                margin-bottom: 50px;
+            }
+            
+            .input-group{
+                width: 90%;
             }
 
                 .header-div p{
-                    font-size: 1rem
+                    font-size: 1.5rem;
+                    text-align: center;
+                    width: 70%;
                 }
             .input-group label{
                 font-size: 1rem
-            }
-            p{
-                font-size: .5rem;
-            }
-            a{
-                font-size: .5rem;
             }
         }
 

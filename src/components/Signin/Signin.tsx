@@ -36,7 +36,10 @@ const Signin = () => {
                 </p>
             </div>    
             <LoginForm  onSubmit = {login}>
-                <img src="/img/vendor-logo.svg" alt="vendor-logo"/>
+                <div className="logo-div">
+                   <img src="/img/vendor-logo.svg" alt="vendor-logo"/>
+                </div>
+               
                 <div className="header-div">
                    <h4>Log in</h4>
                    <p>
