@@ -1,27 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { SigninStyled } from './Signin.styled';
 import { LoginForm } from './Signin.styled';
-// import axios from 'axios';
-// import { useHistory } from 'react-router-dom'
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Signin = () => {
-    // const[ email, setEmail] = useState("")
-    // const[ password, setPassword] = useState("")
+    const[ email, setEmail] = useState("")
+    const[ password, setPassword] = useState("")
+
+    const router = useRouter();
 
 
 
-    // const login =e =>{
-    //     e.preventDefault();
-    //       axios.post("backend url", { email, password })
-    //       .then((res) =>{
-    //           console.log(res)
-    //           history.push("/");
-    //           localStorage.setItem('user', res.data)
-    //       })
-    //       .catch((e) =>{
-    //           alert(e.message)
-    //       })
-    // }
+
+
+    const login =e =>{
+        e.preventDefault();
+          axios.post("backend url", { email, password })
+          .then((res) =>{
+              console.log(res)
+              router.push("/");
+              localStorage.setItem('user', res.data)
+          })
+          .catch((e) =>{
+              alert(e.message)
+          })
+    }
 
     return (
         <SigninStyled >
@@ -30,7 +35,7 @@ const Signin = () => {
                     SIGN IN TO START <span>SELLING ON 3REEN</span>
                 </p>
             </div>    
-            <LoginForm >
+            <LoginForm  onSubmit = {login}>
                 <img src="/img/vendor-logo.svg" alt="vendor-logo"/>
                 <div className="header-div">
                    <h4>Log in</h4>
@@ -40,16 +45,16 @@ const Signin = () => {
                 </div>
                 <div className="input-group">
                     <label htmlFor="email">EMAIL ADDRESS</label>
-                    <input type="email" id="email" />
+                    <input type="email" id="email" onChange = {(e) => setEmail(e.target.value)} />
                 </div>
                 <div className="input-group">
                     <label htmlFor="password">PASSWORD</label>
-                    <input type="password" id="password" />
+                    <input type="password" id="password" onChange = {(e) => setPassword(e.target.value)} />
                 </div>
                 <button>LOG IN</button>
-                <a>forgot password?</a>
+                <Link href=""><a>forgot password?</a></Link>
                 <p>
-                    Don't have an account? <a>REGSTER NOW</a>
+                    Don't have an account? <Link href=""><a>REGSTER NOW</a></Link>
                 </p>
             </LoginForm> 
         </SigninStyled >

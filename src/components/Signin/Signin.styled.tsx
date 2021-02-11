@@ -106,6 +106,7 @@ export const LoginForm = styled.form`
         }
 
         .input-group input{
+            font-size: 2rem;
             height: 50px;
             left: 478px;
             top: 1073px;
@@ -140,7 +141,7 @@ export const LoginForm = styled.form`
         }
        p{
             font-size: 1.5rem;
-            color: #590A5B 50%;
+            color: #590A5B;
             font-weight: 100;
             margin-bottom: 50px;
         }
@@ -154,7 +155,7 @@ export const LoginForm = styled.form`
         a{
             margin-bottom: 100px;
             font-size: 1.5rem;
-            color: #590A5B 50%;
+            color: #590A5B;
             font-weight: 300;
         }
 
@@ -210,6 +211,7 @@ export const LoginForm = styled.form`
             }
             .input-group input{
                 height: 25px;
+                font-size: 1rem;
             }
 
             button{
