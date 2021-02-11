@@ -28,6 +28,9 @@ export const SigninStyled = styled.div`
         color: #ffffff;  
     }
 
+    
+    //for medium screen
+
     @media (max-width: 1100px) {
         min-height: 220vh;   
     }
@@ -43,6 +46,8 @@ export const SigninStyled = styled.div`
         }
     }
 
+    
+    //for mobile screen
     @media (max-width: 403px) {
         .intro p{
             font-size: 1.5rem;
@@ -168,7 +173,8 @@ export const LoginForm = styled.form`
             font-weight: 300;
         }
 
-  
+        
+        //for medium screen
 
         @media (max-width: 1100px) {
             
@@ -198,6 +204,7 @@ export const LoginForm = styled.form`
             }
         }
 
+        
         @media (max-width: 768px) {
 
             top: 160px;
@@ -262,6 +269,9 @@ export const LoginForm = styled.form`
                 margin-bottom: 70px;
             }
         }
+
+        
+        //for mobile screen
 
         @media (max-width: 403px) {
 
