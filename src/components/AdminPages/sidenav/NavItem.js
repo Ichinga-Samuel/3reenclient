@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import NavIcons from "./NavIcons";
 import styled from "styled-components";
+import { Button } from "react-bootstrap";
 
 class NavItem extends Component {
   handleClick = () => {
@@ -48,14 +49,14 @@ class NavItem extends Component {
 
     return (
       <StyledNavItem active={active}>
-        <Link to={path} onClick={this.handleClick}>
+        <Button to={path} onClick={this.handleClick}>
           <div className="items">
             <NavIcons active={active} name={name}>
               {this.props.children}
             </NavIcons>
-            <button>{name}</button>
+            <Button>{name}</Button>
           </div>
-        </Link>
+        </Button>
       </StyledNavItem>
     );
   }
