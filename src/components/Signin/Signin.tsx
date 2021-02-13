@@ -43,7 +43,7 @@ const Signin = () => {
                 <div className="header-div">
                    <h4>Log in</h4>
                    <p>
-                       Log in to your account to start selling
+                       Log in to your account <span>to start selling</span>
                   </p>
                 </div>
                 <div className="input-group">
