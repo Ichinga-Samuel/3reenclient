@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SigninStyled = styled.div`
     background: #590A5B;
-     height: 180vh;
+     height: 210vh;
     width: 100%;
     color: #fff;
     display:  flex;
@@ -29,7 +29,7 @@ export const SigninStyled = styled.div`
     }
 
     @media(max-width: 500px){
-        height: 150vh;
+        height: 180vh;
         
         .intro{
             margin-top: 60px;
@@ -37,34 +37,11 @@ export const SigninStyled = styled.div`
         }
     }
     
-    // //for medium screen
-
-    // @media (max-width: 1100px) {
-    //     min-height: 220vh;   
-    // }
-
-    // @media (max-width: 768px) {
-    //     min-height: 110vh;
-
-    //     .intro{
-    //         margin-top: 50px;
-    //     }
-    //     .intro p{
-    //         font-size: 2rem;
-    //     }
-    // }
-
-    
-    // //for mobile screen
-    // @media (max-width: 403px) {
-    //     .intro p{
-    //         font-size: 1.5rem;
-    //     }
-    // }
 `
 
 export const LoginForm = styled.form`
           width: 70%;
+          max-width: 1000px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -183,7 +160,7 @@ export const LoginForm = styled.form`
 
         @media(max-width: 500px){
             width: 90%;
-            height: 120vh;
+            height: 140vh;
             margin-top: 130px;
 
             .logo-div{
@@ -269,131 +246,6 @@ export const LoginForm = styled.form`
             font-size: 14px;
             color: #686868;
         }
-
-        
-        // //for medium screen
-
-        // @media (max-width: 1100px) {
-            
-        //     .header-div h4{
-        //       font-size: 2.5rem
-        //     }
-
-        //     .header-div{
-        //         width: 60%;
-        //     }
-
-        //     .input-group {
-        //         width: 60%;
-        //     }
-
-        //         .header-div p{
-        //             font-size: 2rem
-        //         }
-        //     .input-group label{
-        //         font-size: 1.5rem
-        //     }
-        //     p{
-        //         font-size: 1rem;
-        //     }
-        //     a{
-        //         font-size: 1rem;
-        //     }
-        // }
-
-        
-        // @media (max-width: 768px) {
-
-        //     top: 160px;
-
-        //     .logo-div{
-        //         padding: 10px;
-        //         border: 3px solid #590A5B;
-        //         border-radius: 30px; 
-        //         margin-top: 50px;
-        //     }
-
-        //     img{
-        //         width: 30px;
-        //     }
-
-
-        
-        //     .header-div{
-        //         width: 80%;
-        //         height: 40px;
-        //         margin-top: 15px;
-        //         margin-bottom: 10px;
-        //         align-items: center;
-        //     }
-        //     .input-group{
-        //         width:80%;
-        //         height: 50px;
-        //     }
-        //     .input-group input{
-        //         height: 25px;
-        //         font-size: 1.3rem;
-        //     }
-
-        //     button{
-        //         height: 25px;
-        //         font-size: 10px;
-        //         border-radius: 20px;
-        //     }
-            
-        //     .header-div h4{
-        //       font-size: 2rem
-        //     }
-
-
-        //         .header-div p{
-        //             font-size: 1.5rem;
-        //             margin-top: 0;            
-        //         }
-
-        //         .header-div h4{
-        //             display: none;
-        //         }
-        //     .input-group label{
-        //         font-size: 1rem
-        //     }
-        //     p{
-        //         font-size: 1rem;
-        //         margin-bottom: 20px;
-        //     }
-        //     a{
-        //         font-size: 1rem;
-        //         margin-bottom: 70px;
-        //     }
-        // }
-
-        
-        // //for mobile screen
-
-        // @media (max-width: 403px) {
-
-        //     width: 90%;
-
-        //     .header-div{
-        //         margin-bottom: 50px;
-        //     }
-            
-        //     .input-group{
-        //         width: 90%;
-        //     }
-
-        //         .header-div p{
-        //             font-size: 1.5rem;
-        //             text-align: center;
-        //             width: 70%;
-        //         }
-        //     .input-group label{
-        //         font-size: 1rem
-        //     }
-        // }
-
-
-    
 
     
 ` 

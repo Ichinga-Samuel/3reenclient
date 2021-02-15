@@ -7,19 +7,19 @@ import axios from 'axios';
 
 
 const Signup = () => {
-    const [ name, setName ] =useState("")
-    const [ email, setEmail ] =useState("")
-    const [ address, setAddress ] =useState("")
-    const [ number, setNumber ] =useState("")
-    const [ male, setMale ] =useState("")
-    const [ female, setFemale ] =useState("")
-    const [ description, setDescription ] =useState("")
+    const [ name, setName ] = useState("")
+    const [ email, setEmail ] = useState("")
+    const [ address, setAddress ] = useState("")
+    const [ number, setNumber ] = useState("")
+    const [ gender, setGender ] = useState<'male' | 'female' | null>(null)
+    const [ description, setDescription ] = useState("")
 
     const router = useRouter();
 
     const signup =(e) =>{
         e.preventDefault()
-        axios.post("backend url", { name, email, address, number, male, female, description })
+        console.log(gender)
+        axios.post("backend url", { name, email, address, number, gender, description })
         .then((res) =>{
             console.log(res)
             router.push("/vendor/login")
@@ -32,6 +32,7 @@ const Signup = () => {
     return (
 
         <SignupStyled>
+
             <div className="intro">
                 <p>
                     REGISTER TO START <span>SELLING ON 3REEN</span>
@@ -68,15 +69,15 @@ const Signup = () => {
                     <input type="number" id="number" onChange = {(e) => setNumber(e.target.value)}/>
                 </div>
             </div>
-            <div className="g-parent-input-check">
+            <div className="g-parent-input-radio">
                 <label>SEX</label>
-                <div className= "parent-input-check">
-                    <div className="input-check">
-                        <input type="checkbox" id="male"  onChange = {(e) => setMale(e.target.value)}/>
+                <div className= "parent-input-radio">
+                    <div className="input-radio">
+                        <input type="radio" id="male" name="gender" value="male" onChange = {(e) => setGender(e.target.value as "male")}/>
                         <label htmlFor="male">male</label>
                     </div>
-                    <div className="input-check">
-                        <input type="checkbox" id="female"  onChange = {(e) => setFemale(e.target.value)}/>
+                    <div className="input-radio">
+                        <input type="radio" id="female" name="gender" value="female"  onChange = {(e) => setGender(e.target.value as "female")}/>
                         <label htmlFor="female">female</label>
                     </div>
                 </div>
@@ -84,7 +85,7 @@ const Signup = () => {
   
             <div className="input-description">
                     <label htmlFor="description">BRIEF BRAND DESCRIPTION</label>
-                    <input type="text" id="description"  onChange = {(e) => setDescription(e.target.value)}/>
+                    <textarea id="description"  onChange = {(e) => setDescription(e.target.value)}/>
                 </div>
                 <button>REGISTER NOW</button>
                 <p>

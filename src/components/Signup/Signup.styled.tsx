@@ -6,7 +6,7 @@ export const SignupStyled = styled.div`
 background: #590A5B;
 width: 100%;
 min-width: 650px;
-height: 200vh;
+height: 230vh;
 color: #fff;
 display:  flex;
 flex-direction: column;
@@ -30,7 +30,7 @@ align-items: center;
 }
 
 @media(max-width: 500px){
-    height: 150vh;
+    height: 200vh;
     min-width: 380px;
     
     .intro{
@@ -46,7 +46,8 @@ export const SignupForm = styled.form`
 
 
 width: 70%;
-height: 150vh;
+max-width: 1000px;
+height: ;
 background: #fff;
 margin-top: 200px;
 color: rgba(0, 0, 0, 0.57);
@@ -107,6 +108,7 @@ img{
     border: 1px solid rgba(0, 0, 0, 0.38);
     box-sizing: border-box;
     color: #590A5B;
+    padding: 10px;
 }
 
 .input-group label{
@@ -117,29 +119,29 @@ img{
     line-height: 19px;
   
 }
-.parent-input-check{
+.parent-input-radio{
     display: flex;
 }
 
-.input-check{
+.input-radio{
     display: flex; 
     margin-right: 15px;
 }
 
-.input-check input{
+.input-radio input{
     margin-right: 5px;
     height: 20px;
 }
-.input-check label{
+.input-radio label{
     font-size: 15px;
     font-weight: 400;
 }
 
-.g-parent-input-check label{
+.g-parent-input-radio label{
     font-size: 15px;
     font-weight: 500;
 }
-.g-parent-input-check{
+.g-parent-input-radio{
     width: 80%; 
 }
 .input-description{
@@ -153,9 +155,10 @@ img{
 
 }
 
-.input-description input{
+.input-description textarea{
     border: 1px solid rgba(0, 0, 0, 0.38);
     height: 160px;
+    padding: 10px;
 }
 
 button{
@@ -188,7 +191,7 @@ p a{
 
 @media(max-width: 500px){
 width: 90%;
-height: 120vh;
+height: 160vh;
 margin-top: 130px;
 
 .logo-div{
@@ -232,18 +235,18 @@ img{
     height: 40px;
 }
 
-.g-parent-input-check label{
+.g-parent-input-radio label{
     font-size: 14px;
     font-weight: 500;
 }
-.g-parent-input-check{
+.g-parent-input-radio{
     width: 95%; 
 }
 
-.input-check input{
+.input-radio input{
     margin-top: 3px;
 }
-.input-check label{
+.input-radio label{
     font-size: 16px;
 }
 .input-description{
@@ -252,7 +255,7 @@ img{
 
 }
 
-.input-description input{
+.input-description textarea{
     height: 83px;
 }
 .input-description label{
