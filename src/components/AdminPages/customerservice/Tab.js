@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 
 const StyledContainer = Styled.div`
  width:90%;
@@ -43,32 +43,30 @@ const StyledContainer = Styled.div`
  }
 `;
 function Tab(props) {
-  return props.senders.map((sender) => {
-    if (props.selected === sender.name) {
-      return (
-        <StyledContainer>
-          <ul>
-            {sender.messages.map((message) => {
-              return (
-                <li key={message.username + Math.random()}>
-                  <div
-                    className={message.username !== "self" ? "sender" : "user"}
-                  >
-                    <div className="messagetext">{message.text}</div>
-                    <div className="messagemeta">
-                      {message.date}
-                      {""} {message.time}
-                    </div>{" "}
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </StyledContainer>
-      );
-    }
-    return null;
-  });
+    return props.senders.map((sender) => {
+        if (props.selected === sender.name) {
+            return (
+                <StyledContainer>
+                    <ul>
+                        {sender.messages.map((message) => {
+                            return (
+                                <li key={message.username + Math.random()}>
+                                    <div className={message.username !== 'self' ? 'sender' : 'user'}>
+                                        <div className="messagetext">{message.text}</div>
+                                        <div className="messagemeta">
+                                            {message.date}
+                                            {''} {message.time}
+                                        </div>{' '}
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </StyledContainer>
+            );
+        }
+        return null;
+    });
 }
 
 export default Tab;

@@ -1,7 +1,7 @@
-import React from "react";
-import { MessageIcon } from "../icons/Icons";
-import { Link } from "react-router-dom";
-import Styled from "styled-components";
+import React from 'react';
+import { MessageIcon } from '../icons/Icons';
+import { Link } from 'react-router-dom';
+import Styled from 'styled-components';
 
 const ProfileContainer = Styled.div`
 
@@ -41,11 +41,9 @@ button{
     margin-right:10px;
     text-align:center;
     padding:8.5px;
-    background: ${(props) =>
-      props.active ? "rgba(89, 10, 91, 0.5)" : "white"};
+    background: ${(props) => (props.active ? 'rgba(89, 10, 91, 0.5)' : 'white')};
       
-      box-shadow: ${(props) =>
-        props.active ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "none"};
+      box-shadow: ${(props) => (props.active ? '0px 4px 4px rgba(0, 0, 0, 0.25)' : 'none')};
   }
   .notificon{
     padding:7px;
@@ -81,45 +79,41 @@ button{
 `;
 
 function Profile(props) {
-  return (
-    <ProfileContainer active={props.active}>
-      {props.active ? (
-        <div className="backbtn">
-          <Link to="/">
-            <button>
-              <img src=" /icon/back-arrow.png" alt="back" /> Back
-            </button>
-          </Link>
-        </div>
-      ) : null}
+    return (
+        <ProfileContainer active={props.active}>
+            {props.active ? (
+                <div className="backbtn">
+                    <Link to="/">
+                        <button>
+                            <img src=" /icon/back-arrow.png" alt="back" /> Back
+                        </button>
+                    </Link>
+                </div>
+            ) : null}
 
-      <div className="avatar">
-        <Link to="/messages">
-          <div className="messageicon">
-            {" "}
-            <MessageIcon />
-          </div>{" "}
-        </Link>
-        <Link to="/">
-          <div className="notificon">
-            <img
-              src=" /icon/notification.png"
-              alt="notifications"
-              id="notification"
-            />{" "}
-          </div>
-        </Link>
-        <div className="details">
-          {" "}
-          <img src=" /icon/avatar-small.png" alt="avatar" id="avatar" />
-          <div>
-            <p>Jack Hanniel</p>
-            <p>Admin</p>
-          </div>
-        </div>
-      </div>
-    </ProfileContainer>
-  );
+            <div className="avatar">
+                <Link to="/messages">
+                    <div className="messageicon">
+                        {' '}
+                        <MessageIcon />
+                    </div>{' '}
+                </Link>
+                <Link to="/">
+                    <div className="notificon">
+                        <img src=" /icon/notification.png" alt="notifications" id="notification" />{' '}
+                    </div>
+                </Link>
+                <div className="details">
+                    {' '}
+                    <img src=" /icon/avatar-small.png" alt="avatar" id="avatar" />
+                    <div>
+                        <p>Jack Hanniel</p>
+                        <p>Admin</p>
+                    </div>
+                </div>
+            </div>
+        </ProfileContainer>
+    );
 }
 
 export default Profile;

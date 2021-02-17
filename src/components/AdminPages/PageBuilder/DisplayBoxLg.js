@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 
 const Boxlg = Styled.div`
 width: 353.38px;
@@ -86,32 +86,32 @@ text-align: left;
 `;
 
 function DisplayBoxLg(props) {
-  return (
-    <Boxlg>
-      <div className="icons">
-        <span className="icon1">
-          <img src={props.icon1} alt="" />
-        </span>
-        <span className="icon2">
-          <img src={props.icon2} alt="" />
-        </span>
-      </div>
-      <div className="d-info">
-        <p>{props.title}</p>
-        <h4>{props.info}</h4>
-      </div>
-      <div className="bottom">
-        <div className="first ">
-          <p>{props.secondarytitle1}</p>
-          <p>{props.secondaryinfo1}</p>
-        </div>
-        <div className="second">
-          <p>{props.secondarytitle2}</p>
-          <p>{props.secondaryinfo2}</p>
-        </div>
-      </div>
-    </Boxlg>
-  );
+    return (
+        <Boxlg>
+            <div className="icons">
+                <span className="icon1">
+                    <img src={props.icon1} alt="" />
+                </span>
+                <span className="icon2">
+                    <img src={props.icon2} alt="" />
+                </span>
+            </div>
+            <div className="d-info">
+                <p>{props.title}</p>
+                <h4>{props.info}</h4>
+            </div>
+            <div className="bottom">
+                <div className="first ">
+                    <p>{props.secondarytitle1}</p>
+                    <p>{props.secondaryinfo1}</p>
+                </div>
+                <div className="second">
+                    <p>{props.secondarytitle2}</p>
+                    <p>{props.secondaryinfo2}</p>
+                </div>
+            </div>
+        </Boxlg>
+    );
 }
 
 export default DisplayBoxLg;

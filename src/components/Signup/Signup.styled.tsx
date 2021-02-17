@@ -1,46 +1,40 @@
 import styled from 'styled-components';
 
-
-
 export const SignupStyled = styled.div`
-background: #590A5B;
-width: 100%;
-min-width: 650px;
-height: 230vh;
-color: #fff;
-display:  flex;
-flex-direction: column;
-align-items: center;
-
-.intro{
-    position: absolute;
-    text-align: center;
-    margin-top: 80px;
-    
-}
-
-.intro p{
-    font: MADE TOMMY;
-    weight: 500px;
+    background: #590a5b;
+    width: 100%;
+    min-width: 650px;
+    height: 230vh;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    style: normal;
-    font-size: 2rem;
-    line-height: 25px;  
-}
+    align-items: center;
 
-@media(max-width: 500px){
-    height: 200vh;
-    min-width: 380px;
-    
-    .intro{
-        margin-top: 60px;
-        
+    .intro {
+        position: absolute;
+        text-align: center;
+        margin-top: 80px;
     }
-}
 
+    .intro p {
+        font: MADE TOMMY;
+        weight: 500px;
+        display: flex;
+        flex-direction: column;
+        style: normal;
+        font-size: 2rem;
+        line-height: 25px;
+    }
 
-`
+    @media (max-width: 500px) {
+        height: 200vh;
+        min-width: 380px;
+
+        .intro {
+            margin-top: 60px;
+        }
+    }
+`;
 
 export const SignupForm = styled.form`
 
@@ -286,6 +280,4 @@ p a{
     font-weight: 500;
 
 }
-`
-
-
+`;

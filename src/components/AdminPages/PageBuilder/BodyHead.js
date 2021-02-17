@@ -1,6 +1,6 @@
-import React from "react";
-import SelectDisplay from "./SelectDisplay";
-import Styled from "styled-components";
+import React from 'react';
+import SelectDisplay from './SelectDisplay';
+import Styled from 'styled-components';
 
 export const HeaderContainer = Styled.div`
 display:inline-flex;
@@ -96,40 +96,36 @@ color:black;
 
 `;
 function BodyHead(props) {
-  return (
-    <HeaderContainer>
-      <div className="leftbox">
-        <div className="header">
-          <div className="title">
-            <h1>{props.title}</h1>
-          </div>
-          <div className="quantity">
-            <input type="text" id="qty" defaultValue="50" />
-          </div>
-        </div>
-        <div className={props.hide ? "hidden" : "switchCategories"}>
-          {" "}
-          <SelectDisplay />
-        </div>
-      </div>
+    return (
+        <HeaderContainer>
+            <div className="leftbox">
+                <div className="header">
+                    <div className="title">
+                        <h1>{props.title}</h1>
+                    </div>
+                    <div className="quantity">
+                        <input type="text" id="qty" defaultValue="50" />
+                    </div>
+                </div>
+                <div className={props.hide ? 'hidden' : 'switchCategories'}>
+                    {' '}
+                    <SelectDisplay />
+                </div>
+            </div>
 
-      <div className="rightbox">
-        <div className="searchcontainer">
-          {" "}
-          <div className="searchbar">
-            {" "}
-            <img src="/icon/search.png" alt="search" />
-            <input
-              type="search"
-              id="searchorder"
-              placeholder={props.searchplaceholder}
-            />
-          </div>
-          <button>search</button>{" "}
-        </div>
-      </div>
-    </HeaderContainer>
-  );
+            <div className="rightbox">
+                <div className="searchcontainer">
+                    {' '}
+                    <div className="searchbar">
+                        {' '}
+                        <img src="/icon/search.png" alt="search" />
+                        <input type="search" id="searchorder" placeholder={props.searchplaceholder} />
+                    </div>
+                    <button>search</button>{' '}
+                </div>
+            </div>
+        </HeaderContainer>
+    );
 }
 
 export default BodyHead;

@@ -1,5 +1,5 @@
-import React from 'react'
-import Styled from "styled-components"
+import React from 'react';
+import Styled from 'styled-components';
 
 export const HeaderContainer = Styled.div`
 display:inline-flex;
@@ -10,9 +10,7 @@ color:black
 
 `;
 function OrderDisPlayHead() {
-    return (
-        
-    )
+    return null;
 }
 
-export default OrderDisPlayHead
+export default OrderDisPlayHead;

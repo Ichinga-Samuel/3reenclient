@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 
 const Boxlg2 = Styled.div`
 width: 353.38px;
@@ -94,26 +94,26 @@ text-align: left;
 `;
 
 function DisplayBoxLg2(props) {
-  return (
-    <Boxlg2>
-      <div className="icons">
-        <span className="icon1">
-          <img src={props.icon1} alt="" />
-        </span>
-        <span className="icon2">
-          <img src={props.icon2} alt="" />
-        </span>
-      </div>
-      <div className="d-info">
-        <p>{props.title}</p>
-        <h4>{props.info}</h4>
-      </div>
-      <div className="bottom">
-        <button>View Audit</button>
-        <button>View Inventory</button>
-      </div>
-    </Boxlg2>
-  );
+    return (
+        <Boxlg2>
+            <div className="icons">
+                <span className="icon1">
+                    <img src={props.icon1} alt="" />
+                </span>
+                <span className="icon2">
+                    <img src={props.icon2} alt="" />
+                </span>
+            </div>
+            <div className="d-info">
+                <p>{props.title}</p>
+                <h4>{props.info}</h4>
+            </div>
+            <div className="bottom">
+                <button>View Audit</button>
+                <button>View Inventory</button>
+            </div>
+        </Boxlg2>
+    );
 }
 
 export default DisplayBoxLg2;

@@ -1,6 +1,6 @@
-import React from "react";
-import Styled from "styled-components";
-import { AvatarIcon } from "../icons/Icons";
+import React from 'react';
+import Styled from 'styled-components';
+import { AvatarIcon } from '../icons/Icons';
 
 const DetailStyle = Styled.div`
 display:inline-flex;
@@ -35,17 +35,17 @@ P#username{
 `;
 
 function ContactDetails(props) {
-  return (
-    <DetailStyle>
-      <div className="thumbnail">
-        <AvatarIcon isSelected={props.isSelected} />
-      </div>
-      <div className="detail">
-        <p id="name"> {props.name}</p>
-        <p id="username">{props.username}</p>
-      </div>
-    </DetailStyle>
-  );
+    return (
+        <DetailStyle>
+            <div className="thumbnail">
+                <AvatarIcon isSelected={props.isSelected} />
+            </div>
+            <div className="detail">
+                <p id="name"> {props.name}</p>
+                <p id="username">{props.username}</p>
+            </div>
+        </DetailStyle>
+    );
 }
 
 export default ContactDetails;

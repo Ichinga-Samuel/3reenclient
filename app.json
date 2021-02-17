@@ -1,24 +1,22 @@
 {
-  "name": "3reenshop",
-  "description": "The best e-commence",
-  "keywords": [
-    "e-commence"
-  ],
-  "website": "https://3reenshop.com/",
-  "repository": "https://github.com/3reenshop/3reenshop-client",
-  "logo": "https://3reenshop.com/logo.svg",
-  "success_url": "/welcome",
-  "env": {
-    "NPM_CONFIG_PRODUCTION": {
-      "description": "Set NPM_CONFIG_PRODUCTION=false to install devDependencies",
-      "value": "false"
+    "name": "3reenshop",
+    "description": "The best e-commence",
+    "keywords": ["e-commence"],
+    "website": "https://3reenshop.com/",
+    "repository": "https://github.com/3reenshop/3reenshop-client",
+    "logo": "https://3reenshop.com/logo.svg",
+    "success_url": "/welcome",
+    "env": {
+        "NPM_CONFIG_PRODUCTION": {
+            "description": "Set NPM_CONFIG_PRODUCTION=false to install devDependencies",
+            "value": "false"
+        }
+    },
+    "environments": {
+        "review": {
+            "env": {
+                "NPM_CONFIG_PRODUCTION": "false"
+            }
+        }
     }
-  },
-  "environments": {
-    "review": {
-      "env": {
-        "NPM_CONFIG_PRODUCTION": "false"
-      }
-    }
-  }
 }

@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 
 const Box = Styled.div`
     display:inline-flex;
@@ -17,7 +17,7 @@ const Box = Styled.div`
       font-weight: 500;
       font-size: 2.25em;
       line-height: 45px;
-      color:${(props) => (props.color ? "#590A5B" : "rgba(0, 0, 0, 0.3)")} ;
+      color:${(props) => (props.color ? '#590A5B' : 'rgba(0, 0, 0, 0.3)')} ;
     }
     p{
     font-weight: 500;
@@ -36,19 +36,19 @@ const Box = Styled.div`
 `;
 
 function DisplayBox(props) {
-  return (
-    <Box color={props.color}>
-      <div className="info">
-        <p>{props.title}</p>
-        <h4>{props.info}</h4>
-      </div>
+    return (
+        <Box color={props.color}>
+            <div className="info">
+                <p>{props.title}</p>
+                <h4>{props.info}</h4>
+            </div>
 
-      <div className="icon">
-        {" "}
-        <img src={props.icon} alt="" />
-      </div>
-    </Box>
-  );
+            <div className="icon">
+                {' '}
+                <img src={props.icon} alt="" />
+            </div>
+        </Box>
+    );
 }
 
 export default DisplayBox;

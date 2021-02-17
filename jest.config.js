@@ -14,7 +14,7 @@ module.exports = {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
             '<rootDir>/tests/__mocks__/fileMock.js',
     },
-    testMatch: ["<rootDir>/tests/**/?(*.)+(spec|test).(ts|tsx|js|jsx)"],
+    testMatch: ['<rootDir>/tests/**/?(*.)+(spec|test).(ts|tsx|js|jsx)'],
     collectCoverageFrom: [
         '<rootDir>/src/**/*.{ts,tsx}',
         '!**/node_modules/**',

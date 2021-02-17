@@ -1,43 +1,38 @@
 import styled from 'styled-components';
 
 export const SigninStyled = styled.div`
-    background: #590A5B;
-     height: 210vh;
+    background: #590a5b;
+    height: 210vh;
     width: 100%;
     color: #fff;
-    display:  flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 
-    
-
-    .intro{
+    .intro {
         position: absolute;
         text-align: center;
         margin-top: 80px;
-
     }
 
-    .intro p{
+    .intro p {
         font: MADE TOMMY;
         weight: 500px;
         display: flex;
         flex-direction: column;
         style: normal;
         font-size: 2rem;
-        line-height: 25px;    
+        line-height: 25px;
     }
 
-    @media(max-width: 500px){
+    @media (max-width: 500px) {
         height: 180vh;
-        
-        .intro{
+
+        .intro {
             margin-top: 60px;
-            
         }
     }
-    
-`
+`;
 
 export const LoginForm = styled.form`
           width: 70%;
@@ -248,4 +243,4 @@ export const LoginForm = styled.form`
         }
 
     
-` 
+`;

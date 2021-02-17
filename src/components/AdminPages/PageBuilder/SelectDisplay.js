@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Styled from "styled-components";
+import React, { useState } from 'react';
+import Styled from 'styled-components';
 
 const Styles = Styled.div`
 display:flex;
@@ -38,39 +38,33 @@ button{
 `;
 
 function SelectDisplay() {
-  const [isSelected, setIsSelected] = useState("true");
-  const [selected, setSelected] = useState("All");
+    const [isSelected, setIsSelected] = useState('true');
+    const [selected, setSelected] = useState('All');
 
-  return (
-    <Styles>
-      <div
-        isSelected=""
-        className={
-          isSelected === "true" && selected === "All" ? "active" : "all"
-        }
-        name="All"
-        onClick={() => {
-          setSelected("All");
-          setIsSelected("true");
-        }}
-      >
-        <button>All</button>
-      </div>
-      <div
-        className={
-          isSelected === "true" && selected === "Categories"
-            ? "active"
-            : "categories"
-        }
-        onClick={() => {
-          setSelected("Categories");
-          setIsSelected("true");
-        }}
-      >
-        <button>Categories</button>
-      </div>
-    </Styles>
-  );
+    return (
+        <Styles>
+            <div
+                isSelected=""
+                className={isSelected === 'true' && selected === 'All' ? 'active' : 'all'}
+                name="All"
+                onClick={() => {
+                    setSelected('All');
+                    setIsSelected('true');
+                }}
+            >
+                <button>All</button>
+            </div>
+            <div
+                className={isSelected === 'true' && selected === 'Categories' ? 'active' : 'categories'}
+                onClick={() => {
+                    setSelected('Categories');
+                    setIsSelected('true');
+                }}
+            >
+                <button>Categories</button>
+            </div>
+        </Styles>
+    );
 }
 
 export default SelectDisplay;

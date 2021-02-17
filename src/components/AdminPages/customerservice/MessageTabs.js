@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import ContactDetails from "./ContactDetails";
-import Styled from "styled-components";
+import React, { Component } from 'react';
+import ContactDetails from './ContactDetails';
+import Styled from 'styled-components';
 
 export class MessageTabs extends Component {
-  render() {
-    const TabStyles = Styled.div`
+    render() {
+        const TabStyles = Styled.div`
         display:flex;
         width:288px;
         height:789px;
@@ -53,36 +53,33 @@ export class MessageTabs extends Component {
 
         `;
 
-    return (
-      <TabStyles>
-        <ul>
-          <div className="mini-header ">
-            {" "}
-            <h4>Inbox</h4>
-          </div>
+        return (
+            <TabStyles>
+                <ul>
+                    <div className="mini-header ">
+                        {' '}
+                        <h4>Inbox</h4>
+                    </div>
 
-          {this.props.senders.map((sender) => {
-            const active = sender.name === this.props.selected ? "active " : "";
-            return (
-              <li key={Math.random()}>
-                <button
-                  className={" " + active}
-                  onClick={() => this.props.setSelected(sender.name)}
-                >
-                  <ContactDetails
-                    isSelected={sender.name === this.props.selected}
-                    name={sender.name}
-                    username={sender.username}
-                  />
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-        <div>{this.props.children}</div>
-      </TabStyles>
-    );
-  }
+                    {this.props.senders.map((sender) => {
+                        const active = sender.name === this.props.selected ? 'active ' : '';
+                        return (
+                            <li key={Math.random()}>
+                                <button className={' ' + active} onClick={() => this.props.setSelected(sender.name)}>
+                                    <ContactDetails
+                                        isSelected={sender.name === this.props.selected}
+                                        name={sender.name}
+                                        username={sender.username}
+                                    />
+                                </button>
+                            </li>
+                        );
+                    })}
+                </ul>
+                <div>{this.props.children}</div>
+            </TabStyles>
+        );
+    }
 }
 
 export default MessageTabs;

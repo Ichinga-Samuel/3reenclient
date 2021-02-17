@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 
 const BoxMd = Styled.div`
     display:inline-flex;
@@ -34,22 +34,22 @@ const BoxMd = Styled.div`
 `;
 
 function DisplayBoxMd(props) {
-  return (
-    <BoxMd>
-      <div className="box1">
-        <p>{props.logistics}</p>
-        <h4>{props.logisticamount}</h4>
-      </div>
-      <div className="box2">
-        <p>{props.ads}</p>
-        <h4>{props.adsamount}</h4>
-      </div>
-      <div className="box3">
-        <p>{props.products}</p>
-        <h4>{props.productamount}</h4>
-      </div>
-    </BoxMd>
-  );
+    return (
+        <BoxMd>
+            <div className="box1">
+                <p>{props.logistics}</p>
+                <h4>{props.logisticamount}</h4>
+            </div>
+            <div className="box2">
+                <p>{props.ads}</p>
+                <h4>{props.adsamount}</h4>
+            </div>
+            <div className="box3">
+                <p>{props.products}</p>
+                <h4>{props.productamount}</h4>
+            </div>
+        </BoxMd>
+    );
 }
 
 export default DisplayBoxMd;

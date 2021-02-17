@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SalesRepGraph from "./SalesRepGraph";
-import Rating from "../PageBuilder/Rating";
-import Styled from "styled-components";
+import React, { useState } from 'react';
+import SalesRepGraph from './SalesRepGraph';
+import Rating from '../PageBuilder/Rating';
+import Styled from 'styled-components';
 
 const Card = Styled.div`
 width: 1120px;
@@ -75,44 +75,44 @@ margin-left:21px;
 `;
 
 function SalesRep() {
-  const [showGraph, setShowGraph] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+    const [showGraph, setShowGraph] = useState(false);
+    const [isActive, setIsActive] = useState(false);
 
-  const handleClick = () => {
-    setShowGraph(!showGraph);
-    setIsActive(!isActive);
-  };
+    const handleClick = () => {
+        setShowGraph(!showGraph);
+        setIsActive(!isActive);
+    };
 
-  return (
-    <Card>
-      <div className="details">
-        <div className="thumbnail">
-          <img src="/img/thumbnail.png" alt="" />
-        </div>
+    return (
+        <Card>
+            <div className="details">
+                <div className="thumbnail">
+                    <img src="/img/thumbnail.png" alt="" />
+                </div>
 
-        <div className="SRdetails">
-          {" "}
-          <div>
-            <b> full name of SR Monitor </b> | Mid-Level/Senior...
-          </div>
-          <div>state | location</div>
-        </div>
-        <div className="rating">
-          <div> ratings | reviews</div>{" "}
-          <div>
-            <Rating />
-          </div>
-        </div>
-        <div className="btn-container">
-          more
-          <button onClick={() => handleClick()}>
-            <i className={isActive ? "arrow up" : "arrow right"}></i>
-          </button>
-        </div>
-      </div>
-      <div className="graphbox">{showGraph ? <SalesRepGraph /> : null}</div>
-    </Card>
-  );
+                <div className="SRdetails">
+                    {' '}
+                    <div>
+                        <b> full name of SR Monitor </b> | Mid-Level/Senior...
+                    </div>
+                    <div>state | location</div>
+                </div>
+                <div className="rating">
+                    <div> ratings | reviews</div>{' '}
+                    <div>
+                        <Rating />
+                    </div>
+                </div>
+                <div className="btn-container">
+                    more
+                    <button onClick={() => handleClick()}>
+                        <i className={isActive ? 'arrow up' : 'arrow right'}></i>
+                    </button>
+                </div>
+            </div>
+            <div className="graphbox">{showGraph ? <SalesRepGraph /> : null}</div>
+        </Card>
+    );
 }
 
 export default SalesRep;

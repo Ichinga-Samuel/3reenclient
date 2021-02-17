@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 
 const Card = Styled.div`
 display:flex;
@@ -73,23 +73,23 @@ img{
 `;
 
 function Product(props) {
-  const { productName, imgUrl, description } = props;
-  return (
-    <React.Fragment>
-      <Card>
-        <div className="product-image">
-          <img src={imgUrl} alt="product" />
-        </div>
-        <div className="short-des">
-          <p id="product-name">{productName}</p>
-          <p id="description">{description}</p>
-          <span className="buttons">
-            <button>Available for Purchase </button> <button>Update</button>
-          </span>
-        </div>
-      </Card>
-    </React.Fragment>
-  );
+    const { productName, imgUrl, description } = props;
+    return (
+        <React.Fragment>
+            <Card>
+                <div className="product-image">
+                    <img src={imgUrl} alt="product" />
+                </div>
+                <div className="short-des">
+                    <p id="product-name">{productName}</p>
+                    <p id="description">{description}</p>
+                    <span className="buttons">
+                        <button>Available for Purchase </button> <button>Update</button>
+                    </span>
+                </div>
+            </Card>
+        </React.Fragment>
+    );
 }
 
 export default Product;

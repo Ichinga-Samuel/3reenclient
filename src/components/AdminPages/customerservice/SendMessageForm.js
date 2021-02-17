@@ -1,5 +1,5 @@
-import React from "react";
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 
 const Styles = Styled.div`
 width:95%;
@@ -48,28 +48,28 @@ width:95%;
 `;
 
 function SendMessageForm(props) {
-  const { isSelected } = props;
-  return (
-    <Styles>
-      {isSelected ? (
-        <form>
-          <div className="container">
-            {" "}
-            <div className="messagebar">
-              {" "}
-              <input type="file" id="upload" hidden />
-              <label htmlfor="upload">
-                {" "}
-                <img src="/icon/attachment-vector.png" alt="attachment" />
-              </label>
-              <input type="text" id="message" placeholder="type messages" />
-            </div>
-            <button>SEND MESSAGE</button>{" "}
-          </div>
-        </form>
-      ) : null}
-    </Styles>
-  );
+    const { isSelected } = props;
+    return (
+        <Styles>
+            {isSelected ? (
+                <form>
+                    <div className="container">
+                        {' '}
+                        <div className="messagebar">
+                            {' '}
+                            <input type="file" id="upload" hidden />
+                            <label htmlFor="upload">
+                                {' '}
+                                <img src="/icon/attachment-vector.png" alt="attachment" />
+                            </label>
+                            <input type="text" id="message" placeholder="type messages" />
+                        </div>
+                        <button>SEND MESSAGE</button>{' '}
+                    </div>
+                </form>
+            ) : null}
+        </Styles>
+    );
 }
 
 export default SendMessageForm;
