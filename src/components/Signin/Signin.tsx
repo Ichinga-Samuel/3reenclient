@@ -55,7 +55,7 @@ const Signin = () => {
                     <a href="google.com">forgot password?</a>
                 </Link>
                 <p>
-                    Don't have an account?{' '}
+                    Do not have an account?{' '}
                     <Link href="google.com">
                         <a href="google.com">REGSTER NOW</a>
                     </Link>
