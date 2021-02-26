@@ -8,11 +8,16 @@ export const Ul = styled.div`
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 2.5;
-    list-style-type: none
+    list-style-type: none;
+    @media only screen and (max-width: 768px){
+        display: none;
+    }
 `;
 
 export const Span = styled.span`
-    display:none;
+    display: none;
+    max-height: ${({ isOpen }) => (isOpen ? '300px' : '0')};
+    transition: max-height 0.3s ease-in;
 `;
 
 export const Title = styled.div`

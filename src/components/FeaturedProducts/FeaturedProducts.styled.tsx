@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const FeaturedProductsStyled = styled.div`
-    margin-top: 3rem;
-    margin-bottom: 11.5rem;
+    margin-top: 2rem;
+    margin-bottom: 10rem;
 
     h2 {
         font-size: 1.8rem;
@@ -16,6 +16,7 @@ export const FeaturedProductsStyled = styled.div`
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        width: 100%;
     }
 
     .FeaturedProductsItems:first-child {
@@ -35,6 +36,7 @@ export const FeaturedProductsStyled = styled.div`
 
         .FeaturedProductsItems {
             justify-content: space-around;
+            width: 100%;
         }
     }
 

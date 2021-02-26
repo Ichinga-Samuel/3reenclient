@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { HeaderStyled } from './Header.styled';
+// import Search from '@/components/Products/Search';
+// import fakedata from '@/components/Products/fakeData';
 
 const Header = () => {
     return (
@@ -22,12 +24,10 @@ const Header = () => {
                 <div className="Profile">
                     <img src="/img/pic.png" alt="profile icon" />
                     <p>Hi, Jack </p>
+                    <span>
+                        <img src="/img/down-arrow.png" alt="arrow" />
+                    </span>
                 </div>
-                {/* <div className="Hamburger">
-                    <Link href="/">
-                        <img src="/img/hamburger.png" alt="menu icon" />
-                    </Link>
-                </div> */}
             </div>
         </HeaderStyled>
     );

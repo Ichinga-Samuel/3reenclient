@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Page = styled.div`
     background-color: #fff;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 `;
 
 export const FooterDiv = styled.div`
@@ -19,7 +22,17 @@ export const FooterDiv = styled.div`
 `;
 
 export const ImageHeader = styled.div`
-    width: 100%;
+    height: 60vh;
+    min-width: 100%;
+    margin-top: 20px;
+    background: url('/img/hp-omen.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* mobile */
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
 `;
 
 export const A = styled.div`
@@ -31,6 +44,11 @@ export const A = styled.div`
     padding-right: 0.5rem;
     margin-left: 6rem;
     margin-right: 6rem;
+    /* mobile */
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: auto auto;
+        grid-gap: 2rem;
+    }
 
     //medium screens
 
@@ -47,7 +65,7 @@ export const A = styled.div`
 `;
 
 export const Card = styled.div`
-    margin-top: 6rem;
+    margin-bottom: 1rem;
     padding-top: 0.5rem;
     border-radius: 0.5rem;
     width: 233px;

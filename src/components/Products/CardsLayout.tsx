@@ -19,7 +19,7 @@ import {
 
 const CardsLayout = () => {
     const allItems = fakeData.map((items) => (
-        <Card key={items.id}>
+        <Card key={items.id} id="filterValue">
             <div>
                 <Remain>{items.remainder}</Remain>
             </div>
@@ -52,7 +52,6 @@ const CardsLayout = () => {
             <Link href="/DetailsPage/ProductDetails">
                 <A>{allItems}</A>
             </Link>
-            <DropMenu title="Categories"  />
         </div>
     );
 };

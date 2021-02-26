@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import fakeData from './fakeData';
 
 function DropMenu({ title, fakeData = [], multiSelect }) {
-    const [open, setOpen] = useState(false);
-    const [selection, setSelection] = useState([]);
-    const toggle = () => setOpen(!open);
+    // const [open, setOpen] = useState(false);
+    // const [selection, setSelection] = useState([]);
+    // const toggle = () => setOpen(!open);
 
-    function handleOnCLick(item) {}
+    // function handleOnCLick(item) {}
 
     return (
         <div className="wrap">
-            <div className="toggle" onKeyPress={() => toggle(!open)} onClick={() => toggle(!open)}>
+            {/* <div className="toggle" onKeyPress={() => toggle(!open)} onClick={() => toggle(!open)}>
                 <div className="title">
                     <p className="makeBold">{title}</p>
                 </div>
@@ -29,7 +29,7 @@ function DropMenu({ title, fakeData = [], multiSelect }) {
                         </li>
                     ))}
                 </ul>
-            )}
+            )} */}
         </div>
     );
 }

@@ -5,10 +5,10 @@ export const BestSellerNavStyled = styled.nav`
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         list-style: none;
         font-size: 1.6rem;
-        font-weight: 300;
+        font-weight: 500;
         color: $fadedBlack;
         cursor: pointer;
     }
@@ -23,6 +23,10 @@ export const BestSellerNavStyled = styled.nav`
 
     .BestSellerNav li a {
         text-decoration: none;
+        &:hover{
+            color: #590a5b;
+
+        }
     }
 
     .BestSellerNav .active {

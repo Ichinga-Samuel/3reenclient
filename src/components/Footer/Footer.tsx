@@ -35,23 +35,37 @@ const Footer = () => {
                 </div>
                 <div className="Socials">
                     <p>Social Media</p>
+                    <span className="input">
+                        <div className="Input">
+                            <input type="text" className="Search" placeholder='Try "watches"' />
+                            <button className="SearchBtn">
+                                <img src="/img/Vector.png" alt="search"/>
+                            </button>
+                        </div>
+                    </span>
                     <img src="/img/name-png-format-01-1.png" alt="3reen" className="Logo" />
                     <ul className="Nav">
-                        <li>
-                            <a href="https://facebook.com">
-                                <img src="/img/fb-rounded-brand-white-64.png" alt="facebook" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com">
-                                <img src="/img/gplus-rounded-brand-white-64.png" alt="g-plus" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com">
-                                <img src="/img/twitter-rounded-brand-white-64.png" alt="twitter" />
-                            </a>
-                        </li>
+                        <div>
+                            <li>
+                                <a href="https://facebook.com">
+                                    <img src="/img/fb-rounded-brand-white-64.png" alt="facebook" />
+                                </a>
+                            </li>
+                        </div>
+                        <div>
+                            <li>
+                                <a href="https://twitter.com">
+                                    <img src="/img/gplus-rounded-brand-white-64.png" alt="g-plus" />
+                                </a>
+                            </li>
+                        </div>
+                        <div>
+                            <li>
+                                <a href="https://twitter.com">
+                                    <img src="/img/twitter-rounded-brand-white-64.png" alt="twitter" />
+                                </a>
+                            </li>
+                        </div>
                     </ul>
                 </div>
             </footer>

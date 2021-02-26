@@ -6,6 +6,7 @@ const FeaturedProducts = () => {
     const FeaturedProductsInfo = [
         {
             product1: {
+                id: 1,
                 price: 599,
                 discount: 499,
                 name: 'Beats Solo 2 Ear',
@@ -16,6 +17,7 @@ const FeaturedProducts = () => {
 
         {
             product2: {
+                id: 2,
                 price: 599,
                 discount: 499,
                 name: 'H-Squared tvTray',
@@ -26,6 +28,7 @@ const FeaturedProducts = () => {
 
         {
             product3: {
+                id: 3,
                 price: 599,
                 discount: 499,
                 name: 'Rain gauge',
@@ -34,7 +37,6 @@ const FeaturedProducts = () => {
             },
         },
     ];
-
     return (
         <FeaturedProductsStyled>
             <h2 style={{ marginBottom: '50px' }}>Featured Products</h2>

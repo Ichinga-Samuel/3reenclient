@@ -3,9 +3,11 @@ import styled from 'styled-components';
 export const HeaderStyled = styled.header`
     .Header {
         display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 15px;
-        margin: 5px;
+        /*grid-template-columns: repeat(12, 1fr);
+        grid-gap: 10px; */
+        border-bottom: 1px solid #ccc;
+        padding: 0.5rem 2rem;
+        box-shadow: 0px 4px 5px rgba(79, 0, 81, 0.1);
     }
 
     .Brand {
@@ -14,10 +16,12 @@ export const HeaderStyled = styled.header`
         top: 0.4rem;
         right: 0.5rem;
         grid-column: 1/2;
+        margin-top: 10px;
     }
     .Input {
         grid-column: 3/10;
         display: flex;
+        margin-top: 10px;
     }
     .Search {
         width: 80%;
@@ -40,32 +44,47 @@ export const HeaderStyled = styled.header`
         place-items: center;
     }
     .Cart {
-        grid-column: 11/11;
-        margin-left: 10px;
+        padding-left: 10px;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        /*justify-content: space-evenly; */
     }
     .Profile {
         grid-column: 12/12;
-        margin-left: 15px;
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        img {
+            padding-left: 5px;
+        }
+        p{
+            padding: 20px 5px;
+        }
     }
     // medium screens
 
-    @media @media (min-width: 601px) and (max-width: 1024px) {
-        /* .Cart,
-        .Hamburger {
-            display: none;
+    @media only screen and (max-width: 768px) {
+        .Header{
+            padding: 20px;
+            
         }
-
         .Brand {
-        } */
+        display: none;
+    }
+    .Input {
+       display: none;
+    }
+    .Cart {
+       display:none;
+    }
+    .Profile {
+       display: none;
     }
 
     // large screens
 
     @media (min-width: 1025px) {
-        padding: 1rem 12.3rem;
+        /* padding: 1rem 12.3rem; */
 
         /* .Cart,
         .Hamburger {

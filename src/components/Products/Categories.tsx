@@ -1,11 +1,19 @@
 import React from 'react';
 
 import { Title, Ul, A1 } from '@/components/Products/Categories.styled';
+import { Hamburger } from './Menu.styled';
 
 const Categories = () => {
     return (
         <div>
-            <Title>Categories</Title>
+            <div className="Cate">
+                <Title>Categories</Title>
+                <Hamburger>
+                    <span />
+                    <span />
+                    <span />
+                </Hamburger>
+            </div>
             <Ul>
                 <li>
                     <A1 href="https://google.com">Computing</A1>

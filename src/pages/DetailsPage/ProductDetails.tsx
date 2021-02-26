@@ -15,9 +15,15 @@ import {
     ProductDetail,
     ImageDiv1,
     ImageDiv2,
+    Div2,
+    Div3,
+    Span,
+    RightImage,
+    Rate,
 } from '@/pages/DetailsPage/ProductDetails.styled';
 
 import Carousel1 from '@/pages/DetailsPage/Carousel1';
+import Footer from '@/components/Footer/Footer';
 
 const ProductDetails = () => {
     return (
@@ -27,33 +33,42 @@ const ProductDetails = () => {
                 <SliderSpace>
                     <Carousel1 />
                 </SliderSpace>
-                <div>
+                <Div2>
                     <ProductDets>
-                        UMIDIGI A7 Pro 6.3-Inch (4GB
-                        <br /> RAM,64GB ROM) Android
-                        <br /> 10.0,(16MP+16MP+5MP+5MP)+16MP
-                        <br /> Dual 4G LTE+SD Smartphone
-                        <br /> -Cosmic Black
+                        UMIDIGI A7 Pro 6.3-Inch (4GB RAM,64GB ROM) Android 10.0,(16MP+16MP+5MP+5MP)+16MP Dual 4G LTE+SD
+                        Smartphone -Cosmic Black
                     </ProductDets>
                     <BrandName>
                         Brand: <span>UMIDIGI | Similar products from UMIDIGI</span>
                     </BrandName>
+                    <Span>
+                        N49,900 <span>||</span>
+                    </Span>
                     <ProductPrice>N 39,990</ProductPrice>
                     <br />
-                    <span>
-                        <a href="https://google.com">
-                            <img src="/img/cart.png" alt="cart" />
-                        </a>
-                    </span>
+                    <Rate>
+                        <div>
+                            <img src="/img/star1.png" alt="filled start"/>
+                            <img src="/img/star1.png" alt="filled start"/>
+                            <img src="/img/star1.png" alt="filled start"/>
+                            <img src="/img/star1.png" alt="filled start"/>
+                            <img src="/img/stars.png" alt="filled start"/>
+                        </div>
+                        <div>
+                            <img src="/img/heart.png" alt="heart"/>
+                        </div>
+                    </Rate>
                     <Btn type="submit">Add to cart</Btn>
-                </div>
+                </Div2>
             </Par1>
 
             <Par2>
-                <div>
+                <Div3>
                     <ProductDetail>
-                        Products
-                        <br /> Details
+                        Description
+                        <span>
+                            <img src="/img/down-arrow.png" alt="down arrow"/>
+                        </span>
                     </ProductDetail>
                     <ProductDets2>
                         OS:Stock Android 10.0
@@ -67,19 +82,16 @@ const ProductDetails = () => {
                         <br /> Battery: 4150 mAh
                     </ProductDets2>
                     <ProductDets2>
-                        CPU:MediaTek, Helio P23, 4xCortex-A53, 2.0GHz &amp; 4xCortex-A53,
-                        <br /> 1.5GHz
-                        <br />
-                        Other features:Quad Rear Camera, Global Version, Type-C, Dual 4G Network, 2+1 Cart Slots,
-                        Octa-Core Processor
-                        <br />
-                        Network: 4G,3G, WCDMA,TD-SCDMA, 2G GSM.
+                        <p>SIM Card: Dual</p>
+                        <p>RAM:4GB</p>
+                        <p>ROM:64GB</p>
+                        <p>Battery: 4150mAh</p>
                     </ProductDets2>
-                </div>
+                </Div3>
 
-                <SliderSpace>
+                <RightImage>
                     <img src="/img/phone.png" alt="umgidi" />
-                </SliderSpace>
+                </RightImage>
             </Par2>
 
             <Par3>
@@ -90,6 +102,7 @@ const ProductDetails = () => {
                     <img src="/img/metal.png" alt="metal" />
                 </ImageDiv2>
             </Par3>
+            <Footer />
         </Page>
     );
 };
