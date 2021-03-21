@@ -2,9 +2,7 @@ import React from 'react'
 import 
 
 function SalesReps() {
-    return (
-        
-    )
+    return;
 }
 
 export default SalesReps

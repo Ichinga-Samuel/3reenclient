@@ -10,9 +10,7 @@ color:black
 
 `;
 function OrderDisPlayHead() {
-    return (
-        
-    )
+    return;
 }
 
 export default OrderDisPlayHead
