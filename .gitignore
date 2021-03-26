@@ -70,3 +70,4 @@ out
 # next-pwa
 /public/sw.js
 /public/workbox-*.js
+package-lock.json
