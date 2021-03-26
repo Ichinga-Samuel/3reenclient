@@ -16,9 +16,10 @@ export const Ul = styled.div`
 
 export const Span = styled.span`
     display: none;
-    max-height: ${({ isOpen }) => (isOpen ? '300px' : '0')};
+    max-height: '300px';
     transition: max-height 0.3s ease-in;
 `;
+// ${({ isOpen }) => (isOpen ? '300px' : '0')};
 
 export const Title = styled.div`
     padding: 5px 0;

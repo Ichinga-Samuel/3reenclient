@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import fakeData from './fakeData';
+// import React, { useState } from 'react';
+//import fakeData from './fakeData';
 
-function DropMenu({ title, fakeData = [], multiSelect }) {
+function DropMenu(
+    //{ title, fakeData = [], multiSelect }
+    ) {
     // const [open, setOpen] = useState(false);
     // const [selection, setSelection] = useState([]);
     // const toggle = () => setOpen(!open);

@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../VendorNavbar/Navbar';
+import {Navbar} from '../VendorNavbar/Navbar';
 import { VendorDashboardStyled } from './VendorDashboard.styled';
 
 const VendorDashboard = () => {

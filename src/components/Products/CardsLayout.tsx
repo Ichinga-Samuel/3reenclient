@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import fakeData from '@/components/Products/fakeData';
 import Menu from './Menu';
-import DropMenu from './DropMenu';
+//import DropMenu from './DropMenu';
 
 import {
     Card,
@@ -17,8 +17,8 @@ import {
     ProductCart,
 } from '@/components/Products/CardsLayout.styled';
 
-const CardsLayout = () => {
-    const allItems = fakeData.map((items) => (
+const CardsLayout = ({data = fakeData}) => {
+    const allItems = data.map((items) => (
         <Card key={items.id} id="filterValue">
             <div>
                 <Remain>{items.remainder}</Remain>

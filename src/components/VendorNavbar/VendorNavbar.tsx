@@ -1,7 +1,7 @@
-import { Navbar } from './VendorNavbar.styled';
+import { Navbar } from './Navbar';
 
 const VendorNavbar = () => {
-    return <Navbar>Navbar</Navbar>;
+    return <Navbar/>;
 };
 
 export default VendorNavbar;

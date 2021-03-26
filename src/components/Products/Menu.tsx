@@ -44,10 +44,10 @@ const Menu = () => {
                     <p>Top Deals</p>
                 </div>
                 <div>
-                    <ViewLink href="https://google.com">View all</ViewLink>
+                    <ViewLink ><a href="https://google.com">View all</a></ViewLink>
                 </div>
             </div>
-            <Span isOpen={isOpen}>
+            <Span data-isOpen={isOpen}>
                 <Title>Categories</Title>
                 <Ul>
                     <li>

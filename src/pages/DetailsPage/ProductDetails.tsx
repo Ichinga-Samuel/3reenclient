@@ -20,7 +20,7 @@ import {
     Span,
     RightImage,
     Rate,
-} from '@/pages/DetailsPage/ProductDetails.styled';
+} from '@/components/Products/ProductDetails.styled';
 
 import Carousel1 from '@/pages/DetailsPage/Carousel1';
 import Footer from '@/components/Footer/Footer';
