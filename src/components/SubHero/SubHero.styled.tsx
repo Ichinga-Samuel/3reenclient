@@ -6,6 +6,7 @@ export const SubHeroStyled = styled.section`
         flex-wrap: wrap;
         justify-content: space-around;
         text-align: center;
+        align-items: center;
     }
 
     .SubHero .Card {
@@ -17,6 +18,22 @@ export const SubHeroStyled = styled.section`
         font-size: 1.4rem;
         color: #878787;
         font-weight: 400;
+    }
+
+
+    //mobile
+    @media only screen and (max-width: 768px){
+        .SubHero{
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+        }
+        .SubHero .Card .CardTitle{
+            padding: 10px;
+        }
+        .SubHero .Card {
+            width: 15rem;
+        }
     }
 
     //medium screens

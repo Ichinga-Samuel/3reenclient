@@ -1,51 +1,33 @@
 import React from 'react';
 import Link from 'next/link';
 import { HeaderStyled } from './Header.styled';
+// import Search from '@/components/Products/Search';
+// import fakedata from '@/components/Products/fakeData';
 
 const Header = () => {
     return (
         <HeaderStyled>
-            <div className="Cart">
-                <Link href="/">
+            <div className="Header">
+                <div className="Brand">
+                    <Link href="/">
+                        <img src="/img/logo.svg" alt="3reenshop logo" />
+                    </Link>
+                </div>
+                <div className="Input">
+                    <input type="text" className="Search" placeholder="Search products..." />
+                    <button className="SearchBtn">Search</button>
+                </div>
+                <div className="Cart">
                     <img src="/img/cart.png" alt="cart icon" />
-                </Link>
-            </div>
-            <div className="Brand">
-                <Link href="/">
-                    <img src="/img/logo.svg" alt="3reenshop logo" />
-                </Link>
-            </div>
-            <ul className="NavItems">
-                <li>
-                    <Link href="/">
-                        <a className="active">Home</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/">
-                        <a>Store</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/">
-                        <a>Login</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/">
-                        <a>Sign Up</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/">
-                        <a>Contact Us</a>
-                    </Link>
-                </li>
-            </ul>
-            <div className="Hamburger">
-                <Link href="/">
-                    <img src="/img/hamburger.png" alt="menu icon" />
-                </Link>
+                    <span>Cart</span>
+                </div>
+                <div className="Profile">
+                    <img src="/img/pic.png" alt="profile icon" />
+                    <p>Hi, Jack </p>
+                    <span>
+                        <img src="/img/down-arrow.png" alt="arrow" />
+                    </span>
+                </div>
             </div>
         </HeaderStyled>
     );

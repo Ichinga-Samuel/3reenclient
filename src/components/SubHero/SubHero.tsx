@@ -17,6 +17,10 @@ const SubHero = () => {
                     <img src="/img/scarf3x.png" width="300px" height="200px" alt="scarf" />
                     <h4 className="CardTitle">Scarf</h4>
                 </div>
+                <div className="Card">
+                    <img src="/img/vintage3x.png" width="300px" height="200px" alt="vintage" />
+                    <h4 className="CardTitle">Vintage Shirt</h4>
+                </div>
             </div>
         </SubHeroStyled>
     );

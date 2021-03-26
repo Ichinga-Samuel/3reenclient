@@ -9,6 +9,9 @@ const Jumbotron = () => {
                     Delivering<span>Constant Happiness</span>
                 </h1>
                 <button className="CTA">Shop Now</button>
+                {/* <div className="Headphone">
+                    <img src="/img/headphones.png" alt="headphones"  />
+                </div> */}
             </section>
         </JumbotronStyled>
     );

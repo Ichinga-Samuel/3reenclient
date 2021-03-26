@@ -31,44 +31,46 @@ export const JumbotronStyled = styled.div`
     }
 
     .Container .CTA {
-        background: #590a5b;
+        background: ;
+        border: 1px solid #fff;
         color: white;
         width: 13.4rem;
         height: 5.2rem;
         margin-left: 1rem;
-        border-radius: 5rem;
         font-size: 1.8rem;
         text-transform: lowercase;
         font-weight: 400;
     }
 
-    // medium screens
+    .Container .Headphone {
+        height: 80px;
+        background-color: #ffffff;
+        border-radius: 40%;
+        width: 80px;
+        position: absolute;
+        z-index: 100;
+        right: 0;
+        padding: 10px;
+    }
 
-    @media (min-width: 768px) {
+    // medium screens
+    @media only screen and (max-width: 768px) {
         .Container {
             min-height: 50vh;
             background-position: 80% 10%;
         }
-
         .Container h1 {
-            font-size: 12vw;
-            line-height: 0.9;
-            margin-left: 8rem;
+            margin-left: 20px;
         }
-
-        .Container h1 span {
-            font-size: 5rem;
-            font-weight: 500;
-            margin-left: 0.6rem;
-        }
-
         .Container .CTA {
-            background: transparent;
-            width: 15rem;
-            height: 5rem;
-            margin-left: 8.6rem;
-            border: 0.4rem solid #ffffff;
-            font-size: 2.4rem;
+            background-color: #ffaf38;
+            width: 100px;
+            height: 40px;
+            border-radius: 30px;
+            margin-left: 20px;
+            border: 2px solid #fff;
+            font-size: 15px;
+            text-transform: capitalize;
         }
     }
 

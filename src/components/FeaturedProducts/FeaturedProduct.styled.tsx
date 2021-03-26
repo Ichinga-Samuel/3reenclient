@@ -56,7 +56,18 @@ export const FeaturedProductStyled = styled.div`
     }
 
 
-
+//mobile
+@media only screen and (max-width: 768px){
+    .FeaturedProductsItem{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .FeaturedProductsItem .FeaturedProductsItemsDescription p span {
+            color: #ff0000;
+            margin-right: 3.1rem;
+        }
+}
 
     // medium screens
     @media (min-width: 601px) and (max-width: 1024px)  {
