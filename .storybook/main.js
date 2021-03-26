@@ -1,5 +1,9 @@
 module.exports = {
-    stories: ['../src/stories/*.stories.@(ts|tsx|js|jsx|mdx)'],
+    // stories: ['../src/stories/*.stories.@(ts|tsx|js|jsx|mdx)'],
+    stories: ['../src/components/CustomerCare/*.stories.@(ts|tsx|js|jsx|mdx)',
+        '../src/stories/*.stories.@(ts|tsx|js|jsx|mdx)',
+        '../src/components/CustomerCare/*.stories.@(ts|tsx|js|jsx|mdx)'
+    ],
     addons: [
         '@storybook/preset-scss',
         '@storybook/addon-knobs',
