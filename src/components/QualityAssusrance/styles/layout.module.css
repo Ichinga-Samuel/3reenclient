@@ -1,0 +1,37 @@
+.header {
+    padding: 1rem 3rem;
+    background-color: #fafafa;
+}
+
+.header ul a {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.header ul a:hover {
+    text-decoration: none;
+    color: #590a5b;
+}
+
+.inputPadding {
+    padding: 2.5rem 1rem;
+}
+
+.inputError {
+    border-color: #dc3545;
+}
+
+.btnStyle {
+    padding: 1.6rem 1rem;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.btnStyle:hover,
+.btnStyle:focus {
+    transform: scale(0.99);
+}
+
+.equalFlexBasis {
+    flex-basis: 45%;
+}
