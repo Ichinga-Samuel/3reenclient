@@ -17,5 +17,6 @@ function MyApp({ Component, pageProps }: AppProps): React.ReactNode {
         </>
     );
 }
+/**a comment */
 
 export default MyApp;
