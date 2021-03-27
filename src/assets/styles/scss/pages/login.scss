@@ -1,0 +1,40 @@
+body{
+    width:100vw;
+    overflow-x:hidden;
+    
+    .title{
+        color:black;
+        padding:10px;
+    }
+    #form-cover{
+         width:100%;   
+         background-color:white;
+         .google{
+            border:1px solid red;
+            color:red;
+        }
+        .facebook{
+            border:1px solid blue;
+            color:blue;
+        }
+        .twitter{
+            border:1px solid lightblue;
+            color:lightblue;
+        }
+        
+         form{
+           width:100%;  
+          
+         }           
+         .action{
+             color:#590a58;
+             padding:10px 20px 10px 20px;
+         }
+         p{
+             padding:10px 20px 10px 20px;
+             font-size:1.5em;
+         }
+
+    }
+}
+

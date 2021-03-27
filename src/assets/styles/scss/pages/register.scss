@@ -1,0 +1,134 @@
+/*
+
+Rgistration page
+**
+
+***
+*/
+.title{
+    color:black;
+    padding:10px;
+}
+.form-section-r{
+    
+    background:white;
+    padding:10px;
+    width:650px;
+    .action{
+        color:purple;
+        padding:1em 24px 0em 24px;
+    }
+    p{
+        padding:1em 24px 0em 24px;
+        font-size:1.5em;
+    }
+    form{
+       
+        padding:20px;
+       div{
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+       }
+    }
+    label{
+        padding:8px 4px 8px 4px;
+        display:inline-block;
+        font-size:1.3em;
+    }
+    .input{
+        width:270px;
+        border:1px solid #ccc;
+        display:block;
+        height:30px;
+    }
+    [type="submit"]{
+        background-color:purple;
+        display:block;
+        color:white;
+        width:270px;
+        height:35px;
+        font-size:1.3em;
+        margin-bottom:8px;
+    }
+    #align-R-submit{
+        padding:8px 4px 8px 4px;
+        display:block;
+        height:100px;
+        
+        
+        a{
+            display:block;
+            color:#ccc;
+            font-size:13px;
+            padding:.7em;
+        }
+    }
+    .social{
+        width:99%;
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        padding:4px 24px 5px 24px;
+        button{
+            width:270px;
+            height:30px;
+                margin-bottom:8px;
+                font-size:12px;
+                padding:1px 20px 1px 20px;
+                span{
+                    padding:2px 25px 2px 25px;
+                    display:flex;
+                    justify-content:space-around;
+                }
+                img{
+                    height:16px;
+                    width:13px;
+                    
+                }
+        }
+        .google{
+            border:1px solid red;
+            color:red;
+        }
+        .facebook{
+            border:1px solid blue;
+            color:blue;
+        }
+        .twitter{
+            border:1px solid lightblue;
+            color:lightblue;
+        }
+    }
+}
+@media (max-width:650px){
+    .title{
+        font-size:14px;
+    }
+    .form-section-r{
+        width:90vw;
+        form{
+            div{
+             display:flex;
+             flex-wrap:wrap;
+             justify-content:center;
+            }
+            #terms-l{
+                display:block;
+                width:270px;
+                margin:auto;
+                font-size:6px;
+            }
+            #align-R-submit{
+                width:270px;
+                margin:auto;
+                a{
+                    font-size:8px;
+                }
+            }
+        }
+        .social{
+            justify-content:center;
+        }
+    }
+}
