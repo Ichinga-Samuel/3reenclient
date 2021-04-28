@@ -1,10 +1,7 @@
 .column{
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
-=======
     flex-wrap: wrap;
->>>>>>> customer-success-team
 }
 .fnsz-30{
     font-size: 30px;
@@ -24,12 +21,9 @@
 .mgtop-4{
     margin-bottom: 4px;
 }
-<<<<<<< HEAD
-=======
 .mglf20{
     margin-left: 20px;
 }
->>>>>>> customer-success-team
 .col{
     display: flex;
 }
