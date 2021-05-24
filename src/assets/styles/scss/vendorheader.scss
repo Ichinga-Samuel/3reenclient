@@ -1,0 +1,11 @@
+// variable color defined
+
+$white-color: rgb(255, 255, 255);
+
+.vendorheader {
+    width: 100%;
+    background: $white-color;
+    display: flex;
+    height: 45px;
+    align-items: center;
+}

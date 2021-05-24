@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const HeaderStyled = styled.header`
+export const VendorHeaderStyled = styled.header`
+    position: fixed;
+    z-index: 100;
+    width: 100%;
     .Header {
         display: grid;
         /*grid-template-columns: repeat(12, 1fr);
@@ -55,15 +58,17 @@ export const HeaderStyled = styled.header`
         place-items: center;
     }
     .Cart {
+        grid-column: 11/12;
         padding-left: 10px;
         display: flex;
         align-items: center;
         margin: auto;
         /*justify-content: space-evenly; */
         position: relative;
-        svg {
-            width: 30px;
-            object-fit: contain;
+        cursor: pointer;
+        span {
+            font-size: 2.3rem;
+            color: #590a5b;
         }
         &__label {
             color: #590A5B;
