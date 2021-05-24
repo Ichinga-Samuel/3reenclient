@@ -12,7 +12,7 @@ import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 
 const VendorSiderbar = () => {
     const router = useRouter();
-    // console.log('toure', router);
+    console.log('toure', router);
 
     const dropDown = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +34,7 @@ const VendorSiderbar = () => {
         };
     }, [isOpen]);
 
+    // className={router.pathname == '/vendor/dashboard' ? 'active' : ''}
     return (
         <VendorSidebarStyled>
             <div className="vHeader">
@@ -45,8 +46,8 @@ const VendorSiderbar = () => {
             </div>
             <div className="vendorMenu">
                 <ul>
-                    <li className={router.pathname == '/vendor/dashboard' ? 'active' : ''}>
-                        <Link href="/vendor/dashboard">
+                    <li>
+                        <Link activeClassName="active" href="/vendor/dashboard">
                             <a>
                                 <Dashboard />
                                 <span>Dashboard</span>
@@ -63,19 +64,14 @@ const VendorSiderbar = () => {
                                 <CaretUpOutlined style={{ paddingLeft: '10rem' }} />
                             )}
                         </div>
-                        <div
-                            className={`drop-cont ${
-                                isOpen || router.pathname == '/vendor/inventory/allproducts' ? 'active' : 'inactive'
-                            }`}
-                            ref={dropDown}
-                        >
+                        <div className={`drop-cont ${isOpen ? 'active' : 'inactive'}`} ref={dropDown}>
                             <ul>
-                                <li className={router.pathname == '/vendor/inventory/allproducts' ? 'active' : ''}>
+                                <li>
                                     <Link href="/vendor/inventory/allproducts">
                                         <a>All Products</a>
                                     </Link>
                                 </li>
-                                <li className={router.pathname == '/vendor/inventory/create-product' ? 'active' : ''}>
+                                <li>
                                     <Link href="/vendor/inventory/create-product">
                                         <a>Create Product</a>
                                     </Link>
@@ -83,7 +79,7 @@ const VendorSiderbar = () => {
                             </ul>
                         </div>
                     </li>
-                    <li className={router.pathname == '/vendor/orders' ? 'active' : ''}>
+                    <li>
                         <Link href="/vendor/orders">
                             <a>
                                 <Order />
@@ -91,7 +87,7 @@ const VendorSiderbar = () => {
                             </a>
                         </Link>
                     </li>
-                    <li className={router.pathname == '/vendor/reviews' ? 'active' : ''}>
+                    <li>
                         <Link href="/vendor/reviews">
                             <a>
                                 <Ratings />
@@ -99,7 +95,7 @@ const VendorSiderbar = () => {
                             </a>
                         </Link>
                     </li>
-                    <li className={router.pathname == '/vendor/customerservices' ? 'active' : ''}>
+                    <li>
                         <Link href="/vendor/customerservices">
                             <a>
                                 <CustomerService />

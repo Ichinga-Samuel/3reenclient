@@ -96,6 +96,7 @@ export const VendorHeaderStyled = styled.header`
         grid-column: 12/12;
         display: flex;
         align-items: center;
+        cursor: pointer;
         /* justify-content: space-between; */
         img {
             padding-left: 5px;
@@ -113,7 +114,7 @@ export const VendorHeaderStyled = styled.header`
     @media only screen and (max-width: 768px) {
         .Header{
             padding: 20px;
-            
+
         }
         .Brand {
         display: none;
