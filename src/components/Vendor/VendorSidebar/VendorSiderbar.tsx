@@ -46,8 +46,8 @@ const VendorSiderbar = () => {
             </div>
             <div className="vendorMenu">
                 <ul>
-                    <li>
-                        <Link activeClassName="active" href="/vendor/dashboard">
+                    <li className="active">
+                        <Link href="/vendor/dashboard">
                             <a>
                                 <Dashboard />
                                 <span>Dashboard</span>

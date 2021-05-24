@@ -5,16 +5,12 @@ import { CartStyled } from './Cart.styled';
 import CartContainer from './CartContainer';
 export default function Cart() {
     return (
-        <>
+        <div className="cart">
             <CartStyled>
-                <div className="cart">
                     <CheckoutHeader />
-
                     <CartContainer />
-
                     <CheckoutFooter />
-                </div>
             </CartStyled>
-        </>
+        </div>
     );
 }
