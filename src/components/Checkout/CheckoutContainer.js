@@ -21,7 +21,9 @@ export default function CheckoutContainer() {
                         </div>
 
                         <div className="input-name">
-                            <label className="lock">+234</label>
+                            <label htmlFor="lock" className="lock">
+                                +234
+                            </label>
                             <input type="text" placeholder="7012345678" className="text-name p" />
                         </div>
 
@@ -73,7 +75,7 @@ export default function CheckoutContainer() {
                     <div className="checkoutProduct">
                         <div className="Products">
                             {data.products.map((product) => (
-                                <div className="product">
+                                <div key={} className="product">
                                     <div className="productDetail">
                                         <img src={product.image} className="productImage" alt="product" />
                                         <h4>{product.name}</h4>

@@ -99,7 +99,7 @@ const Signup = () => {
                 <button>REGISTER NOW</button>
                 <p>
                     Already have an account?{' '}
-                    <Link  href="google.com">
+                    <Link href="google.com">
                         <a href="google.com">Log in</a>
                     </Link>
                 </p>

@@ -23,9 +23,8 @@ export const BestSellerNavStyled = styled.nav`
 
     .BestSellerNav li a {
         text-decoration: none;
-        &:hover{
+        &:hover {
             color: #590a5b;
-
         }
     }
 

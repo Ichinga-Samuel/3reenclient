@@ -38,7 +38,7 @@ export default function CheckoutFooter() {
                         <div className="heading">
                             <h2>Payment Method</h2>
                         </div>
-                        <img src="img/flutterwave-logo-1.png" className="iconPayment"  alt="contact" />
+                        <img src="img/flutterwave-logo-1.png" className="iconPayment" alt="contact" />
                     </div>
                     <div className="footerFour">
                         <div className="heading">
@@ -68,36 +68,35 @@ export default function CheckoutFooter() {
                 </div>
             </div>
             <div className="footerMobile">
-                    <div className="footerMobileLogo">
-                        <img src="img/logo.svg" alt="logo" />
-                    </div>
+                <div className="footerMobileLogo">
+                    <img src="img/logo.svg" alt="logo" />
+                </div>
 
-                    <div className="footerMobileSocial">
+                <div className="footerMobileSocial">
                     <li>
-                                <a href="social">
-                                    <img src="img/fb-rounded-brand-white-64.png" className="icon" alt="social" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="social">
-                                    <img src="img/gplus-rounded-brand-white-64.png" className="icon" alt="social" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="social">
-                                    <img src="img/twitter-rounded-brand-white-64.png" className="icon" alt="social" />
-                                </a>
-                            </li>
-                    </div>
-                  
-                  <div className="footerMobilePayment">
-                      <img src="img/western-union.png" alt="icon" />
-                      <img src="img/master.png" alt="icon" />
-                      <img src="img/paypal.png" alt="icon" />
-                      <img src="img/visa.png" alt="icon" />
-                  </div>
-                  
-                    </div>
+                        <a href="social">
+                            <img src="img/fb-rounded-brand-white-64.png" className="icon" alt="social" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="social">
+                            <img src="img/gplus-rounded-brand-white-64.png" className="icon" alt="social" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="social">
+                            <img src="img/twitter-rounded-brand-white-64.png" className="icon" alt="social" />
+                        </a>
+                    </li>
+                </div>
+
+                <div className="footerMobilePayment">
+                    <img src="img/western-union.png" alt="icon" />
+                    <img src="img/master.png" alt="icon" />
+                    <img src="img/paypal.png" alt="icon" />
+                    <img src="img/visa.png" alt="icon" />
+                </div>
+            </div>
         </CheckoutFooterStyled>
     );
 }
