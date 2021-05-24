@@ -39,7 +39,7 @@ const Footer = () => {
                         <div className="Input">
                             <input type="text" className="Search" placeholder='Try "watches"' />
                             <button className="SearchBtn">
-                                <img src="/img/Vector.png" alt="search"/>
+                                <img src="/img/Vector.png" alt="search" />
                             </button>
                         </div>
                     </span>

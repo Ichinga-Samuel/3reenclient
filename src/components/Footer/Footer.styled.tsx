@@ -101,12 +101,12 @@ export const FooterStyled = styled.footer`
             float: right;
             width: 6rem;
             height: 3rem;
-            background-color: #590A5B;
+            background-color: #590a5b;
             color: white;
             place-items: center;
             border-radius: 20px;
             cursor: pointer;
-            border:none;
+            border: none;
         }
         .Socials .Logo {
             margin-left: 12rem;

@@ -48,14 +48,14 @@ const ProductDetails = () => {
                     <br />
                     <Rate>
                         <div>
-                            <img src="/img/star1.png" alt="filled start"/>
-                            <img src="/img/star1.png" alt="filled start"/>
-                            <img src="/img/star1.png" alt="filled start"/>
-                            <img src="/img/star1.png" alt="filled start"/>
-                            <img src="/img/stars.png" alt="filled start"/>
+                            <img src="/img/star1.png" alt="filled start" />
+                            <img src="/img/star1.png" alt="filled start" />
+                            <img src="/img/star1.png" alt="filled start" />
+                            <img src="/img/star1.png" alt="filled start" />
+                            <img src="/img/stars.png" alt="filled start" />
                         </div>
                         <div>
-                            <img src="/img/heart.png" alt="heart"/>
+                            <img src="/img/heart.png" alt="heart" />
                         </div>
                     </Rate>
                     <Btn type="submit">Add to cart</Btn>
@@ -67,7 +67,7 @@ const ProductDetails = () => {
                     <ProductDetail>
                         Description
                         <span>
-                            <img src="/img/down-arrow.png" alt="down arrow"/>
+                            <img src="/img/down-arrow.png" alt="down arrow" />
                         </span>
                     </ProductDetail>
                     <ProductDets2>

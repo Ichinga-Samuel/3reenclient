@@ -1,22 +1,20 @@
-import React from 'react'
-import CheckoutFooter from '../Checkout/CheckoutFooter'
-import CheckoutHeader from '../Checkout/CheckoutHeader'
-import { CartStyled } from './Cart.styled'
-import CartContainer from './CartContainer'
+import React from 'react';
+import CheckoutFooter from '../Checkout/CheckoutFooter';
+import CheckoutHeader from '../Checkout/CheckoutHeader';
+import { CartStyled } from './Cart.styled';
+import CartContainer from './CartContainer';
 export default function Cart() {
     return (
         <>
+            <CartStyled>
+                <div className="cart">
+                    <CheckoutHeader />
 
-        <CartStyled>
-            <div className="cart">
-     <CheckoutHeader />
+                    <CartContainer />
 
-<CartContainer />
-
-     <CheckoutFooter />
-
-     </div>
-     </CartStyled>
-     </>
-    )
+                    <CheckoutFooter />
+                </div>
+            </CartStyled>
+        </>
+    );
 }

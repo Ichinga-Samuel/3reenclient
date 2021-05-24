@@ -1,92 +1,80 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const CheckoutFooterStyled = styled.div` 
+export const CheckoutFooterStyled = styled.div`
+    li {
+        list-style: none;
+    }
+    a {
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: #000000;
+    }
 
-li{
-    list-style:none;
-}
-a{
-    font-size:1.5rem;
-    text-decoration:none;
-    color:#000000;
-}
+    .heading {
+        margin-bottom: 1.5rem;
+    }
+    .footer {
+        background: #fffffff;
+    }
 
-.heading{
-    margin-bottom:1.5rem;
-}
-.footer{
-    background:#fffffff;
-}
+    .footerWrapper {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 
-.footerWrapper{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-}
+    .icon {
+        width: 3rem;
+    }
+    .iconPayment {
+        width: 15rem;
+    }
 
-.icon{
-    width:3rem
-}.iconPayment{
-    width:15rem;
-}
+    .socialMedia {
+        display: flex;
+        align-items: center;
+    }
+    .footerLinks > li {
+        margin-bottom: 1rem;
+    }
 
-.socialMedia{
-    display:flex;
-    align-items:center;
-}
-.footerLinks > li{
-    margin-bottom:1rem;
-}
+    .footerLinks > li > a:hover {
+        color: #ffaf38;
+    }
 
-.footerLinks > li > a:hover{
-    color:#ffaf38;
-}
+    .footerMobile {
+        display: none;
+    }
 
-.footerMobile{
-    display:none;
-}
+    @media only screen and (max-width: 580px) {
+        .footer {
+            display: none;
+        }
 
+        .footerMobile {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
 
-@media only screen and (max-width: 580px){
-.footer{
-    display:none;
-}
+        .icon {
+            width: 4rem;
+        }
 
+        .footerMobileSocial {
+            display: flex;
+            margin-top: 2rem;
+            margin-bottom: 4.791rem;
+        }
 
-.footerMobile{
-    display:flex;
-    align-items:center;
-    flex-direction:column;
-}
+        .footerMobileSocial > li {
+            display: flex;
+            align-items: center;
+            margin-right: 1.791rem;
+        }
 
-.icon{
-    width:4rem;
- 
-}
-
-.footerMobileSocial{
-    display:flex;
-    margin-top:2rem;
-    margin-bottom:4.791rem;
-   
-}
-
-
-.footerMobileSocial > li {
-    display:flex;
-    align-items:center;
-    margin-right:1.791rem;
-}
-
-
-
-.footerMobilePayment > img{
-    margin:1rem;
-}
-
-
-
-
-}
-
+        .footerMobilePayment > img {
+            margin: 1rem;
+        }
+    }
 `;

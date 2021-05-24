@@ -44,7 +44,9 @@ const Menu = () => {
                     <p>Top Deals</p>
                 </div>
                 <div>
-                    <ViewLink ><a href="https://google.com">View all</a></ViewLink>
+                    <ViewLink>
+                        <a href="https://google.com">View all</a>
+                    </ViewLink>
                 </div>
             </div>
             <Span data-isOpen={isOpen}>

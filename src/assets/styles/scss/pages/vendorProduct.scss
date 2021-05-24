@@ -1,0 +1,190 @@
+:root {
+    --background-color: #590A5B;
+    --secondary-color: #FFAF38;
+    --white-color: rgb(255, 255, 255);
+}
+
+@media(max-width:1500px) and (min-width:800px) {
+    .product {
+        margin-top: 10px;
+        align-items: center;
+        width: 100%;
+
+        &__filter {
+            background-color: var(--background-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 30px;
+            border-radius: 4px;
+            color: var(--white-color);
+            width: 100%;
+            transition: ease all 0.5s;
+        }
+
+        &__view-filters {
+            .ant-btn-primary {
+                background-color: transparent;
+                border-color: 1px solid var(--white-color);
+                border-radius: 10px;
+                height: 34px;
+                padding: 4px 35px;
+                font-size: 12px;
+
+                &:hover {
+                    border-color: var(--secondary-color);
+                }
+            }
+        }
+
+        &__search {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            margin-left: 10rem;
+
+            .anticon {
+                position: absolute;
+                left: 3rem;
+                font-size: 14px;
+            }
+
+            .search-product {
+                background-color: transparent;
+                border-color: var(--secondary-color);
+                border: 1px solid var(--secondary-color);
+                border-radius: 5px;
+                position: relative;
+                width: 100%;
+                padding: 3px 25px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                font-size: 12px;
+                text-align: center;
+
+                &::placeholder {
+                    color: var(--white-color);
+                }
+
+                &:focus {
+                    border-color: var(--white-color);
+                    border: 1px solid var(--white-color);
+                }
+            }
+        }
+
+        &__status {
+            display: flex;
+            align-items: center;
+            margin-left: 10rem;
+
+            span {
+                padding-right: 10px;
+            }
+
+            .ant-select {
+                color: var(--white-color);
+                font-size: 12px;
+
+                &:not(.ant-select-customize-input) {
+                    .ant-select-selector {
+                        background-color: transparent;
+                        border-radius: 6px;
+                    }
+                }
+            }
+
+            .ant-select-arrow {
+                svg {
+                    color: var(--white-color);
+                }
+            }
+        }
+    }
+
+    .export {
+        display: flex;
+        background: var(--background-color);
+        width: 100%;
+        border-radius: 4px 4px 0 0;
+        padding: 10px 3rem;
+        transition: ease all 0.5s;
+        margin-top: 10px;
+        justify-content: space-between;
+        align-items: center;
+
+        &__options {
+            display: flex;
+
+            >div {
+                margin-right: 3rem;
+                transition: ease all 0.5s;
+
+                .ant-btn-primary {
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid var(--white-color);
+                    background: transparent;
+                    border-radius: 10px;
+                    font-size: 13px;
+                    padding: 2px 2.4rem;
+                    font-weight: lighter;
+                }
+            }
+        }
+
+        .pagination {
+            display: flex;
+
+            .ant-pagination {
+                color: #fff;
+            }
+
+            .ant-pagination.mini .ant-pagination-prev .ant-pagination-item-link,
+            .ant-pagination.mini .ant-pagination-next .ant-pagination-item-link {
+                display: flex;
+                align-items: center;
+                color: #fcf009;
+            }
+
+            .ant-pagination-item-active {
+                font-weight: 500;
+                background: transparent;
+                border-color: #ffaf38;
+            }
+        }
+    }
+
+    .productdata {
+        margin-top: 1px;
+        .ant-checkbox-inner {
+            border: 1px solid var(--secondary-color);
+        }
+        .ant-checkbox-checked {
+            &.ant-checkbox-inner {
+                background-color: var(--secondary-color);
+                border-color: var(--secondary-color);
+            }
+        }
+        .ant-checkbox-indeterminate {
+            &.ant-checkbox-inner {
+                &::after {
+                    background-color: var(--secondary-color);
+                }
+            }
+        }
+        .ant-table-thead > tr > th {
+            background: var(--background-color);
+            color: var(--white-color);
+        }
+        .ant-dropdown-menu-item > a, .ant-dropdown-menu-submenu-title > a {
+            padding: 10px 12px;
+            color: #969696;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

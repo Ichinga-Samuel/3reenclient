@@ -1,8 +1,8 @@
-import React from 'react'
-import CheckoutFooter from '../Checkout/CheckoutFooter'
-import CheckoutHeader from '../Checkout/CheckoutHeader'
+import React from 'react';
+import CheckoutFooter from '../Checkout/CheckoutFooter';
+import CheckoutHeader from '../Checkout/CheckoutHeader';
 import data from '../Checkout/data';
-import { PaymentStyled } from './Payment.styled'
+import { PaymentStyled } from './Payment.styled';
 
 export default function Payment() {
     return (
@@ -10,7 +10,7 @@ export default function Payment() {
             <CheckoutHeader />
             <PaymentStyled>
                 <div className="container">
-                <h2 className="heading">Payment Options</h2>
+                    <h2 className="heading">Payment Options</h2>
                     <div className="paymentContainer">
                         <div className="paymentWrapper">
                             <h4>Payment</h4>
@@ -55,18 +55,18 @@ export default function Payment() {
                         </div>
 
                         <div className="productContainer">
-                        {data.products.map((product) => (
+                            {data.products.map((product) => (
+                                <div key={product._id} className="productWrapper">
+                                    <div className="productDescription">
+                                        <img src={product.image} alt="phone" />
+                                        <div className="productTitle">{product.name}</div>
+                                    </div>
+                                    <div className="amount">
+                                        <h3>&#8358;{product.price}</h3>
+                                    </div>
+                                </div>
+                            ))}
 
-<div className="productWrapper">
-<div className="productDescription">
-       <img src={product.image} alt="phone" />
-       <div className="productTitle">{product.name}</div>
-   </div>
-   <div className="amount"><h3>&#8358;{product.price}</h3></div>
-</div>
-
-                        ))}
-                           
                             <div className="productPrice">
                                 <div className="Fee">
                                     <h3>Shipping: </h3>
@@ -77,7 +77,6 @@ export default function Payment() {
                                     <h3>Sub Total Fee:</h3>
                                     <h3>&#8358; 1,280</h3>
                                 </div>
-
                             </div>
                         </div>
                     </div>

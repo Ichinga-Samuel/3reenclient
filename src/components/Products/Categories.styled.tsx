@@ -9,7 +9,7 @@ export const Ul = styled.div`
     line-height: 1.5;
     letter-spacing: 2.5;
     list-style-type: none;
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 768px) {
         display: none;
     }
 `;

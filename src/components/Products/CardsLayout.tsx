@@ -17,7 +17,7 @@ import {
     ProductCart,
 } from '@/components/Products/CardsLayout.styled';
 
-const CardsLayout = ({data = fakeData}) => {
+const CardsLayout = ({ data = fakeData }) => {
     const allItems = data.map((items) => (
         <Card key={items.id} id="filterValue">
             <div>

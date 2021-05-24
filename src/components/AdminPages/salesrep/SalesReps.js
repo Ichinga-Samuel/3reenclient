@@ -1,8 +1,7 @@
-import React from 'react'
-import 
+import React from 'react';
 
 function SalesReps() {
-    return;
+    return <div>Sale Reps</div>;
 }
 
-export default SalesReps
+export default SalesReps;

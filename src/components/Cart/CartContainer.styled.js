@@ -10,13 +10,13 @@ export const CartContainerStyled = styled.div`
         margin-top: 0rem;
     }
 
-    
+
     .cart-productSystem {
         display: grid;
         grid-template-columns: 80px auto;
         grid-gap: 0rem 1.3rem;
         padding: 1rem 1rem;
-        
+
     }
 
     .cart-image {
@@ -44,7 +44,7 @@ export const CartContainerStyled = styled.div`
     color:#333;
     width:17.1%;
     margin-left:-.3rem;
-    
+
 }
 
 .desktopHeading{
@@ -61,7 +61,7 @@ export const CartContainerStyled = styled.div`
    margin-top:2.5rem;
    display:flex;
    align-items:center;
-   
+
 }
 
 .actionDelete  > p{
@@ -93,7 +93,7 @@ export const CartContainerStyled = styled.div`
         display: flex;
         justify-content: space-between;
         padding-top: .5rem 0.8rem;
-     
+
     }
 
     .cart-quantity-controls-sm {
@@ -138,7 +138,7 @@ margin-bottom:.3rem;
     height:3.25rem;
     border: 1px solid #FFAF38;
     background:#ffffff;
-    color:#FFAF38; 
+    color:#FFAF38;
     font-size:1rem;
     margin-bottom:2.125rem;
 }
@@ -153,20 +153,20 @@ margin-bottom:.3rem;
         justify-content:flex-end;
         flex-direction:column;
     }
-    
+
     .cart-total > p:first-child{
         margin-right:1rem;
     }
-    
+
     .cart-action-button a{
         padding-left:1rem;
         padding-right:1rem;
     }
     .cart-action-button a:first-child{
         margin-right:1rem;
- 
+
     }
-    
+
 .cart-collection{
     padding-top:2rem
 }
@@ -189,7 +189,7 @@ a{
     border:1px solid #FFAF38;
     padding:5px;
     color:#FFAF38;
-   
+
 }
 
 .fill{
@@ -237,7 +237,7 @@ a{
         display: block;
     }
 
- 
+
 .cart-productSystem{
     margin-right:16.25rem;
 }
@@ -246,9 +246,9 @@ a{
         display:flex;
         flex:0.8;
         align-items:center;
-       
+
     }
- 
+
     .cart-quantity-controls{
        margin-top:2.2rem
     }
@@ -270,7 +270,7 @@ a{
          width:3rem;
      }
 
-  
+
 .cart-collection{
 flex-wrap:wrap;
 }
@@ -318,7 +318,7 @@ flex-wrap:wrap;
     .detail{
         display:flex;
         justify-content:space-between;
-    
+
     }
 
     .sectionTwo{
@@ -361,7 +361,7 @@ flex-wrap:wrap;
         color: #590A5B;
         background:#ffff;
         font-weight:bold;
-        
+
     }
 
     .desktopHeading{
@@ -411,7 +411,7 @@ flex-wrap:wrap;
         border: 1px solid #FFAF38;
         border-radius: 50px;
         background:#ffffff;
-        color:#FFAF38; 
+        color:#FFAF38;
         font-size:1.3rem;
         margin-bottom:2.125rem;
     }
@@ -442,7 +442,7 @@ flex-wrap:wrap;
         font-size: 14px;
         line-height: 17px;
         text-decoration-line: line-through;
-        
+
         color: #590A5B;
     }
 

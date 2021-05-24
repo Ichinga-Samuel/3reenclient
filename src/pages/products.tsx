@@ -8,7 +8,7 @@ function products() {
     return (
         <Page>
             <Header />
-            <ImageHeader/>
+            <ImageHeader />
             <Card />
             <Footer />
         </Page>

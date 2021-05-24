@@ -12,7 +12,6 @@ export const Banner = styled.section`
         background-size: cover;
     }
 
- 
     //Medium screens
     @media (min-width: 601px) and (max-width: 1024px) {
         .Banner {

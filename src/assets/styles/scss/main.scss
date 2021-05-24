@@ -1,12 +1,16 @@
 
 @import "CSSReset";
 //@import "fonts";
+@import 'antd/dist/antd.css';
 @import "variables";
 @import "global";
 @import 'custom';
 @import "./pages/login";
 @import "./pages/register";
+@import "./pages/vendorProduct.scss";
 @import "./pages/resetPassword";
 @import "./pages/changePassword";
 @import "./pages/forgotPassword";
+@import '../../../components/Vendor/Dashboard/Screen1.css';
+@import '../../../components/Vendor/Dashboard/Screen2.css';
 

@@ -1,4 +1,4 @@
-import VendorDashboard from '@/components/VendorDashboard/VendorDashboard';
+import VendorDashboard from '@/components/Vendor/Dashboard/Dashboard';
 import React from 'react';
 
 const dashboard = () => {

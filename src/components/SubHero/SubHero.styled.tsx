@@ -20,15 +20,14 @@ export const SubHeroStyled = styled.section`
         font-weight: 400;
     }
 
-
     //mobile
-    @media only screen and (max-width: 768px){
-        .SubHero{
+    @media only screen and (max-width: 768px) {
+        .SubHero {
             display: grid;
             grid-template-columns: auto auto;
             grid-gap: 10px;
         }
-        .SubHero .Card .CardTitle{
+        .SubHero .Card .CardTitle {
             padding: 10px;
         }
         .SubHero .Card {

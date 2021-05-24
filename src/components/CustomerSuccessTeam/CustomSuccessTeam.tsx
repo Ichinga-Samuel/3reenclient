@@ -1,3 +1,3 @@
 export const CustomerSuccessTeam = () => {
-    return (<div></div>)
-}
+    return <div></div>;
+};

@@ -6,27 +6,22 @@ import { CartEmptyStyled } from './CartEmpty.styled';
 export default function EmptyCart() {
     return (
         <div>
-          
-          <CheckoutHeader />
-<CartEmptyStyled>
+            <CheckoutHeader />
+            <CartEmptyStyled>
+                <div className="emptycartWrapper">
+                    <h3>Your Shopping Cart</h3>
 
-<div className="emptycartWrapper">
-    <h3>Your Shopping Cart</h3>
+                    <div className="circle">
+                        <img src="img/shopper.png" className="shopper" alt="shopper" />
+                    </div>
 
-<div className="circle">
-    <img src="img/shopper.png" className="shopper" alt="shopper"/>
-</div>
+                    <h5>Your cart is empty</h5>
+                    <p>Goto your Market place and add an item to your cart</p>
 
-<h5>Your cart is empty</h5>
-<p>Goto your Market place and add an item to your cart</p>
-
-
-
-<button>Continue Shopping</button>
-</div>
-
-</CartEmptyStyled>
-          <CheckoutFooter />
+                    <button>Continue Shopping</button>
+                </div>
+            </CartEmptyStyled>
+            <CheckoutFooter />
         </div>
-    )
+    );
 }
