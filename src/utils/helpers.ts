@@ -2,6 +2,10 @@ export const isObjectEmpty = (obj) => {
     return Object.keys(obj).length === 0;
 };
 
+export const LOGGER = (key, value) => {
+    console.log(key, value);
+};
+
 export function capitalize(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
