@@ -43,6 +43,9 @@ export const SignupStyled = styled.div`
                 text-transform: uppercase;
             }
         }
+        .ant-radio-group {
+            display: flex;
+        }
         textarea.ant-input {
             resize: none;
             height: 150px;
@@ -51,13 +54,16 @@ export const SignupStyled = styled.div`
             color: #590a5b;
             font-size: 1rem;
             font-weight: 400;
-            margin: 10px 0 40px 0;
+            margin: 30px 0 40px 0;
+            transition: ease all 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             a {
                 font-size: 1rem;
-                font-weight: 700;
+                font-weight: bolder;
                 color: #ffaf38;
-                margin-left: 10px;
-                font-weight: 400;
+                padding-left: 5px;
             }
         }
     }
@@ -115,7 +121,7 @@ export const SignupForm = styled.form`
         font-size: 18px;
         font-weight: 600;
         margin-top: 20px;
-        &:hover &:active &:focus {
+        &:hover {
             background: #f59507;
             border-color: #f59507;
         }
