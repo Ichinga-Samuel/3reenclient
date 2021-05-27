@@ -5,7 +5,7 @@
 export const addToLocalStorage = (key, value) => {
     if (typeof value !== 'string') value = JSON.stringify(value);
     try {
-        localStorage.setItem(key, value);
+        return localStorage.setItem(key, value);
     } catch (err) {
         console.log(err);
     }
@@ -13,7 +13,7 @@ export const addToLocalStorage = (key, value) => {
 
 export const getFromLocalStorage = (key) => {
     try {
-        localStorage.getItem(key);
+        return localStorage.getItem(key);
     } catch (e) {
         return null;
     }
@@ -24,14 +24,14 @@ export const removeFromLocalStorage = (key) => {
 };
 
 export const emptyLocalStorage = () => {
-    localStorage.clear();
+    return localStorage.clear();
 };
 
 // Session Storage Helpers
 export const addToSessionStorage = (key, value) => {
     if (typeof value !== 'string') value = JSON.stringify(value);
     try {
-        sessionStorage.setItem(key, value);
+        return sessionStorage.setItem(key, value);
     } catch (err) {
         console.log(err);
     }
@@ -39,14 +39,14 @@ export const addToSessionStorage = (key, value) => {
 
 export const getFromSessionStorage = (key) => {
     try {
-        sessionStorage.getItem(key);
+        return sessionStorage.getItem(key);
     } catch (e) {
         return null;
     }
 };
 
 export const removeFromSessionStorage = (key) => {
-    sessionStorage.removeItem(key);
+    return sessionStorage.removeItem(key);
 };
 
 export const emptySessionStorage = () => {

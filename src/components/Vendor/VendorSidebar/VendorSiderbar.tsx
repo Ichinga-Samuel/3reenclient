@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-console */
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
@@ -8,7 +6,12 @@ import { Dashboard, Order, Inventory, Ratings, CustomerService, LogoutIcon } fro
 import { VendorSidebarStyled } from './VendorSidebarStyled';
 import { useRouter } from 'next/router';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-// import LinkTo from '@storybook/addon-links/react';
+import {
+    removeFromLocalStorage,
+    removeFromSessionStorage,
+    emptySessionStorage,
+    emptyLocalStorage,
+} from '@/utils/browserStorage';
 
 const VendorSiderbar = () => {
     const router = useRouter();
@@ -18,6 +21,14 @@ const VendorSiderbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const openSubMenu = () => setIsOpen(!isOpen);
+
+    const logoutUser = () => {
+        removeFromLocalStorage('token');
+        removeFromSessionStorage('token');
+        emptySessionStorage();
+        emptyLocalStorage();
+        router.push('/vendor/login');
+    };
 
     useEffect(() => {
         const pageEffectClick = (e) => {
@@ -54,7 +65,7 @@ const VendorSiderbar = () => {
                             </a>
                         </Link>
                     </li>
-                    <li className={`has-dropdown`} onClick={openSubMenu}>
+                    <li className={`has-dropdown`} onClick={openSubMenu} onKeyPress={openSubMenu}>
                         <div>
                             <Inventory />
                             <span>Inventory</span>
@@ -109,7 +120,7 @@ const VendorSiderbar = () => {
                 <ul>
                     <li>
                         <Link href="/vendor/login">
-                            <a>
+                            <a onClick={logoutUser} onKeyDown={logoutUser} role="button" tabIndex={0}>
                                 <LogoutIcon /> Log out
                             </a>
                         </Link>

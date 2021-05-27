@@ -7,11 +7,13 @@ import VendorNotification from '../Notification/VendorNotification';
 // import Search from '@/components/Products/Search';
 // import fakedata from '@/components/Products/fakeData';
 
-const VendorHeader = () => {
+const VendorHeader = ({ userData }) => {
     const [visible, setVisible] = useState(false);
     const openNotification = () => {
         setVisible(true);
     };
+
+    console.log('data', userData);
 
     const closeNotification = () => {
         setVisible(false);

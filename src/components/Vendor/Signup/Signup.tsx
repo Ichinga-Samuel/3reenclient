@@ -98,9 +98,9 @@ const Signup = () => {
                 </div>
                 <button>REGISTER NOW</button>
                 <p>
-                    Already have an account?{' '}
-                    <Link href="google.com">
-                        <a href="google.com">Log in</a>
+                    Already have an account?
+                    <Link href="/vendor/login">
+                        <a>Log in</a>
                     </Link>
                 </p>
             </SignupForm>
