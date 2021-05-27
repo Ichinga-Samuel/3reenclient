@@ -12,8 +12,7 @@ const Signin = () => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [loading, setLoading] = useState(false);
     const [tipContent, setContent] = useState('Authenticating In Progress. Please wait...');
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+
     const {
         register,
         handleSubmit,
@@ -29,52 +28,39 @@ const Signin = () => {
         setIsProcessing(true);
         setLoading(true);
         setContent('Authenticating In Progress. Please wait...');
-        try {
-            const response = await axios.post(`${APP_BASE}/v1/users/login`, data);
-            if (response.data.status === 'fail') {
+        await axios
+            .post(`${APP_BASE}/users/login`, data)
+            .then((response) => {
+                console.log('login response', response);
+                const { data } = response;
+                if (data.status === 'success' && data.user.role !== 'user') {
+                    notification.error({
+                        message: 'Error',
+                        description: 'Account Does not belong to a vendor',
+                        duration: 15,
+                    });
+                    setIsProcessing(false);
+                    setLoading(false);
+                    return;
+                }
+                if (data.status === 'success' && data.user.role === 'user') {
+                    setContent('Authentication Successful. Redirecting...');
+                    setTimeout(() => {
+                        router.push('/vendor/dashboard');
+                    }, 1000);
+                    addToLocalStorage('token', response.data.token);
+                }
+            })
+            .catch((err) => {
+                console.log('login err', err.response);
+                setIsProcessing(false);
+                setLoading(false);
                 notification.error({
                     message: 'Error',
-                    description: response.data.message,
+                    description: err.response.data.message,
                     duration: 15,
                 });
-                return;
-            }
-            console.log('login response', response);
-            setContent('Authentication Successful. Redirecting...');
-            setTimeout(() => {
-                router.push('/vendor/dashboard');
-            }, 2000);
-            addToLocalStorage('token', response.data.token);
-        } catch (e) {
-            console.log('login response', e);
-            setIsProcessing(false);
-            setLoading(false);
-            notification.error({
-                message: 'Error',
-                description: e.message,
-                duration: 15,
             });
-        }
-        // axios
-        //     .post(`${APP_BASE}/v1/users/login`, data)
-        //     .then((res) => {
-        //         console.log('login response', res);
-        //         setContent('Authentication Successful. Redirecting...');
-        //         setTimeout(() => {
-        //             router.push('/vendor/dashboard');
-        //         }, 2000);
-        //         localStorage.setItem('token', res.data.token);
-        //     })
-        //     .catch((e) => {
-        //         console.log('login response', e);
-        //         setIsProcessing(false);
-        //         setLoading(false);
-        //         notification.error({
-        //             message: 'Error',
-        //             description: e.message,
-        //             duration: 15,
-        //         });
-        //     });
     };
 
     return (

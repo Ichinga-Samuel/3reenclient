@@ -15,7 +15,7 @@ import {
 
 const VendorSiderbar = () => {
     const router = useRouter();
-    console.log('toure', router);
+    // console.log('toure', router);
 
     const dropDown = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
