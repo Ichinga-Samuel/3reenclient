@@ -6,21 +6,21 @@ import VendorHeader from '@/components/Vendor/VendorHeader/VendorHeader';
 import { Breadcrumb } from 'antd';
 import { VendorAuthProvider } from '../VendorAuthProvider';
 import { getFromLocalStorage } from '@/utils/browserStorage';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 const VendorLayout = ({ pageTitle, dashboardTitle, crumbName, children }) => {
     // const value = useAuth();
     // const user = useContext(AuthContext);
     // console.log('all', user);
-    // const router = useRouter();
+    const router = useRouter();
 
-    // const token = getFromLocalStorage('token');
+    const token = getFromLocalStorage('token');
     const userData = getFromLocalStorage('user') || null;
 
-    // if (!token && token === null) {
-    //     router.push('/vendor/login');
-    //     return;
-    // }
+    if (!token && token === null && userData === null) {
+        router.push('/vendor/login');
+        return;
+    }
 
     return (
         <VendorAuthProvider>

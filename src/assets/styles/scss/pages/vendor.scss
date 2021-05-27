@@ -1,4 +1,5 @@
 // Notification
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&display=swap');
 .notification {
     .ant-spin-nested-loading > div > .ant-spin .ant-spin-text {
         text-shadow: none;
@@ -111,4 +112,8 @@
             }
         }
     }
+}
+
+.error {
+    color: #f00;
 }

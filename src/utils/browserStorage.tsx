@@ -1,6 +1,14 @@
 /*
  * A Simple Encryption for browser using "npm install simple-encryptor --save"
  * */
+export const isUserLoggedIn = () => {
+    const token = getFromLocalStorage('token');
+    const user = getFromLocalStorage('user');
+    if ((token === null || !token) && (!user || user === null)) {
+        return false;
+    }
+    return true;
+};
 
 export const addToLocalStorage = (key, value) => {
     if (typeof value !== 'string') value = JSON.stringify(value);

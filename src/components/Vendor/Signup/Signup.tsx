@@ -2,23 +2,35 @@ import React, { useState } from 'react';
 import { SignupStyled } from './Signup.styled';
 import { SignupForm } from './Signup.styled';
 import Link from 'next/link';
+import { Row, Col, Button, Spin, Input, Radio } from 'antd';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { useForm } from 'react-hook-form';
 
 const Signup = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [number, setNumber] = useState('');
-    const [gender, setGender] = useState<'male' | 'female' | null>(null);
-    const [description, setDescription] = useState('');
+    // const [name, setName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [address, setAddress] = useState('');
+    // const [number, setNumber] = useState('');
+    // const [gender, setGender] = useState<'male' | 'female' | null>(null);
+    // const [description, setDescription] = useState('');
+    const [isProcessing, setIsProcessing] = useState(false);
+    const [loading, setloading] = useState(false);
 
     const router = useRouter();
-
-    const signup = (e) => {
-        e.preventDefault();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+    const onChange = (e) => {
+        console.log(e.target.value);
+    };
+    const createVendor = (data) => {
+        setIsProcessing(true);
+        setloading(true);
         axios
-            .post('backend url', { name, email, address, number, gender, description })
+            .post('backend url', data)
             .then((res) => {
                 router.push('/vendor/login');
                 localStorage.setItem('user', res.data);
@@ -29,82 +41,98 @@ const Signup = () => {
     };
 
     return (
-        <SignupStyled>
-            <div className="intro">
-                <p>
-                    REGISTER TO START <span>SELLING ON 3REEN</span>
-                </p>
-            </div>
-            <SignupForm onSubmit={signup}>
-                <div className="logo-div">
-                    <img src="/img/vendor-logo.svg" alt="vendor-logo" />
-                </div>
-
-                <div className="header-div">
+        <Spin spinning={isProcessing}>
+            <SignupStyled>
+                <div className="intro">
                     <p>
-                        To become a part of the 3reen Shop, <span>please fill out and submit the form below.</span>
+                        REGISTER TO START <span>SELLING ON 3REEN</span>
                     </p>
                 </div>
+                <SignupForm onSubmit={createVendor}>
+                    <div className="logo-div">
+                        <img src="/img/vendor-logo.svg" alt="vendor-logo" />
+                    </div>
 
-                <div className="parent-input-group">
-                    <div className="input-group">
-                        <label htmlFor="name">FULL NAME</label>
-                        <input type="text" id="name" onChange={(e) => setName(e.target.value)} />
+                    <div className="header-div">
+                        <p>
+                            To become a part of the 3reen Shop, <span>please fill out and submit the form below.</span>
+                        </p>
                     </div>
-                    <div className="input-group">
-                        <label htmlFor="email">EMAIL ADDRESS</label>
-                        <input type="email" id="email" onChange={(e) => setEmail(e.target.value)} />
-                    </div>
-                </div>
-                <div className="parent-input-group">
-                    <div className="input-group">
-                        <label htmlFor="address">ADDRESS</label>
-                        <input type="text" id="address" onChange={(e) => setAddress(e.target.value)} />
-                    </div>
-                    <div className="input-group">
-                        <label htmlFor="number">PHONE NUMBER</label>
-                        <input type="number" id="number" onChange={(e) => setNumber(e.target.value)} />
-                    </div>
-                </div>
-                <div className="g-parent-input-radio">
-                    <label htmlFor="male">SEX</label>
-                    <div className="parent-input-radio">
-                        <div className="input-radio">
-                            <input
-                                type="radio"
-                                id="male"
-                                name="gender"
-                                value="male"
-                                onChange={(e) => setGender(e.target.value as 'male')}
-                            />
-                            <label htmlFor="male">male</label>
-                        </div>
-                        <div className="input-radio">
-                            <input
-                                type="radio"
-                                id="female"
-                                name="gender"
-                                value="female"
-                                onChange={(e) => setGender(e.target.value as 'female')}
-                            />
-                            <label htmlFor="female">female</label>
-                        </div>
-                    </div>
-                </div>
+                    <div className="form-details">
+                        <Row gutter={24}>
+                            <Col xs={{ span: 24 }} xl={{ span: 12 }} lg={12}>
+                                <div className="form-group">
+                                    <label htmlFor="fullname">Full Name</label>
+                                    <Input size="large" {...register('fullname', { required: true })} />
+                                    {errors.fullname && <span className="error">This field is required</span>}
+                                </div>
+                            </Col>
+                            <Col xs={{ span: 24 }} xl={{ span: 12 }} lg={12}>
+                                <div className="form-group">
+                                    <label htmlFor="emailaddress">Email Address</label>
+                                    <Input size="large" {...register('emailaddress', { required: true })} />
+                                    {errors.emailaddress && <span className="error">This field is required</span>}
+                                </div>
+                            </Col>
+                            <Col xs={{ span: 24 }} xl={{ span: 12 }} lg={12}>
+                                <div className="form-group">
+                                    <label htmlFor="fullname">Address</label>
+                                    <Input size="large" {...register('address', { required: true })} />
+                                    {errors.fullname && <span className="error">This field is required</span>}
+                                </div>
+                            </Col>
+                            <Col xs={{ span: 24 }} xl={{ span: 12 }} lg={12}>
+                                <div className="form-group">
+                                    <label htmlFor="phoneNumber">Phone Number</label>
+                                    <Input size="large" {...register('phoneNumber', { required: true })} />
+                                    {errors.phoneNumber && <span className="error">This field is required</span>}
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={{ span: 24 }} xl={{ span: 12 }} lg={12}>
+                                <div className="form-group">
+                                    <label htmlFor="gender" style={{ display: 'block' }}>
+                                        Sex:
+                                    </label>
+                                    <Radio.Group onChange={onChange} {...register('gender', { required: true })}>
+                                        <Radio value={1}>Male</Radio>
+                                        <Radio value={2}>Female</Radio>
+                                    </Radio.Group>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row gutter={24}>
+                            <Col xs={{ span: 24 }} xl={{ span: 24 }} lg={24}>
+                                <div className="form-group">
+                                    <label htmlFor="description">Brief Description</label>
+                                    <Input.TextArea
+                                        showCount
+                                        maxLength={250}
+                                        {...register('description', { required: true })}
+                                    ></Input.TextArea>
+                                    {errors.description && <span className="error">This field is required</span>}
+                                </div>
+                            </Col>
+                        </Row>
 
-                <div className="input-description">
-                    <label htmlFor="description">BRIEF BRAND DESCRIPTION</label>
-                    <textarea id="description" onChange={(e) => setDescription(e.target.value)} />
-                </div>
-                <button>REGISTER NOW</button>
-                <p>
-                    Already have an account?
-                    <Link href="/vendor/login">
-                        <a>Log in</a>
-                    </Link>
-                </p>
-            </SignupForm>
-        </SignupStyled>
+                        <Row justify="center">
+                            <Col xs={{ span: 24 }} xl={{ span: 12 }} lg={8}>
+                                <Button loading={loading} type="primary" onClick={handleSubmit(createVendor)}>
+                                    REGISTER NOW
+                                </Button>
+                            </Col>
+                        </Row>
+                        <p className="new-accout-info">
+                            Already have an account?
+                            <Link href="/vendor/login">
+                                <a>Log in</a>
+                            </Link>
+                        </p>
+                    </div>
+                </SignupForm>
+            </SignupStyled>
+        </Spin>
     );
 };
 

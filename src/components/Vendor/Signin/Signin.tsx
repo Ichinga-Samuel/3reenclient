@@ -6,13 +6,12 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { Button, notification, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { addToLocalStorage } from '@/utils/browserStorage';
+import { addToLocalStorage /*isUserLoggedIn*/ } from '@/utils/browserStorage';
 
 const Signin = () => {
     const [isProcessing, setIsProcessing] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [tipContent, setContent] = useState('Authenticating In Progress. Please wait...');
-
+    const [tipContent, setContent] = useState('');
     const {
         register,
         handleSubmit,
@@ -22,6 +21,23 @@ const Signin = () => {
     const router = useRouter();
 
     const APP_BASE = process.env.APP_BASE_URL;
+
+    // const RedirectToLastPage = () => {
+    //     console.log('test lgg', isUserLoggedIn);
+    //     if (isUserLoggedIn) {
+    //         if (window.history.length > 1 && document.referrer.indexOf(window.location.host) !== -1) {
+    //             router.back();
+    //         } else {
+    //             router.push('/venor/dashboard');
+    //         }
+    //         router.push('');
+    //     }
+    //     router.push('/vendor/login');
+    // };
+
+    // useEffect(() => {
+    //     RedirectToLastPage();
+    // }, []);
 
     const login = async (data) => {
         console.log('login', data);
@@ -97,7 +113,7 @@ const Signin = () => {
                         <Button loading={loading} type="primary" onClick={handleSubmit(login)}>
                             LOG IN
                         </Button>
-                        <Link href="/vendor/forgot-password">
+                        <Link href="/forgot-password">
                             <a>forgot password?</a>
                         </Link>
                         <p>
