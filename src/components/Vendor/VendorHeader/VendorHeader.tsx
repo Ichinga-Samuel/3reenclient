@@ -13,7 +13,8 @@ const VendorHeader = ({ userData }) => {
         setVisible(true);
     };
 
-    console.log('data', userData);
+    const loggedUser = JSON.parse(userData);
+    // console.log('data header', JSON.parse(userData));
 
     const closeNotification = () => {
         setVisible(false);
@@ -41,7 +42,8 @@ const VendorHeader = ({ userData }) => {
                     </div>
                     <div className="Profile">
                         <ProfileIcon />
-                        <p>Hi, Jack </p>
+                        {/* <img src={loggedUser.photo} alt="p" /> */}
+                        <p>Hi, {loggedUser.fullName} </p>
                         <span>
                             <CaretDownFilled />
                         </span>

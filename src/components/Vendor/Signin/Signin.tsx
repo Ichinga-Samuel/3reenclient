@@ -49,6 +49,7 @@ const Signin = () => {
                         router.push('/vendor/dashboard');
                     }, 1000);
                     addToLocalStorage('token', response.data.token);
+                    addToLocalStorage('user', response.data.user);
                 }
             })
             .catch((err) => {

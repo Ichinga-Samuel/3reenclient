@@ -3,6 +3,7 @@ import { getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
 import { notification } from 'antd';
 import axios from 'axios';
+// import { addToLocalStorage } from '@/utils/browserStorage';
 
 // interface IContextProps {
 //     user: null;
@@ -29,6 +30,7 @@ const VendorAuthProvider = ({ children }) => {
             .then((response) => {
                 const { data } = response;
                 if (data.status === 'success') {
+                    // addToLocalStorage('user', data.doc);
                     setUser(data.doc);
                 } else {
                     setUser(null);
