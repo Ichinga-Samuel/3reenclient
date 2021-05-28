@@ -114,7 +114,7 @@ const Signin = () => {
                         <Button loading={loading} type="primary" onClick={handleSubmit(login)}>
                             LOG IN
                         </Button>
-                        <Link href="/forgot-password">
+                        <Link href="/vendor/forgot-password">
                             <a>forgot password?</a>
                         </Link>
                         <p>
