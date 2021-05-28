@@ -163,7 +163,7 @@
             border: 1px solid var(--secondary-color);
         }
         .ant-checkbox-checked {
-            &.ant-checkbox-inner {
+            .ant-checkbox-inner {
                 background-color: var(--secondary-color);
                 border-color: var(--secondary-color);
             }

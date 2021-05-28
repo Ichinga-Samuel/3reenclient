@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VendorSiderbar from '@/components/Vendor/VendorSidebar/VendorSiderbar';
 import Head from 'next/head';
 import { VendorLayoutStyled } from '@/components/Vendor/Layout/VendorLayout.styled';
@@ -17,10 +17,12 @@ const VendorLayout = ({ pageTitle, dashboardTitle, crumbName, children }) => {
     const token = getFromLocalStorage('token');
     const userData = getFromLocalStorage('user') || null;
 
-    if (!token && token === null && userData === null) {
-        router.push('/vendor/login');
-        return;
-    }
+    useEffect(() => {
+        if (!token && token === null && userData === null) {
+            router.push('/vendor/login');
+            return;
+        }
+    });
 
     return (
         <VendorAuthProvider>

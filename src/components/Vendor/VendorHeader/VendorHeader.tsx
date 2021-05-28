@@ -43,7 +43,7 @@ const VendorHeader = ({ userData }) => {
                     <div className="Profile">
                         <ProfileIcon />
                         {/* <img src={loggedUser.photo} alt="p" /> */}
-                        <p>Hi, {loggedUser.fullName} </p>
+                        <p>Hi, {loggedUser?.fullName} </p>
                         <span>
                             <CaretDownFilled />
                         </span>

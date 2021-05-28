@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { Button, notification, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { addToLocalStorage /*isUserLoggedIn*/ } from '@/utils/browserStorage';
+import { USER } from '@/utils/ApiList';
 
 const Signin = () => {
     const [isProcessing, setIsProcessing] = useState(false);
@@ -45,7 +46,7 @@ const Signin = () => {
         setLoading(true);
         setContent('Authenticating In Progress. Please wait...');
         await axios
-            .post(`${APP_BASE}/users/login`, data)
+            .post(`${APP_BASE}${USER.login}`, data)
             .then((response) => {
                 console.log('login response', response);
                 const { data } = response;

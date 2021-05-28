@@ -6,6 +6,7 @@ import { Dashboard, Order, Inventory, Ratings, CustomerService, LogoutIcon } fro
 import { VendorSidebarStyled } from './VendorSidebarStyled';
 import { useRouter } from 'next/router';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
+import { Button, Popconfirm } from 'antd';
 import {
     removeFromLocalStorage,
     removeFromSessionStorage,
@@ -19,15 +20,30 @@ const VendorSiderbar = () => {
 
     const dropDown = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [visible, setVisible] = useState(false);
+    const [confirmLoading, setConfirmLoading] = useState(false);
 
     const openSubMenu = () => setIsOpen(!isOpen);
 
+    const showPopconfirm = () => {
+        setVisible(true);
+    };
+
     const logoutUser = () => {
+        setConfirmLoading(true);
         removeFromLocalStorage('token');
         removeFromSessionStorage('token');
         emptySessionStorage();
         emptyLocalStorage();
-        router.push('/vendor/login');
+        setTimeout(() => {
+            setVisible(false);
+            setConfirmLoading(false);
+            router.push('/vendor/login');
+        }, 2000);
+    };
+
+    const cancelLogout = () => {
+        setVisible(false);
     };
 
     useEffect(() => {
@@ -119,11 +135,19 @@ const VendorSiderbar = () => {
             <div className="__footer">
                 <ul>
                     <li>
-                        <Link href="/vendor/login">
-                            <a onClick={logoutUser} onKeyDown={logoutUser} role="button" tabIndex={0}>
+                        <Popconfirm
+                            title="Are you sure you want to logout?"
+                            visible={visible}
+                            onConfirm={logoutUser}
+                            onCancel={cancelLogout}
+                            okText="Yes"
+                            okButtonProps={{ loading: confirmLoading, danger: true }}
+                            cancelText="No"
+                        >
+                            <Button block onClick={showPopconfirm}>
                                 <LogoutIcon /> Log out
-                            </a>
-                        </Link>
+                            </Button>
+                        </Popconfirm>
                     </li>
                 </ul>
             </div>

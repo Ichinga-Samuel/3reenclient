@@ -2,12 +2,19 @@ export const isObjectEmpty = (obj) => {
     return Object.keys(obj).length === 0;
 };
 
-export const LOGGER = (key, value) => {
+export const LOGGER = (key: string, value: any) => {
     console.log(key, value);
 };
 
 export const EmailValidation = () => {
     return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+};
+
+export const formatAmount = (num: any) => {
+    if (num) {
+        const initial = parseFloat(num).toFixed(2);
+        return initial.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
 };
 
 export function capitalize(string: string) {

@@ -100,6 +100,8 @@ export const LoginForm = styled.form`
                 padding: 5px 15px;
                 border: 1px solid rgba(0, 0, 0, 0.38);
                 box-sizing: border-box; 
+                font-size: 1.5rem;
+                font-weight: 400;
             }
             label {
                 font-family: MADE TOMMY;
