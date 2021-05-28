@@ -20,21 +20,14 @@ const ForgotPassword = () => {
         console.log('data', data);
         setloading(true);
         await axios
-            .patch(`${APP_BASE}${USER.forgotPassword}`, data)
+            .post(`${APP_BASE}${USER.forgotPassword}`, data)
             .then((response) => {
                 console.log('for', response);
                 const { data } = response;
                 if (data.status === 'success') {
                     setSuccess(true);
-                    // notification.success({
-                    //     message: 'Success',
-                    //     description: 'Your Password Reset Is Successfully. Redirecting to login...',
-                    //     duration: 15,
-                    // });
                     notification.close('error');
-                    setTimeout(() => {
-                        router.push('/vendor/login');
-                    }, 2000);
+                    setloading(false);
                 }
             })
             .catch((err) => {
@@ -47,25 +40,14 @@ const ForgotPassword = () => {
                     duration: 25,
                 });
             });
-        setTimeout(() => {
-            setSuccess(true);
-        }, 500);
-        setTimeout(() => {
-            setloading(false);
-        }, 1000);
     };
 
     const proceedResetPassword = () => {
-        // console.log('data', data);
         const fakeResp = 'ee33e5ee2a5c74950df13';
         setloading(true);
         setTimeout(() => {
-            // setSuccess(false);
             router.push(`/vendor/reset-token?${encodeURIComponent(fakeResp)}`);
         }, 500);
-        setTimeout(() => {
-            setloading(false);
-        }, 1000);
     };
 
     return (

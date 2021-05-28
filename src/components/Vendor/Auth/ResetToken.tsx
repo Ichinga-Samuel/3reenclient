@@ -29,6 +29,9 @@ const ResetToken = () => {
                 if (nextfield !== null) {
                     nextfield.focus();
                 }
+                // else {
+                //     document.querySelector(`button`);
+                // }
             } else if ((fieldIntIndex = numOfFields)) {
                 const data = {
                     code_1: value,
@@ -67,10 +70,6 @@ const ResetToken = () => {
                     description: err.response?.data.message,
                     duration: 15,
                 });
-                setTimeout(() => {
-                    router.push('/vendor/reset-password');
-                    setloading(false);
-                }, 2000);
             });
     };
 
