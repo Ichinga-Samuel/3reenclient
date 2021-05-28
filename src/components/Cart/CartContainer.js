@@ -19,14 +19,14 @@ export default function CartContainer() {
                             <form action="">
                                 <div className="cart-productSystem">
                                     <div className="cart-image">
-                                        <img src="img/phone.png" />
+                                        <img src="img/phone.png" alt="crt" />
                                     </div>
                                     <div className="cart-product-info">
                                         <p className="cart-product-name">Product Name</p>
 
                                         <div className="actionDelete">
                                             <div className="deleteIcon">
-                                                <img src="icons/delete.png" className="deletebutton" />{' '}
+                                                <img src="icons/delete.png" className="deletebutton" alt="cart" />{' '}
                                             </div>
                                             <p>Remove</p>
                                         </div>
@@ -36,7 +36,7 @@ export default function CartContainer() {
                                 <div className="cart-quantity-md">
                                     <div className="cart-quantity-controls">
                                         <button>-</button>
-                                        <input type="number" value="1" readonly />
+                                        <input type="number" value="1" readOnly />
                                         <button>+</button>
                                     </div>
                                 </div>
@@ -66,7 +66,9 @@ export default function CartContainer() {
                         </div>
                     </div>
                     <div className="cart-action-button">
-                        <a href="#" className="btn-main">Continue Shopping</a>
+                        <a href="#" className="btn-main">
+                            Continue Shopping
+                        </a>
                         <a href="#" className="btn-main fill">
                             Checkout
                         </a>
@@ -93,7 +95,7 @@ export default function CartContainer() {
                                 </div>
                             </div>
                             <div className="sectionTwo">
-                                <img src="img/MobileDelete.png" />
+                                <img src="img/MobileDelete.png" alt="ing" />
                             </div>
                         </div>
 
