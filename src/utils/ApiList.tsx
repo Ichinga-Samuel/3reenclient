@@ -1,3 +1,6 @@
+//baseURL
+export const APP_BASE = process.env.APP_BASE_URL;
+
 // Vendor Endpoint
 export const USER = {
     login: '/users/login',
@@ -5,6 +8,7 @@ export const USER = {
     loggedIn: '/users/me',
     forgotPassword: '/users/forgotPassword',
     updatePassword: '/users/updateMyPassword',
+    confirmToken: '/users/tokenconfirm',
 };
 
 export const VENDOR_ORDER = {
