@@ -1,14 +1,18 @@
 //baseURL
 export const APP_BASE = process.env.APP_BASE_URL;
 
-// Vendor Endpoint
+// User & Vendor Endpoint
+const userPrefix = '/users';
+
 export const USER = {
-    login: '/users/login',
-    register: '/users/signup',
-    loggedIn: '/users/me',
-    forgotPassword: '/users/forgotPassword',
-    updatePassword: '/users/updateMyPassword',
-    confirmToken: '/users/tokenconfirm',
+    login: `${userPrefix}/login`,
+    register: `${userPrefix}/signup`,
+    loggedIn: `${userPrefix}/me`,
+    updateLoggedInUser: `${userPrefix}/updateMe`,
+    forgotPassword: `${userPrefix}/forgotPassword`,
+    updatePassword: `${userPrefix}/updateMyPassword`,
+    confirmToken: `${userPrefix}/tokenconfirm`,
+    resetPassword: (code: string) => `${userPrefix}/resetPassword/${code}`,
 };
 
 export const VENDOR_ORDER = {

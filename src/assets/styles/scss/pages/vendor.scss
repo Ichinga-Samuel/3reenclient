@@ -197,7 +197,8 @@
             background: var(--secondary-color);
             border-color: var(--secondary-color);
             border-radius: 0;
-            animation: slideInUp 1s 2s;
+            animation: 1s ease-out 0s 1 slideInUp;
+            
         }
         h3 {
             color: var(--white-color);
@@ -207,7 +208,7 @@
         h4 {
             color: var(--white-color);
             font-size: 1rem;
-            font-weight: lighter;
+            font-weight: 400;
             margin-bottom: 3rem;
         }
     }
@@ -222,7 +223,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: rgba(0, 0, 0, 0.57);
     transition: ease all 0.5s;
-    animation: 500ms ease-out 0s 1 zoomIn;
+    animation: 1s ease-out 0s 1 zoomIn;
     h2 {
         font-family: 'MADE TOMMY';
         font-size: 1.4rem;

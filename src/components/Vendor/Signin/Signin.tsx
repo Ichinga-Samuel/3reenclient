@@ -67,6 +67,10 @@ const Signin = () => {
                     }, 1000);
                     addToLocalStorage('token', response.data.token);
                     addToLocalStorage('user', response.data.user);
+                    // setCookie('', 'token', response.data.token, {
+                    //     maxAge: 30 * 24 * 60 * 60,
+                    //     path: '/',
+                    // });
                 }
             })
             .catch((err) => {

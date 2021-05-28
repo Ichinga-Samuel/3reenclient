@@ -12,7 +12,7 @@ const ResetToken = () => {
 
     //handle auto focus of input
     const numOfFields = 4;
-    const handleAutoFocus = (e) => {
+    const handleAutoFocus = (e: any) => {
         const { maxLength, value, name } = e.target;
         const [fieldName, fieldIndex] = name.split('_');
 
@@ -64,14 +64,14 @@ const ResetToken = () => {
                 setloading(false);
                 notification.error({
                     message: 'Error',
-                    description: err.response.data.message,
+                    description: err.response?.data.message,
                     duration: 15,
                 });
+                setTimeout(() => {
+                    router.push('/vendor/reset-password');
+                    setloading(false);
+                }, 2000);
             });
-        setTimeout(() => {
-            router.push('/vendor/reset-password');
-            setloading(false);
-        }, 2000);
     };
 
     return (

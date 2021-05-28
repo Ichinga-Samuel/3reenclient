@@ -1,7 +1,10 @@
-import { Row, Col, Input, Button } from 'antd';
+import { Row, Col, Input, Button, notification } from 'antd';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { APP_BASE, USER } from '@/utils/ApiList';
+import axios from 'axios';
+import SuccessMessage from '@/components/Vendor/Auth/SuccessMessage';
 
 const ForgotPassword = () => {
     const {
@@ -13,9 +16,37 @@ const ForgotPassword = () => {
     const router = useRouter();
     const [loading, setloading] = useState(false);
     const [success, setSuccess] = useState(false);
-    const resetPassword = (data) => {
+    const resetPassword = async (data: any) => {
         console.log('data', data);
         setloading(true);
+        await axios
+            .patch(`${APP_BASE}${USER.forgotPassword}`, data)
+            .then((response) => {
+                console.log('for', response);
+                const { data } = response;
+                if (data.status === 'success') {
+                    setSuccess(true);
+                    // notification.success({
+                    //     message: 'Success',
+                    //     description: 'Your Password Reset Is Successfully. Redirecting to login...',
+                    //     duration: 15,
+                    // });
+                    notification.close('error');
+                    setTimeout(() => {
+                        router.push('/vendor/login');
+                    }, 2000);
+                }
+            })
+            .catch((err) => {
+                console.log('login err', err.response);
+                setloading(false);
+                notification.error({
+                    key: 'error',
+                    message: 'Error',
+                    description: err.response.data.message,
+                    duration: 25,
+                });
+            });
         setTimeout(() => {
             setSuccess(true);
         }, 500);
@@ -26,10 +57,11 @@ const ForgotPassword = () => {
 
     const proceedResetPassword = () => {
         // console.log('data', data);
+        const fakeResp = 'ee33e5ee2a5c74950df13';
         setloading(true);
         setTimeout(() => {
             // setSuccess(false);
-            router.push('/vendor/reset-token');
+            router.push(`/vendor/reset-token?${encodeURIComponent(fakeResp)}`);
         }, 500);
         setTimeout(() => {
             setloading(false);
@@ -39,26 +71,12 @@ const ForgotPassword = () => {
     return (
         <>
             {success ? (
-                <div className="emailsent">
-                    <div className="emailsent__message">
-                        <div className="icon">
-                            <img src="/img/successIcon.png" alt="success" />
-                        </div>
-                        <Row>
-                            <Col span={24}>
-                                <h3>SUCCESSFULLY SENT</h3>
-                                <h4>Code has been sent to your mail, check your inbox</h4>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col span={24}>
-                                <Button block type="primary" onClick={proceedResetPassword}>
-                                    PROCEED
-                                </Button>
-                            </Col>
-                        </Row>
-                    </div>
-                </div>
+                <SuccessMessage
+                    loading={loading}
+                    description="Code has been sent to your mail, check your inbox"
+                    successTitle="SUCCESSFULLY SENT"
+                    action={proceedResetPassword}
+                />
             ) : (
                 <div className="forgotpass">
                     <div className="forgotpass__inner">
