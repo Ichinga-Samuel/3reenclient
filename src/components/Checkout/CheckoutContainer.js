@@ -75,7 +75,7 @@ export default function CheckoutContainer() {
                     <div className="checkoutProduct">
                         <div className="Products">
                             {data.products.map((product) => (
-                                <div className="product">
+                                <div key={product.id} className="product">
                                     <div className="productDetail">
                                         <img src={product.image} className="productImage" alt="product" />
                                         <h4>{product.name}</h4>

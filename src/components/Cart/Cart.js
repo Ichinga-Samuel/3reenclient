@@ -7,9 +7,9 @@ export default function Cart() {
     return (
         <div className="cart">
             <CartStyled>
-                    <CheckoutHeader />
-                    <CartContainer />
-                    <CheckoutFooter />
+                <CheckoutHeader />
+                <CartContainer />
+                <CheckoutFooter />
             </CartStyled>
         </div>
     );
