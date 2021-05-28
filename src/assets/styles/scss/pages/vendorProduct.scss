@@ -107,7 +107,7 @@
     .export {
         display: flex;
         background: var(--background-color);
-        width: 100%;
+        width: 100% !important;
         border-radius: 4px 4px 0 0;
         padding: 10px 3rem;
         transition: ease all 0.5s;
