@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { Button, notification, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { addToLocalStorage /*isUserLoggedIn*/ } from '@/utils/browserStorage';
+import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import { USER } from '@/utils/ApiList';
 
 const Signin = () => {
@@ -133,5 +133,19 @@ const Signin = () => {
         </div>
     );
 };
+
+export async function getServerSideProps() {
+    const token = getFromLocalStorage('token');
+    console.log('token', token);
+    if (token) {
+        return {
+            redirect: {
+                destination: '/vendor/dashboard',
+                permanent: false,
+            },
+        };
+    }
+    return { props: {} };
+}
 
 export default Signin;

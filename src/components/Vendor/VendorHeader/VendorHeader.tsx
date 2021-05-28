@@ -9,16 +9,17 @@ import VendorNotification from '../Notification/VendorNotification';
 
 const VendorHeader = ({ userData }) => {
     const [visible, setVisible] = useState(false);
-    const openNotification = () => {
-        setVisible(true);
-    };
+    // const openNotification = () => {
+    //     setVisible(true);
+    // };
 
     const loggedUser = JSON.parse(userData);
-    // console.log('data header', JSON.parse(userData));
 
     const closeNotification = () => {
         setVisible(false);
     };
+
+    const openNotification = () => setVisible(!visible);
 
     return (
         <>
