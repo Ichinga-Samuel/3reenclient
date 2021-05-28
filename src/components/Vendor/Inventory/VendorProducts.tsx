@@ -95,7 +95,7 @@ const VendorProducts = () => {
         };
         // return () => {};
         fetchAllProducts();
-    }, []);
+    }, [APP_BASE]);
 
     const handleChange = (value) => {
         console.log(`selected ${value}`);

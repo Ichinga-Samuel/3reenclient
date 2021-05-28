@@ -18,37 +18,36 @@ const VendorAuthProvider = ({ children }) => {
     const router = useRouter();
     const token = getFromLocalStorage('token');
 
-    const getLoggedInUser = async () => {
-        const APP_BASE = process.env.APP_BASE_URL;
-        await axios
-            .get(`${APP_BASE}/users/me`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then((response) => {
-                const { data } = response;
-                if (data.status === 'success') {
-                    // addToLocalStorage('user', data.doc);
-                    setUser(data.doc);
-                } else {
-                    setUser(null);
-                }
-            })
-            .catch((err) => {
-                // router.push('/vendor/login');
-                notification.error({
-                    message: 'Error',
-                    description: err.response.data.message,
-                    duration: 15,
-                });
-            });
-    };
-
     useEffect(() => {
+        const getLoggedInUser = async () => {
+            const APP_BASE = process.env.APP_BASE_URL;
+            await axios
+                .get(`${APP_BASE}/users/me`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
+                .then((response) => {
+                    const { data } = response;
+                    if (data.status === 'success') {
+                        // addToLocalStorage('user', data.doc);
+                        setUser(data.doc);
+                    } else {
+                        setUser(null);
+                    }
+                })
+                .catch((err) => {
+                    // router.push('/vendor/login');
+                    notification.error({
+                        message: 'Error',
+                        description: err.response.data.message,
+                        duration: 15,
+                    });
+                });
+        };
         getLoggedInUser();
-    }, [pathname]);
+    }, [token]);
 
     useEffect(() => {
         console.log('userr', user);
@@ -71,7 +70,7 @@ const VendorAuthProvider = ({ children }) => {
         return () => {
             events.off('routeChangeStart', handleRouteChange);
         };
-    }, [user]);
+    }, [user, pathname, router, events]);
 
     return <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>;
 };
