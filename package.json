@@ -46,6 +46,7 @@
     "react-router-dom": "^5.2.0",
     "sass": "1.32.5",
     "styled-components": "5.2.1",
+    "victory": "^35.8.2",
     "yup": "^0.32.8"
   },
   "devDependencies": {

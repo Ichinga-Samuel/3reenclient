@@ -22,30 +22,36 @@ const VendorLayout = ({ pageTitle, dashboardTitle, crumbName, children }) => {
             router.push('/vendor/login');
             return;
         }
-    });
+    }, [userData, router, token]);
 
     return (
-        <VendorAuthProvider>
-            <VendorLayoutStyled>
-                <Head>
-                    <title>{pageTitle} | Vendors</title>
-                </Head>
-                <VendorHeader userData={userData} />
-                <VendorSiderbar />
-                <main>
-                    <div className="main_container">
-                        <div className="breadCrumb">
-                            <Breadcrumb separator=">">
-                                <Breadcrumb.Item href="">{'Vendor'}</Breadcrumb.Item>
-                                <Breadcrumb.Item>{crumbName}</Breadcrumb.Item>
-                            </Breadcrumb>
-                        </div>
-                        <div className="pageTitle">{dashboardTitle}</div>
-                        {children}
-                    </div>
-                </main>
-            </VendorLayoutStyled>
-        </VendorAuthProvider>
+        <>
+            {!token ? (
+                <p>Redirecting...</p>
+            ) : (
+                <VendorAuthProvider>
+                    <VendorLayoutStyled>
+                        <Head>
+                            <title>{pageTitle} | Vendors</title>
+                        </Head>
+                        <VendorHeader userData={userData} />
+                        <VendorSiderbar />
+                        <main>
+                            <div className="main_container">
+                                <div className="breadCrumb">
+                                    <Breadcrumb separator=">">
+                                        <Breadcrumb.Item href="">{'Vendor'}</Breadcrumb.Item>
+                                        <Breadcrumb.Item>{crumbName}</Breadcrumb.Item>
+                                    </Breadcrumb>
+                                </div>
+                                <div className="pageTitle">{dashboardTitle}</div>
+                                {children}
+                            </div>
+                        </main>
+                    </VendorLayoutStyled>
+                </VendorAuthProvider>
+            )}
+        </>
     );
 };
 export default VendorLayout;

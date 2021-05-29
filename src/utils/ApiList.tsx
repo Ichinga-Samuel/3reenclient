@@ -2,7 +2,8 @@
 export const APP_BASE = process.env.APP_BASE_URL;
 
 // User & Vendor Endpoint
-const userPrefix = '/users';
+export const userPrefix = '/users';
+console.log('pref', userPrefix);
 
 export const USER = {
     login: `${userPrefix}/login`,

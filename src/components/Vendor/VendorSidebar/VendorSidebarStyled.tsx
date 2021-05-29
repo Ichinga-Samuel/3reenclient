@@ -10,6 +10,7 @@ export const VendorSidebarStyled = styled.aside`
     transition: ease all 0.5s;
     color: #fff;
     padding-top: 8rem;
+    transform: translateX(0); //-100%
     .vHeader {
         padding: 20px;
         h3 {
