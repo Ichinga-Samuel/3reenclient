@@ -1,10 +1,10 @@
 import React from 'react';
 import { DashboardStyled } from '@/components/Vendor/Dashboard/Dashboard.styled';
 import VendorLayout from '@/components/Vendor/Layout/VendorLayout';
-import { PieChart } from '@/components/Vendor/VendorDashboard/DashBoardPieChart';
-import { VerticalBoardCharts } from '@/components/Vendor/VendorDashboard/DashBoardCharts';
-import HorizontalBarChart from '@/components/Vendor/VendorDashboard/HorizontalBarChart';
-import Metrics from '@/components/Vendor/VendorDashboard/DashBoardMetrics';
+import { PieChart } from '@/components/Vendor/Dashboard/Components/DashBoardPieChart';
+import { VerticalBoardCharts } from '@/components/Vendor/Dashboard/Components/DashBoardCharts';
+import HorizontalBarChart from '@/components/Vendor/Dashboard/Components/HorizontalBarChart';
+import Metrics from '@/components/Vendor/Dashboard/Components/DashBoardMetrics';
 import TopSellingProducts from '@/components/Vendor/VendorDashboard/TopSellingProducts';
 import { Row, Col, Select } from 'antd';
 import { ShoppingCartOutlined, TagOutlined, DollarCircleOutlined, EyeOutlined } from '@ant-design/icons';
