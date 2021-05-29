@@ -38,7 +38,7 @@ const VendorSiderbar = () => {
         setTimeout(() => {
             setVisible(false);
             setConfirmLoading(false);
-            router.push('/vendor/login');
+            router?.push('/vendor/login');
         }, 2000);
     };
 
@@ -47,7 +47,7 @@ const VendorSiderbar = () => {
     };
 
     const createProduct = () => {
-        router.push('/vendor/inventory/create-product');
+        router?.push('/vendor/inventory/create-product');
     };
 
     useEffect(() => {

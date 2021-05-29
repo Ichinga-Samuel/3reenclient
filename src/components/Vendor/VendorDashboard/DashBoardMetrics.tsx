@@ -1,19 +1,16 @@
 import React from 'react';
-import { ProductVisits } from '@/components/AdminPages/icons/Icons';
 
-const DashBoardMetrics = () => {
+const DashBoardMetrics = ({ icon, metricName, metricCount }) => {
     return (
-        <div>
+        <>
             <div className="topDashboardMetrics">
-                <div>
-                    <ProductVisits />
-                </div>
+                <div className="count">{icon}</div>
                 <div className="merticsText">
-                    <h3>2656</h3>
-                    <p>Product visits</p>
+                    <h3>{metricCount}</h3>
+                    <p>{metricName}</p>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
