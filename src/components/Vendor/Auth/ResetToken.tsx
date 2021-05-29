@@ -27,7 +27,7 @@ const ResetToken = () => {
 
                 // If found, focus the next field
                 if (nextfield !== null) {
-                    nextfield.focus();
+                    (nextfield as HTMLInputElement).focus();
                 }
                 // else {
                 //     document.querySelector(`button`);
