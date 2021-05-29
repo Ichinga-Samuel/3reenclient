@@ -1,5 +1,5 @@
 import React from 'react';
-import './VendorDashboard.styled';
+import '../../VendorDashboard/VendorDashboard.styled';
 import { Col } from 'reactstrap';
 
 const TopSellingProducts = ({ serialNo, numberSold, productName, price }) => {

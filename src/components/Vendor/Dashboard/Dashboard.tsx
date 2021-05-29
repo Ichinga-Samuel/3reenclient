@@ -5,7 +5,7 @@ import { PieChart } from '@/components/Vendor/Dashboard/Components/DashBoardPieC
 import { VerticalBoardCharts } from '@/components/Vendor/Dashboard/Components/DashBoardCharts';
 import HorizontalBarChart from '@/components/Vendor/Dashboard/Components/HorizontalBarChart';
 import Metrics from '@/components/Vendor/Dashboard/Components/DashBoardMetrics';
-import TopSellingProducts from '@/components/Vendor/VendorDashboard/TopSellingProducts';
+import TopSellingProducts from '@/components/Vendor/Dashboard/Components/TopSellingProducts';
 import { Row, Col, Select } from 'antd';
 import { ShoppingCartOutlined, TagOutlined, DollarCircleOutlined, EyeOutlined } from '@ant-design/icons';
 const { Option } = Select;

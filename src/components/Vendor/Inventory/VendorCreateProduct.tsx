@@ -62,13 +62,13 @@ const VendorCreateProduct = () => {
                             </Row>
                             <Row className="draftProductsContainer">
                                 <Col className="draftProductCol">
-                                    <img alt="product2" className="draftImage" src="" />
+                                    <img alt="product2" className="draftImage" src="/img/googlenest.jpg" />
                                     <span className="draftProductSpan">
                                         <div style={{ marginBottom: '20px' }}>Nike summer combo</div>
                                     </span>
                                 </Col>
                                 <Col className="draftProductCol">
-                                    <img alt="product" className="draftImage" src="" />
+                                    <img alt="product" className="draftImage" src="/img/googlenest.jpg" />
                                     <span className="draftProductSpan">
                                         <div style={{ marginBottom: '20px' }}>Nike summer combo</div>
                                         <div>3 items 3 variants </div>
@@ -76,7 +76,7 @@ const VendorCreateProduct = () => {
                                     <span className="comboSpan">Combo</span>
                                 </Col>
                                 <Col className="draftProductCol">
-                                    <img alt="nike Snikers" className="draftImage" src="" />
+                                    <img alt="nike Snikers" className="draftImage" src="/img/googlenest.jpg" />
                                     <span className="draftProductSpan">
                                         <div style={{ marginBottom: '30px' }}>Nike summer combo</div>
                                     </span>
