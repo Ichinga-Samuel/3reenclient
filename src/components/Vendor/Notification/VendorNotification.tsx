@@ -18,7 +18,7 @@ const VendorNotification = ({ visible, close }) => {
             <Drawer
                 title="Notifications"
                 width={`25%`}
-                zIndex="1"
+                zIndex={1}
                 maskClosable={true}
                 closable={false}
                 onClose={close}
