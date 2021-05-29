@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FooterStyled } from './Footer.styled';
 
 const Footer = () => {
@@ -16,7 +17,9 @@ const Footer = () => {
                             <a href="https://twitter.com">Online Store</a>
                         </li>
                         <li>
-                            <a href="https://twitter.com">For Business</a>
+                            <Link href="/vendor">
+                                <a>For Business</a>
+                            </Link>
                         </li>
                         <li>
                             <a href="https://twitter.com">About Us</a>

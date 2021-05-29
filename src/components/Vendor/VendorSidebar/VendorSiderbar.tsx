@@ -46,6 +46,10 @@ const VendorSiderbar = () => {
         setVisible(false);
     };
 
+    const createProduct = () => {
+        router.push('/vendor/inventory/create-product');
+    };
+
     useEffect(() => {
         const pageEffectClick = (e) => {
             console.log(e);
@@ -68,7 +72,7 @@ const VendorSiderbar = () => {
                 <h3>Monitor your</h3>
                 <h1>Vendor Portal</h1>
             </div>
-            <div className="vendorProduct">
+            <div className="vendorProduct" onClick={createProduct} onKeyDown={createProduct} tabIndex={0} role="button">
                 <span>Create Product</span>
             </div>
             <div className="vendorMenu">

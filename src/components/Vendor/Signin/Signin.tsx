@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { SigninStyled, LoginForm } from './Signin.styled';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -40,50 +40,57 @@ const Signin = () => {
     //     RedirectToLastPage();
     // }, []);
 
-    const login = async (data) => {
-        console.log('login', data);
-        setIsProcessing(true);
-        setLoading(true);
-        setContent('Authenticating In Progress. Please wait...');
-        await axios
-            .post(`${APP_BASE}${USER.login}`, data)
-            .then((response) => {
-                console.log('login response', response);
-                const { data } = response;
-                if (data.status === 'success' && data.user.role !== 'user') {
-                    notification.error({
-                        message: 'Error',
-                        description: 'Account Does not belong to a vendor',
-                        duration: 15,
-                    });
+    const login = useCallback(
+        async (data: any) => {
+            console.log('login', data);
+            setIsProcessing(true);
+            setLoading(true);
+            setContent('Authenticating In Progress. Please wait...');
+            await axios
+                .post(`${APP_BASE}${USER.login}`, data)
+                .then((response) => {
+                    console.log('login response', response);
+                    const { data } = response;
+                    if (data.status === 'success' && data.user.role !== 'user') {
+                        notification.error({
+                            message: 'Error',
+                            description: 'Account Does not belong to a vendor',
+                            duration: 15,
+                        });
+                        setIsProcessing(false);
+                        setLoading(false);
+                        return;
+                    }
+                    if (data.status === 'success' && data.user.role === 'user') {
+                        setContent('Authentication Successful. Redirecting...');
+                        setTimeout(() => {
+                            router.push('/vendor/dashboard');
+                        }, 1000);
+                        addToLocalStorage('token', response.data.token);
+                        addToLocalStorage('user', response.data.user);
+                        // setCookie('', 'token', response.data.token, {
+                        //     maxAge: 30 * 24 * 60 * 60,
+                        //     path: '/',
+                        // });
+                    }
+                })
+                .catch((err) => {
+                    console.log('login err', err.response);
                     setIsProcessing(false);
                     setLoading(false);
-                    return;
-                }
-                if (data.status === 'success' && data.user.role === 'user') {
-                    setContent('Authentication Successful. Redirecting...');
-                    setTimeout(() => {
-                        router.push('/vendor/dashboard');
-                    }, 1000);
-                    addToLocalStorage('token', response.data.token);
-                    addToLocalStorage('user', response.data.user);
-                    // setCookie('', 'token', response.data.token, {
-                    //     maxAge: 30 * 24 * 60 * 60,
-                    //     path: '/',
-                    // });
-                }
-            })
-            .catch((err) => {
-                console.log('login err', err.response);
-                setIsProcessing(false);
-                setLoading(false);
-                notification.error({
-                    message: 'Error',
-                    description: err.response.data.message,
-                    duration: 15,
+                    notification.error({
+                        message: 'Error',
+                        description: err.response.data.message,
+                        duration: 15,
+                    });
                 });
-            });
-    };
+        },
+        [APP_BASE, router],
+    );
+
+    useEffect(() => {
+        router.prefetch('/vendor/dashboard');
+    }, [router]);
 
     return (
         <div className="login">
@@ -134,9 +141,10 @@ const Signin = () => {
     );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
     const token = getFromLocalStorage('token');
     console.log('token', token);
+    console.log('conte', context);
     if (token) {
         return {
             redirect: {

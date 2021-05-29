@@ -10,7 +10,17 @@ const nextConfig = {
     env: {
         APP_BASE_URL: process.env.APP_BASE_URL,
     },
+    async rewrites() {
+        return [
+            {
+                source: '/vendor',
+                destination: '/vendor/login',
+            },
+        ];
+    },
 };
+
+// const routing = async rewrites() {};
 
 const plugins = [
     [
