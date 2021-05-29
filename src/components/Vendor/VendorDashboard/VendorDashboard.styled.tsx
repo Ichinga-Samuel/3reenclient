@@ -246,7 +246,7 @@ export const StyledContainer = styled.div`
     .createProductCol {
         border: 1px solid blue;
         border-radius: 10px;
-        margin: 7px;
+        // margin: 7px;
     }
 
     .createProductButton {

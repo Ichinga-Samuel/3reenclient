@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../VendorDashboard/VendorDashboard.styled';
-import { Col } from 'reactstrap';
+import { Col } from 'antd';
 
 const TopSellingProducts = ({ serialNo, numberSold, productName, price }) => {
     return (
