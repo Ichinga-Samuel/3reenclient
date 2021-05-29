@@ -1,39 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { VendorHeaderStyled } from './vendorHeader.styled';
 import { LogoIcon, ProfileIcon } from '@/utils/Icons';
 import { CaretDownFilled, BellFilled } from '@ant-design/icons';
+import VendorNotification from '../Notification/VendorNotification';
 // import Search from '@/components/Products/Search';
 // import fakedata from '@/components/Products/fakeData';
 
-const VendorHeader = () => {
+const VendorHeader = ({ userData }) => {
+    const [visible, setVisible] = useState(false);
+    const openNotification = () => {
+        setVisible(true);
+    };
+
+    const loggedUser = JSON.parse(userData);
+    // console.log('data header', JSON.parse(userData));
+
+    const closeNotification = () => {
+        setVisible(false);
+    };
+
     return (
-        <VendorHeaderStyled>
-            <div className="Header">
-                <div className="Brand">
-                    <Link href="/">
-                        <a>
-                            <LogoIcon />
-                            {/* <img src="/img/logo.svg" alt="3reenshop logo" /> */}
-                        </a>
-                    </Link>
+        <>
+            <VendorHeaderStyled>
+                <div className="Header">
+                    <div className="Brand">
+                        <Link href="/">
+                            <a>
+                                <LogoIcon />
+                            </a>
+                        </Link>
+                    </div>
+                    <div
+                        className="Cart"
+                        onClick={openNotification}
+                        onKeyPress={openNotification}
+                        tabIndex={0}
+                        role="button"
+                    >
+                        <BellFilled />
+                    </div>
+                    <div className="Profile">
+                        <ProfileIcon />
+                        {/* <img src={loggedUser.photo} alt="p" /> */}
+                        <p>Hi, {loggedUser?.fullName} </p>
+                        <span>
+                            <CaretDownFilled />
+                        </span>
+                    </div>
                 </div>
-                {/* <div className="Input">
-                    <input type="text" className="Search" placeholder="Search products..." />
-                    <button className="SearchBtn">Search</button>
-                </div> */}
-                <div className="Cart">
-                    <BellFilled />
-                </div>
-                <div className="Profile">
-                    <ProfileIcon />
-                    <p>Hi, Jack </p>
-                    <span>
-                        <CaretDownFilled />
-                    </span>
-                </div>
-            </div>
-        </VendorHeaderStyled>
+            </VendorHeaderStyled>
+            <VendorNotification visible={visible} close={closeNotification} />
+        </>
     );
 };
 

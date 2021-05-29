@@ -2,17 +2,19 @@ import styled from 'styled-components';
 
 export const SigninStyled = styled.div`
     background: #590a5b;
-    height: 210vh;
+    height: auto;
     width: 100%;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+    transition: ease all 0.5s;
 
     .intro {
-        position: absolute;
+        position: relative;
         text-align: center;
-        margin-top: 80px;
+        margin-top: 20px;
     }
 
     .intro p {
@@ -23,27 +25,29 @@ export const SigninStyled = styled.div`
         style: normal;
         font-size: 2rem;
         line-height: 25px;
+        transition: ease all 0.5s;
     }
 
     @media (max-width: 500px) {
-        height: 180vh;
+        height: 100vh;
 
         .intro {
-            margin-top: 60px;
+            margin-top: 10px;
         }
     }
 `;
 
 export const LoginForm = styled.form`
-          width: 70%;
-          max-width: 1000px;
+        width: 60%;
+        max-width: 1000px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 200px;
-          background: #ffffff;
+        margin: 2rem;
+        background: #ffffff;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         color: rgba(0, 0, 0, 0.57);
+        transition: ease all 0.5s;
 
         .logo-div{
             width: 103px;
@@ -51,87 +55,85 @@ export const LoginForm = styled.form`
             height: 103px;
             border: 5px solid #590A5B;
             border-radius: 50px; 
-            margin-top: 100px;
+            margin-top: 2rem;
             text-align: center;
+            transition: ease all 0.5s;
         }
-
 
         .header-div{
             width: 50%;
             min-width: 300px;
-            height: 80px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             color: #590A5B;
             margin-top: 50px;
-            margin-bottom: 50px;
+            transition: ease all 0.5s;
+            h4 {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 3rem;
+                font-style: normal;
+                font-weight: 600;
+            }
+            p {
+                margin-top: 3px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.2rem;
+                font-style: normal;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.57);
+            }
         }
 
         img{
             width: 57px;
         }
 
-        .header-div h4{
-            height: 23px;
-            font-family: Montserrat;
-            font-size: 3rem;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 90.9%;
-            text-align: left;
-
-        }
-        .header-div p{
-            margin-top: 30px;
-            font-family: Montserrat;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 16px;
-            letter-spacing: 0em;
-            text-align: left;
-            color: rgba(0, 0, 0, 0.57);
-
-        }
-
         .input-group{
             width: 50%;
             min-width: 300px;
-            height: 100px;
+            margin-bottom: 30px;
             display: flex;
             flex-direction: column;
-           
-        }
-
-        .input-group input{
-            font-size: 18px;
-            height: 50px;
-            border: 1px solid rgba(0, 0, 0, 0.38);
-            box-sizing: border-box;
-            
-
-        }
-
-        .input-group label{
-            font-family: MADE TOMMY;
-            font-size: 15px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 19px;
-          
+            input {
+                height: 40px;
+                padding: 5px 15px;
+                border: 1px solid rgba(0, 0, 0, 0.38);
+                box-sizing: border-box; 
+                font-size: 1.5rem;
+                font-weight: 400;
+            }
+            label {
+                font-family: MADE TOMMY;
+                font-size: 1.1rem;
+                font-style: normal;
+                font-weight: 500;
+                display: block;
+            }
         }
 
         button{
             height: 50px;
             width: 40%;
             background: #FFAF38;
+            border-color: transparent;
             color: #fff;
             font-size: 18px;
             margin-bottom: 10px;
             margin-top: 20px;
             min-width: 250px;
-
+            &:hover {
+                background: #FFAF38;
+                border-color: var(--white-color);
+            }
+            &:focus {
+                background: #FFAF38;
+                border-color: var(--white-color);
+            }
+            &:active {
+                background: #FFAF38;
+                border-color: var(--white-color);
+            }
         }
        p{
             font-size: 15px;
@@ -144,13 +146,13 @@ export const LoginForm = styled.form`
             color: #FFAF38;
             margin-left: 10px;
             font-weight: 400;
-
         }
         a{
-            margin-bottom: 100px;
-            font-size: 15px;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #590A5B;
+            font-family: 'Montserrat', sans-serif;
         }
 
         @media(max-width: 500px){
@@ -168,12 +170,20 @@ export const LoginForm = styled.form`
             }
     
     
-            .header-div{
-              
+            .header-div{            
                 height: 80px;
                 margin-top: 20px;
                 margin-bottom: 20px;
                 min-width: 200px;
+                p {
+                    margin-top: 0px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    text-align: center;
+                    text-transform: uppercase;
+                    display: flex;
+                    flex-direction: column;
+                }
             }
     
             img{
@@ -184,37 +194,18 @@ export const LoginForm = styled.form`
                 display: none;
             }
 
-            .header-div p{
-                margin-top: 0px;
-                font-size: 14px;
-                font-weight: 500;
-                text-align: center;
-                text-transform: uppercase;
-                display: flex;
-                flex-direction: column;
-                
-    
-            }
-    
-            .input-group{
+            .input-group {
                 width: 95%;
                 min-width: 100px;
-                height: 100px;
-             
-               
+                height: 100px;  
+                input{
+                    font-size: 14px;
+                    height: 40px; 
+                }
+                label{
+                    font-size: 13px;
+                }     
             }
-
-            
-        .input-group input{
-            font-size: 14px;
-            height: 40px;
-        
-        }
-
-        .input-group label{
-            font-size: 13px;
-          
-        }
 
         button{
             height: 52px;
@@ -222,9 +213,7 @@ export const LoginForm = styled.form`
             font-size: 15px;
             border-radius: 50px;
             margin-top: 80px;
-            padding: 10px;
-          
-
+            padding: 10px;         
         }
         p{
             font-size: 13px;
@@ -240,7 +229,5 @@ export const LoginForm = styled.form`
         a{
             font-size: 14px;
             color: #686868;
-        }
-
-    
+        } 
 `;

@@ -5,6 +5,8 @@ import { SearchOutlined, DeleteFilled } from '@ant-design/icons';
 import axios from 'axios';
 import { TableMenu } from '@/utils/TableHelpers';
 import { ColumnsType } from 'antd/es/table';
+import { formatAmount } from '@/utils/helpers';
+import { VENDOR_PRODUCT } from '@/utils/ApiList';
 const { Option } = Select;
 
 const VendorProducts = () => {
@@ -14,31 +16,62 @@ const VendorProducts = () => {
         id: number;
         key: number;
         status: string;
-        productView: number | string;
+        numViews: number | string;
         productSold: number | string;
-        productPrice: number | string;
+        price: any;
         quantity: number | string;
         name: string;
     }
 
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
     const [loading, setloading] = useState(false);
+    const [fetching, setFetching] = useState(false);
     const [productData, setProductData] = useState([]);
+    const [pagination, setPagination] = useState(0);
+    const [total, setTotal] = useState(0);
 
-    const APP_BASE = 'https://treen-shop-api.herokuapp.com';
+    const APP_BASE = process.env.APP_BASE_URL;
 
-    let paginationObject = {
-        total: 0,
+    const filterProduct = async () => {
+        setloading(true);
+        setFetching(true);
+        try {
+            const response = await axios.post(`${APP_BASE}${VENDOR_PRODUCT.searchProduct}`);
+            const { doc, results, pages } = response.data;
+            setPagination(pages);
+            setProductData(doc);
+            setTotal(results);
+            // notification.success({
+            //     message: 'Success',
+            //     description: `${results} Products Fetched Successfully`,
+            //     duration: 5,
+            // });
+            console.log('search', response);
+            setFetching(false);
+            setloading(false);
+        } catch (err) {
+            console.log('error', err.response);
+            notification.error({
+                message: 'Filter Error',
+                description: err,
+                duration: 15,
+            });
+            setTimeout(() => {
+                setFetching(false);
+                setloading(false);
+            }, 1000);
+        }
     };
 
     useEffect(() => {
         const fetchAllProducts = async () => {
             setloading(true);
             try {
-                const response = await axios.get(`${APP_BASE}/api/v1/products`);
+                const response = await axios.get(`${APP_BASE}${VENDOR_PRODUCT.getAllProducts}`);
                 const { doc, results, pages } = response.data;
-                paginationObject = { ...response, total: pages };
-                setProductData(doc.doc);
+                setPagination(pages);
+                setProductData(doc);
+                setTotal(results);
                 notification.success({
                     message: 'Success',
                     description: `${results} Products Fetched Successfully`,
@@ -47,7 +80,7 @@ const VendorProducts = () => {
                 console.log('res', response);
                 setTimeout(() => {
                     setloading(false);
-                }, 2000);
+                }, 1000);
             } catch (err) {
                 console.log('error', err);
                 notification.error({
@@ -57,12 +90,12 @@ const VendorProducts = () => {
                 });
                 setTimeout(() => {
                     setloading(false);
-                }, 2000);
+                }, 1000);
             }
         };
         // return () => {};
         fetchAllProducts();
-    }, [productData]);
+    }, [APP_BASE]);
 
     const handleChange = (value) => {
         console.log(`selected ${value}`);
@@ -112,7 +145,7 @@ const VendorProducts = () => {
         },
         {
             title: 'View',
-            dataIndex: 'productView',
+            dataIndex: 'numViews',
         },
         {
             title: 'Sold',
@@ -120,7 +153,8 @@ const VendorProducts = () => {
         },
         {
             title: 'Price',
-            dataIndex: 'productPrice',
+            dataIndex: 'price',
+            render: (_text, record) => <>{formatAmount(record.price)}</>,
         },
         {
             title: 'Action',
@@ -178,7 +212,9 @@ const VendorProducts = () => {
             <div className="product">
                 <div className="product__filter">
                     <div className="product__view-filters">
-                        <Button type="primary">View Filters</Button>
+                        <Button loading={fetching} type="primary" onClick={filterProduct}>
+                            View Filters
+                        </Button>
                     </div>
                     <div className="product__search">
                         <SearchOutlined />
@@ -219,10 +255,10 @@ const VendorProducts = () => {
                     <div className="pagination">
                         <Pagination
                             size="small"
-                            total={paginationObject.total}
+                            total={pagination}
                             defaultPageSize={10}
                             defaultCurrent={1}
-                            showTotal={(total, range) => `Showing ${range[0]}-${range[1]} of ${total} items`}
+                            showTotal={(_total, range) => `Showing ${range[0]}-${range[1]} of ${total} items`}
                         />
                     </div>
                 </div>

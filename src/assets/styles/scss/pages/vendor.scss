@@ -1,0 +1,293 @@
+// Notification
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;800&display=swap');
+.notification {
+    .ant-spin-nested-loading > div > .ant-spin .ant-spin-text {
+        text-shadow: none;
+        color: #fcf009;
+    }
+    svg {
+        fill: #fcf009;
+    }
+}
+.ant-drawer-mask {
+    background-color: transparent;
+}
+.ant-drawer-content {
+    background-color: var(--background-color);
+}
+.ant-drawer-header {
+    background: var(--background-color);
+    color: var(--white-color);
+    .ant-drawer-title {
+        color: var(--white-color);
+        font-size: 15px;
+        font-weight: lighter;
+        display: flex;
+        justify-content: center;
+    }
+}
+.ant-drawer-right {
+    .ant-drawer-content-wrapper {
+        padding-top: 4%;
+    }
+}
+.ant-drawer-body {
+    padding: 10px 15px;
+}
+
+.notify {
+    position: relative;
+    display: flex;
+    margin: 5px 0 3rem;
+    transition: ease all 0.5s;
+    &__head {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        background: #fcbdff;
+        margin: 0 20px 0 0;
+    }
+    &__details {
+        flex: 1;
+        h3 {
+            font-size: 14px;
+            margin-bottom: 0;
+            font-weight: bold;
+            color: var(--white-color);
+        }
+    }
+    &__time-items {
+        display: flex;
+        align-items: center;
+        color: var(--white-color);
+        font-weight: lighter;
+        > div {
+            &:nth-child(1) {
+                font-size: 12px;
+                color: #fcf009;
+                font-weight: lighter;
+            }
+            &:nth-child(2) {
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--white-color);
+            }
+        }
+    }
+    &__period {
+        margin: 0 15px 0 0;
+        h5 {
+            margin-bottom: 0;
+            font-weight: lighter;
+            color: var(--white-color);
+        }
+    }
+}
+.notify_footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    span {
+        color: #fcf009;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+// other auth pages
+.auth-cover {
+    width: 100%;
+    height: 100vh;
+    background: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.forgotpass {
+    width: 100%;
+    height: 100vh;
+    background: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    &__inner {
+        background: var(--white-color);
+        width: 30%;
+        margin: auto;
+        padding: 4rem;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        color: rgba(0, 0, 0, 0.57);
+        transition: ease all 0.5s;
+        animation: zoomIn 500ms 1s;
+    }
+    &__header {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-family: 'MADE TOMMY', sans-serif;
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.3rem;
+        }
+        h3 {
+            color: #716b72;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 18px;
+            padding: 0 4rem;
+        }
+    }
+    &__details {
+        padding: 3rem 0;
+        .ant-input {
+            height: 40px;
+            &:focus {
+                border-color: var(--secondary-color);
+                box-shadow: none;
+            }
+        }
+        .ant-btn-primary {
+            height: 40px;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+    }
+}
+
+.emailsent {
+    width: 100%;
+    height: 100vh;
+    background: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    opacity: 0.9;
+    &__message {
+        width: 32%;
+        margin: auto;
+        text-align: center;
+        padding: 1rem;
+        transition: ease all 0.5s;
+        animation: zoomIn 1s 1s;
+        .icon {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 2rem 0;
+            transition: ease all 0.5s;
+            img {
+                width: 75px;
+                object-fit: contain;
+            }
+        }
+        .ant-btn-primary {
+            height: 40px;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            border-radius: 0;
+            animation: 1s ease-out 2s 1 slideInUp;
+            
+        }
+        h3 {
+            color: var(--white-color);
+            font-size: 1.6rem;
+            margin: 2rem 0;
+        }
+        h4 {
+            color: var(--white-color);
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+// Enter Reset Code
+.resetpass, .create-new {
+    background: var(--white-color);
+    width: 30%;
+    margin: auto;
+    padding: 4rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.57);
+    transition: ease all 0.5s;
+    animation: 1s ease-out 0s 1 zoomIn;
+    h2 {
+        font-family: 'MADE TOMMY';
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    form {
+        margin: 4rem 0;
+    }
+    .ant-input {
+        height: 46px;
+        background-color: #EBEBEB;
+        display: flex;
+        border: none;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        &:focus {
+            border-color: var(--secondary-color);
+            box-shadow: none;
+        }
+    }
+    &__btn {
+        margin-top: 2rem;
+        .ant-btn-primary {
+            height: 35px;
+            border-radius: none;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+    }
+}
+
+.create-new {
+    
+    h3 {
+        font-size: .9rem;
+        text-align: center;
+    }
+    .ant-input {
+        height: 30px;
+        text-align: left;
+        background-color: var(--white-color);
+    }
+}
+
+//login
+.login {
+    svg {
+        fill: #590a5b;
+    }
+    .ant-spin-nested-loading {
+        > div {
+            .ant-spin {
+                top: 13rem;
+                .ant-spin-text {
+                    text-shadow: none;
+                    color: #000;
+                }
+            }
+        }
+    }
+}
+
+.error {
+    color: #f00;
+}

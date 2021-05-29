@@ -1,6 +1,4 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-console */
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
@@ -8,16 +6,45 @@ import { Dashboard, Order, Inventory, Ratings, CustomerService, LogoutIcon } fro
 import { VendorSidebarStyled } from './VendorSidebarStyled';
 import { useRouter } from 'next/router';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
-// import LinkTo from '@storybook/addon-links/react';
+import { Button, Popconfirm } from 'antd';
+import {
+    removeFromLocalStorage,
+    removeFromSessionStorage,
+    emptySessionStorage,
+    emptyLocalStorage,
+} from '@/utils/browserStorage';
 
 const VendorSiderbar = () => {
     const router = useRouter();
-    console.log('toure', router);
+    // console.log('toure', router);
 
     const dropDown = useRef(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [visible, setVisible] = useState(false);
+    const [confirmLoading, setConfirmLoading] = useState(false);
 
     const openSubMenu = () => setIsOpen(!isOpen);
+
+    const showPopconfirm = () => {
+        setVisible(true);
+    };
+
+    const logoutUser = () => {
+        setConfirmLoading(true);
+        removeFromLocalStorage('token');
+        removeFromSessionStorage('token');
+        emptySessionStorage();
+        emptyLocalStorage();
+        setTimeout(() => {
+            setVisible(false);
+            setConfirmLoading(false);
+            router.push('/vendor/login');
+        }, 2000);
+    };
+
+    const cancelLogout = () => {
+        setVisible(false);
+    };
 
     useEffect(() => {
         const pageEffectClick = (e) => {
@@ -54,7 +81,7 @@ const VendorSiderbar = () => {
                             </a>
                         </Link>
                     </li>
-                    <li className={`has-dropdown`} onClick={openSubMenu}>
+                    <li className={`has-dropdown`} onClick={openSubMenu} onKeyPress={openSubMenu}>
                         <div>
                             <Inventory />
                             <span>Inventory</span>
@@ -108,11 +135,19 @@ const VendorSiderbar = () => {
             <div className="__footer">
                 <ul>
                     <li>
-                        <Link href="/vendor/login">
-                            <a>
+                        <Popconfirm
+                            title="Are you sure you want to logout?"
+                            visible={visible}
+                            onConfirm={logoutUser}
+                            onCancel={cancelLogout}
+                            okText="Yes"
+                            okButtonProps={{ loading: confirmLoading, danger: true }}
+                            cancelText="No"
+                        >
+                            <Button block onClick={showPopconfirm}>
                                 <LogoutIcon /> Log out
-                            </a>
-                        </Link>
+                            </Button>
+                        </Popconfirm>
                     </li>
                 </ul>
             </div>

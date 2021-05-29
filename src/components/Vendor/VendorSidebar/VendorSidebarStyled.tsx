@@ -152,7 +152,8 @@ export const VendorSidebarStyled = styled.aside`
         bottom: 0;
         align-items: center;
         justify-content: center;
-        left: 23px;
+        // left: 23px;
+        width: 100%;
         overflow: hidden;
         transition: ease all 0.5s;
         svg {
@@ -164,18 +165,20 @@ export const VendorSidebarStyled = styled.aside`
             display: flex;
             align-items: center;
             flex-direction: column;
-            margin: 0;
+            // margin: 0;
             padding: 0;
         }
 
         li,
-        a {
+        button {
             cursor: pointer;
             font-size: 14px;
+            background: transparent;
+            border-color: transparent;
             text-transform: uppercase;
             color: #be1e2d;
             display: flex;
-            padding: 4px 0;
+            // padding: 4px 0;
             align-items: center;
         }
     }

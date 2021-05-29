@@ -7,6 +7,9 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'src/assets/styles/scss')],
     },
+    env: {
+        APP_BASE_URL: process.env.APP_BASE_URL,
+    },
 };
 
 const plugins = [

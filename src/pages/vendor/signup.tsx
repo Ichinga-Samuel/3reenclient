@@ -1,9 +1,13 @@
 import React from 'react';
-import Signup from '../../components/Signup/Signup';
+import Head from 'next/head';
+import Signup from '../../components/Vendor/Signup/Signup';
 
 const signup = () => {
     return (
         <div>
+            <Head>
+                <title>Register | Vendor</title>
+            </Head>
             <Signup />
         </div>
     );
