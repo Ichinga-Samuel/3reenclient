@@ -7,6 +7,8 @@ import { Breadcrumb } from 'antd';
 import { VendorAuthProvider } from '../VendorAuthProvider';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const VendorLayout = ({ pageTitle, dashboardTitle, crumbName, children }) => {
     // const value = useAuth();
@@ -16,6 +18,14 @@ const VendorLayout = ({ pageTitle, dashboardTitle, crumbName, children }) => {
 
     const token = getFromLocalStorage('token');
     const userData = getFromLocalStorage('user') || null;
+
+    useEffect(() => {
+        // const useAos = () => {
+        //     AOS.init({ duration: 600 });
+        // };
+        // useAos();
+        AOS.init({ duration: 600 });
+    }, []);
 
     useEffect(() => {
         if (!token && token === null && userData === null) {

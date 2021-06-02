@@ -86,7 +86,7 @@ const Dashboard = () => {
 
     return (
         <VendorLayout pageTitle="Dashboard" crumbName="Dashboard" dashboardTitle="Dashboard">
-            <DashboardStyled>
+            <DashboardStyled data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s">
                 <div className="topMetricsContainer">
                     <Row justify="space-between" gutter={[16, 16]} style={{ marginRight: 0 }}>
                         <Col xs={12} xl={6} lg={6} style={{ paddingLeft: 0 }}>

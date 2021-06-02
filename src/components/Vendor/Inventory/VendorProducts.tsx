@@ -6,7 +6,9 @@ import axios from 'axios';
 import { TableMenu } from '@/utils/TableHelpers';
 import { ColumnsType } from 'antd/es/table';
 import { formatAmount } from '@/utils/helpers';
-import { VENDOR_PRODUCT } from '@/utils/ApiList';
+import { APP_BASE, VENDOR_PRODUCT } from '@/utils/ApiList';
+import { getFromLocalStorage } from '@/utils/browserStorage';
+
 const { Option } = Select;
 
 const VendorProducts = () => {
@@ -30,37 +32,40 @@ const VendorProducts = () => {
     const [pagination, setPagination] = useState(0);
     const [total, setTotal] = useState(0);
 
-    const APP_BASE = process.env.APP_BASE_URL;
+    const token = getFromLocalStorage('token');
 
     const filterProduct = async () => {
         setloading(true);
         setFetching(true);
-        try {
-            const response = await axios.post(`${APP_BASE}${VENDOR_PRODUCT.searchProduct}`);
-            const { doc, results, pages } = response.data;
-            setPagination(pages);
-            setProductData(doc);
-            setTotal(results);
-            // notification.success({
-            //     message: 'Success',
-            //     description: `${results} Products Fetched Successfully`,
-            //     duration: 5,
-            // });
-            console.log('search', response);
-            setFetching(false);
-            setloading(false);
-        } catch (err) {
-            console.log('error', err.response);
-            notification.error({
-                message: 'Filter Error',
-                description: err,
-                duration: 15,
-            });
-            setTimeout(() => {
+        await axios
+            .post(`${APP_BASE}${VENDOR_PRODUCT.searchProduct}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((response: any) => {
+                console.log('login response', response);
+                const { doc, data, pages, results } = response;
+                if (data.status === 'success') {
+                    console.log('record', productData);
+                    setPagination(pages);
+                    setProductData(doc);
+                    setTotal(results);
+                    setFetching(false);
+                    setloading(false);
+                }
+            })
+            .catch((err) => {
+                console.log('login err', err.response);
                 setFetching(false);
                 setloading(false);
-            }, 1000);
-        }
+                setProductData([]);
+                notification.error({
+                    message: 'Error',
+                    description: err?.response?.data.message,
+                    duration: 0,
+                });
+            });
     };
 
     useEffect(() => {
@@ -72,11 +77,11 @@ const VendorProducts = () => {
                 setPagination(pages);
                 setProductData(doc);
                 setTotal(results);
-                notification.success({
-                    message: 'Success',
-                    description: `${results} Products Fetched Successfully`,
-                    duration: 5,
-                });
+                // notification.success({
+                //     message: 'Success',
+                //     description: `${results} Products Fetched Successfully`,
+                //     duration: 5,
+                // });
                 console.log('res', response);
                 setTimeout(() => {
                     setloading(false);
@@ -95,7 +100,7 @@ const VendorProducts = () => {
         };
         // return () => {};
         fetchAllProducts();
-    }, [APP_BASE]);
+    }, []);
 
     const handleChange = (value) => {
         console.log(`selected ${value}`);
@@ -190,7 +195,7 @@ const VendorProducts = () => {
     //         productPrice: 5040,
     //     });
     // }
-    const onSelectChange = (selectedRowKeys, record) => {
+    const onSelectChange = (selectedRowKeys: any, record: any) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
         console.log('selected record', record);
         setSelectedRowKeys(selectedRowKeys);
@@ -209,7 +214,7 @@ const VendorProducts = () => {
 
     return (
         <VendorLayout pageTitle={title} crumbName={title} dashboardTitle={title}>
-            <div className="product">
+            <div className="product" data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s">
                 <div className="product__filter">
                     <div className="product__view-filters">
                         <Button loading={fetching} type="primary" onClick={filterProduct}>

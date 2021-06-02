@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DashboardStyled = styled.div`
     transition: ease all 0.5s;
-    animation: fadeIn 2s ease-out 1s;
+    /* animation: fadeIn 2s ease-out 1s; */
     .dashboard {
         padding: 0;
     }
