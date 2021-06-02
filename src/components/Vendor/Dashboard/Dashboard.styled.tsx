@@ -100,6 +100,13 @@ export const DashboardStyled = styled.div`
         h4 {
             font-size: 1.2rem;
         }
+        .no-data {
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+        }
     }
     .metricsFilter {
         display: flex;

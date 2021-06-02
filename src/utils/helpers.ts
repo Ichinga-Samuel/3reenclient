@@ -17,6 +17,13 @@ export const formatAmount = (num: any) => {
     }
 };
 
+export const formatNumber = (num: any) => {
+    if (!num) {
+        return;
+    }
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
 export function capitalize(string: string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
