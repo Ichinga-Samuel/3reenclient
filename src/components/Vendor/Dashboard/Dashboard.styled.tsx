@@ -132,7 +132,7 @@ export const DashboardStyled = styled.div`
         max-height: 100%;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
-        margin: 10px 10px 20px;
+        margin: 0 0 30px;
         padding: 10px;
         .metricsFilter {
             display: flex;

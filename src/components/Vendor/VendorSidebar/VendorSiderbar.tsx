@@ -111,8 +111,8 @@ const VendorSiderbar = () => {
                         </div>
                     </li>
                     <li>
-                        <Link href="/vendor/orders">
-                            <a>
+                        <Link href="/vendor/orders/">
+                            <a className={router.pathname == '/vendor/orders/' ? 'active' : ''}>
                                 <Order />
                                 <span>Orders Display</span>
                             </a>
