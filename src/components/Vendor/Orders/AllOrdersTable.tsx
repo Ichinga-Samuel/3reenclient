@@ -3,15 +3,17 @@ import VendorLayout from '@/components/Vendor/Layout/VendorLayout';
 import { OrderTableContainer } from '@/components/Vendor/Orders/Orders.styled';
 import { Button, Select, Pagination, notification, Table, Tag } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { SearchOutlined } from '@ant-design/icons';
+import { EyeOutlined, SearchOutlined, MoreOutlined } from '@ant-design/icons';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { APP_BASE, VENDOR_ORDER } from '@/utils/ApiList';
 import axios from 'axios';
 import { formatAmount } from '@/utils/helpers';
+import { VendorOrders } from './fakeOrder';
 
 const { Option } = Select;
 
 const AllOrdersTable = () => {
+    const testOrder = VendorOrders || [];
     const title = 'All Orders';
     const [fetching, setFetching] = useState(false);
     const [orders, setorders] = useState([]);
@@ -22,10 +24,44 @@ const AllOrdersTable = () => {
 
     const filterOrders = () => {
         setFetching(true);
+        setTimeout(() => {
+            setFetching(false);
+        }, 1000);
     };
 
-    const handleChange = (value: string) => {
+    const filterByStatus = async (value: string) => {
         console.log('searc', value);
+        await axios
+            .get(`${APP_BASE}${VENDOR_ORDER.byStatus(value)}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+            .then((response: any) => {
+                console.log('login response', response);
+                const { doc, data, pages, results } = response;
+                if (data.status === 'success') {
+                    console.log('record', orders);
+                    setPagination(pages);
+                    setorders(doc);
+                    setTotal(results);
+                    setFetching(false);
+                }
+            })
+            .catch((err) => {
+                console.log('login err', err.response);
+                setFetching(false);
+                setorders([]);
+                notification.error({
+                    message: 'Error',
+                    description: err?.response?.data.message,
+                    duration: 0,
+                });
+            });
+    };
+
+    const getOneRecord = (record) => {
+        console.log('record', record);
     };
 
     useEffect(() => {
@@ -69,9 +105,9 @@ const AllOrdersTable = () => {
         setSelectedRowKeys(selectedRowKeys);
     };
 
-    interface orders {
-        refId: number;
-        key: number;
+    interface testOrder {
+        refId: number | string;
+        key: number | string;
         placedOn: string;
         noOfItems: number | string;
         status: string;
@@ -79,7 +115,7 @@ const AllOrdersTable = () => {
         amount: any;
     }
 
-    const orderColumns: ColumnsType<orders> = [
+    const orderColumns: ColumnsType<testOrder> = [
         {
             title: 'Ref ID',
             dataIndex: 'refId',
@@ -91,20 +127,30 @@ const AllOrdersTable = () => {
         {
             title: 'No Of Items',
             dataIndex: 'noOfItems',
+            align: 'center',
         },
         {
             title: 'Status',
             dataIndex: 'status',
+            align: 'center',
             render: (status) => (
                 <>
-                    {status === 'Delivered' ? (
-                        <Tag color="#CEFFB7">Delivered</Tag>
+                    {status === 'delivered' ? (
+                        <Tag color="#93f365">
+                            <span style={{ color: '#008B1F' }}>Delivered</span>
+                        </Tag>
                     ) : status === 'dispatched' ? (
-                        <Tag color="#FFF0BB">Dispatched</Tag>
-                    ) : status === 'pickup' ? (
-                        <Tag color="#C4A8FF">Pick Up</Tag>
+                        <Tag color="#f9e9b2">
+                            <span style={{ color: '#A57700' }}>Dispatched</span>
+                        </Tag>
+                    ) : status === 'pickedup' ? (
+                        <Tag color="#b697f8">
+                            <span style={{ color: '#00278B' }}>Picked Up</span>
+                        </Tag>
                     ) : status === 'returned' ? (
-                        <Tag color="#FFA9A9">Returned Up</Tag>
+                        <Tag color="#FFA9A9">
+                            <span style={{ color: '#FF0000' }}>Returned</span>
+                        </Tag>
                     ) : (
                         ''
                     )}
@@ -121,18 +167,38 @@ const AllOrdersTable = () => {
             render: (_text, record) => <>{formatAmount(record.amount)}</>,
         },
         {
-            title: 'View',
+            title: '',
             dataIndex: '',
             key: 'operation1',
             width: 100,
             align: 'center',
+            render: (_text, record) => (
+                <>
+                    <div
+                        style={{ cursor: 'pointer', fontSize: '2rem' }}
+                        onClick={() => getOneRecord(record)}
+                        onKeyPress={() => getOneRecord(record)}
+                        role="button"
+                        tabIndex={0}
+                    >
+                        <EyeOutlined />
+                    </div>
+                </>
+            ),
         },
         {
-            title: 'Ac',
+            title: '',
             dataIndex: '',
             key: 'operation1',
             width: 100,
             align: 'center',
+            render: (_text) => (
+                <>
+                    <div style={{ cursor: 'pointer', fontSize: '2rem' }}>
+                        <MoreOutlined />
+                    </div>
+                </>
+            ),
         },
     ];
 
@@ -158,8 +224,11 @@ const AllOrdersTable = () => {
                     </div>
                     <div className="product__status">
                         <span>Status</span>
-                        <Select defaultValue="Delivered" style={{ width: 150 }} onChange={handleChange}>
-                            <Option value="Delivered">Delivered</Option>
+                        <Select defaultValue="Delivered" style={{ width: 150 }} onChange={filterByStatus}>
+                            <Option value="delivered">Delivered</Option>
+                            <Option value="Dispatched">Dispatched</Option>
+                            <Option value="pickedup">Picked up</Option>
+                            <Option value="returned">Returned</Option>
                         </Select>
                     </div>
                 </div>
@@ -184,12 +253,13 @@ const AllOrdersTable = () => {
                     </div>
                 </div>
                 <div className="productdata">
-                    <Table<orders>
+                    <Table<testOrder>
                         rowSelection={rowSelection}
-                        rowKey="id"
+                        rowKey="refId"
                         loading={fetching}
                         columns={orderColumns}
-                        dataSource={orders}
+                        dataSource={testOrder}
+                        pagination={false}
                     />
                 </div>
             </OrderTableContainer>

@@ -20,10 +20,6 @@ const VendorLayout = ({ pageTitle, dashboardTitle, crumbName, children }) => {
     const userData = getFromLocalStorage('user') || null;
 
     useEffect(() => {
-        // const useAos = () => {
-        //     AOS.init({ duration: 600 });
-        // };
-        // useAos();
         AOS.init({ duration: 600 });
     }, []);
 
