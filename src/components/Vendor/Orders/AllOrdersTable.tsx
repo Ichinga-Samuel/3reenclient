@@ -7,6 +7,7 @@ import { EyeOutlined, SearchOutlined, MoreOutlined } from '@ant-design/icons';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { APP_BASE, VENDOR_ORDER } from '@/utils/ApiList';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import { formatAmount } from '@/utils/helpers';
 import { VendorOrders } from './fakeOrder';
 
@@ -14,6 +15,7 @@ const { Option } = Select;
 
 const AllOrdersTable = () => {
     const testOrder = VendorOrders || [];
+    const router = useRouter();
     const title = 'All Orders';
     const [fetching, setFetching] = useState(false);
     const [orders, setorders] = useState([]);
@@ -62,6 +64,10 @@ const AllOrdersTable = () => {
 
     const getOneRecord = (record) => {
         console.log('record', record);
+        router.push({
+            pathname: '/vendor/orders/[id]',
+            query: { id: record.refId },
+        });
     };
 
     useEffect(() => {
@@ -82,17 +88,14 @@ const AllOrdersTable = () => {
                 console.log('res', response);
                 setTimeout(() => {
                     setFetching(false);
-                }, 1000);
+                }, 500);
             } catch (err) {
                 console.log('error', err);
                 notification.error({
                     message: 'Orders Error',
                     description: err,
-                    duration: 15,
+                    duration: 0,
                 });
-                setTimeout(() => {
-                    setFetching(false);
-                }, 1000);
             }
         };
         // return () => {};
