@@ -19,11 +19,13 @@ export const USER = {
 export const VENDOR_ORDER = {
     getAllOrders: '/orders',
     getSingleOrder: (id: any) => `/orders/${id}`,
-    byStatus: (status: string) => `orders/status/${status}`,
+    byStatus: (status: string) => `/orders/status/${status}`,
 };
 
 export const VENDOR_PRODUCT = {
-    getAllProducts: '/products',
+    dashboardStat: '/products/vendorStats',
+    filterDashboard: (value: string) => `/products/filterdashboard/${value}`,
+    getAllProducts: '/products/vendorProducts',
     searchProduct: '/search',
     deleteProduct: (id: any) => `/products/${id}`,
 };
