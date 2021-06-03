@@ -25,7 +25,7 @@ export const VENDOR_ORDER = {
 export const VENDOR_PRODUCT = {
     dashboardStat: '/products/vendorStats',
     filterDashboard: (value: string) => `/products/filterdashboard/${value}`,
-    getAllProducts: '/products',
+    getAllProducts: '/products/vendorProducts',
     searchProduct: '/search',
     deleteProduct: (id: any) => `/products/${id}`,
 };

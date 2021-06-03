@@ -72,7 +72,11 @@ const VendorProducts = () => {
         const fetchAllProducts = async () => {
             setloading(true);
             try {
-                const response = await axios.get(`${APP_BASE}${VENDOR_PRODUCT.getAllProducts}`);
+                const response = await axios.get(`${APP_BASE}${VENDOR_PRODUCT.getAllProducts}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
                 const { doc, results, pages } = response.data;
                 setPagination(pages);
                 setProductData(doc);
@@ -87,10 +91,11 @@ const VendorProducts = () => {
                     setloading(false);
                 }, 1000);
             } catch (err) {
-                console.log('error', err);
+                console.log('error', err.response);
+                const { data } = err.response;
                 notification.error({
                     message: 'Product Error',
-                    description: err,
+                    description: data?.message,
                     duration: 15,
                 });
                 setTimeout(() => {
