@@ -170,4 +170,74 @@ export const OrderDetailsContainer = styled.div`
             bottom: 0;
         }
     }
+    .item_steps {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding-top: 20px;
+        transition: ease all 0.5s;
+        .ant-steps-label-vertical .ant-steps-item-content {
+            margin-top: 0;
+        }
+        .ant-steps-item-description {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            left: 0;
+            font-size: 1rem;
+            color: var(--black-color);
+        }
+        .ant-steps-item-title {
+            font-size: 1rem;
+            color: var(--black-color);
+        }
+        .ant-steps-item-finish {
+            .ant-steps-item-icon {
+                > .ant-steps-icon {
+                    .ant-steps-icon-dot {
+                        background: var(--secondary-color);
+                    }
+                }
+            }
+            > .ant-steps-item-container {
+                > .ant-steps-item-tail {
+                    &:after {
+                        background-color: var(--secondary-color);
+                    }
+                }
+            }
+        }
+        .ant-steps-item-process {
+            .ant-steps-item-container {
+                > .ant-steps-item-tail {
+                    &:after {
+                        background-color: var(--secondary-color);
+                    }
+                }
+                .ant-steps-item-icon {
+                    > .ant-steps-icon {
+                        .ant-steps-icon-dot {
+                            background: var(--secondary-color);
+                        }
+                    }
+                }
+            }
+        }
+        .ant-steps-item-wait {
+            > .ant-steps-item-container {
+                > .ant-steps-item-tail {
+                    &:after {
+                        background-color: var(--secondary-color);
+                    }
+                }
+            }
+            .ant-steps-item-icon {
+                > .ant-steps-icon {
+                    .ant-steps-icon-dot {
+                        background: var(--secondary-color);
+                    }
+                }
+            }
+        }
+    }
 `;

@@ -6,17 +6,20 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { VENDOR_ORDER } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
-import { Button, Row, Col } from 'antd';
+import { Button, Steps, Row, Col } from 'antd';
 import { MoreOutlined, ArrowLeftOutlined } from '@ant-design/icons';
 import { formatAmount } from '@/utils/helpers';
+
+const { Step } = Steps;
 
 const SingleOrderDetails = () => {
     const title = 'Order Details';
     const router = useRouter();
     const { id } = router.query;
+
     return (
         //  data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s"
-        <VendorLayout pageTitle={title} crumbName="All Orders" dashboardTitle="''">
+        <VendorLayout pageTitle={title} crumbName="All Orders" dashboardTitle="">
             <OrderDetailsContainer>
                 <div className="title">
                     <Link href="/venor/orders">
@@ -106,7 +109,16 @@ const SingleOrderDetails = () => {
                                         <div className="price">Price: {formatAmount(1350)}</div>
                                     </div>
                                 </Col>
-                                <Col xs={24} xl={12} lg={4}></Col>
+                                <Col xs={24} xl={15} lg={4}>
+                                    <div className="item_steps">
+                                        <Steps current={1} progressDot>
+                                            <Step title="Picked Up" description="31 Dec" />
+                                            <Step title="Processed" description="2 Jan" />
+                                            <Step title="Dispatched" description="2 Jan" />
+                                            <Step title="Delivered" description="2 Jan" />
+                                        </Steps>
+                                    </div>
+                                </Col>
                             </Row>
                         </div>
                     </div>
