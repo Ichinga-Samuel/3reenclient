@@ -18,11 +18,10 @@ const SingleOrderDetails = () => {
     const { id } = router.query;
 
     return (
-        //  data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s"
         <VendorLayout pageTitle={title} crumbName="All Orders" dashboardTitle="">
-            <OrderDetailsContainer>
+            <OrderDetailsContainer data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s">
                 <div className="title">
-                    <Link href="/venor/orders">
+                    <Link href="/vendor/orders">
                         <a>
                             <ArrowLeftOutlined /> <span>View Orders</span>
                         </a>
