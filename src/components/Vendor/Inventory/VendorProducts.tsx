@@ -177,15 +177,15 @@ const VendorProducts = () => {
     ];
 
     // <Dropdown overlay={menu} trigger={['click']}>
-    //                 <a
-    //                     href="#"
-    //                     className="ant-dropdown-link"
-    //                     onClick={(e) => e.preventDefault()}
-    //                     onKeyDown={(e) => e.preventDefault()}
-    //                 >
-    //                     <MoreOutlined />
-    //                 </a>
-    //             </Dropdown>
+    //     <a
+    //         href="#"
+    //         className="ant-dropdown-link"
+    //         onClick={(e) => e.preventDefault()}
+    //         onKeyDown={(e) => e.preventDefault()}
+    //     >
+    //         <MoreOutlined />
+    //     </a>
+    // </Dropdown>;
 
     // const fakeProduct: productData[] = [];
     // for (let i = 0; i < 46; i++) {

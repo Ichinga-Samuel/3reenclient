@@ -26,7 +26,7 @@ const VendorCreateProduct = () => {
                                     </ol>
                                 </div>
                                 <Row>
-                                    <Col xs={12} xl={6} lg={6}>
+                                    <Col xs={24} xl={24} lg={24}>
                                         <Button block type="primary">
                                             Create Product
                                         </Button>
@@ -37,7 +37,7 @@ const VendorCreateProduct = () => {
                         <Col xs={24} xl={12} lg={12}>
                             <div className="createProductCol">
                                 <h3 className="createProductHeader">Combo Product</h3>
-                                <h4 style={{ textAlign: 'center' }}>
+                                <h4>
                                     Select multiple product from your inventory <br></br>and create a special combo for
                                     your customers
                                 </h4>
@@ -49,11 +49,18 @@ const VendorCreateProduct = () => {
                                         <li className="createProductOl">Set combo price</li>
                                     </ol>
                                 </div>
-                                <div className="createProductButtonContainer">
+                                <Row>
+                                    <Col xs={24} xl={24} lg={24}>
+                                        <Button block type="primary">
+                                            Create Product
+                                        </Button>
+                                    </Col>
+                                </Row>
+                                {/* <div className="createProductButtonContainer">
                                     <Button type="primary" className="createProductButton">
                                         Create Product
                                     </Button>
-                                </div>
+                                </div> */}
                             </div>
                         </Col>
                     </Row>

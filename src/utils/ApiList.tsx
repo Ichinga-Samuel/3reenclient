@@ -7,7 +7,7 @@ console.log('pref', userPrefix);
 
 export const USER = {
     login: `${userPrefix}/login`,
-    register: `${userPrefix}/signup`,
+    register: `${userPrefix}/signUpAsCompany`,
     loggedIn: `${userPrefix}/me`,
     updateLoggedInUser: `${userPrefix}/updateMe`,
     forgotPassword: `${userPrefix}/forgotPassword`,
