@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const DashboardStyled = styled.div`
     transition: ease all 0.5s;
-    animation: fadeIn 2s ease-out 1s;
+    /* animation: fadeIn 2s ease-out 1s; */
     .dashboard {
         padding: 0;
     }
@@ -100,6 +100,13 @@ export const DashboardStyled = styled.div`
         h4 {
             font-size: 1.2rem;
         }
+        .no-data {
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem;
+        }
     }
     .metricsFilter {
         display: flex;
@@ -132,7 +139,7 @@ export const DashboardStyled = styled.div`
         max-height: 100%;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
-        margin: 10px 10px 20px;
+        margin: 0 0 30px;
         padding: 10px;
         .metricsFilter {
             display: flex;

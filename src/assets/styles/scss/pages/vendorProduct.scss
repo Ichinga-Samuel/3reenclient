@@ -6,7 +6,7 @@
 
 @media(max-width:1500px) and (min-width:800px) {
     .product {
-        margin-top: 10px;
+        margin: 10px 0 35px;
         align-items: center;
         width: 100%;
 
@@ -120,7 +120,16 @@
 
             >div {
                 margin-right: 3rem;
-                transition: ease all 0.5s;
+                .ant-btn-primary {
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid var(--white-color);
+                    background: transparent;
+                    border-radius: 10px;
+                    font-size: 13px;
+                    padding: 2px 2.4rem;
+                    font-weight: lighter;
+                }
 
                 .ant-btn-primary {
                     display: flex;
@@ -159,6 +168,7 @@
 
     .productdata {
         margin-top: 1px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
         .ant-checkbox-inner {
             border: 1px solid var(--secondary-color);
         }
