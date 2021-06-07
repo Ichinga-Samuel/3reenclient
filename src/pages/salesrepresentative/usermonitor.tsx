@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 import UserMonitor from '@/components/SalesRep/UserMonitor/UserMonitor';
+import LoginToAccess from '@/components/SalesRep/UserMonitor/LoginToAccess';
 
-const usermonitor: React.FC = () => {
+
+const usermonitor = () => {
+    const [userId, setUserId] = useState(true);
+
+    useEffect(() => {
+        const userId = localStorage.getItem("userid") || null;
+        if(userId === null) {
+            setUserId(false)
+        }
+        else {
+            setUserId(true)
+        }
+    }, [])
     return (
         <>
             <NextSeo
@@ -14,9 +27,17 @@ const usermonitor: React.FC = () => {
                     url: 'https://www.3reenshop.com',
                 }}
             />
-            <UserMonitor />
+            {
+                userId ?
+                <UserMonitor />
+                :
+                <LoginToAccess />
+            }
+
+            {/* <UserMonitor /> */}
+        
         </>
-    );
+    )
 };
 
 export default usermonitor;
