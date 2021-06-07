@@ -82,19 +82,19 @@ export const SignupForm = styled.form`
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    .logo-div{
+    .logo-div {
         width: 103px;
         padding: 10px;
         height: 103px;
-        border: 5px solid #590A5B;
-        border-radius: 50px; 
+        border: 5px solid #590a5b;
+        border-radius: 50px;
         margin-top: 20px;
         text-align: center;
     }
-    img{
+    img {
         width: 57px;
     }
-    .header-div p{
+    .header-div p {
         margin-top: 40px;
         margin-bottom: 40px;
         font-family: 'Montserrat', sans-serif;
@@ -108,15 +108,13 @@ export const SignupForm = styled.form`
         display: flex;
         flex-direction: column;
         align-items: center;
-
     }
 
-
-    button{
+    button {
         height: 40px;
         width: 100%;
-        background: #FFAF38;
-        border-color: #FFAF38;
+        background: #ffaf38;
+        border-color: #ffaf38;
         color: #fff;
         font-size: 18px;
         font-weight: 600;
@@ -135,53 +133,49 @@ export const SignupForm = styled.form`
         }
     }
 
-    @media(max-width: 500px){
-    width: 90%;
-    height: 160vh;
-    margin-top: 130px;
+    @media (max-width: 500px) {
+        width: 90%;
+        height: 160vh;
+        margin-top: 130px;
 
-    .logo-div{
-        width: 90px;
-        margin-top: 20px;
-        height: 90px;
-        border: 5px solid #590A5B;
-        border-radius: 45px; 
+        .logo-div {
+            width: 90px;
+            margin-top: 20px;
+            height: 90px;
+            border: 5px solid #590a5b;
+            border-radius: 45px;
+        }
+        img {
+            width: 50px;
+        }
+        .header-div p {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 15px;
+            font-weight: 500;
+        }
 
-    }
-    img{
-        width: 50px;
-    }
-    .header-div p{
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-size: 14px;
-        line-height: 15px;
-        font-weight: 500;
+        button {
+            height: 52px;
+            width: 70%;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
 
-    }
+        p {
+            font-size: 14px;
+            color: #590a5b;
+            font-weight: 400;
+            margin-bottom: 0;
+            margin-top: 30px;
+        }
 
-
-    button{
-        height: 52px;
-        width: 70%;
-        border-radius: 30px;
-        font-size: 14px;
-        font-weight: 600;
-
-    }
-
-    p{
-        font-size: 14px;
-        color: #590A5B;
-        font-weight: 400;
-        margin-bottom: 0;
-        margin-top: 30px;
-    }
-
-    p a{
-        color: #FFAF38;
-        margin-left: 10px;
-        font-weight: 500;
-
+        p a {
+            color: #ffaf38;
+            margin-left: 10px;
+            font-weight: 500;
+        }
     }
 `;

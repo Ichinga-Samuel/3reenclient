@@ -59,7 +59,7 @@ const Dashboard = () => {
                     },
                 })
                 .then((response) => {
-                    console.log('login response', response);
+                    console.log('dash response', response);
                     const { data } = response;
                     if (data.status === 'success') {
                         console.log('record', getRecord);
@@ -79,10 +79,11 @@ const Dashboard = () => {
                     });
                 });
         };
-        return () => {
-            getDashboardData();
-        };
-    }, [token, getRecord, isProcessing]);
+        getDashboardData();
+        // return () => {
+        //     getDashboardData();
+        // };
+    }, []);
 
     return (
         <VendorLayout pageTitle="Dashboard" crumbName="Dashboard" dashboardTitle="Dashboard">

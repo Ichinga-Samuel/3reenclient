@@ -23,6 +23,7 @@ export const VENDOR_ORDER = {
 };
 
 export const VENDOR_PRODUCT = {
+    createProduct: '/products',
     dashboardStat: '/products/vendorStats',
     filterDashboard: (value: string) => `/products/filterdashboard/${value}`,
     getAllProducts: '/products/vendorProducts',

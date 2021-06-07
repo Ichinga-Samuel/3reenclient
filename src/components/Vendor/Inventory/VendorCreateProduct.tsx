@@ -2,9 +2,15 @@ import React from 'react';
 import VendorLayout from '@/components/Vendor/Layout/VendorLayout';
 import { Row, Col, Button } from 'antd';
 import DraftProducts from './DraftProducts';
+import { useRouter } from 'next/router';
 
 const VendorCreateProduct = () => {
     const title = 'Create Products';
+    const router = useRouter();
+
+    const creatProduct = () => {
+        return router.push('/vendor/inventory/new');
+    };
     return (
         <VendorLayout pageTitle={title} crumbName={title} dashboardTitle={title}>
             <div className="createProductsMainContainer">
@@ -27,7 +33,7 @@ const VendorCreateProduct = () => {
                                 </div>
                                 <Row>
                                     <Col xs={24} xl={24} lg={24}>
-                                        <Button block type="primary">
+                                        <Button block type="primary" onClick={creatProduct}>
                                             Create Product
                                         </Button>
                                     </Col>
@@ -51,7 +57,7 @@ const VendorCreateProduct = () => {
                                 </div>
                                 <Row>
                                     <Col xs={24} xl={24} lg={24}>
-                                        <Button block type="primary">
+                                        <Button block type="primary" onClick={creatProduct}>
                                             Create Product
                                         </Button>
                                     </Col>
