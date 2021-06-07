@@ -11,6 +11,7 @@ export const InboxStyled = styled.div`
         flex-basis: 1 1;
         padding: 20px;
         width: 30%;
+        cursor: pointer;
     }
 
     .user__details:nth-child(1) {
