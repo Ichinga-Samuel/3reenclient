@@ -9,12 +9,12 @@ import { APP_BASE, VENDOR_ORDER } from '@/utils/ApiList';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { formatAmount } from '@/utils/helpers';
-import { VendorOrders } from './fakeOrder';
+// import { VendorOrders } from './fakeOrder';
 
 const { Option } = Select;
 
 const AllOrdersTable = () => {
-    const testOrder = VendorOrders || [];
+    // const testOrder = VendorOrders || [];
     const router = useRouter();
     const title = 'All Orders';
     const [fetching, setFetching] = useState(false);
@@ -24,8 +24,37 @@ const AllOrdersTable = () => {
     const [total, setTotal] = useState(0);
     const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
+    const fetchAllOrders = async () => {
+        setFetching(true);
+        try {
+            const response = await axios.get(`${APP_BASE}${VENDOR_ORDER.getAllOrders}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const { doc, result } = response.data;
+            setorders(doc);
+            setTotal(result);
+            setPagination(result);
+            // setTotal(results);
+            console.log('orders', orders);
+            console.log('res', response);
+            setTimeout(() => {
+                setFetching(false);
+            }, 500);
+        } catch (err) {
+            console.log('error', err);
+            notification.error({
+                message: 'Orders Error',
+                description: err,
+                duration: 0,
+            });
+        }
+    };
+
     const filterOrders = () => {
         setFetching(true);
+        fetchAllOrders();
         setTimeout(() => {
             setFetching(false);
         }, 1000);
@@ -53,7 +82,7 @@ const AllOrdersTable = () => {
             .catch((err) => {
                 console.log('login err', err.response);
                 setFetching(false);
-                setorders([]);
+                // setorders([]);
                 notification.error({
                     message: 'Error',
                     description: err?.response?.data.message,
@@ -62,42 +91,15 @@ const AllOrdersTable = () => {
             });
     };
 
-    const getOneRecord = (record) => {
+    const getOneRecord = (record: any) => {
         console.log('record', record);
         router.push({
             pathname: '/vendor/orders/[id]',
-            query: { id: record.refId },
+            query: { id: record._id },
         });
     };
 
     useEffect(() => {
-        const fetchAllOrders = async () => {
-            setFetching(true);
-            try {
-                const response = await axios.get(`${APP_BASE}${VENDOR_ORDER.getAllOrders}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                });
-                const { doc, result } = response.data;
-                setorders(doc);
-                setTotal(result);
-                setPagination(result);
-                // setTotal(results);
-                console.log('orders', orders);
-                console.log('res', response);
-                setTimeout(() => {
-                    setFetching(false);
-                }, 500);
-            } catch (err) {
-                console.log('error', err);
-                notification.error({
-                    message: 'Orders Error',
-                    description: err,
-                    duration: 0,
-                });
-            }
-        };
         // return () => {};
         fetchAllOrders();
     }, []);
@@ -108,20 +110,20 @@ const AllOrdersTable = () => {
         setSelectedRowKeys(selectedRowKeys);
     };
 
-    interface testOrder {
-        refId: number | string;
+    interface orders {
+        _id: number | string;
         key: number | string;
         placedOn: string;
-        noOfItems: number | string;
+        quantity: number | string;
         status: string;
         paymentMode: string;
-        amount: any;
+        totalCost: any;
     }
 
-    const orderColumns: ColumnsType<testOrder> = [
+    const orderColumns: ColumnsType<orders> = [
         {
             title: 'Ref ID',
-            dataIndex: 'refId',
+            dataIndex: '_id',
         },
         {
             title: 'Placed On',
@@ -129,7 +131,7 @@ const AllOrdersTable = () => {
         },
         {
             title: 'No Of Items',
-            dataIndex: 'noOfItems',
+            dataIndex: 'quantity',
             align: 'center',
         },
         {
@@ -138,21 +140,25 @@ const AllOrdersTable = () => {
             align: 'center',
             render: (status) => (
                 <>
-                    {status === 'delivered' ? (
+                    {status === 'delivered' || status === 'Delivered' ? (
                         <Tag color="#93f365">
                             <span style={{ color: '#008B1F' }}>Delivered</span>
                         </Tag>
-                    ) : status === 'dispatched' ? (
+                    ) : status === 'dispatched' || status === 'Dispatched' ? (
                         <Tag color="#f9e9b2">
                             <span style={{ color: '#A57700' }}>Dispatched</span>
                         </Tag>
-                    ) : status === 'pickedup' ? (
+                    ) : status === 'pickedup' || status === 'Pickedup' ? (
                         <Tag color="#b697f8">
                             <span style={{ color: '#00278B' }}>Picked Up</span>
                         </Tag>
-                    ) : status === 'returned' ? (
+                    ) : status === 'returned' || status === 'Returned' ? (
                         <Tag color="#FFA9A9">
                             <span style={{ color: '#FF0000' }}>Returned</span>
+                        </Tag>
+                    ) : status === 'pending' || status === 'Pending' ? (
+                        <Tag color="#f9e9b2">
+                            <span style={{ color: '#A57700' }}>Pending</span>
                         </Tag>
                     ) : (
                         ''
@@ -166,8 +172,8 @@ const AllOrdersTable = () => {
         },
         {
             title: 'Amount',
-            dataIndex: 'amount',
-            render: (_text, record) => <>{formatAmount(record.amount)}</>,
+            dataIndex: 'totalCost',
+            render: (_text, record) => <>{formatAmount(record.totalCost)}</>,
         },
         {
             title: '',
@@ -228,10 +234,11 @@ const AllOrdersTable = () => {
                     <div className="product__status">
                         <span>Status</span>
                         <Select defaultValue="Delivered" style={{ width: 150 }} onChange={filterByStatus}>
-                            <Option value="delivered">Delivered</Option>
+                            <Option value="Delivered">Delivered</Option>
                             <Option value="Dispatched">Dispatched</Option>
-                            <Option value="pickedup">Picked up</Option>
-                            <Option value="returned">Returned</Option>
+                            <Option value="Pickedup">Picked up</Option>
+                            <Option value="Returned">Returned</Option>
+                            <Option value="Pending">Pending</Option>
                         </Select>
                     </div>
                 </div>
@@ -256,12 +263,12 @@ const AllOrdersTable = () => {
                     </div>
                 </div>
                 <div className="productdata">
-                    <Table<testOrder>
+                    <Table<orders>
                         rowSelection={rowSelection}
                         rowKey="refId"
                         loading={fetching}
                         columns={orderColumns}
-                        dataSource={testOrder}
+                        dataSource={orders}
                         pagination={false}
                     />
                 </div>

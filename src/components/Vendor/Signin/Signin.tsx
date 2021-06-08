@@ -51,7 +51,7 @@ const Signin = () => {
                 .then((response) => {
                     console.log('login response', response);
                     const { data } = response;
-                    if (data.status === 'success' && data.user.role !== 'user') {
+                    if (data.status === 'success' && data.user.role !== 'company') {
                         notification.error({
                             message: 'Error',
                             description: 'Account Does not belong to a vendor',
@@ -61,7 +61,7 @@ const Signin = () => {
                         setLoading(false);
                         return;
                     }
-                    if (data.status === 'success' && data.user.role === 'user') {
+                    if (data.status === 'success' && data.user.role === 'company') {
                         setContent('Authentication Successful. Redirecting...');
                         setTimeout(() => {
                             router.push('/vendor/dashboard');
