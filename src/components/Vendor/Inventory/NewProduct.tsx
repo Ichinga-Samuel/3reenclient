@@ -2,67 +2,60 @@ import React, { useState } from 'react';
 import VendorLayout from '../Layout/VendorLayout';
 import axios from 'axios';
 import { APP_BASE, VENDOR_PRODUCT } from '@/utils/ApiList';
-import { Row, Col, Upload, Input, Select, Button } from 'antd';
+import { Row, Col, Upload, Input, Button, notification } from 'antd';
 // import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import ImgCrop from 'antd-img-crop';
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
+import { getFromLocalStorage } from '@/utils/browserStorage';
 
-const { Option } = Select;
+// const { Option } = Select;
 const NewProduct = () => {
     const title = 'New Product';
-    const [product, createProduct] = useState({
-        nameOfProduct: '',
-        price: '',
-        description: '',
-        keyFeatures: '',
-        specification: '',
-        category: '',
-    });
-    //Set The Image State
-    const [fileList, setFileList] = useState([
-        {
-            uid: '-1',
-            name: 'image.png',
-            status: 'done',
-            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        },
-    ]);
-    // const [file, setFile] = useState([]);
-    // const [loading, setloading] = useState(false);
-    // const [imageURL, setimageURL] = useState(null);
+    const router = useRouter();
+    const token = getFromLocalStorage('token');
+    // const [product, createProduct] = useState({
+    //     nameOfProduct: '',
+    //     price: '',
+    //     description: '',
+    //     keyFeatures: '',
+    //     specification: '',
+    //     category: '',
+    // });
+    interface fileList {
+        uid: string;
+        name: string;
+        status: string;
+        url: string;
+    }
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm();
+    const [loading, setloading] = useState(false);
+    const [fileList, setFileList] = useState([]);
 
-    //Destructure
-    const { nameOfProduct, price, description, keyFeatures, specification, category } = product;
-    // const onChange = (e) => {
-    //     createProduct({ ...product, [e.target.name]: e.target.value });
-    //     const file = e.target.files;
-    //     setFile(file);
-    // };
-
-    const onSubmit = async (e: any) => {
-        e.preventDefault();
+    const onSubmit = async (data: any) => {
+        const { name, price, description, category, specification, keyFeatures } = data;
+        setloading(true);
         const formData = new FormData();
-        const files = [...file];
+        const files = [...fileList];
         files.forEach((eachFile) => {
-            formData.append('images', eachFile);
+            formData.append('images', eachFile.name);
         });
-        formData.append('name', nameOfProduct);
+        formData.append('name', name);
         formData.append('price', price);
         formData.append('description', description);
         formData.append('keyFeatures', keyFeatures);
         formData.append('category', category);
         formData.append('specification', specification);
-        createProduct({
-            nameOfProduct: '',
-            price: '',
-            description: '',
-            keyFeatures: '',
-            specification: '',
-            category: '',
-        });
-        const token = localStorage.getItem('token');
+        console.log(data);
         try {
             const config = {
                 headers: {
+                    'content-type': 'multipart/form-data',
                     Authorization: `Bearer ${token}`,
                 },
             };
@@ -70,10 +63,29 @@ const NewProduct = () => {
             // const res = await axios.post('https://treen-shop-api.herokuapp.com/api/v1/products', formData, config);
             console.log(res.data);
             if (res) {
-                alert('Working');
+                notification.close('error');
+                requestAnimationFrame(() => {
+                    reset();
+                    setloading(false);
+                });
+                router.push('/vendor/inventory/allproducts');
+                notification.success({
+                    key: 'success',
+                    message: 'Success',
+                    description: 'Product Created Successfully',
+                    duration: 15,
+                });
             }
         } catch (error) {
+            setloading(false);
             console.log('error', error.response);
+            const { data } = error.response;
+            notification.error({
+                key: 'error',
+                message: 'Create Error',
+                description: data?.message,
+                duration: 0,
+            });
         }
     };
 
@@ -107,30 +119,40 @@ const NewProduct = () => {
             <div className="product" data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s">
                 <div className="newProduct">
                     {/* <h2>Create New Product</h2> */}
-                    <form method="POST" onSubmit={onSubmit}>
+                    <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
                         <Row gutter={24}>
                             <Col xs={24} xl={12} lg={8}>
                                 <div className="form-group">
                                     <label htmlFor="productName">Enter Name of Product</label>
-                                    <Input placeholder="Enter Name of Product" />
+                                    <Input
+                                        placeholder="Enter Name of Product"
+                                        {...register('name', { required: true })}
+                                    />
+                                    {errors.name && <span className="error">Product Name is required</span>}
                                 </div>
                             </Col>
                             <Col xs={24} xl={12} lg={8}>
                                 <div className="form-group">
                                     <label htmlFor="productName">Price of Product</label>
-                                    <Input placeholder="Price of Product" />
+                                    <Input placeholder="Price of Product" {...register('price', { required: true })} />
+                                    {errors.price && <span className="error">Product Price is required</span>}
                                 </div>
                             </Col>
                             <Col xs={24} xl={12} lg={8}>
                                 <div className="form-group">
                                     <label htmlFor="productName">Key Feature</label>
-                                    <Input placeholder="Key Feature" />
+                                    <Input placeholder="Key Feature" {...register('keyFeatures', { required: true })} />
+                                    {errors.keyFeatures && <span className="error">Key Feature is required</span>}
                                 </div>
                             </Col>
                             <Col xs={24} xl={12} lg={8}>
                                 <div className="form-group">
                                     <label htmlFor="productName">Specification</label>
-                                    <Input placeholder="Enter Specification" />
+                                    <Input
+                                        placeholder="Enter Specification"
+                                        {...register('specification', { required: true })}
+                                    />
+                                    {errors.specification && <span className="error">Specification is required</span>}
                                 </div>
                             </Col>
                             <Col xs={24} xl={12} lg={8}>
@@ -138,9 +160,15 @@ const NewProduct = () => {
                                     <label htmlFor="productName" style={{ display: 'flex' }}>
                                         Category
                                     </label>
-                                    <Select style={{ width: '100%' }}>
-                                        <Option value="Cat1">Cat 1</Option>
-                                    </Select>
+                                    {/* <Select style={{ width: '100%' }} {...register('category', { required: true })}>
+                                        <Option value="Electronics">Electronics</Option>
+                                    </Select> */}
+                                    <select {...register('category')}>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Phone">Phone</option>
+                                        <option value="Accessories">Accessories</option>
+                                    </select>
+                                    {errors.category && <span className="error">Category is required</span>}
                                 </div>
                             </Col>
                         </Row>
@@ -148,7 +176,15 @@ const NewProduct = () => {
                             <Col xs={24} xl={24} lg={24}>
                                 <div className="form-group">
                                     <label htmlFor="description">Description</label>
-                                    <Input.TextArea placeholder="Enter Product Description" showCount maxLength={250} />
+                                    <Input.TextArea
+                                        placeholder="Enter Product Description"
+                                        showCount
+                                        maxLength={250}
+                                        {...register('description', { required: true })}
+                                    />
+                                    {errors.description && (
+                                        <span className="error">Product Description is required</span>
+                                    )}
                                 </div>
                             </Col>
                         </Row>
@@ -157,8 +193,8 @@ const NewProduct = () => {
                                 <div className="form-group">
                                     <label htmlFor="productImages">Upload Product Images</label>
                                     <ImgCrop rotate>
-                                        <Upload
-                                            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                        <Upload<fileList>
+                                            // action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                                             listType="picture-card"
                                             fileList={fileList}
                                             onChange={onChange}
@@ -172,7 +208,9 @@ const NewProduct = () => {
                         </Row>
                         <Row>
                             <Col xs={24} xl={12} lg={12}>
-                                <Button type="primary">CREATE PRODUCT</Button>
+                                <Button loading={loading} type="primary" onClick={handleSubmit(onSubmit)}>
+                                    CREATE PRODUCT
+                                </Button>
                             </Col>
                         </Row>
                         {/* <div>

@@ -77,9 +77,9 @@ const VendorProducts = () => {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                const { doc, results, pages } = response.data;
+                const { products, results, pages } = response.data;
                 setPagination(pages);
-                setProductData(doc);
+                setProductData(products);
                 setTotal(results);
                 // notification.success({
                 //     message: 'Success',
