@@ -1,0 +1,33 @@
+html,
+body {
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    /* overflow-x: hidden; */
+    /*overflow-y: scroll; */
+    text-rendering: auto;
+    /* text-size-adjust: 100%; */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}
+
+body {
+    background: #d2d2d2;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: 'Rubik', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow-x: hidden;
+}
