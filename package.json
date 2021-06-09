@@ -24,6 +24,7 @@
     "antd": "^4.15.5",
     "antd-img-crop": "^3.14.1",
     "aos": "^2.3.4",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "beauty-stars": "^1.1.0",
     "bootstrap": "^5.0.0-beta1",
     "classnames": "2.2.6",

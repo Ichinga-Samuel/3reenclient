@@ -3,8 +3,6 @@ import { getFromLocalStorage } from '@/utils/browserStorage';
 import { LOGGER } from '@/utils/helpers';
 import { notification } from 'antd';
 
-// const response = notification.useNotification();
-
 const APP_BASE_URL =
     getFromLocalStorage('baseUrl') === null ? process.env.APP_BASE_URI : getFromLocalStorage('baseUrl');
 
