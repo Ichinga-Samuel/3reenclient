@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { PrimaryButton, SecondaryButton, TertiaryButton, LogOutButton } from './ButtonStyled';
 
-
 export const SalesRepSidebar = () => {
     const route = useRouter();
 
@@ -14,7 +13,7 @@ export const SalesRepSidebar = () => {
         localStorage.removeItem('userid');
         localStorage.removeItem('userToken');
         route.push(`/salesrepresentative/login`);
-    }
+    };
     return (
         <Sidebar>
             <SidebarContent>

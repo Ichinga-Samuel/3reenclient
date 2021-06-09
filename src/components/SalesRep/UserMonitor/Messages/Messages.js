@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SalesRepSidebar from '../../Sidebar/Sidebar';
 
 import SalesRepHeader from '../Header/Header';
@@ -8,9 +8,8 @@ import axios from 'axios';
 import { MessagesStyled } from './Messages.styled';
 import { apiUrl } from '../../lib/auth';
 
-
 const Messages = () => {
-    const isMount = useRef(false)
+    const isMount = useRef(false);
     const [allMsgs, setAllMsgs] = useState([]);
     // const [nonDuplicateChat, setnonDuplicateChat] = useState(initialState)
 
@@ -19,7 +18,7 @@ const Messages = () => {
     //     if (!array || !Array.isArray(array) || array.length === 0) {
     //       return array;
     //     }
-      
+
     //     // Return a Array of unique values thanks to the Set
     //     return [...new Set(array)];
     //   }
@@ -30,18 +29,17 @@ const Messages = () => {
     //     }
     //     // Create an Array off the values of the keys we want to check
     //     let objectArrayKeys = array.map(item => item[propertyName]);
-      
+
     //     // Remove duplicate values from those values with our previous function
     //     let uniqueKeys = unDuplicateArraySingleValues(objectArrayKeys);
-      
+
     //     // Return an Array with only unique Objects
     //     return uniqueKeys.map(key => array.find(item => item[propertyName] === key));
     //   }
 
-
     useEffect(() => {
-        isMount.current = true
-        const getAllMsgs = async() => {
+        isMount.current = true;
+        const getAllMsgs = async () => {
             // const userid = localStorage.getItem("userid");
             try {
                 const { data } = await axios.get(`${apiUrl}messages`);
@@ -49,32 +47,30 @@ const Messages = () => {
                 // if(data.doc.receiver === userid && isMount.current) {
                 //     setAllMsgs(data.doc);
                 // }
-                if(isMount.current) {
+                if (isMount.current) {
                     // const dataArr = data.doc;
                     // setAllMsgs(unDuplicateArrayObjects(dataArr, "roomId"));
                     const dataArr = data.doc;
                     console.log(dataArr);
-                    const mapArr =  [...new Map(dataArr.map(item => [item.roomId, item])).values()];
+                    const mapArr = [...new Map(dataArr.map((item) => [item.roomId, item])).values()];
                     // let mapArr = dataArr.map(data => {
                     //     return [data.roomId, data]
                     // });
                     // let result = new Map(mapArr);
                     // const newArr = [...result.values()]
-                    setAllMsgs(mapArr)
+                    setAllMsgs(mapArr);
                 }
-                
-            } catch(err) {
+            } catch (err) {
                 console.log(`Err: ${err}`);
             }
-        }
+        };
         getAllMsgs();
-        
+
         // clean up
         return () => {
             isMount.current = false;
-        }
-        
-    }, [])
+        };
+    }, []);
     return (
         <MessagesStyled>
             <SalesRepSidebar />
@@ -85,11 +81,14 @@ const Messages = () => {
 
                 <h3>Inbox</h3>
                 <div>
-                    {
-                        allMsgs.map(message => (
-                            <SalesInbox key={message._id} name={message.body.substring(0, 15)} roomId={message.roomId} senderId={message.senderId} />
-                        ))
-                    }
+                    {allMsgs.map((message) => (
+                        <SalesInbox
+                            key={message._id}
+                            name={message.body.substring(0, 15)}
+                            roomId={message.roomId}
+                            senderId={message.senderId}
+                        />
+                    ))}
                     {/* <SalesInbox name={'Jack Hanniel'} />
                     <SalesInbox name={'Jack Hanniel'} />
 

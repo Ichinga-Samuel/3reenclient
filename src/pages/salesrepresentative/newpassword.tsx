@@ -8,11 +8,11 @@ import axios from 'axios';
 import { apiUrl } from '@/components/SalesRep/lib/auth';
 
 const Register = () => {
-    const route = useRouter()
+    const route = useRouter();
     const [passwords, setPasswords] = useState({
         password: '',
-        passwordConfirm: ''
-    })
+        passwordConfirm: '',
+    });
     const [errMsg, setErrMsg] = useState('');
 
     const resetFunc = async () => {
@@ -20,36 +20,33 @@ const Register = () => {
             const { data } = await axios.patch(`${apiUrl}users/resetPassword`, passwords);
             console.log(data);
 
-            if(data.status === 'success') {
-                 route.push(`/salesrepresentative/login`)
+            if (data.status === 'success') {
+                route.push(`/salesrepresentative/login`);
             }
-            
-        } catch(err) {
-            setErrMsg('Something went wrong')
+        } catch (err) {
+            setErrMsg('Something went wrong');
             console.log(err);
-            
         }
-    }
+    };
 
     const handleChange = (evt) => {
         const value = evt.target.value;
         setPasswords({
             ...passwords,
-            [evt.target.name]: value 
-        })
-    }
+            [evt.target.name]: value,
+        });
+    };
     const handleSubmit = (e) => {
-        e.preventDefault()
-        const {password, passwordConfirm } = passwords;
-        if(password !== passwordConfirm) {
-            setErrMsg('Password does not match')
+        e.preventDefault();
+        const { password, passwordConfirm } = passwords;
+        if (password !== passwordConfirm) {
+            setErrMsg('Password does not match');
             return;
         }
-        resetFunc()
+        resetFunc();
 
         console.log(passwords);
-        
-    }
+    };
 
     return (
         <FormStyled>
@@ -69,17 +66,29 @@ const Register = () => {
                             <div className="input mt-4">
                                 <label htmlFor="psw">New Password</label>
 
-                                <input id="my-input" className="" type="password" name="password" onChange={handleChange} />
+                                <input
+                                    id="my-input"
+                                    className=""
+                                    type="password"
+                                    name="password"
+                                    onChange={handleChange}
+                                />
                             </div>
 
                             <div className="input mt-4">
                                 <label htmlFor="psw">Confirm Password</label>
 
-                                <input id="my-input-2" className="" type="password" name="passwordConfirm" onChange={handleChange} />
+                                <input
+                                    id="my-input-2"
+                                    className=""
+                                    type="password"
+                                    name="passwordConfirm"
+                                    onChange={handleChange}
+                                />
                             </div>
 
                             <div>
-                                <p>{ errMsg }</p>
+                                <p>{errMsg}</p>
                             </div>
                             <button className="password-reset-button form-button mt-5"> SEND CODE</button>
                         </div>

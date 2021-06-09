@@ -41,7 +41,7 @@ const VendorAuthProvider = ({ children }) => {
                     // router.push('/vendor/login');
                     notification.error({
                         message: 'Error',
-                        description: err.response.data.message,
+                        description: err.response?.data.message,
                         duration: 15,
                     });
                 });

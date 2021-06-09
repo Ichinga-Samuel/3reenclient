@@ -2,9 +2,15 @@ import React from 'react';
 import VendorLayout from '@/components/Vendor/Layout/VendorLayout';
 import { Row, Col, Button } from 'antd';
 import DraftProducts from './DraftProducts';
+import { useRouter } from 'next/router';
 
 const VendorCreateProduct = () => {
     const title = 'Create Products';
+    const router = useRouter();
+
+    const creatProduct = () => {
+        return router.push('/vendor/inventory/new');
+    };
     return (
         <VendorLayout pageTitle={title} crumbName={title} dashboardTitle={title}>
             <div className="createProductsMainContainer">
@@ -26,8 +32,8 @@ const VendorCreateProduct = () => {
                                     </ol>
                                 </div>
                                 <Row>
-                                    <Col xs={12} xl={6} lg={6}>
-                                        <Button block type="primary">
+                                    <Col xs={24} xl={24} lg={24}>
+                                        <Button block type="primary" onClick={creatProduct}>
                                             Create Product
                                         </Button>
                                     </Col>
@@ -37,7 +43,7 @@ const VendorCreateProduct = () => {
                         <Col xs={24} xl={12} lg={12}>
                             <div className="createProductCol">
                                 <h3 className="createProductHeader">Combo Product</h3>
-                                <h4 style={{ textAlign: 'center' }}>
+                                <h4>
                                     Select multiple product from your inventory <br></br>and create a special combo for
                                     your customers
                                 </h4>
@@ -49,11 +55,18 @@ const VendorCreateProduct = () => {
                                         <li className="createProductOl">Set combo price</li>
                                     </ol>
                                 </div>
-                                <div className="createProductButtonContainer">
+                                <Row>
+                                    <Col xs={24} xl={24} lg={24}>
+                                        <Button block type="primary" onClick={creatProduct}>
+                                            Create Product
+                                        </Button>
+                                    </Col>
+                                </Row>
+                                {/* <div className="createProductButtonContainer">
                                     <Button type="primary" className="createProductButton">
                                         Create Product
                                     </Button>
-                                </div>
+                                </div> */}
                             </div>
                         </Col>
                     </Row>

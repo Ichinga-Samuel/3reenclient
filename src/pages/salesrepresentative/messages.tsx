@@ -3,18 +3,16 @@ import { NextSeo } from 'next-seo';
 import Messages from '@/components/SalesRep/UserMonitor/Messages/Messages';
 import LoginToAccess from '@/components/SalesRep/UserMonitor/LoginToAccess';
 
-
-const messages: React.FC = () => {
+const SaleMessages: React.FC = () => {
     const [userId, setUserId] = useState(true);
     useEffect(() => {
-        const userId = localStorage.getItem("userid") || null;
-        if(userId === null) {
-            setUserId(false)
+        const userId = localStorage.getItem('userid') || null;
+        if (userId === null) {
+            setUserId(false);
+        } else {
+            setUserId(true);
         }
-        else {
-            setUserId(true)
-        }
-    }, [])
+    }, []);
     return (
         <>
             <NextSeo
@@ -26,15 +24,10 @@ const messages: React.FC = () => {
                     url: 'https://www.3reenshop.com',
                 }}
             />
-            {
-                userId ?
-                <Messages />
-                :
-                <LoginToAccess />
-            }
+            {userId ? <Messages /> : <LoginToAccess />}
             {/* <Messages /> */}
         </>
     );
 };
 
-export default messages;
+export default SaleMessages;

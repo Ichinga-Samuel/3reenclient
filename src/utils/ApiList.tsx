@@ -7,7 +7,7 @@ console.log('pref', userPrefix);
 
 export const USER = {
     login: `${userPrefix}/login`,
-    register: `${userPrefix}/signup`,
+    register: `${userPrefix}/signUpAsCompany`,
     loggedIn: `${userPrefix}/me`,
     updateLoggedInUser: `${userPrefix}/updateMe`,
     forgotPassword: `${userPrefix}/forgotPassword`,
@@ -23,6 +23,7 @@ export const VENDOR_ORDER = {
 };
 
 export const VENDOR_PRODUCT = {
+    createProduct: '/products',
     dashboardStat: '/products/vendorStats',
     filterDashboard: (value: string) => `/products/filterdashboard/${value}`,
     getAllProducts: '/products/vendorProducts',

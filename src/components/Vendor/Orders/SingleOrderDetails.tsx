@@ -131,15 +131,12 @@ export default SingleOrderDetails;
 
 export async function getInitialProps({ params }) {
     const token = getFromLocalStorage('token');
-    // const APP_BASE = process.env.APP_BASE_URL;
-    const res = await axios.get(
-        `https://treen-shop-api.herokuapp.com/api/v1${VENDOR_ORDER.getSingleOrder(params.id)}`,
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
+    const APP_BASE = process.env.APP_BASE_URL;
+    const res = await axios.get(`${APP_BASE}${VENDOR_ORDER.getSingleOrder(params.id)}`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
         },
-    );
+    });
     console.log('order res', res);
     return {
         props: { details: res },
@@ -147,8 +144,8 @@ export async function getInitialProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    // const APP_BASE = process.env.APP_BASE_URL;
-    const res = await fetch(`https://treen-shop-api.herokuapp.com/api/v1${VENDOR_ORDER.getAllOrders}`);
+    const APP_BASE = process.env.APP_BASE_URL;
+    const res = await fetch(`${APP_BASE}${VENDOR_ORDER.getAllOrders}`);
     console.log('order res', res);
     const response = await res.json();
     console.log('order res', response);

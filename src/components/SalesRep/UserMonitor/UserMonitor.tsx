@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SalesRepSidebar from '../Sidebar/Sidebar';
 
 import SalesRepUserCard from './UserCard/SalesRepUserCard';
@@ -16,26 +16,26 @@ const UserMonitor = () => {
 
     useEffect(() => {
         isMount.current = true;
-        const getAllUsers = async() => {
+        const getAllUsers = async () => {
             try {
                 const { data } = await axios.get(`${apiUrl}users`);
-                if(isMount.current) {
+                if (isMount.current) {
                     setallUsers(data.doc);
                     setRegUser(data.results);
                 }
                 // setallUsers(data.doc);
                 // setRegUser(data.results)
-            } catch(err) {
+            } catch (err) {
                 console.log(`Err: ${err}`);
             }
-        }
+        };
         getAllUsers();
 
         // clean up
         return () => {
-            isMount.current = false
-        }
-    }, [])
+            isMount.current = false;
+        };
+    }, []);
 
     return (
         <UserMonitorStyled>

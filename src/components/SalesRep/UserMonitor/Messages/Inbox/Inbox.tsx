@@ -10,96 +10,94 @@ const Messages = ({ name, roomId, senderId }) => {
     const [chatErr, setChatErr] = useState('');
     const [body, setBody] = useState('');
 
-    const token = localStorage.getItem("userToken");
+    const token = localStorage.getItem('userToken');
     const config = {
         headers: {
-            Authorization: `Bearer ${token}`
-        }
+            Authorization: `Bearer ${token}`,
+        },
     };
 
-    const displayChat = async() => {
-
+    const displayChat = async () => {
         setMsgRead(!msgRead);
         try {
             const { data } = await axios.get(`${apiUrl}messages/userChat/${roomId}`, config);
             console.log(data);
-            setChatMsg(data.messages)
-
-        } catch(err) {
+            setChatMsg(data.messages);
+        } catch (err) {
             console.log(`Error: ${err}`);
-            setChatErr("Please login to see chat")
-            
+            setChatErr('Please login to see chat');
         }
         // const { data } = await axios.get(`${apiUrl}messages/userChat/${roomId}`);
         // console.log(data);
         // setChatMsg(data.messages)
-        
     };
 
-    const handleChange = (evt:any) => {
+    const handleChange = (evt: any) => {
         setBody(evt.target.value);
-    }
+    };
 
-    const chatSubmit = async(evt:any) => {
+    const chatSubmit = async (evt: any) => {
         evt.preventDefault();
         try {
-            const { data } = await axios.post(`${apiUrl}messages/messageUser/${senderId}`,{ body }, config);
+            const { data } = await axios.post(`${apiUrl}messages/messageUser/${senderId}`, { body }, config);
             console.log(data);
             // setChatMsg(data.messages)
-
-        } catch(err) {
+        } catch (err) {
             console.log(`Error: ${err}`);
-            setChatErr("sorry can't send message")
+            setChatErr("sorry can't send message");
         }
-        
-    }
+    };
 
     return (
         <>
-        <InboxStyled>
-            <div className="container">
-                <div className="icons user__details" onClick={displayChat}>
-                    <div className="avatar">
-                        <img src="/Icons/Avatar.svg" alt="" />
-                    </div>
+            <InboxStyled>
+                <div className="container">
+                    <div
+                        className="icons user__details"
+                        onClick={displayChat}
+                        onKeyDown={displayChat}
+                        role="button"
+                        tabIndex={0}
+                    >
+                        <div className="avatar">
+                            <img src="/Icons/Avatar.svg" alt="" />
+                        </div>
 
-                    <div className="user__name">
-                        <h5>{name}...</h5>
-                        <p>{msgRead ? <span>Close message</span> : <span>Read message</span>}</p>
-                        {/* <p>Admin 002</p> */}
+                        <div className="user__name">
+                            <h5>{name}...</h5>
+                            <p>{msgRead ? <span>Close message</span> : <span>Read message</span>}</p>
+                            {/* <p>Admin 002</p> */}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </InboxStyled>
+            </InboxStyled>
 
-        <div className="chat">
-            <div className="card message__box col-lg-6">
-                <div className="card-body">
-                    {
-                        msgRead && chatMsg.map(chat => (
-                            <>
-                                <p key={chat._id}> { chat.body } </p>
-                                
-                            </>
-                        ))
-                    }
+            <div className="chat">
+                <div className="card message__box col-lg-6">
+                    <div className="card-body">
+                        {msgRead &&
+                            chatMsg.map((chat) => (
+                                <>
+                                    <p key={chat._id}> {chat.body} </p>
+                                </>
+                            ))}
 
-                    {
-                        chatErr && <p>{ chatErr }</p>
-                    }
-                    {
-                        chatMsg && msgRead ?
-                        <form onSubmit={chatSubmit}>
-                            <textarea name="body" id="reply" placeholder="reply msg" onChange={handleChange} value=""></textarea>
-                            <button type="submit">Submit</button>
-                        </form>
-                        :
-                        null
-                    }
-                   
+                        {chatErr && <p>{chatErr}</p>}
+                        {chatMsg && msgRead ? (
+                            <form onSubmit={chatSubmit}>
+                                <textarea
+                                    name="body"
+                                    id="reply"
+                                    placeholder="reply msg"
+                                    onChange={handleChange}
+                                    value=""
+                                ></textarea>
+                                <button type="submit">Submit</button>
+                            </form>
+                        ) : null}
+                    </div>
                 </div>
-            </div>
-            {/* <div className="card message__box col-lg-6">
+                {/* <div className="card message__box col-lg-6">
                 <div className="card-body">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, voluptatum. Quod
@@ -108,8 +106,7 @@ const Messages = ({ name, roomId, senderId }) => {
                     </p>
                 </div>
             </div> */}
-        </div>
-
+            </div>
         </>
     );
 };

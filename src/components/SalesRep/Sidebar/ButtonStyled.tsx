@@ -34,7 +34,9 @@ export const SecondaryButton = styled(BaseButton)`
     margin: 5px 0;
     outline: none;
 
-    &:hover, &:active, &:visited {
+    &:hover,
+    &:active,
+    &:visited {
         background-color: #ffffff;
         color: #590a5b;
     }

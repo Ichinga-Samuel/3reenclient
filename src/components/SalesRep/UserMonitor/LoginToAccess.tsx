@@ -13,11 +13,12 @@ const LoginToAccess = () => {
             <div className="contain container">
                 <SalesRepHeader />
 
-                <h1>Please <Link href="/salesrepresentative/login">LOG IN</Link> to access this page</h1>
-
+                <h1>
+                    Please <Link href="/salesrepresentative/login">LOG IN</Link> to access this page
+                </h1>
             </div>
         </UserMonitorStyled>
-    )
-}
+    );
+};
 
 export default LoginToAccess;

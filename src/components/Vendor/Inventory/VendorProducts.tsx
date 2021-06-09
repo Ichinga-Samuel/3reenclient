@@ -77,9 +77,9 @@ const VendorProducts = () => {
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                const { doc, results, pages } = response.data;
+                const { products, results, pages } = response.data;
                 setPagination(pages);
-                setProductData(doc);
+                setProductData(products);
                 setTotal(results);
                 // notification.success({
                 //     message: 'Success',
@@ -177,15 +177,15 @@ const VendorProducts = () => {
     ];
 
     // <Dropdown overlay={menu} trigger={['click']}>
-    //                 <a
-    //                     href="#"
-    //                     className="ant-dropdown-link"
-    //                     onClick={(e) => e.preventDefault()}
-    //                     onKeyDown={(e) => e.preventDefault()}
-    //                 >
-    //                     <MoreOutlined />
-    //                 </a>
-    //             </Dropdown>
+    //     <a
+    //         href="#"
+    //         className="ant-dropdown-link"
+    //         onClick={(e) => e.preventDefault()}
+    //         onKeyDown={(e) => e.preventDefault()}
+    //     >
+    //         <MoreOutlined />
+    //     </a>
+    // </Dropdown>;
 
     // const fakeProduct: productData[] = [];
     // for (let i = 0; i < 46; i++) {

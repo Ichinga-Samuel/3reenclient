@@ -3,19 +3,17 @@ import { NextSeo } from 'next-seo';
 import UserMonitor from '@/components/SalesRep/UserMonitor/UserMonitor';
 import LoginToAccess from '@/components/SalesRep/UserMonitor/LoginToAccess';
 
-
-const usermonitor = () => {
+const SaleUserMonitor = () => {
     const [userId, setUserId] = useState(true);
 
     useEffect(() => {
-        const userId = localStorage.getItem("userid") || null;
-        if(userId === null) {
-            setUserId(false)
+        const userId = localStorage.getItem('userid') || null;
+        if (userId === null) {
+            setUserId(false);
+        } else {
+            setUserId(true);
         }
-        else {
-            setUserId(true)
-        }
-    }, [])
+    }, []);
     return (
         <>
             <NextSeo
@@ -27,17 +25,11 @@ const usermonitor = () => {
                     url: 'https://www.3reenshop.com',
                 }}
             />
-            {
-                userId ?
-                <UserMonitor />
-                :
-                <LoginToAccess />
-            }
+            {userId ? <UserMonitor /> : <LoginToAccess />}
 
             {/* <UserMonitor /> */}
-        
         </>
-    )
+    );
 };
 
-export default usermonitor;
+export default SaleUserMonitor;

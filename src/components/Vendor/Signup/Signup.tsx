@@ -28,52 +28,52 @@ const Signup = () => {
     };
 
     // Call Login after Register is successful
-    const PerformLogin = async (email, password) => {
-        setIsProcessing(true);
-        setloading(true);
-        setContent('Authenticating In Progress. Please wait...');
-        await axios
-            .post(`${APP_BASE}${USER.login}`, {
-                email,
-                password,
-            })
-            .then((response) => {
-                console.log('login response', response);
-                const { data } = response;
-                if (data.status === 'success' && data.user.role !== 'user') {
-                    notification.error({
-                        message: 'Error',
-                        description: 'Account Does not belong to a vendor',
-                        duration: 15,
-                    });
-                    setIsProcessing(false);
-                    setloading(false);
-                    return;
-                }
-                if (data.status === 'success' && data.user.role === 'user') {
-                    setContent('Authentication Successful. Redirecting...');
-                    setTimeout(() => {
-                        router.push('/vendor/dashboard');
-                    }, 1000);
-                    addToLocalStorage('token', response.data.token);
-                    addToLocalStorage('user', response.data.user);
-                }
-            })
-            .catch((err) => {
-                console.log('login err', err.response);
-                setIsProcessing(false);
-                setloading(false);
-                notification.error({
-                    message: 'Error',
-                    description: err.response.data.message,
-                    duration: 15,
-                });
-            });
-    };
+    // const PerformLogin = async (email, password) => {
+    //     setIsProcessing(true);
+    //     setloading(true);
+    //     setContent('Authenticating In Progress. Please wait...');
+    //     await axios
+    //         .post(`${APP_BASE}${USER.login}`, {
+    //             email,
+    //             password,
+    //         })
+    //         .then((response) => {
+    //             console.log('login response', response);
+    //             const { data } = response;
+    //             if (data.status === 'success' && data.user.role !== 'company') {
+    //                 notification.error({
+    //                     message: 'Error',
+    //                     description: 'Account Does not belong to a vendor',
+    //                     duration: 15,
+    //                 });
+    //                 setIsProcessing(false);
+    //                 setloading(false);
+    //                 return;
+    //             }
+    //             if (data.status === 'success' && data.user.role === 'company') {
+    //                 setContent('Authentication Successful. Redirecting...');
+    //                 setTimeout(() => {
+    //                     router.push('/vendor/dashboard');
+    //                 }, 1000);
+    //                 addToLocalStorage('token', response.data.token);
+    //                 addToLocalStorage('user', response.data.user);
+    //             }
+    //         })
+    //         .catch((err) => {
+    //             console.log('login err', err.response);
+    //             setIsProcessing(false);
+    //             setloading(false);
+    //             notification.error({
+    //                 message: 'Error',
+    //                 description: err.response.data.message,
+    //                 duration: 15,
+    //             });
+    //         });
+    // };
 
     const createVendor = async (data) => {
         console.log('data', data);
-        const { email, password, passwordConfirm } = data;
+        const { password, passwordConfirm } = data;
         if (password !== passwordConfirm) {
             notification.error({
                 message: 'Error',
@@ -90,18 +90,19 @@ const Signup = () => {
             .then((response) => {
                 console.log('login response', response);
                 const { data } = response;
-                if (data.status === 'success' && data.user.role === 'user') {
+                if (data.status === 'success' && data.user.role === 'company') {
                     setContent('Registration Successful. Authenticating In Progress...');
+                    addToLocalStorage('token', response.data.token);
+                    addToLocalStorage('user', response.data.user);
                     notification.success({
                         message: 'Success',
                         description: 'Your Account has been created sucessfully',
                         duration: 15,
                     });
-                    setTimeout(() => {
-                        PerformLogin(email, password);
-                    }, 500);
-                    addToLocalStorage('token', response.data.token);
-                    addToLocalStorage('user', response.data.user);
+                    // setTimeout(() => {
+                    //     PerformLogin(email, password);
+                    // }, 500);
+                    router.push('/vendor/dashboard');
                 }
             })
             .catch((err) => {

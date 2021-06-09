@@ -20,11 +20,10 @@ const UserMonitor = ({ allUsers }) => {
                                 <th>Phone No.</th>
                             </tr>
                         </thead>
-                        
+
                         <tbody>
-                            {
-                                allUsers.map(user => (
-                                    <tr key={user._id}>
+                            {allUsers.map((user) => (
+                                <tr key={user._id}>
                                     <td>19/20/2020</td>
                                     <td>{user.fullName}</td>
                                     <td>{user.email}</td>
@@ -35,8 +34,7 @@ const UserMonitor = ({ allUsers }) => {
                                     <td>Ikeja</td>
                                     <td>+234802345678</td>
                                 </tr>
-                                ))
-                            }
+                            ))}
                             <tr>
                                 <td>19/20/2020</td>
                                 <td>3reen@gmail.com</td>
@@ -97,7 +95,6 @@ const UserMonitor = ({ allUsers }) => {
                                 <td>+234802345678</td>
                             </tr>
                         </tbody>
-
                     </table>
                 </div>
             </div>

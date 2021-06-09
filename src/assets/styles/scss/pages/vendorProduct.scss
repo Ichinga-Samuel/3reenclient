@@ -103,6 +103,14 @@
             }
         }
     }
+    .newProduct {
+        padding: 2rem 7rem;
+        border: 1px solid #ddd;
+        textarea.ant-input {
+            resize: none;
+            height: 150px;
+        }
+    }
 
     .export {
         display: flex;
@@ -223,7 +231,7 @@
             }
         }
         .productOptions {
-            padding: 2rem 0;
+            padding: 2rem 4rem;
             margin: 2rem 0;
             .ant-btn-primary {
                 background: var(--background-color);

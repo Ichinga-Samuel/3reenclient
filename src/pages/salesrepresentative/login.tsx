@@ -12,40 +12,39 @@ const Login = () => {
     const [errMsg, setErrMsg] = useState('');
     const [loginFields, setLoginFields] = useState({
         email: '',
-        password: ''
+        password: '',
     });
 
     const loginSales = async (email, password) => {
         try {
-            const { data } = await axios.post(`${apiUrl}users/login`, {email, password });
-    
+            const { data } = await axios.post(`${apiUrl}users/login`, { email, password });
+
             console.log(data);
-            if(data.token) {
-                let userToken = data.token;
-                let userId = data.user._id;
-                localStorage.setItem('userToken', userToken)
-                localStorage.setItem('userid', userId)
-                route.push(`/salesrepresentative/usermonitor`)
+            if (data.token) {
+                const userToken = data.token;
+                const userId = data.user._id;
+                localStorage.setItem('userToken', userToken);
+                localStorage.setItem('userid', userId);
+                route.push(`/salesrepresentative/usermonitor`);
             }
-        } catch(err) {
+        } catch (err) {
             console.log(`Error: ${err}`);
-            setErrMsg(`Error: invalid email or password`)
-            
+            setErrMsg(`Error: invalid email or password`);
         }
-    }
+    };
 
     const handleChange = (evt: any) => {
         setLoginFields({
             ...loginFields,
-            [evt.target.name]: evt.target.value
-        })
+            [evt.target.name]: evt.target.value,
+        });
     };
 
     const loginSubmit = (evt: any) => {
         const { email, password } = loginFields;
         evt.preventDefault();
         loginSales(email, password);
-    }
+    };
 
     return (
         <FormStyled>
@@ -60,16 +59,32 @@ const Login = () => {
 
                             <div className="input mt-4">
                                 <label htmlFor="email">Email Address</label>
-                                <input id="my-input" className="" type="Email" name="email" onChange={handleChange} required/>
+                                <input
+                                    id="my-input"
+                                    className=""
+                                    type="Email"
+                                    name="email"
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
 
                             <div className="input mt-4">
                                 <label htmlFor="email">Password</label>
-                                <input id="psw" className="" type="password" name="password" onChange={handleChange} required/>
+                                <input
+                                    id="psw"
+                                    className=""
+                                    type="password"
+                                    name="password"
+                                    onChange={handleChange}
+                                    required
+                                />
                             </div>
 
-                            <p>{ errMsg }</p>
-                            <button className="form-button mt-5" type="submit">LOG IN</button>
+                            <p>{errMsg}</p>
+                            <button className="form-button mt-5" type="submit">
+                                LOG IN
+                            </button>
 
                             <p className="forget-password">
                                 <Link href="/salesrepresentative/passwordreset">Forget Password ? </Link>

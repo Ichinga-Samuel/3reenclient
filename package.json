@@ -22,7 +22,7 @@
     "@ant-design/icons": "^4.6.2",
     "@babel/plugin-proposal-decorators": "^7.12.12",
     "antd": "^4.15.5",
-    "axios": "^0.21.1",
+    "antd-img-crop": "^3.14.1",
     "aos": "^2.3.4",
     "beauty-stars": "^1.1.0",
     "bootstrap": "^5.0.0-beta1",
