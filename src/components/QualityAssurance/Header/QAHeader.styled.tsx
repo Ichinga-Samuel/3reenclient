@@ -25,7 +25,7 @@ export const QAHeaderContainer = styled.header`
         position: relative;
         cursor: pointer;
         span {
-            font-size: 3rem;
+            font-size: 2rem;
             color: var(--background-color);
             svg {
                 fill: var(--background-color);
@@ -72,5 +72,74 @@ export const QAHeaderContainer = styled.header`
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+`;
+
+export const PlainQAHeader = styled.header`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
+    padding: 0 20px;
+    .plain-logo {
+        margin: 0 20px;
+    }
+    .links {
+        display: flex;
+        a {
+            margin: 0 15px;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            transition: ease all 0.5s;
+            color: rgba(0, 0, 0, 0.38);
+            position: relative;
+            text-decoration: none;
+            &.active {
+                color: #000;
+                transition: ease all 0.5s;
+                &:after {
+                    position: absolute;
+                    content: '';
+                    bottom: -5px;
+                    background: var(--background-color);
+                    height: 3px;
+                    width: 100%;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            &:hover {
+                text-decoration: none;
+                color: #000;
+                &:after {
+                    position: absolute;
+                    content: '';
+                    bottom: -5px;
+                    background: var(--background-color);
+                    height: 3px;
+                    width: 100%;
+                    left: 0;
+                    right: 0;
+                }
+            }
+        }
+    }
+`;
+
+export const PlainQAFooter = styled.footer`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    background: #eee;
+    padding: 10px;
+    transition: ease all 0.5s;
+    clear: both;
+    span {
+        text-align: center;
     }
 `;

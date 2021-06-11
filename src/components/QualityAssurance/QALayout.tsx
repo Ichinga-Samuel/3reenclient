@@ -4,7 +4,7 @@ import QASideMenu from '@/components/QualityAssurance/QASideMenu/QASideMenu';
 import { Layout } from 'antd';
 const { Content } = Layout;
 
-const QALayout = ({ children }) => {
+const QALayout = ({ pageTitle, children }) => {
     const [collapsed, setcollapsed] = useState(false);
 
     const toggleCollapse = () => setcollapsed(!collapsed);
@@ -22,6 +22,7 @@ const QALayout = ({ children }) => {
                             minHeight: 280,
                         }}
                     >
+                        <div className="page-title">{pageTitle}</div>
                         {children}
                     </Content>
                 </Layout>
