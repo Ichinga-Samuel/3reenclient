@@ -143,3 +143,11 @@ export const PlainQAFooter = styled.footer`
         text-align: center;
     }
 `;
+
+export const AuthContainer = styled.div`
+    width: 50%;
+    margin: 10px auto;
+    transition: ease all 0.6s;
+    border-radius: 8px;
+    overflow: hidden;
+`;

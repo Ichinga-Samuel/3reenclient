@@ -66,3 +66,56 @@
     padding-bottom: 20px;
     transition: ease all 0.5s;
 }
+
+.authContainer {
+    // display: flex;
+    align-items: center;
+    padding: 4rem 0;
+    transition: ease all 0.5s;
+    font-family: 'Montserrat', sans-serif;
+    h2 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        font-size: 2.4rem;
+    }
+    .login {
+        width: 30%;
+        margin: 3rem auto;
+        transition: ease all 0.6s;
+        border-radius: 8px;
+        overflow: hidden;
+        &.register {
+            width: 50%;
+        }
+        &__form {
+            // padding: 4rem;
+            position: relative;
+            transition: ease all 0.6s;
+            h3 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+                color: car(--background-color);
+            }
+            h4 {
+                font-weight: lighter;
+                font-size: 1.5rem;
+            }
+            label {
+                margin-bottom: 0;
+                text-transform: uppercase;
+                font-size: 1.2rem;
+            }
+            .form-group {
+                margin-bottom: 2rem;
+            }
+            .ant-btn-primary {
+                background: var(--background-color);
+                border-color: var(--background-color);
+            }
+        }
+        &__pwd {
+            text-align: center;
+        }
+    }
+}

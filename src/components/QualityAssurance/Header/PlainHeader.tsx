@@ -11,7 +11,9 @@ const PlainHeader = () => {
         <PlainQAHeader>
             <div className="plainlogo">
                 <Link href="/qualityassurance/login">
-                    <LogoIcon />
+                    <a>
+                        <LogoIcon />
+                    </a>
                 </Link>
             </div>
             <div className="links">

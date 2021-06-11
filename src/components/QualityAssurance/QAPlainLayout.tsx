@@ -15,7 +15,12 @@ const QAPlainLayout = ({ pageTitle, children }) => {
                 <title>{pageTitle} | Quality Assurance</title>
             </Head>
             <PlainHeader />
-            <main>{children}</main>
+            <main>
+                <div className="authContainer">
+                    <h2>QUALITY AND ASSURANCE PERSONNEL</h2>
+                    {children}
+                </div>
+            </main>
             <PlainQAFooter>
                 <span>
                     3Treen &copy; {new Date().getFullYear()} <br /> All Rights Reserved

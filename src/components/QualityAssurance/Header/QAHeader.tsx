@@ -8,7 +8,8 @@ const QAHeader = (props: any) => {
     const { collapsed, toggleCollapse, userData } = props;
     const [visible, setVisible] = useState(false);
 
-    const loggedUser = userData?.JSON.parse(userData);
+    console.log('user', userData);
+    const loggedUser = userData;
 
     const closeNotification = () => {
         setVisible(false);
@@ -44,7 +45,7 @@ const QAHeader = (props: any) => {
                     <div className="profile">
                         <ProfileIcon />
                         <div className="detail">
-                            <p>Jack Hanniel {loggedUser?.fullName} </p>
+                            <p>{loggedUser?.fullName} </p>
                             <span>Q&A Personnel</span>
                         </div>
                     </div>
