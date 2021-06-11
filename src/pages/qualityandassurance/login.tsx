@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../../components/QualityAssusrance/Header/Header';
-import { FormStyled } from '../../components/QualityAssusrance/form.styled';
+import Header from '../../components/QualityAssusrance-Bk/Header/Header';
+import { FormStyled } from '../../components/QualityAssusrance-Bk/form.styled';
 import Link from 'next/link';
 
 const Login = () => {

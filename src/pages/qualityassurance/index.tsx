@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import DataviewLayout from '@/components/QualityAssusrance/layout/DataviewLayout';
-import AllOrdersTable from '@/components/QualityAssusrance/components/dataTables/AllOrdersTable';
-import StatusTable from '@/components/QualityAssusrance/components/dataTables/StatusTable';
+import DataviewLayout from '@/components/QualityAssusrance-Bk/layout/DataviewLayout';
+import AllOrdersTable from '@/components/QualityAssusrance-Bk/components/dataTables/AllOrdersTable';
+import StatusTable from '@/components/QualityAssusrance-Bk/components/dataTables/StatusTable';
 // import CompletedTable from '@/components/QualityAssusrance/components/dataTables/CompletedTable';
 // import PendingTable from '@/components/QualityAssusrance/components/dataTables/PendingTable';
 // import OnHoldTable from '@/components/QualityAssusrance/components/dataTables/OnHold';

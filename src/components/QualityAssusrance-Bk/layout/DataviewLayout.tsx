@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MainLayout from './MainLayout';
-import { Products } from '@/components/QualityAssusrance/services/TableData';
+import { Products } from '@/components/QualityAssusrance-Bk/services/TableData';
 import utilStyles from '@/components/QualityAssusrance/styles/util.module.css';
 import CX from 'classnames';
 

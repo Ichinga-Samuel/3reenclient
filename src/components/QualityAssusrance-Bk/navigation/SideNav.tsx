@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@/components/QualityAssusrance/components/CustomLink';
+import Link from '@/components/QualityAssusrance-Bk/components/CustomLink';
 // import LayoutStyles from '@/components/QualityAssusrance/styles/layout.module.css';
 import UtilStyles from '@/components/QualityAssusrance/styles/util.module.css';
 

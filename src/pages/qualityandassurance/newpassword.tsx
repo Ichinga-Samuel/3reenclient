@@ -1,6 +1,6 @@
-import { FormStyled } from '../../components/QualityAssusrance/form.styled';
+import { FormStyled } from '../../components/QualityAssusrance-Bk/form.styled';
 
-import Header from '../../components/QualityAssusrance/Header/Header';
+import Header from '../../components/QualityAssusrance-Bk/Header/Header';
 import Link from 'next/link';
 
 const Register = () => {

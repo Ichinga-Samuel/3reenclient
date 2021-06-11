@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@/components/QualityAssusrance/layout/Layout';
+import Layout from '@/components/QualityAssusrance-Bk/layout/Layout';
 import { Form, Button } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
