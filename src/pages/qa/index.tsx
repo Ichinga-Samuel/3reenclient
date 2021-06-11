@@ -4,16 +4,16 @@ import QASideMenu from '@/components/QualityAssurance/QASideMenu/QASideMenu';
 import { Layout } from 'antd';
 const { Content } = Layout;
 
-const QALayout = () => {
+const QALayout = ({ children }) => {
     const [collapsed, setcollapsed] = useState(false);
 
     const toggleCollapse = () => setcollapsed(!collapsed);
     return (
         <>
             <Layout>
-                <QASideMenu collapsed={collapsed} />
+                <QAHeader collapsed={collapsed} toggleCollapse={toggleCollapse} />
                 <Layout className="site-layout">
-                    <QAHeader collapsed={collapsed} toggleCollapse={toggleCollapse} />
+                    <QASideMenu collapsed={collapsed} />
                     <Content
                         className="site-layout-background"
                         style={{
@@ -22,7 +22,7 @@ const QALayout = () => {
                             minHeight: 280,
                         }}
                     >
-                        Content
+                        {children}
                     </Content>
                 </Layout>
             </Layout>

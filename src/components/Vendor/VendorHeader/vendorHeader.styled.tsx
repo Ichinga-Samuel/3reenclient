@@ -42,7 +42,7 @@ export const VendorHeaderStyled = styled.header`
         height: 4rem;
         padding: 0.5rem 1.5rem;
         font-weight: 500;
-        background: #FAFAFA;
+        background: #fafafa;
         // box-shadow: 0px 4px 5px rgba(79, 0, 81, 0.1);
     }
     .Search input[placeholder] {
@@ -71,7 +71,7 @@ export const VendorHeaderStyled = styled.header`
             color: #590a5b;
         }
         &__label {
-            color: #590A5B;
+            color: #590a5b;
             font-weight: 500;
             font-size: 1.2rem;
             padding-left: 10px;
@@ -81,7 +81,7 @@ export const VendorHeaderStyled = styled.header`
             height: 20px;
             border-radius: 50px;
             justify-content: center;
-            background: #FFAF38;
+            background: #ffaf38;
             padding: 2px;
             display: flex;
             position: absolute;
@@ -101,8 +101,8 @@ export const VendorHeaderStyled = styled.header`
         img {
             padding-left: 5px;
         }
-        p{
-            color: #590A5B;
+        p {
+            color: #590a5b;
             font-weight: 500;
             font-size: 1.2rem;
             padding: 20px 5px;
@@ -112,21 +112,21 @@ export const VendorHeaderStyled = styled.header`
     // medium screens
 
     @media only screen and (max-width: 768px) {
-        .Header{
+        .Header {
             padding: 20px;
-
         }
         .Brand {
-        display: none;
-    }
-    .Input {
-       display: none;
-    }
-    .Cart {
-       display:none;
-    }
-    .Profile {
-       display: none;
+            display: none;
+        }
+        .Input {
+            display: none;
+        }
+        .Cart {
+            display: none;
+        }
+        .Profile {
+            display: none;
+        }
     }
 
     // large screens
