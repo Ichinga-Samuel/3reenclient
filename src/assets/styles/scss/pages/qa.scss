@@ -1,11 +1,39 @@
 .ant-layout-sider {
     height: 100vh;
+    background: var(--background-color);
 }
 
 .site-layout {
     .site-layout-background {
         background: #fff;
     }
+}
+.ant-menu-item {
+    display: flex;
+    align-items: center;
+}
+
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+    background: transparent;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: var(--white-color);
+    color: var(--background-color);
+    font-weight: bold;
+}
+
+.ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon, .ant-menu-dark .ant-menu-item-selected .anticon {
+    color: var(--background-color);
+}
+
+.ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon + span, .ant-menu-dark .ant-menu-item-selected .anticon + span {
+    color: var(--background-color);
+}
+
+.ant-menu-dark .ant-menu-item-selected > a, .ant-menu-dark .ant-menu-item-selected > span > a, .ant-menu-dark .ant-menu-item-selected > a:hover, .ant-menu-dark .ant-menu-item-selected > span > a:hover {
+    color: var(--background-color);
+    font-size: 1.5rem;
 }
 
 #components-layout-demo-custom-trigger {
@@ -22,12 +50,12 @@
     .logo {
         height: 32px;
         margin: 16px;
-        background: rgba(255, 255, 255, 0.3);
+        // background: rgba(255, 255, 255, 0.3);
     }
 }
 
 .logo {
     height: 32px;
     margin: 16px;
-    background: rgba(255, 255, 255, 0.3);
+    // background: rgba(255, 255, 255, 0.3);
 }
