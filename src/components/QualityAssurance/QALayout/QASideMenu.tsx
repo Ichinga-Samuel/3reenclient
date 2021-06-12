@@ -33,7 +33,7 @@ const QASideMenu = (props: any) => {
         setTimeout(() => {
             setVisible(false);
             setConfirmLoading(false);
-            router?.push('/vendor/login');
+            router?.push('/qualityassurance/login');
         }, 2000);
     };
 

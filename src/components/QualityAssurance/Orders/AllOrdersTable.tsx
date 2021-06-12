@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
-import { Button, Input, Row, Col } from 'antd';
+import { Button, Input, Row, Col, DatePicker, Select } from 'antd';
 import QAMainLayout from '@/components/QualityAssurance/QALayout/QAMainLayout';
 import { Tabs, notification } from 'antd';
 import { OrderTableContainer } from '@/components/QualityAssurance/QALayout/QAGeneral.styled';
@@ -11,6 +11,7 @@ import OrderDataTable from './OrderDataTable';
 import { FakeQAOrders } from './FakeData';
 
 const { TabPane } = Tabs;
+const { Option } = Select;
 
 const AllOrdersTable = () => {
     const { register, handleSubmit } = useForm();
@@ -163,12 +164,34 @@ const AllOrdersTable = () => {
         <>
             <QAMainLayout pageTitle="Orders" data-aos="slide-right" data-aos-delay="2s" data-aos-duration="1s">
                 <Row gutter={12} justify="end">
-                    <Col xs={24} xl={6}>
+                    <Col xs={24} xl={9}>
                         <Input placeholder="Search By Order ID" {...register('id')} />
                     </Col>
-                    <Col xs={24} xl={4}>
+                    <Col xs={24} xl={3}>
                         <Button loading={fetchorders} onClick={handleSubmit(searchOrders)} type="primary">
                             Search Orders
+                        </Button>
+                    </Col>
+                </Row>
+                <Row gutter={12} justify="end" className="pt-3">
+                    <Col xs={24} xl={3}>
+                        <DatePicker placeholder="Date" {...register('orderdate')} />
+                    </Col>
+                    <Col xs={24} xl={3}>
+                        <Select style={{ width: '115px' }} placeholder="Currency" {...register('currency')}>
+                            <Option value="NGN">NGN</Option>
+                            <Option value="USD">USD</Option>
+                            <Option value="EUR">EUR</Option>
+                        </Select>
+                    </Col>
+                    <Col xs={24} xl={3}>
+                        <Select style={{ width: '115px' }} placeholder="Registered User" {...register('users')}>
+                            <Option value="User 1">User 1</Option>
+                        </Select>
+                    </Col>
+                    <Col xs={24} xl={3}>
+                        <Button loading={fetchorders} type="default">
+                            Apply Orders
                         </Button>
                     </Col>
                 </Row>
