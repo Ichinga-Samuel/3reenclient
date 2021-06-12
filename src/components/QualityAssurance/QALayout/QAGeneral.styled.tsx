@@ -7,7 +7,8 @@ export const QAHeaderContainer = styled.header`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     height: 60px;
     align-items: center;
-    position: sticky;
+    position: fixed;
+    z-index: 1;
     .logoHolder {
         display: flex;
         justify-content: space-around;
@@ -130,10 +131,11 @@ export const PlainQAHeader = styled.header`
 `;
 
 export const PlainQAFooter = styled.footer`
-    position: relative;
+    position: absolute;
     display: flex;
     align-items: center;
     width: 100%;
+    bottom: 0;
     justify-content: center;
     background: #eee;
     padding: 10px;

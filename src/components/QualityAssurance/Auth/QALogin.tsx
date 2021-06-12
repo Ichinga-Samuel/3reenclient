@@ -40,11 +40,13 @@ const QALogin = () => {
                     }
                     if (data.status === 'success') {
                         notification.success({
+                            key: 'done',
                             message: 'Success',
                             description: 'Login Successfully. Redirecting to Dashboard',
                             duration: 15,
                         });
                         setTimeout(() => {
+                            notification.close('done');
                             router.push('/qualityassurance');
                         }, 1000);
                         addToLocalStorage('qatoken', response.data.token);
