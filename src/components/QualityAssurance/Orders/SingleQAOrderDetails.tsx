@@ -21,7 +21,7 @@ const SingleQAOrderDetails = () => {
         <QAMainLayout pageTitle={title}>
             <OrderDetailsContainer data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s">
                 <div className="title">
-                    <Link href="/vendor/orders">
+                    <Link href="/qualityassurance/orders">
                         <a>
                             <ArrowLeftOutlined /> <span>View Orders</span>
                         </a>
