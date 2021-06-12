@@ -1,5 +1,5 @@
 import React from 'react';
-import { PlainQAHeader } from '@/components/QualityAssurance/Header/QAHeader.styled';
+import { PlainQAHeader } from '@/components/QualityAssurance/QALayout/QAGeneral.styled';
 import Link from 'next/link';
 import { LogoIcon } from '@/utils/Icons';
 import { useRouter } from 'next/router';

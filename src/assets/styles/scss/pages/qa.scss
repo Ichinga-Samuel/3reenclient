@@ -119,3 +119,52 @@
         }
     }
 }
+.__footer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    transition: ease all 0.5s;
+    svg {
+        width: 20px;
+        padding-right: 2px;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        // margin: 0;
+        padding: 0;
+    }
+
+    li,
+    button {
+        cursor: pointer;
+        font-size: 14px;
+        background: transparent;
+        border-color: transparent;
+        text-transform: uppercase;
+        color: #be1e2d;
+        display: flex;
+        align-items: center;
+        &:hover {
+            background: transparent;
+            border-color: transparent;
+            color: #fff;
+        }
+        &:focus {
+            background: transparent;
+            border-color: transparent;
+            color: #fff;
+        }
+        &:active {
+            background: transparent;
+        }
+        span {
+            padding-left: 8px;
+        }
+    }
+}

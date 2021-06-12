@@ -5,7 +5,7 @@ import DocumentTitle from '@/utils/DocumentTitle';
 const forgotPassword = () => {
     return (
         <div>
-            <DocumentTitle pageTitle="Reset Password" applicationTitle="Vendor" />
+            <DocumentTitle pageTitle="Reset Password" applicationTitle="Quality Assurance" />
             <ForgotPassword />
         </div>
     );

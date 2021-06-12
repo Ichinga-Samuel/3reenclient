@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import PlainHeader from './Header/PlainHeader';
-import { PlainQAFooter } from './Header/QAHeader.styled';
+import PlainHeader from './PlainHeader';
+import { PlainQAFooter } from './QAGeneral.styled';
 import AOS from 'aos';
 import Head from 'next/head';
 

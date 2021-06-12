@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuUnfoldOutlined, MenuFoldOutlined, BellFilled } from '@ant-design/icons';
-import { QAHeaderContainer } from './QAHeader.styled';
+import { QAHeaderContainer } from './QAGeneral.styled';
 import { LogoIcon, ProfileIcon } from '@/utils/Icons';
 import QANotification from '@/components/QualityAssurance/QANotification';
 
@@ -8,8 +8,7 @@ const QAHeader = (props: any) => {
     const { collapsed, toggleCollapse, userData } = props;
     const [visible, setVisible] = useState(false);
 
-    console.log('user', userData);
-    const loggedUser = userData;
+    const loggedUser = JSON.parse(userData);
 
     const closeNotification = () => {
         setVisible(false);
@@ -46,7 +45,7 @@ const QAHeader = (props: any) => {
                         <ProfileIcon />
                         <div className="detail">
                             <p>{loggedUser?.fullName} </p>
-                            <span>Q&A Personnel</span>
+                            <span>{'Q&A Personnel'}</span>
                         </div>
                     </div>
                 </div>

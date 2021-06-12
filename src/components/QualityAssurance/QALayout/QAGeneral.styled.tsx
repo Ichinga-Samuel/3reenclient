@@ -151,3 +151,25 @@ export const AuthContainer = styled.div`
     border-radius: 8px;
     overflow: hidden;
 `;
+
+export const OrderTableContainer = styled.div`
+    position: relative;
+    transition: ease all 0.5s;
+    .ant-tabs-tab {
+        + .ant-tabs-tab {
+            margin: 0px 15px;
+            color: rgba(0, 0, 0, 0.25);
+        }
+        &:hover {
+            color: var(--background-color);
+        }
+        &.ant-tabs-tab-active {
+            .ant-tabs-tab-btn {
+                color: var(--background-color);
+            }
+        }
+    }
+    .ant-tabs-ink-bar {
+        background: var(--background-color);
+    }
+`;

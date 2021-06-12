@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import QAHeader from '@/components/QualityAssurance/Header/QAHeader';
-import QASideMenu from '@/components/QualityAssurance/QASideMenu/QASideMenu';
+import QAHeader from '@/components/QualityAssurance/QALayout/QAHeader';
+import QASideMenu from '@/components/QualityAssurance/QALayout/QASideMenu';
 import { Layout } from 'antd';
 const { Content } = Layout;
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
-import Login from '@/pages/qualityassurance/login';
+import Head from 'next/head';
+// import Login from '@/pages/qualityassurance/login';
 
 const QAMainLayout = ({ pageTitle, children }) => {
     const [collapsed, setcollapsed] = useState(false);
@@ -27,9 +28,13 @@ const QAMainLayout = ({ pageTitle, children }) => {
     return (
         <>
             {!token ? (
-                <Login />
+                <p style={{ padding: '20px', fontSize: '1.5rem' }}>Redirecting...</p>
             ) : (
+                // <Login />
                 <Layout>
+                    <Head>
+                        <title>{pageTitle} | Quality Assurance</title>
+                    </Head>
                     <QAHeader userData={userData} collapsed={collapsed} toggleCollapse={toggleCollapse} />
                     <Layout className="site-layout">
                         <QASideMenu collapsed={collapsed} />
