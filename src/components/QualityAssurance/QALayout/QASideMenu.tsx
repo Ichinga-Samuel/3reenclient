@@ -45,10 +45,10 @@ const QASideMenu = (props: any) => {
             <div className="logo" />
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
-                    <Link href="/qa/orders">Orders</Link>
+                    <Link href="/qualityassurance/orders">Orders</Link>
                 </Menu.Item>
                 <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                    <Link href="/qa/messages">Messages</Link>
+                    <Link href="/qualityassurance/messages">Messages</Link>
                 </Menu.Item>
             </Menu>
             <div className="__footer">
