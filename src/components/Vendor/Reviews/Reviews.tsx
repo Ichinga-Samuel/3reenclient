@@ -29,10 +29,11 @@ const Reviews = () => {
                     },
                 })
                 .then((response: any) => {
-                    const { doc, data, pages } = response;
-                    if (data.status === 'success') {
-                        setPagination(pages);
-                        setReviews(doc);
+                    // console.log('revv', response);
+                    const { status, allReview } = response?.data;
+                    if (status === 'success') {
+                        setPagination(0);
+                        setReviews(allReview);
                         setFetching(false);
                     }
                 })
@@ -77,7 +78,7 @@ const Reviews = () => {
                     </div>
                     <div className="reviewContainer__body">
                         {fetching ? (
-                            <div>
+                            <div className="fetching">
                                 <Spin />
                             </div>
                         ) : (

@@ -14,7 +14,6 @@ const OrderProducts = ({ productOrder }) => {
     const ViewImage = (record: any) => {
         setOpen(true);
         setImage(record.images);
-        console.log(record);
     };
 
     const getAllDetails = ProductInOrder.map((detail: any) => {
