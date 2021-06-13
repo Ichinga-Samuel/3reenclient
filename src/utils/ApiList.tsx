@@ -29,6 +29,7 @@ export const VENDOR_PRODUCT = {
     getAllProducts: '/products/vendorProducts',
     searchProduct: '/search',
     deleteProduct: (id: any) => `/products/${id}`,
+    allReview: '/review',
 };
 
 // QA Endpoints

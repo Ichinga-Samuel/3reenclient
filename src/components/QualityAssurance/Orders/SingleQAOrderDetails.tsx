@@ -8,7 +8,7 @@ import { APP_BASE, QA_ORDER } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { Button, Input, Spin, Row, Select, Col, Card, notification } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import { formatAmount } from '@/utils/helpers';
+import { findAllTotal, formatAmount } from '@/utils/helpers';
 import NotificationCard from '@/components/QualityAssurance/Orders/NotificationCard';
 import { ActionList } from './UtilsOrderData';
 import OrderProducts from './OrderProducts';
@@ -27,16 +27,21 @@ const SingleQAOrderDetails = () => {
 
     useEffect(() => {
         const fetchOrderDetails = async () => {
+            if (id === undefined) {
+                return;
+            }
             try {
+                setUpdating(true);
                 const response = await axios.get(`${APP_BASE}${QA_ORDER.getSingleOrder(id)}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
                 });
                 const { doc } = response?.data;
-                console.log('order res', response.data.doc);
                 setdetails(doc);
+                setUpdating(false);
             } catch (err) {
+                setUpdating(true);
                 console.log('error', err);
                 notification.error({
                     message: 'Orders Error',
@@ -84,17 +89,6 @@ const SingleQAOrderDetails = () => {
 
     const handleChange = (value: string) => {
         setVal(value);
-    };
-
-    const findTotal = () => {
-        const tax = 0.59;
-        const shipping = 4;
-        const { totalCost } = details;
-        const amountList = [totalCost, tax, shipping];
-        if (amountList !== null && amountList.length > 0) {
-            return amountList.reduce((a, b) => a + parseFloat(b), 0);
-        }
-        return '0.00';
     };
 
     return (
@@ -232,7 +226,16 @@ const SingleQAOrderDetails = () => {
                                                                     </div>
                                                                     <div className="total">
                                                                         <span>Total</span>
-                                                                        <span>&#x20A6;{formatAmount(findTotal)}</span>
+                                                                        <span>
+                                                                            &#x20A6;
+                                                                            {formatAmount(
+                                                                                findAllTotal([
+                                                                                    details.totalCost,
+                                                                                    4,
+                                                                                    0.59,
+                                                                                ]),
+                                                                            )}
+                                                                        </span>
                                                                     </div>
                                                                 </div>
                                                             </Col>

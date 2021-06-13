@@ -4,7 +4,7 @@ import QAMainLayout from '@/components/QualityAssurance/QALayout/QAMainLayout';
 import { Tabs, notification } from 'antd';
 import { OrderTableContainer } from '@/components/QualityAssurance/QALayout/QAGeneral.styled';
 import { getFromLocalStorage } from '@/utils/browserStorage';
-import { APP_BASE, VENDOR_ORDER } from '@/utils/ApiList';
+import { APP_BASE, QA_ORDER } from '@/utils/ApiList';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import OrderDataTable from './OrderDataTable';
@@ -30,19 +30,16 @@ const AllOrdersTable = () => {
     const [total, setTotal] = useState(0);
 
     const searchOrders = async (data: any) => {
-        console.log('searc', data);
         setfetchorders(true);
         await axios
-            .get(`${APP_BASE}${VENDOR_ORDER.byStatus(data.id)}`, {
+            .get(`${APP_BASE}${QA_ORDER.byStatus(data.id)}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             })
             .then((response: any) => {
-                console.log('login response', response);
                 const { doc, data, pages, results } = response;
                 if (data.status === 'success') {
-                    console.log('record', orders);
                     setPagination(pages);
                     setorders(doc);
                     setTotal(results);
@@ -65,7 +62,7 @@ const AllOrdersTable = () => {
         const fetchAllOrders = async () => {
             setFetching(true);
             try {
-                const response = await axios.get(`${APP_BASE}${VENDOR_ORDER.getAllOrders}`, {
+                const response = await axios.get(`${APP_BASE}${QA_ORDER.getAllOrders}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -76,9 +73,6 @@ const AllOrdersTable = () => {
                 setTabCount(doc.length);
                 setTotal(result);
                 setPagination(result);
-                // setTotal(results);
-                console.log('orders', orders);
-                console.log('res', response);
                 setTimeout(() => {
                     // setAllOrders(doc);
                     setTabCount(orders.length);
@@ -87,7 +81,6 @@ const AllOrdersTable = () => {
                     setFetching(false);
                 }, 500);
             } catch (err) {
-                console.log('error', err.response);
                 notification.error({
                     message: 'Orders Error',
                     description: err.response?.data.message,
@@ -103,7 +96,6 @@ const AllOrdersTable = () => {
     };
 
     const filterTabOnStatus = (key: string) => {
-        console.log(key);
         setTotal(allorders.length);
         if (key === '1') {
             setorders(orders);

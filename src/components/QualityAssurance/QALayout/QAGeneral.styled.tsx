@@ -469,4 +469,10 @@ export const ProductCard = styled.div`
             margin-bottom: 10px;
         }
     }
+    .ant-carousel .slick-dots li button {
+        background: var(--black-color);
+    }
+    .ant-carousel .slick-dots li.slick-active button {
+        background: var(--background-color);
+    }
 `;

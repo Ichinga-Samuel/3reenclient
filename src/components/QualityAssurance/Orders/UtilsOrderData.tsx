@@ -101,3 +101,48 @@ export const ActionList = [
         name: 'Refunded',
     },
 ];
+
+export const fakeReview = [
+    {
+        id: 1,
+        productName: 'Nike summer Combo Sports',
+        rating: 4,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2020',
+    },
+    {
+        id: 2,
+        productName: 'Nike summer Combo',
+        rating: 3,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2021',
+    },
+    {
+        id: 3,
+        productName: 'Nike summer Combo 2',
+        rating: 5,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2021',
+    },
+    {
+        id: 4,
+        productName: 'Nike summer Combo',
+        rating: 3,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '15-12-2021',
+    },
+    {
+        id: 5,
+        productName: 'Nike summer Combo',
+        rating: 5,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2021',
+    },
+    {
+        id: 6,
+        productName: 'Nike summer Combo',
+        rating: 5,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '15-05-2021',
+    },
+];

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import { UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { UserOutlined, MessageOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { Button, Popconfirm } from 'antd';
 import {
@@ -47,7 +47,7 @@ const QASideMenu = (props: any) => {
                 <Menu.Item key="1" icon={<UserOutlined />}>
                     <Link href="/qualityassurance/orders">Orders</Link>
                 </Menu.Item>
-                <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+                <Menu.Item key="2" icon={<MessageOutlined />}>
                     <Link href="/qualityassurance/messages">Messages</Link>
                 </Menu.Item>
             </Menu>
