@@ -1,25 +1,105 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import QAMainLayout from '@/components/QualityAssurance/QALayout/QAMainLayout';
-import { OrderDetailsContainer } from '@/components/QualityAssurance/QALayout/QAGeneral.styled';
+import { QAOrderDetailsContainer } from '@/components/QualityAssurance/QALayout/QAGeneral.styled';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { VENDOR_ORDER } from '@/utils/ApiList';
+import { APP_BASE, QA_ORDER } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
-import { Button, Steps, Row, Col } from 'antd';
-import { MoreOutlined, ArrowLeftOutlined } from '@ant-design/icons';
+import { Button, Input, Spin, Row, Select, Col, Card, notification } from 'antd';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import { formatAmount } from '@/utils/helpers';
+import NotificationCard from '@/components/QualityAssurance/Orders/NotificationCard';
+import { ActionList } from './UtilsOrderData';
+import OrderProducts from './OrderProducts';
+import ProductImageCard from './ProductImageCard';
 
-const { Step } = Steps;
+const { Option } = Select;
 
 const SingleQAOrderDetails = () => {
     const title = 'Order Details';
     const router = useRouter();
     const { id } = router.query;
+    const token = getFromLocalStorage('qatoken');
+    const [details, setdetails] = useState(null);
+    const [updating, setUpdating] = useState(false);
+    const [val, setVal] = useState('');
+
+    useEffect(() => {
+        const fetchOrderDetails = async () => {
+            try {
+                const response = await axios.get(`${APP_BASE}${QA_ORDER.getSingleOrder(id)}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const { doc } = response?.data;
+                console.log('order res', response.data.doc);
+                setdetails(doc);
+            } catch (err) {
+                console.log('error', err);
+                notification.error({
+                    message: 'Orders Error',
+                    description: err.response?.data.message,
+                    duration: 0,
+                });
+            }
+        };
+        fetchOrderDetails();
+    }, [id, token]);
+
+    const UpdateOrderStatus = async () => {
+        if (val === '' || val === undefined) {
+            notification.error({
+                message: 'Error',
+                description: 'Please, select an action',
+                duration: 10,
+            });
+            setUpdating(false);
+            return;
+        }
+        try {
+            setUpdating(true);
+            const response = await axios.patch(`${APP_BASE}${QA_ORDER.updateStatus(id, val)}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log('action res', response);
+            notification.success({
+                message: 'Success',
+                description: 'Order Status Updated Successfully',
+                duration: 10,
+            });
+            setUpdating(false);
+        } catch (err) {
+            notification.error({
+                message: 'Error',
+                description: err.response?.data.message,
+                duration: 0,
+            });
+            setUpdating(false);
+        }
+    };
+
+    const handleChange = (value: string) => {
+        setVal(value);
+    };
+
+    const findTotal = () => {
+        const tax = 0.59;
+        const shipping = 4;
+        const { totalCost } = details;
+        const amountList = [totalCost, tax, shipping];
+        if (amountList !== null && amountList.length > 0) {
+            return amountList.reduce((a, b) => a + parseFloat(b), 0);
+        }
+        return '0.00';
+    };
 
     return (
         <QAMainLayout pageTitle={title}>
-            <OrderDetailsContainer data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s">
+            <QAOrderDetailsContainer>
                 <div className="title">
                     <Link href="/qualityassurance/orders">
                         <a>
@@ -27,112 +107,283 @@ const SingleQAOrderDetails = () => {
                         </a>
                     </Link>
                 </div>
-                <div className="header">
-                    <div className="header__order">
-                        <h3>Order {id}</h3>
-                        <p>Place on 31st/12/2020</p>
+                {details === null ? (
+                    <div className="loading">
+                        <Spin />
                     </div>
-                    <div className="header__actions">
-                        <Button type="primary">View Invoice</Button>
-                        <Button type="primary">
-                            <MoreOutlined />
-                        </Button>
-                    </div>
-                </div>
-                <div className="orderdetails">
-                    <div className="orderdetails__invoice">
-                        <Row gutter={24}>
-                            <Col xs={24} xl={10} lg={8}>
-                                <h4>Order Info</h4>
-                                <div className="orderdetails__summary">
-                                    <div>
-                                        <span>RefID</span>
-                                        <span>{id}</span>
-                                    </div>
-                                    <div>
-                                        <span>Placed on</span>
-                                        <span>1/1/2021</span>
-                                    </div>
-                                    <div>
-                                        <span>Number Of Items</span>
-                                        <span>3</span>
-                                    </div>
-                                    <div>
-                                        <span>Mode of Payment</span>
-                                        <span>Credit Card</span>
-                                    </div>
-                                    <div>
-                                        <span>Order Amount</span>
-                                        <span>{formatAmount(1250)}</span>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col xs={24} xl={10} lg={8}>
-                                <h4>Billing Summary</h4>
-                                <div className="orderdetails__summary">
-                                    <div>
-                                        <span>Order Total</span>
-                                        <span>{formatAmount(3450)}</span>
-                                    </div>
-                                    <div>
-                                        <span>Delivery Charges</span>
-                                        <span>{formatAmount(500)}</span>
-                                    </div>
-                                    <div>
-                                        <span>Commission</span>
-                                        <span>{formatAmount(1200)}</span>
-                                    </div>
-                                    <div>
-                                        <span>Your Earning</span>
-                                        <span>{formatAmount(2300)}</span>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
-
-                    <div className="orderdetails__items">
-                        <h3>Items in Order: 3</h3>
-                        <div className="orderdetails__items__main">
-                            <Row>
-                                <Col xs={12} xl={3} lg={4}>
-                                    <div className="image">image</div>
+                ) : (
+                    <>
+                        <div className="header">
+                            <div className="header__order">
+                                <h3> #{id} Order Details</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <Row gutter={24}>
+                                <Col xs={24} xl={16} lg={16} style={{ marginBottom: '15px' }}>
+                                    <Row gutter={24}>
+                                        <Col xs={24} xl={24} lg={24} style={{ marginBottom: '15px' }}>
+                                            <Card bordered={false}>
+                                                <Row gutter={48}>
+                                                    <Col xs={24} xl={8} lg={8}>
+                                                        <div className="general">
+                                                            <h3>General Information</h3>
+                                                            <div className="detailsform">
+                                                                <Row gutter={10}>
+                                                                    <Col xs={24} xl={24} lg={24}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor="date">Date</label>
+                                                                            <Input value={'31/12/2021'} disabled />
+                                                                        </div>
+                                                                    </Col>
+                                                                    <Col xs={24} xl={24} lg={24}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor="time">Time</label>
+                                                                            <Input value={'10 : 53 AM'} disabled />
+                                                                        </div>
+                                                                    </Col>
+                                                                    <Col xs={24} xl={24} lg={24}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor="status">Status</label>
+                                                                            <Input value={details.status} disabled />
+                                                                        </div>
+                                                                    </Col>
+                                                                    <Col xs={24} xl={24} lg={24}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor="customer">Customer</label>
+                                                                            <Input value={details.name} disabled />
+                                                                        </div>
+                                                                    </Col>
+                                                                </Row>
+                                                            </div>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={24} xl={8} lg={8}>
+                                                        <div className="general">
+                                                            <h3>Billing Address</h3>
+                                                            <div className="address">
+                                                                <p>
+                                                                    Anastesia Steel, <br /> No 18, Wolfstreet crescent,{' '}
+                                                                    <br />
+                                                                    Central Area,
+                                                                </p>
+                                                                <p>Abuja</p>
+                                                                <p>Nigeria</p>
+                                                                <div className="address__user">
+                                                                    <p>{details.name}</p>
+                                                                    <p>
+                                                                        <a href="tel:09032160942">090-321-609-42</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </Col>
+                                                    <Col xs={24} xl={8} lg={8}>
+                                                        <div className="general">
+                                                            <h3>Shipping</h3>
+                                                            <div className="address">
+                                                                <p>
+                                                                    Anastesia Steel, <br /> No 18, Wolfstreet crescent,{' '}
+                                                                    <br />
+                                                                    Central Area,
+                                                                </p>
+                                                                <p>Abuja</p>
+                                                                <p>Nigeria</p>
+                                                            </div>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                            </Card>
+                                        </Col>
+                                        <Col xs={24} xl={24} lg={24}>
+                                            <Card bordered={false}>
+                                                <Row gutter={24}>
+                                                    <Col xs={24} xl={16} lg={16}>
+                                                        <div className="general">
+                                                            <h3>Order Summary</h3>
+                                                        </div>
+                                                        <Row gutter={36}>
+                                                            <Col xs={24} xl={10} lg={12}>
+                                                                <ProductImageCard details={details} />
+                                                            </Col>
+                                                            <Col xs={24} xl={14} lg={12}>
+                                                                <div className="orderdetails__summary">
+                                                                    <div>
+                                                                        <span>Qty</span>
+                                                                        <span>{details.quantity}</span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>Subtotal Charges</span>
+                                                                        <span>
+                                                                            &#x20A6;{formatAmount(details.totalCost)}
+                                                                        </span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>Shipping</span>
+                                                                        <span>&#x20A6;{formatAmount(4)}</span>
+                                                                    </div>
+                                                                    <div>
+                                                                        <span>Tax</span>
+                                                                        <span
+                                                                            style={{ textDecoration: 'line-through' }}
+                                                                        >
+                                                                            &#x20A6;{formatAmount(0.59)}
+                                                                        </span>
+                                                                    </div>
+                                                                    <div className="total">
+                                                                        <span>Total</span>
+                                                                        <span>&#x20A6;{formatAmount(findTotal)}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </Col>
+                                                        </Row>
+                                                    </Col>
+                                                    <Col xs={24} xl={8} lg={16}>
+                                                        <div className="general delivery">
+                                                            <h3>Delivery Method</h3>
+                                                            <div className="delivery__details">
+                                                                <p>Door Delivery</p>
+                                                                <p>January 4, 2021</p>
+                                                                <p>12:00 PM - 1:00 PM</p>
+                                                            </div>
+                                                        </div>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col xs={24} xl={24} lg={24}>
+                                                        <OrderProducts productOrder={details?.products} />
+                                                    </Col>
+                                                </Row>
+                                            </Card>
+                                        </Col>
+                                    </Row>
                                 </Col>
-                                <Col xs={12} xl={6} lg={4}>
-                                    <div className="item_details">
-                                        <h4>Nike summer Combo Sports</h4>
-                                        <div className="qty">
-                                            <span>Size: 41</span>
-                                            <span>Quantity: 4</span>
-                                        </div>
-                                        <div className="price">Price: {formatAmount(1350)}</div>
-                                    </div>
-                                </Col>
-                                <Col xs={24} xl={15} lg={4}>
-                                    <div className="item_steps">
-                                        <Steps current={1} progressDot>
-                                            <Step title="Picked Up" description="31 Dec" />
-                                            <Step title="Processed" description="2 Jan" />
-                                            <Step title="Dispatched" description="2 Jan" />
-                                            <Step title="Delivered" description="2 Jan" />
-                                        </Steps>
-                                    </div>
+                                <Col xs={24} xl={8} lg={8}>
+                                    <Row>
+                                        <Col xs={24} xl={24} lg={24} style={{ marginBottom: '15px' }}>
+                                            <Card bordered={false}>
+                                                <div className="actiondetails">
+                                                    <h4>Order Action</h4>
+                                                    <Row gutter={6}>
+                                                        <Col xs={24} xl={17} lg={8}>
+                                                            <form>
+                                                                <Select
+                                                                    style={{ width: '100%' }}
+                                                                    onChange={handleChange}
+                                                                    allowClear
+                                                                >
+                                                                    {ActionList
+                                                                        ? ActionList.map((list) => {
+                                                                              return (
+                                                                                  <Option
+                                                                                      key={list.id}
+                                                                                      value={list.name}
+                                                                                  >
+                                                                                      {list.name}
+                                                                                  </Option>
+                                                                              );
+                                                                          })
+                                                                        : null}
+                                                                </Select>
+                                                            </form>
+                                                        </Col>
+                                                        <Col xs={24} xl={7} lg={8}>
+                                                            <Button
+                                                                loading={updating}
+                                                                onClick={UpdateOrderStatus}
+                                                                type="primary"
+                                                            >
+                                                                Update
+                                                            </Button>
+                                                        </Col>
+                                                    </Row>
+                                                </div>
+                                            </Card>
+                                        </Col>
+                                        <Col xs={24} xl={24} lg={24}>
+                                            <Card bordered={false}>
+                                                <div className="actiondetails">
+                                                    <h4>Notification</h4>
+                                                </div>
+                                                <NotificationCard
+                                                    status="Order status has been changed from pending payment to completed"
+                                                    style=""
+                                                />
+                                                <NotificationCard
+                                                    status="Order status has been changed from pending payment to completed"
+                                                    style={{ background: '#ccc' }}
+                                                />
+                                            </Card>
+                                        </Col>
+                                    </Row>
                                 </Col>
                             </Row>
                         </div>
-                    </div>
-                </div>
-            </OrderDetailsContainer>
+                    </>
+                )}
+            </QAOrderDetailsContainer>
         </QAMainLayout>
+        // <div className="orderdetails">
+        //     <div className="orderdetails__invoice">
+        //         <Row gutter={24}>
+        //             <Col xs={24} xl={10} lg={8}>
+        //                 <h4>Order Info</h4>
+        //                 <div className="orderdetails__summary">
+        //                     <div>
+        //                         <span>RefID</span>
+        //                         <span>{id}</span>
+        //                     </div>
+        //                     <div>
+        //                         <span>Placed on</span>
+        //                         <span>1/1/2021</span>
+        //                     </div>
+        //                     <div>
+        //                         <span>Number Of Items</span>
+        //                         <span>3</span>
+        //                     </div>
+        //                     <div>
+        //                         <span>Mode of Payment</span>
+        //                         <span>Credit Card</span>
+        //                     </div>
+        //                     <div>
+        //                         <span>Order Amount</span>
+        //                         <span>{formatAmount(1250)}</span>
+        //                     </div>
+        //                 </div>
+        //             </Col>
+        //             <Col xs={24} xl={10} lg={8}>
+        //                 <h4>Billing Summary</h4>
+        //                 <div className="orderdetails__summary">
+        //                     <div>
+        //                         <span>Order Total</span>
+        //                         <span>{formatAmount(3450)}</span>
+        //                     </div>
+        //                     <div>
+        //                         <span>Delivery Charges</span>
+        //                         <span>{formatAmount(500)}</span>
+        //                     </div>
+        //                     <div>
+        //                         <span>Commission</span>
+        //                         <span>{formatAmount(1200)}</span>
+        //                     </div>
+        //                     <div>
+        //                         <span>Your Earning</span>
+        //                         <span>{formatAmount(2300)}</span>
+        //                     </div>
+        //                 </div>
+        //             </Col>
+        //         </Row>
+        //     </div>
     );
 };
 
 export default SingleQAOrderDetails;
 
 export async function getInitialProps({ params }) {
+    console.log(params);
     const token = getFromLocalStorage('token');
     const APP_BASE = process.env.APP_BASE_URL;
-    const res = await axios.get(`${APP_BASE}${VENDOR_ORDER.getSingleOrder(params.id)}`, {
+    const res = await axios.get(`${APP_BASE}${QA_ORDER.getSingleOrder(params.id)}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -145,7 +396,7 @@ export async function getInitialProps({ params }) {
 
 export async function getStaticPaths() {
     const APP_BASE = process.env.APP_BASE_URL;
-    const res = await fetch(`${APP_BASE}${VENDOR_ORDER.getAllOrders}`);
+    const res = await fetch(`${APP_BASE}${QA_ORDER.getAllOrders}`);
     console.log('order res', res);
     const response = await res.json();
     console.log('order res', response);

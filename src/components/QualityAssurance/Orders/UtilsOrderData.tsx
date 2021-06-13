@@ -70,3 +70,34 @@ export const FakeQAOrders = [
         totalCost: 519000,
     },
 ];
+
+export const ActionList = [
+    {
+        id: '1',
+        name: 'Delivered',
+    },
+    {
+        id: '2',
+        name: 'Returned',
+    },
+    {
+        id: '3',
+        name: 'Completed',
+    },
+    {
+        id: '4',
+        name: 'Cancelled',
+    },
+    {
+        id: '5',
+        name: 'Onhold',
+    },
+    {
+        id: '6',
+        name: 'Failed',
+    },
+    {
+        id: '7',
+        name: 'Refunded',
+    },
+];

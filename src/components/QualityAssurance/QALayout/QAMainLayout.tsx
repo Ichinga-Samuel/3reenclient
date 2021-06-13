@@ -44,6 +44,7 @@ const QAMainLayout = ({ pageTitle, children }) => {
                                 margin: '24px 16px',
                                 padding: 24,
                                 minHeight: 280,
+                                overflowX: 'auto',
                             }}
                         >
                             <div className="page-title">{pageTitle}</div>

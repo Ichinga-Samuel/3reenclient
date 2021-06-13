@@ -3,7 +3,6 @@ export const APP_BASE = process.env.APP_BASE_URL;
 
 // User & Vendor Endpoint
 export const userPrefix = '/users';
-console.log('pref', userPrefix);
 
 export const USER = {
     login: `${userPrefix}/login`,
@@ -30,4 +29,12 @@ export const VENDOR_PRODUCT = {
     getAllProducts: '/products/vendorProducts',
     searchProduct: '/search',
     deleteProduct: (id: any) => `/products/${id}`,
+};
+
+// QA Endpoints
+export const QA_ORDER = {
+    getAllOrders: '/orders',
+    getSingleOrder: (id: any) => `/orders/${id}`,
+    byStatus: (status: string) => `/orders/status/${status}`,
+    updateStatus: (id: any, status: string) => `/orders/${id}/${status}`,
 };

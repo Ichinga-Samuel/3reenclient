@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Input, Row, Col, DatePicker, Select } from 'antd';
 import QAMainLayout from '@/components/QualityAssurance/QALayout/QAMainLayout';
 import { Tabs, notification } from 'antd';
@@ -8,7 +8,6 @@ import { APP_BASE, VENDOR_ORDER } from '@/utils/ApiList';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import OrderDataTable from './OrderDataTable';
-import { FakeQAOrders } from './FakeData';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
@@ -62,103 +61,95 @@ const AllOrdersTable = () => {
             });
     };
 
-    const fetchAllOrders = async () => {
-        setFetching(true);
-        try {
-            const response = await axios.get(`${APP_BASE}${VENDOR_ORDER.getAllOrders}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            const { doc, result } = response.data;
-            setorders(doc);
-            setTotal(result);
-            setPagination(result);
-            // setTotal(results);
-            console.log('orders', orders);
-            console.log('res', response);
-            setTimeout(() => {
-                setFetching(false);
-            }, 500);
-        } catch (err) {
-            console.log('error', err);
-            notification.error({
-                message: 'Orders Error',
-                description: err,
-                duration: 0,
-            });
-        }
-    };
-
     useEffect(() => {
+        const fetchAllOrders = async () => {
+            setFetching(true);
+            try {
+                const response = await axios.get(`${APP_BASE}${VENDOR_ORDER.getAllOrders}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const { doc, result } = response.data;
+                setorders(doc);
+                setAllOrders(doc);
+                setTabCount(doc.length);
+                setTotal(result);
+                setPagination(result);
+                // setTotal(results);
+                console.log('orders', orders);
+                console.log('res', response);
+                setTimeout(() => {
+                    // setAllOrders(doc);
+                    setTabCount(orders.length);
+                }, 1000);
+                setTimeout(() => {
+                    setFetching(false);
+                }, 500);
+            } catch (err) {
+                console.log('error', err.response);
+                notification.error({
+                    message: 'Orders Error',
+                    description: err.response?.data.message,
+                    duration: 0,
+                });
+            }
+        };
         fetchAllOrders();
-    }, []);
-
-    const testOrder = FakeQAOrders || [];
-
-    useMemo(() => {
-        testOrder;
     }, []);
 
     const onShowSizeChange = (current: BigInteger, pageSize: BigInteger) => {
         console.log(current, pageSize);
     };
 
-    const getAll = useCallback(() => {
-        setTimeout(() => {
-            setAllOrders(testOrder);
-            setTabCount(testOrder.length);
-        }, 1000);
-    }, [testOrder]);
-
     const filterTabOnStatus = (key: string) => {
         console.log(key);
-        setTotal(testOrder.length);
+        setTotal(allorders.length);
         if (key === '1') {
-            setorders(testOrder);
-            setTabCount(testOrder.length);
+            setorders(orders);
+            setTabCount(allorders.length);
         }
         if (key === '2') {
             const tableStatus = 'Completed';
-            const t = testOrder.filter((tb) => tb.status === tableStatus);
-            setorders(t);
-            setCompletedCount(t.length);
+            const completed = orders.filter((tb) => tb.status === tableStatus);
+            setorders(completed);
+            setCompletedCount(completed.length);
         }
         if (key === '3') {
             const tableStatus = 'Pending';
-            const pending = testOrder.filter((tb) => tb.status === tableStatus);
+            const pending = orders.filter((tb) => tb.status === tableStatus);
             setorders(pending);
             setPendingCount(pending.length);
         }
         if (key === '4') {
             const tableStatus = 'Onhold';
-            const ohHold = testOrder.filter((tb) => tb.status === tableStatus);
+            const ohHold = orders.filter((tb) => tb.status === tableStatus);
             setorders(ohHold);
             setHoldCount(ohHold.length);
         }
         if (key === '5') {
             const tableStatus = 'Cancelled';
-            const cancel = testOrder.filter((tb) => tb.status === tableStatus);
+            const cancel = orders.filter((tb) => tb.status === tableStatus);
             setorders(cancel);
             setCancelCount(cancel.length);
         }
         if (key === '6') {
             const tableStatus = 'Refunded';
-            const refunded = testOrder.filter((tb) => tb.status === tableStatus);
+            const refunded = orders.filter((tb) => tb.status === tableStatus);
             setorders(refunded);
             setRefundCount(refunded.length);
         }
         if (key === '7') {
             const tableStatus = 'Failed';
-            const failed = testOrder.filter((tb) => tb.status === tableStatus);
+            const failed = orders.filter((tb) => tb.status === tableStatus);
             setorders(failed);
             setFailedCount(failed.length);
         }
     };
 
-    useMemo(() => {
-        getAll();
-    }, [getAll]);
+    // useMemo(() => {
+    //     getAll();
+    // }, [getAll]);
 
     return (
         <>

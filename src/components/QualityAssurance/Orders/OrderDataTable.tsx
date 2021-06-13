@@ -65,7 +65,7 @@ const OrderDataTable = (props: any) => {
                 <>
                     {status === 'completed' || status === 'Completed' ? (
                         <span style={{ color: '#219653' }}>Completed</span>
-                    ) : status === 'eefunded' || status === 'Refunded' ? (
+                    ) : status === 'refunded' || status === 'Refunded' ? (
                         <span style={{ color: '#7F7806' }}>Refunded</span>
                     ) : status === 'onhold' || status === 'Onhold' ? (
                         <span style={{ color: '#C5BC09' }}>On Hold</span>
