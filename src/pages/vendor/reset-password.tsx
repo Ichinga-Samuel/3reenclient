@@ -5,7 +5,7 @@ import React from 'react';
 const resetPassword = () => {
     return (
         <div>
-            <DocumentTitle pageTitle="Create New Password" />
+            <DocumentTitle pageTitle="Create New Password" applicationTitle />
             <CreateNewPassword />
         </div>
     );

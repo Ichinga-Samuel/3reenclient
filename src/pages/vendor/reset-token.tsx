@@ -5,7 +5,7 @@ import DocumentTitle from '@/utils/DocumentTitle';
 const ResetCode = () => {
     return (
         <div>
-            <DocumentTitle pageTitle="Reset Code" />
+            <DocumentTitle pageTitle="Reset Code" applicationTitle />
             <ResetToken />
         </div>
     );
