@@ -1,10 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 
-const DocumentTitle = ({ pageTitle }) => {
+const DocumentTitle = ({ pageTitle, applicationTitle }) => {
     return (
         <Head>
-            <title>{pageTitle} | Vendor</title>
+            <title>
+                {pageTitle} | {applicationTitle}
+            </title>
         </Head>
     );
 };

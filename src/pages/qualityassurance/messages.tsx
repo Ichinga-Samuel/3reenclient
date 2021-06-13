@@ -1,11 +1,11 @@
-import MainLayout from '@/components/QualityAssusrance/layout/MainLayout';
+import QAMessages from '@/components/QualityAssurance/Messages/QAMessages';
 import React from 'react';
 
 const Messages = () => {
     return (
-        <MainLayout>
-            <h1>Messages page</h1>
-        </MainLayout>
+        <>
+            <QAMessages />
+        </>
     );
 };
 

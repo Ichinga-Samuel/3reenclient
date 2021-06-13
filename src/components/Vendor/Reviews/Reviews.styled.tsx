@@ -4,6 +4,14 @@ export const ReviewsStyled = styled.div`
     .pagination {
         position: unset !important;
     }
+    .fetching {
+        margin: 20px 0;
+        margin-bottom: 20px;
+        padding: 30px 50px;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
     .reviewContainer {
         margin: 10px 0 0 0;
         border-radius: 10px 10px 0 0;

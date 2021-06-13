@@ -16,6 +16,10 @@ const nextConfig = {
                 source: '/vendor',
                 destination: '/vendor/login',
             },
+            {
+                source: '/qualityassurance/orders',
+                destination: '/qualityassurance',
+            },
         ];
     },
 };

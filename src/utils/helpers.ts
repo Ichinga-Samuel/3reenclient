@@ -50,3 +50,13 @@ export function objectToCamelCase(origObj: { [x: string]: any }) {
         return newObj;
     }, {});
 }
+
+export const findAllTotal = (list: any) => {
+    if (!Array) {
+        return;
+    }
+    if (list !== null && list.length > 0) {
+        return list.reduce((a: any, b: any) => a + parseFloat(b), 0);
+    }
+    return '0.00';
+};
