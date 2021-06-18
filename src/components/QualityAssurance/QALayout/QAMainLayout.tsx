@@ -6,6 +6,7 @@ const { Content } = Layout;
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import AOS from 'aos';
 // import Login from '@/pages/qualityassurance/login';
 
 const QAMainLayout = ({ pageTitle, children }) => {
@@ -17,6 +18,10 @@ const QAMainLayout = ({ pageTitle, children }) => {
 
     const token = getFromLocalStorage('qatoken');
     const userData = getFromLocalStorage('qauser') || null;
+
+    useEffect(() => {
+        AOS.init({ duration: 600 });
+    }, []);
 
     useEffect(() => {
         if (!token && token === null && userData === null) {

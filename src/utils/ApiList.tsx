@@ -39,3 +39,8 @@ export const QA_ORDER = {
     byStatus: (status: string) => `/orders/status/${status}`,
     updateStatus: (id: any, status: string) => `/orders/${id}/${status}`,
 };
+
+export const MESSAGES = {
+    sendMessage: (userId: string) => `/messages/messageUser/${userId}`,
+    getMessage: (roomId: string) => `/messages/userChat/${roomId}`,
+};
