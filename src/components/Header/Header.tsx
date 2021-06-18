@@ -3,10 +3,15 @@ import Link from 'next/link';
 import { HeaderStyled } from './Header.styled';
 import { LogoIcon, CartIcon, ProfileIcon } from '@/utils/Icons';
 import { DownOutlined } from '@ant-design/icons';
+import { useRouter } from 'next/router';
 // import Search from '@/components/Products/Search';
 // import fakedata from '@/components/Products/fakeData';
 
 const Header = () => {
+    const router = useRouter();
+    const cartPage = () => {
+        router.push('/cart');
+    };
     return (
         <HeaderStyled>
             <div className="Header">
@@ -22,7 +27,7 @@ const Header = () => {
                     <input type="text" className="Search" placeholder="Search products..." />
                     <button className="SearchBtn">Search</button>
                 </div>
-                <div className="Cart">
+                <div className="Cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                     <div>
                         <CartIcon />
                         {/* <img src="/img/cart.png" alt="cart icon" /> */}
