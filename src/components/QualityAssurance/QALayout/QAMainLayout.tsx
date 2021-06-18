@@ -41,10 +41,11 @@ const QAMainLayout = ({ pageTitle, children }) => {
                         <Content
                             className="site-layout-background"
                             style={{
-                                margin: '24px 16px',
+                                margin: '24px 16px 24px 22rem',
                                 padding: 24,
                                 minHeight: 280,
                                 overflowX: 'auto',
+                                transition: 'ease all 0.5s',
                             }}
                         >
                             <div className="page-title">{pageTitle}</div>
