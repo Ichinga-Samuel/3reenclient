@@ -37,15 +37,12 @@ const QAMessages = () => {
                 `${APP_BASE}${MESSAGES.getMessage('d93bdced-58a1-4985-976f-ddf4ff582fc8')}`,
                 config,
             );
-            console.log(res.data);
             if (res) {
                 setAllMessage(res.data?.messages);
-                console.log(allMessages, 'ntr');
                 notification.close('error');
             }
         } catch (error) {
             setloading(false);
-            console.log('error', error.response);
             const { data } = error.response;
             notification.error({
                 key: 'error',
@@ -54,7 +51,7 @@ const QAMessages = () => {
                 duration: 0,
             });
         }
-    }, [allMessages, token]);
+    }, [token]);
 
     useEffect(() => {
         getAllMessages();
