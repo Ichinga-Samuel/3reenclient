@@ -1,7 +1,9 @@
 import React from 'react';
+import Link from 'next/link'
 import { CartContainerStyled } from './CartContainer.styled';
 
-export default function CartContainer() {
+export default function CartContainer({usersCart, addToCart, removeFromCart, delFromCart, validMsg}) {
+    const totalPrice = usersCart ? usersCart.reduce((a,b) => a + b.product.price*b.quantity, 0) : 0;
     return (
         <CartContainerStyled>
             <div className="product-cart">
@@ -15,16 +17,20 @@ export default function CartContainer() {
                             <p>Unit Price</p>
                             <p>Sub Total</p>
                         </div>
-                        <div className="cart-item">
-                            <form action="">
+                        {   
+                            usersCart.length ? 
+                            usersCart.map(product => (
+
+                            <div className="cart-item" key={product.productId}>
+                                <form action="">
                                 <div className="cart-productSystem">
                                     <div className="cart-image">
-                                        <img src="img/phone.png" alt="crt" />
+                                        <img src={product.product.images} alt="crt" />
                                     </div>
                                     <div className="cart-product-info">
-                                        <p className="cart-product-name">Product Name</p>
+                                        <p className="cart-product-name">{product.product.name}</p>
 
-                                        <div className="actionDelete">
+                                        <div className="actionDelete" onClick={() => delFromCart()}>
                                             <div className="deleteIcon">
                                                 <img src="icons/delete.png" className="deletebutton" alt="cart" />{' '}
                                             </div>
@@ -35,95 +41,133 @@ export default function CartContainer() {
 
                                 <div className="cart-quantity-md">
                                     <div className="cart-quantity-controls">
-                                        <button>-</button>
-                                        <input type="number" value="1" readOnly />
-                                        <button>+</button>
+                                        <button onClick={() => removeFromCart(product)}>-</button>
+                                        <input type="number" value={product.count} readOnly />
+                                        <button onClick={() => addToCart(product)}>+</button>
                                     </div>
                                 </div>
 
                                 <div className="cart-unit-price">
-                                    <h4>$1,250</h4>
+                                    <h4>{product.product.price}</h4>
                                 </div>
 
                                 <div className="cart-product-total">
-                                    <h4>$1,250</h4>
+                                    <h4>{product.product.price * product.count}</h4>
                                 </div>
-                            </form>
-                        </div>
+                                </form>
+                            </div>
+                            ))
+                            :
+                        
+                            <div>{validMsg}</div>
+                        
+                            
+                        }
                     </div>
                 </div>
 
                 <div className="cart-total-holder">
-                    <div className="actionPrice">
-                        <div className="cart-total">
-                            <p>Shipping Fee:</p>
-                            <p>$1,200</p>
-                        </div>
+                    {
+                        usersCart.length && (
+                        <div className="actionPrice">
+                            <div className="cart-total">
+                                <p>Shipping Fee:</p>
+                                <p>$1,200</p>
+                            </div>
 
-                        <div className="cart-total">
-                            <p>Sub Total:</p>
-                            <p>$1,200</p>
+                            <div className="cart-total">
+                                <p>Total:</p>
+                                <p>N{totalPrice}</p>
+                            </div>
                         </div>
-                    </div>
+                        )
+                    }
+                    
+
                     <div className="cart-action-button">
-                        <a href="#" className="btn-main">
-                            Continue Shopping
-                        </a>
-                        <a href="#" className="btn-main fill">
-                            Checkout
-                        </a>
+                        <Link href="/">
+                            <a className="btn-main">
+                                Continue Shopping
+                            </a>
+                        </Link>                        
+                        <Link href={`/checkout?${totalPrice}`}>
+                            <a className="btn-main fill">
+                                Checkout
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </div>
 
             {/***********************Cart Mobile Display ************************/}
             <div className="cartMobile">
-                <div className="cartMobileWrapper">
-                    <div className="mobileImage">
-                        <img src="img/headset.png" className="sm-cartImage" alt="product" />
-                    </div>
-
-                    <div className="cartmobileDetail">
-                        <div className="detail">
-                            <div className="sectionOne">
-                                <div className="sectionOneDetails">
-                                    <h5 className="productname">Beats Solo 2 Ear Headphones - Black</h5>
+                {
+                    usersCart.length ? 
+                    usersCart.map(product => (
+                        <div key={product.productId}>
+                            <div className="cartMobileWrapper">
+                                <div className="mobileImage">
+                                    <img src={product.product.images} className="sm-cartImage" alt="product" />
                                 </div>
-                                <div className="sectionOneCat">
-                                    <p className="cat">Vendor</p>
-                                    <p className="reducedPrice">N700</p>
+            
+                                <div className="cartmobileDetail">
+                                    <div className="detail">
+                                        <div className="sectionOne">
+                                            <div className="sectionOneDetails">
+                                                <h5 className="productname">{product.product.name}</h5>
+                                            </div>
+                                            <div className="sectionOneCat">
+                                                <p className="cat">Vendor</p>
+                                                <p className="reducedPrice">N700</p>
+                                            </div>
+                                        </div>
+                                        <div className="sectionTwo">
+                                            <img src="img/MobileDelete.png" alt="ing" />
+                                        </div>
+                                    </div>
+            
+                                    <div className="downPart">
+                                        <div className="amount">
+                                            <h4 className="normalPrice">{product.product.price}</h4>
+                                        </div>
+            
+                                        <div className="cartSelect">
+                                            <button onClick={() => removeFromCart(product)}>-</button>
+                                            <input type="number" value={product.count} readOnly />
+                                            <button onClick={() => addToCart(product)}>+</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="sectionTwo">
-                                <img src="img/MobileDelete.png" alt="ing" />
                             </div>
                         </div>
+                    ))
+                    :
+                    <div>{validMsg}</div>
+                }
 
-                        <div className="downPart">
-                            <div className="amount">
-                                <h4 className="normalPrice">N700</h4>
+                {
+                    usersCart.length && (
+                        <div>
+                            <div className="Total">
+                                <h4>Total</h4>
+                                <h4 className="">N{totalPrice}</h4>
                             </div>
-
-                            <div className="cartSelect">
-                                <button>-</button>
-                                <input type="number" value="1" readOnly />
-                                <button>+</button>
+            
+                            <div className="Button">
+                                <Link href="/checkout">
+                                    <input type="button" value="Checkout" className="checkout" />
+                                </Link>
+            
+                                <Link href="/">
+                                    <input type="button" value="Continue Shopping" className="continueShopping" />
+                                </Link>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    )
+                }
 
-                <div className="Total">
-                    <h4>Total</h4>
-                    <h4 className="">N22,500</h4>
-                </div>
-
-                <div className="Button">
-                    <input type="button" value="Checkout" className="checkout" />
-
-                    <input type="button" value="Continue Shopping" className="continueShopping" />
-                </div>
             </div>
+
         </CartContainerStyled>
     );
 }
