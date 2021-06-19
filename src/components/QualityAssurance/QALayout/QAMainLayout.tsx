@@ -6,6 +6,7 @@ const { Content } = Layout;
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import AOS from 'aos';
 // import Login from '@/pages/qualityassurance/login';
 
 const QAMainLayout = ({ pageTitle, children }) => {
@@ -17,6 +18,10 @@ const QAMainLayout = ({ pageTitle, children }) => {
 
     const token = getFromLocalStorage('qatoken');
     const userData = getFromLocalStorage('qauser') || null;
+
+    useEffect(() => {
+        AOS.init({ duration: 600 });
+    }, []);
 
     useEffect(() => {
         if (!token && token === null && userData === null) {
@@ -41,10 +46,11 @@ const QAMainLayout = ({ pageTitle, children }) => {
                         <Content
                             className="site-layout-background"
                             style={{
-                                margin: '24px 16px',
+                                margin: '24px 16px 24px 22rem',
                                 padding: 24,
                                 minHeight: 280,
                                 overflowX: 'auto',
+                                transition: 'ease all 0.5s',
                             }}
                         >
                             <div className="page-title">{pageTitle}</div>

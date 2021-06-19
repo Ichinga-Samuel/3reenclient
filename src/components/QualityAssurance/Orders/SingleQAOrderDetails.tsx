@@ -109,7 +109,7 @@ const SingleQAOrderDetails = () => {
                     <>
                         <div className="header">
                             <div className="header__order">
-                                <h3> #{id} Order Details</h3>
+                                <h3>#{id}</h3>
                             </div>
                         </div>
                         <div>
@@ -326,57 +326,6 @@ const SingleQAOrderDetails = () => {
                 )}
             </QAOrderDetailsContainer>
         </QAMainLayout>
-        // <div className="orderdetails">
-        //     <div className="orderdetails__invoice">
-        //         <Row gutter={24}>
-        //             <Col xs={24} xl={10} lg={8}>
-        //                 <h4>Order Info</h4>
-        //                 <div className="orderdetails__summary">
-        //                     <div>
-        //                         <span>RefID</span>
-        //                         <span>{id}</span>
-        //                     </div>
-        //                     <div>
-        //                         <span>Placed on</span>
-        //                         <span>1/1/2021</span>
-        //                     </div>
-        //                     <div>
-        //                         <span>Number Of Items</span>
-        //                         <span>3</span>
-        //                     </div>
-        //                     <div>
-        //                         <span>Mode of Payment</span>
-        //                         <span>Credit Card</span>
-        //                     </div>
-        //                     <div>
-        //                         <span>Order Amount</span>
-        //                         <span>{formatAmount(1250)}</span>
-        //                     </div>
-        //                 </div>
-        //             </Col>
-        //             <Col xs={24} xl={10} lg={8}>
-        //                 <h4>Billing Summary</h4>
-        //                 <div className="orderdetails__summary">
-        //                     <div>
-        //                         <span>Order Total</span>
-        //                         <span>{formatAmount(3450)}</span>
-        //                     </div>
-        //                     <div>
-        //                         <span>Delivery Charges</span>
-        //                         <span>{formatAmount(500)}</span>
-        //                     </div>
-        //                     <div>
-        //                         <span>Commission</span>
-        //                         <span>{formatAmount(1200)}</span>
-        //                     </div>
-        //                     <div>
-        //                         <span>Your Earning</span>
-        //                         <span>{formatAmount(2300)}</span>
-        //                     </div>
-        //                 </div>
-        //             </Col>
-        //         </Row>
-        //     </div>
     );
 };
 

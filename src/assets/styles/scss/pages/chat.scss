@@ -1,0 +1,133 @@
+.mailcontainer {
+    position: relative;
+}
+.mailleft {
+    position: absolute;
+    width: 100%;
+    margin: 0 2px 0 0;
+    height: auto;
+    &__title {
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            color: rgba(0, 0, 0, 0.67);
+            margin-bottom: 0;
+            font-size: 2rem;
+        }
+    }
+    ul {
+        list-style: none;
+    }
+    li {
+        display: flex;
+        align-items: center;
+        transition: ease all 0.5s;
+        cursor: pointer;
+        margin-bottom: 5px;
+        padding: 10px 18px 10px 15px;
+        &.active {
+            padding: 10px 13px 10px 9px;
+            border-left: 7px solid #590a5b;
+            box-shadow: -2px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        &:hover {
+            transition: ease all 0.5s;
+            padding: 10px 13px 10px 15px;
+            border-left: 7px solid #590a5b;
+            box-shadow: -2px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        > div {
+            display: flex;
+            flex-direction: column;
+            span {
+                padding-left: 10px;
+                color: #590a5b;
+                &:first-child {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+.mailright {
+    position: relative;
+    .uploadfiles {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        cursor: pointer;
+        span {
+            font-size: 2rem;
+        }
+    }
+    .mailmessages {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        height: 80vh;
+        position: relative;
+        border-radius: 5px;
+        overflow-y: auto;
+        padding: 3rem;
+        transition: ease-in all 0.5s;
+        &__chat {
+            display: flex;
+            align-items: center;
+            transition: ease all 0.5s;
+            > div {
+                &:first-child {
+                    flex: 1;
+                    margin: 15px 3rem 15px 0;
+                }
+                p {
+                    font-size: 1.4rem;
+                    word-break: break-all;
+                }
+            }
+            .mailtime {
+                margin-left: 4rem;
+                padding: 7px;
+                background: #eee;
+            }
+        }
+        &__chat2 {
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+            transition: ease all 0.5s;
+            > div {
+                &:first-child {
+                    flex: 0 0 20%;
+                    margin: 15px 4rem 15px 6rem;
+                }
+                p {
+                    font-size: 1.6rem;
+                    word-break: break-all;
+                }
+            }
+            .mailtime-2 {
+                margin-right: 4rem;
+                padding: 7px;
+                background: #eee;
+            }
+        }
+    }
+    .mailactions {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        padding: 15px 0;
+        .ant-btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #590a5b;
+            border-color: #590a5b;
+            height: 35px;
+        }
+        .ant-input {
+            height: 35px;
+        }
+    }
+}

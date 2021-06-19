@@ -43,7 +43,7 @@ const QASideMenu = (props: any) => {
     return (
         <Sider trigger={null} collapsible collapsed={collapsed}>
             <div className="logo" />
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={[router.pathname]}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
                     <Link href="/qualityassurance/orders">Orders</Link>
                 </Menu.Item>

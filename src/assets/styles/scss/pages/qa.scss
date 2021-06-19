@@ -1,6 +1,8 @@
 .ant-layout-sider {
     // height: 100%;
-    // position: fixed;
+    position: fixed;
+    height: 100%;
+    z-index: 200;
     background: var(--background-color);
 }
 
@@ -136,7 +138,8 @@
 .__footer {
     position: absolute;
     display: flex;
-    bottom: 0;
+    bottom: 7rem;
+    left: 20px;
     align-items: center;
     width: 100%;
     overflow: hidden;
@@ -182,3 +185,5 @@
         }
     }
 }
+
+@import "./chat.scss";
