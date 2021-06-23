@@ -1,12 +1,10 @@
 import React from 'react';
-import ForgotPassword from '@/components/Vendor/Auth/ForgotPassword';
-import DocumentTitle from '@/utils/DocumentTitle';
+import CSTForgotPassword from '@/components/CustomerSuccessTeam/Auth/ForgotPassword';
 
 const forgotPassword = () => {
     return (
         <div>
-            <DocumentTitle pageTitle="Reset Password" applicationTitle="Quality Assurance" />
-            <ForgotPassword />
+            <CSTForgotPassword />
         </div>
     );
 };

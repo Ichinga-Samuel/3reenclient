@@ -26,14 +26,14 @@ const CSTSideMenu = (props: any) => {
 
     const logoutUser = () => {
         setConfirmLoading(true);
-        removeFromLocalStorage('token');
-        removeFromSessionStorage('token');
+        removeFromLocalStorage('csttoken');
+        removeFromSessionStorage('csttoken');
         emptySessionStorage();
         emptyLocalStorage();
         setTimeout(() => {
             setVisible(false);
             setConfirmLoading(false);
-            router?.push('/qualityassurance/login');
+            router?.push('/cst/login');
         }, 2000);
     };
 
@@ -50,10 +50,13 @@ const CSTSideMenu = (props: any) => {
                 <Menu.Item key="2" icon={<UserOutlined />}>
                     <Link href="/cst/orders">Orders</Link>
                 </Menu.Item>
-                <Menu.Item key="3" icon={<MessageOutlined />}>
-                    <Link href="/cst/messages">Messages</Link>
+                <Menu.Item key="3" icon={<UserOutlined />}>
+                    <Link href="/cst/orders">Orders</Link>
                 </Menu.Item>
                 <Menu.Item key="4" icon={<MessageOutlined />}>
+                    <Link href="/cst/messages">Reviews</Link>
+                </Menu.Item>
+                <Menu.Item key="5" icon={<MessageOutlined />}>
                     <Link href="/cst/register-users">Register Users</Link>
                 </Menu.Item>
             </Menu>

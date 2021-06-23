@@ -1,0 +1,10 @@
+.main {
+    margin: 24px 16px 24px 22rem;
+    padding: 24px;
+    min-height: 280px;
+    overflow-x: auto;
+    transition: all 0.5s ease 0s;
+    @media (max-width: 499px) {
+        margin: 24px 16px 24px 9rem;
+    }
+}

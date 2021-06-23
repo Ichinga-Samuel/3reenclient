@@ -26,8 +26,8 @@ const QASideMenu = (props: any) => {
 
     const logoutUser = () => {
         setConfirmLoading(true);
-        removeFromLocalStorage('token');
-        removeFromSessionStorage('token');
+        removeFromLocalStorage('qatoken');
+        removeFromSessionStorage('qatoken');
         emptySessionStorage();
         emptyLocalStorage();
         setTimeout(() => {

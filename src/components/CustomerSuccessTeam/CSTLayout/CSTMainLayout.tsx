@@ -37,21 +37,12 @@ const CSTMainLayout = ({ pageTitle, children }) => {
                 // <Login />
                 <Layout>
                     <Head>
-                        <title>{pageTitle} | Quality Assurance</title>
+                        <title>{pageTitle} | Customer Success Team</title>
                     </Head>
                     <QAHeader userData={userData} collapsed={collapsed} toggleCollapse={toggleCollapse} />
                     <Layout className="site-layout">
                         <QASideMenu collapsed={collapsed} />
-                        <Content
-                            className="site-layout-background"
-                            style={{
-                                margin: '24px 16px 24px 22rem',
-                                padding: 24,
-                                minHeight: 280,
-                                overflowX: 'auto',
-                                transition: 'ease all 0.5s',
-                            }}
-                        >
+                        <Content className="main site-layout-background">
                             <div className="page-title">{pageTitle}</div>
                             {children}
                         </Content>
