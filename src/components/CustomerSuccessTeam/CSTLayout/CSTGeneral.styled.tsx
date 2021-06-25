@@ -1,5 +1,29 @@
 import styled from 'styled-components';
 
+export const WelcomeCard = styled.div`
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.52rem;
+    transition: ease all 0.5s;
+    margin-bottom: 3rem;
+    svg {
+        stroke: var(--background-color);
+    }
+    &:hover {
+        box-shadow: none;
+        transition: ease all 0.5s;
+        border: 1px solid rgba(89, 10, 91, 0.2);
+        a {
+            text-decoration: none;
+        }
+    }
+`;
+
 export const QAHeaderContainer = styled.header`
     display: flex;
     width: 100%;

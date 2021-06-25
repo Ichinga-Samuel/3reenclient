@@ -20,3 +20,30 @@
         font-size: 1rem;
     }
 }
+a:hover {
+    text-decoration: none;
+}
+
+.welcometext {
+    display: flex;
+    padding: 15px;
+    transition: ease all 0.5s;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--background-color);
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: 'MADE TOMMY', sans-serif;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: "";
+        width: 30%;
+    height: 1px;
+    background: #ddd;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    }
+}

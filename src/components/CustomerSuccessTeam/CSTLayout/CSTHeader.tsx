@@ -3,6 +3,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined, BellFilled } from '@ant-design/ic
 import { QAHeaderContainer } from './CSTGeneral.styled';
 import { LogoIcon, ProfileIcon } from '@/utils/Icons';
 import QANotification from '@/components/QualityAssurance/QANotification';
+import Link from 'next/link';
 
 const QAHeader = (props: any) => {
     const { collapsed, toggleCollapse, userData } = props;
@@ -20,7 +21,11 @@ const QAHeader = (props: any) => {
         <>
             <QAHeaderContainer className="trigger">
                 <div className="logoHolder">
-                    <LogoIcon />
+                    <Link href="/cst">
+                        <a>
+                            <LogoIcon />
+                        </a>
+                    </Link>
                     <div
                         className="icon"
                         onClick={toggleCollapse}
