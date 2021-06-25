@@ -10,7 +10,7 @@ import { formatAmount } from '@/utils/helpers';
 import { APP_BASE, CST_API } from '@/utils/ApiList';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import { getFromLocalStorage } from '@/utils/browserStorage';
-import moment from 'moment';
+// import moment from 'moment';
 
 const CSTSingleProduct = () => {
     const router = useRouter();
@@ -33,12 +33,13 @@ const CSTSingleProduct = () => {
                 });
                 const { doc } = response?.data;
                 setdetails(doc);
+                console.log('details', doc);
                 setUpdating(false);
             } catch (err) {
                 setUpdating(true);
                 console.log('error', err);
                 notification.error({
-                    message: 'Orders Error',
+                    message: 'Product Error',
                     description: err.response?.data.message,
                     duration: 0,
                 });
@@ -75,11 +76,11 @@ const CSTSingleProduct = () => {
                                 </Col>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="basicDetails">
-                                        <h3>Fashion Bag</h3>
-                                        <p className="basicDetails__price">${formatAmount(details?.price)}</p>
+                                        <h3>{details?.name}</h3>
+                                        <p className="basicDetails__price">&#x20A6; {formatAmount(details?.price)}</p>
                                         <p>{details?.id}</p>
                                         <p>{details?.category}</p>
-                                        <p>Date of Upload: {moment(details?.createdAt, 'MMMM Do YYYY')}</p>
+                                        {/* <p>Date of Upload: {moment(details?.createdAt)}</p> */}
                                         {/* <small>{moment(details?.createdAt, 'MMMM Do YYYY').fromNow()}</small> */}
                                         <p>Abuja</p>
                                     </div>

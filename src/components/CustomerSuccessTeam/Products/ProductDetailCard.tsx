@@ -17,7 +17,7 @@ const ProductDetailCard = (props) => {
                                 <img src={detail?.product.images} alt={detail?.product.name} />
                             </div>
                             <div className="i_details">
-                                <p>{detail?.product.name}</p>
+                                <p>{detail.product.name}</p>
                                 <BeautyStars
                                     value={detail?.product.averageRating}
                                     activeColor="#ffaf38"

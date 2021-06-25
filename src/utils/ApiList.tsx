@@ -47,5 +47,5 @@ export const MESSAGES = {
 
 export const CST_API = {
     getAllProducts: '/products',
-    getSingleProduct: (id: any) => `/product/${id}`,
+    getSingleProduct: (id: any) => `/products/${id}`,
 };
