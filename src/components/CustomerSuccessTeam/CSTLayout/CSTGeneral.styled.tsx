@@ -157,25 +157,9 @@ export const AuthContainer = styled.div`
 export const OrderTableContainer = styled.div`
     position: relative;
     transition: ease all 0.5s;
-    margin-top: 4rem;
+    margin: 20px 0;
     text-transform: capitalize;
-    .ant-tabs-tab {
-        + .ant-tabs-tab {
-            margin: 0px 15px;
-            color: rgba(0, 0, 0, 0.25);
-        }
-        &:hover {
-            color: var(--background-color);
-        }
-        &.ant-tabs-tab-active {
-            .ant-tabs-tab-btn {
-                color: var(--background-color);
-            }
-        }
-    }
-    .ant-tabs-ink-bar {
-        background: var(--background-color);
-    }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     .pagination {
         justify-content: center;
         padding: 4rem 0;
