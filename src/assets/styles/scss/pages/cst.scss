@@ -14,3 +14,9 @@
         justify-content: center;
     }
 }
+.ant-menu-item {
+    transition: ease all 0.5s;
+    svg {
+        font-size: 1rem;
+    }
+}

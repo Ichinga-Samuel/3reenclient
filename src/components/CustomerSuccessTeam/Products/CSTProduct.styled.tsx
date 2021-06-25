@@ -28,7 +28,7 @@ export const CSTProductHolder = styled.div`
         background: #ddd;
         left: 0;
         right: 0;
-        bottom: -14px;
+        bottom: 0;
     }
     .imageholder {
         padding: 10px;
