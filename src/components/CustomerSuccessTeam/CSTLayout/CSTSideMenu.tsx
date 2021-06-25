@@ -51,13 +51,13 @@ const CSTSideMenu = (props: any) => {
                     <Link href="/cst/orders">Orders</Link>
                 </Menu.Item>
                 <Menu.Item key="3" icon={<UserOutlined />}>
-                    <Link href="/cst/reviews">Rewiews</Link>
+                    <Link href="/cst/reviews">Reviews</Link>
                 </Menu.Item>
                 <Menu.Item key="4" icon={<MessageOutlined />}>
                     <Link href="/cst/messages">Messages</Link>
                 </Menu.Item>
                 <Menu.Item key="5" icon={<MessageOutlined />}>
-                    <Link href="/cst/register-users">Register Users</Link>
+                    <Link href="/cst/registered-users">Registered Users</Link>
                 </Menu.Item>
             </Menu>
             <div className="__footer">
