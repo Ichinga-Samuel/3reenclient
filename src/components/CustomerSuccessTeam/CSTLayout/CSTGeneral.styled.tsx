@@ -442,37 +442,3 @@ export const NotificationCardContainer = styled.div`
         }
     }
 `;
-
-export const ProductCard = styled.div`
-    border-radius: 7px;
-    background: var(--white-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    transition: ease all 0.5s;
-    padding: 15px;
-    .imageholder {
-        padding: 10px;
-        img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-        }
-    }
-    .i_details {
-        margin-top: 10px;
-        text-align: left;
-        p {
-            margin-bottom: 10px;
-        }
-    }
-    .ant-carousel .slick-dots li button {
-        background: var(--black-color);
-    }
-    .ant-carousel .slick-dots li.slick-active button {
-        background: var(--background-color);
-    }
-`;

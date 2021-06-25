@@ -44,3 +44,8 @@ export const MESSAGES = {
     sendMessage: (userId: string) => `/messages/messageUser/${userId}`,
     getMessage: (roomId: string) => `/messages/userChat/${roomId}`,
 };
+
+export const CST_API = {
+    getAllProducts: '/products',
+    getSingleProduct: (id: any) => `/product/${id}`,
+};

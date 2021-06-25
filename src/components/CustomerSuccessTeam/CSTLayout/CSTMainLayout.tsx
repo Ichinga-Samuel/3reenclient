@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import AOS from 'aos';
 
-const CSTMainLayout = ({ pageTitle, children }) => {
+const CSTMainLayout = ({ pageTitle, layoutTitle, children }) => {
     const [collapsed, setcollapsed] = useState(false);
 
     const toggleCollapse = () => setcollapsed(!collapsed);
@@ -43,7 +43,7 @@ const CSTMainLayout = ({ pageTitle, children }) => {
                     <Layout className="site-layout">
                         <QASideMenu collapsed={collapsed} />
                         <Content className="main site-layout-background">
-                            <div className="page-title">{pageTitle}</div>
+                            <div className="page-title">{layoutTitle}</div>
                             {children}
                         </Content>
                     </Layout>

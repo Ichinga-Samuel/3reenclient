@@ -7,4 +7,10 @@
     @media (max-width: 499px) {
         margin: 24px 16px 24px 9rem;
     }
+    .loadingspinner {
+        display: flex;
+        align-items: center;
+        height: 50vh;
+        justify-content: center;
+    }
 }
