@@ -23,32 +23,37 @@ const CSTMainLayout = ({ pageTitle, layoutTitle, children }) => {
     }, []);
 
     useEffect(() => {
-        console.log('router', router);
-        // if (!token && token === null && userData === null) {
-        //     router.push('/cst/login');
-        //     return;
-        // }
+        if (!token && token === null && userData === null) {
+            router.push('/cst/login');
+            return;
+        }
     }, [userData, router, token]);
 
     return (
         <>
-            {/* {!token ? (
-                <p style={{ padding: '20px', fontSize: '1.5rem' }}>Redirecting...</p>
-            ) : ( */}
-            <Layout>
-                <Head>
-                    <title>{pageTitle} | Customer Success Team</title>
-                </Head>
-                <QAHeader userData={userData} collapsed={collapsed} toggleCollapse={toggleCollapse} />
-                <Layout className="site-layout">
-                    <QASideMenu collapsed={collapsed} />
-                    <Content className="main site-layout-background">
-                        <div className="page-title">{layoutTitle}</div>
-                        {children}
-                    </Content>
+            {!token ? (
+                <>
+                    <Head>
+                        <title>Redirecting...</title>
+                    </Head>
+                    <p style={{ padding: '20px', fontSize: '1.5rem' }}>Redirecting...</p>
+                </>
+            ) : (
+                // <Login />
+                <Layout>
+                    <Head>
+                        <title>{pageTitle} | Customer Success Team</title>
+                    </Head>
+                    <QAHeader userData={userData} collapsed={collapsed} toggleCollapse={toggleCollapse} />
+                    <Layout className="site-layout">
+                        <QASideMenu collapsed={collapsed} />
+                        <Content className="main site-layout-background">
+                            <div className="page-title">{layoutTitle}</div>
+                            {children}
+                        </Content>
+                    </Layout>
                 </Layout>
-            </Layout>
-            {/* )} */}
+            )}
         </>
     );
 };
