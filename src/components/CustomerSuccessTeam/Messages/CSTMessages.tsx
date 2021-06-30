@@ -55,7 +55,7 @@ const CSTMessages = () => {
 
     useEffect(() => {
         getAllMessages();
-    }, [getAllMessages]);
+    }, []);
 
     const SendMessage = async (e: any) => {
         e.preventDefault();
@@ -106,7 +106,7 @@ const CSTMessages = () => {
     };
 
     return (
-        <CSTMainLayout pageTitle="Message" layoutTitle="Messages">
+        <CSTMainLayout pageTitle="Message" layoutTitle="Message">
             <Row>
                 <Col xs={24} xl={6} lg={8}>
                     <div className="mailleft">

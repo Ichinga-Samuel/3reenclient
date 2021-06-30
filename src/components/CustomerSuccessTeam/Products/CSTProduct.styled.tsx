@@ -179,3 +179,120 @@ export const CSTProductDetails = styled.div`
         }
     }
 `;
+
+export const CSTReviewHolder = styled.div`
+    border-radius: 2px;
+    font-family: 'MADE TOMMY', sans-serif;
+    background: var(--white-color);
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: ease all 0.5s;
+    padding: 15px;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: #ddd;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    .imageholder {
+        padding: 10px;
+        width: 80px;
+        height: 80px;
+        background: #c4c4c4;
+        img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        @media (max-width: 499px) {
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .details {
+        margin: 2rem;
+        transition: ease all 0.5s;
+        text-align: left;
+        p {
+            margin-bottom: 10px;
+        }
+        h4 {
+            font-size: 1rem;
+        }
+    }
+    .rwicon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: ease all 0.5s;
+        padding: 1rem;
+        font-size: 1.2rem;
+        color: var(--background-color);
+        margin-top: 20%;
+        transform: rotate(0deg);
+        justify-content: flex-end;
+        &:hover {
+            box-shadow: none;
+            color: #000;
+            font-weight: 500;
+            transition: ease all 0.5s;
+        }
+        @media (max-width: 499px) {
+            margin-top: 10%;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+        transition: ease all 0.5s;
+        box-shadow: 0 4px 11px rgba(0, 0, 0, 0.3);
+        /* .rwicon {
+            opacity: 1;
+            transform: rotate(90deg);
+            transition: transform ease all 0.5s;
+        } */
+    }
+`;
+
+export const ReviewDetails = styled.div`
+    position: relative;
+    padding: 10px 1rem;
+    transition: ease all 0.5s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: none;
+    h4 {
+        margin-bottom: 2rem;
+    }
+    p {
+        font-size: 1.3rem;
+        padding: 15px 0 0;
+        word-break: break-all;
+    }
+    &.activediv {
+        display: block;
+        transition: ease-in all 0.5s;
+    }
+`;
+
+export const UserReviewLists = styled.div`
+    height: auto;
+    background: #eee;
+    margin-bottom: 5px;
+    transition: ease all 0.5s;
+    padding: 10px;
+    .poster_date {
+        display: flex;
+        flex-direction: column;
+        > div {
+            padding: 1rem 0 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+`;

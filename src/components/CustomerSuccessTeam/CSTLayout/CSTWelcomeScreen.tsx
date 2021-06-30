@@ -33,7 +33,7 @@ const CSTWelcomeScreen = () => {
                         </Link>
                     </Col>
                     <Col xs={24} xl={6} lg={6} data-aos="fade-right" data-aos-delay="2s" data-aos-duration="1s">
-                        <Link href="/cst/orders">
+                        <Link href="/cst/product-reviews">
                             <a>
                                 <WelcomeCard>
                                     <Ratings />
