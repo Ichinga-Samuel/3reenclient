@@ -2,7 +2,7 @@
 import React from 'react';
 import { withKnobs } from '@storybook/addon-knobs';
 // import { action } from '@storybook/addon-actions';
-import { CustomerSuccessTeam } from '@/components/CustomerSuccessTeam/CustomSuccessTeam';
+import { CustomerSuccessTeam } from '@/components/CustomerSuccessTeambk/CustomSuccessTeam';
 import { Homepage } from './HomePage.stories';
 import {
     PrimaryButton,
@@ -40,8 +40,8 @@ export const app = () => {
         <>
             <CustomerSuccessTeam />
         </>
-    )
-}
+    );
+};
 
 export const Home = () => {
     return (
