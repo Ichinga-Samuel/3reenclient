@@ -139,10 +139,6 @@ const AllOrdersTable = () => {
         }
     };
 
-    // useMemo(() => {
-    //     getAll();
-    // }, [getAll]);
-
     return (
         <>
             <QAMainLayout pageTitle="Orders" data-aos="slide-right" data-aos-delay="2s" data-aos-duration="1s">

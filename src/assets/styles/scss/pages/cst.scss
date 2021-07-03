@@ -1,0 +1,111 @@
+.main {
+    margin: 24px 16px 24px 22rem;
+    padding: 24px;
+    min-height: 280px;
+    overflow-x: auto;
+    transition: all 0.5s ease 0s;
+    @media (max-width: 499px) {
+        margin: 24px 16px 24px 9rem;
+    }
+    .loadingspinner {
+        display: flex;
+        align-items: center;
+        height: 50vh;
+        justify-content: center;
+    }
+}
+.ant-menu-item {
+    transition: ease all 0.5s;
+    svg {
+        font-size: 1rem;
+    }
+}
+a:hover {
+    text-decoration: none;
+}
+
+.welcometext {
+    display: flex;
+    padding: 15px;
+    transition: ease all 0.5s;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: var(--background-color);
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: 'MADE TOMMY', sans-serif;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: "";
+        width: 30%;
+    height: 1px;
+    background: #ddd;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    }
+}
+
+.ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
+    background-color: #fff;
+}
+
+.reviewDetails {
+    position: relative;
+    padding: 10px 1rem;
+    transition: ease all 0.5s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    // display: none;
+    h4 {
+        margin-bottom: 2rem;
+    }
+    p {
+        font-size: 1.3rem;
+        padding: 15px 0 0;
+        word-break: break-all;
+    }
+    .activediv {
+        display: block;
+        transition: ease-in all 0.5s;
+    }
+    .ratingscore {
+        background: #eee;
+        padding: 1rem 2rem;
+        transition: ease all 0.5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        .ratingnum {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            letter-spacing: 2.3px;
+        }
+    }
+    .ratingprogress {
+        width: 220px;
+        > div {
+            display: flex;
+            align-items: center;
+            transition: ease all 0.5s;
+            margin-bottom: 7px;
+            span {
+                padding: 0 5px;
+                font-size: 1.1rem;
+                display: flex;
+                font-weight: bold;
+                align-items: center;
+                small {
+                    color: #555;
+                    font-size: 0.6rem;
+                    // padding-left: 5px;
+                    transition: ease all 0.5s;
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import { LogoutIcon } from '@/utils/Icons';
 const { Sider } = Layout;
 
-const QASideMenu = (props: any) => {
+const CSTSideMenu = (props: any) => {
     const [visible, setVisible] = useState(false);
     const [confirmLoading, setConfirmLoading] = useState(false);
     const { collapsed } = props;
@@ -26,14 +26,14 @@ const QASideMenu = (props: any) => {
 
     const logoutUser = () => {
         setConfirmLoading(true);
-        removeFromLocalStorage('qatoken');
-        removeFromSessionStorage('qatoken');
+        removeFromLocalStorage('csttoken');
+        removeFromSessionStorage('csttoken');
         emptySessionStorage();
         emptyLocalStorage();
         setTimeout(() => {
             setVisible(false);
             setConfirmLoading(false);
-            router?.push('/qualityassurance/login');
+            router?.push('/cst/login');
         }, 2000);
     };
 
@@ -45,10 +45,19 @@ const QASideMenu = (props: any) => {
             <div className="logo" />
             <Menu theme="dark" mode="inline" defaultSelectedKeys={[router.pathname]}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
-                    <Link href="/qualityassurance/orders">Orders</Link>
+                    <Link href="/cst/products">Product</Link>
                 </Menu.Item>
-                <Menu.Item key="2" icon={<MessageOutlined />}>
-                    <Link href="/qualityassurance/messages">Messages</Link>
+                <Menu.Item key="2" icon={<UserOutlined />}>
+                    <Link href="/cst/orders">Orders</Link>
+                </Menu.Item>
+                <Menu.Item key="3" icon={<UserOutlined />}>
+                    <Link href="/cst/product-reviews">Reviews</Link>
+                </Menu.Item>
+                <Menu.Item key="4" icon={<MessageOutlined />}>
+                    <Link href="/cst/messages">Messages</Link>
+                </Menu.Item>
+                <Menu.Item key="5" icon={<MessageOutlined />}>
+                    <Link href="/cst/registered-users">Registered Users</Link>
                 </Menu.Item>
             </Menu>
             <div className="__footer">
@@ -74,4 +83,4 @@ const QASideMenu = (props: any) => {
     );
 };
 
-export default QASideMenu;
+export default CSTSideMenu;
