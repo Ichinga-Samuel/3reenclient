@@ -1,10 +1,10 @@
 import React from 'react';
-import Profile from '../PageBuilder/Profile';
-import DisplayBox from '../PageBuilder/DisplayBox';
-import UserMonitorTable from './UserMonitorTable';
-import { MainContainer, HeaderContainer, BoxContainer, TableContainer } from '../PageBuilder/Styled';
+import Profile from '../../AdminPages/PageBuilder/Profile';
+import DisplayBox from '../../AdminPages/PageBuilder/DisplayBox';
+import AdminUserMonitorTable from './AdminUserMonitorTable';
+import { MainContainer, HeaderContainer, BoxContainer, TableContainer } from '../../AdminPages/PageBuilder/Styled';
 
-function UserMonitor() {
+function AdminUserMonitor() {
     return (
         <MainContainer>
             <Profile />
@@ -14,7 +14,7 @@ function UserMonitor() {
                         <div className="title">
                             <h1>User Monitoring</h1>
                         </div>
-                        <div className="quantity">
+                        <div className="quantity" style={{ fontSize: '16px' }}>
                             <input type="text" id="qty" value="50" />
                         </div>
                     </div>
@@ -27,10 +27,10 @@ function UserMonitor() {
             </HeaderContainer>
 
             <TableContainer style={{ marginTop: '70px' }}>
-                <UserMonitorTable />
+                <AdminUserMonitorTable />
             </TableContainer>
         </MainContainer>
     );
 }
 
-export default UserMonitor;
+export default AdminUserMonitor;

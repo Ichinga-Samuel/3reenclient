@@ -1,11 +1,11 @@
-import AdminDashboard from '@/components/Admin/AdminLayout/AdminDashboard';
 import React from 'react';
-const admindashboard=()=> {
+import AdminDashBoard from '@/components/Admin/DashBoard/AdminDashBoard';
+const Dashboard = () => {
     return (
         <div>
-            <AdminDashboard/>
+            <AdminDashBoard />
         </div>
     );
-}
+};
 
-export default admindashboard;
+export default Dashboard;
