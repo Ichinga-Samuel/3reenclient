@@ -8,7 +8,6 @@ const QAPlainLayout = ({ pageTitle, children }) => {
     useEffect(() => {
         AOS.init({ duration: 600 });
     }, []);
-
     return (
         <>
             <Head>
