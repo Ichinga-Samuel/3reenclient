@@ -1,9 +1,10 @@
+import AdminLogistics from '@/components/Admin/AdminLayout/AdminLogistics';
 import InventoryDisplay from '@/components/Admin/inventory/InventoryDisplay';
 import React from 'react';
 const logistics=()=> {
     return (
         <div>
-            {/*<InventoryDisplay/>*/}
+            <InventoryDisplay/>
         </div>
     );
 }

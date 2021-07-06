@@ -1,15 +1,15 @@
 import React from 'react';
-// import Link from 'next/link';
-// import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { HeaderStyled } from './SearchHeader.styled';
 // import Search from '@/components/Products/Search';
 // import fakedata from '@/components/Products/fakeData';
 
 const SearchHeader = () => {
-    /*const router = useRouter();
+    const router = useRouter();
     const cartPage = () => {
         router.push('/cart');
-    };*/
+    };
     return (
         <HeaderStyled>
             <div className="Header">
