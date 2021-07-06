@@ -4,7 +4,7 @@ import { QAHeaderContainer } from '@/components/QualityAssurance/QALayout/QAGene
 import { ProfileIcon } from '@/utils/Icons';
 import QANotification from '@/components/QualityAssurance/QANotification';
 
-const AdminHeader = () => {
+const AdminHeader = (props: any) => {
     const [visible, setVisible] = useState(false);
 
     //const loggedUser = JSON.parse(userData);
