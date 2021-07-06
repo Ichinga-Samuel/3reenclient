@@ -1,10 +1,10 @@
-import Profile from '@/components/Admin/PageBuilder/Profile';
+//import Profile from '@/components/Admin/PageBuilder/Profile';
 import React from 'react';
 
 const test=()=> {
     return (
         <div>
-            <Profile/>
+            {/*<Profile/>*/}
         </div>
     );
 }
