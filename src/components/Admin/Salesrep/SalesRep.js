@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SalesRepGraph from './SalesRepGraph';
-import Rating from '../../AdminPages/PageBuilder/Rating';
+import Rating from '../PageBuilder/Rating';
 import Styled from 'styled-components';
 
 const Card = Styled.div`

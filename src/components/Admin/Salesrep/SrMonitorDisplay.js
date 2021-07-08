@@ -1,7 +1,7 @@
 import React from 'react';
-import Profile from '../../AdminPages/PageBuilder/Profile';
-import BodyHead from '../../AdminPages/PageBuilder/BodyHead';
-import { MainContainer } from '../../AdminPages/PageBuilder/Styled';
+import Profile from '../PageBuilder/Profile';
+import BodyHead from '../PageBuilder/BodyHead';
+import { MainContainer } from '../PageBuilder/Styled';
 import SalesRep from './SalesRep';
 
 function SrMonitorDisplay() {

@@ -1,8 +1,8 @@
 import React from 'react';
-import Profile from '../../AdminPages/PageBuilder/Profile';
-import DisplayBox from '../../AdminPages/PageBuilder/DisplayBox';
+import Profile from '../PageBuilder/Profile';
+import DisplayBox from '../PageBuilder/DisplayBox';
 import AdminUserMonitorTable from './AdminUserMonitorTable';
-import { MainContainer, HeaderContainer, BoxContainer, TableContainer } from '../../AdminPages/PageBuilder/Styled';
+import { MainContainer, HeaderContainer, BoxContainer, TableContainer } from '../PageBuilder/Styled';
 
 function AdminUserMonitor() {
     return (

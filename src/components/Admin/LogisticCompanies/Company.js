@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CompanyRating from './CompanyRating';
 import Styled from 'styled-components';
-
+import axios from 'axios';
 const Card = Styled.div`
 display:inline-flex;
 width: 1121px;
@@ -41,20 +41,42 @@ box-shadow: 0 8px 25px -25px black;
     width:290px;
     margin: auto;
 }
-
 `;
-
 function Company() {
     const [buttonText, setButtonText] = useState('Tap To Select');
+    const [getCompany, setCompany] = useState([]);
     const changeText = (text) => setButtonText(text);
+    const APP_BASE_URL = process.env.APP_BASE_URL;
+    const token = localStorage.getItem('qatoken');
+    useEffect(async () => {
+        try {
+            const config = {
+                headers: {
+                    'authorization': `Bearer ${token}`
+                }
+            }
+            const res = await axios.get(`${APP_BASE_URL}/users/company`, config);
+            setCompany(res.data.users);
+            console.log(res.data.users)
+        } catch (error) {
+            if(error){
+                console.log(error)
+            }
+        }
+}, [])
     return (
         <Card>
             <div className="companydetails">
                 {' '}
-                <div style={{ fontSize: '18px', fontWeight: 'bold' }}>
+                {getCompany.map(eachName => (
+                    <div style={{fontSize:'18px', fontWeight:'bold'}}>
+                        <b>{eachName.fullName}</b>
+                    </div>
+                ))}
+                {/* <div style={{ fontSize: '18px', fontWeight: 'bold' }}>
                     <b> full name of logistic company </b> | office address
                 </div>
-                <div style={{ fontSize: '16px' }}>state | location</div>
+                <div style={{ fontSize: '16px' }}>state | location</div> */}
             </div>
             <div className="rating">
                 <div style={{ fontSize: '16px' }}> ratings | reviews</div>{' '}

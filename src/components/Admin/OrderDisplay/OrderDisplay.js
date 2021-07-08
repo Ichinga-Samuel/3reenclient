@@ -1,8 +1,8 @@
 import React from 'react';
 import OrderTable from './OrderTable';
-import Profile from '../../AdminPages/PageBuilder/Profile';
-import BodyHead from '../../AdminPages/PageBuilder/BodyHead';
-import { MainContainer, TableContainer } from '../../AdminPages/PageBuilder/Styled';
+import Profile from '../PageBuilder/Profile';
+import BodyHead from '../PageBuilder/BodyHead';
+import { MainContainer, TableContainer } from '../PageBuilder/Styled';
 
 function OrderDisplay() {
     return (

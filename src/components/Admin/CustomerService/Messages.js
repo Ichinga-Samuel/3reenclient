@@ -1,7 +1,7 @@
 import React from 'react';
-import Profile from '@/components/AdminPages/PageBuilder/Profile';
+import Profile from '../PageBuilder/Profile';
 import MainTab from './MainTab';
-import { MainContainer, HeaderContainer } from '@/components/AdminPages/PageBuilder/Styled';
+import { MainContainer, HeaderContainer } from '../PageBuilder/Styled';
 
 function Messages() {
     return (

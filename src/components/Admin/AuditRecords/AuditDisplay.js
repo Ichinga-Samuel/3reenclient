@@ -1,8 +1,8 @@
 import React from 'react';
-import Profile from '../../AdminPages/PageBuilder/Profile';
-import DisplayBox from '../../AdminPages/PageBuilder/DisplayBox';
-import SelectDisplay from '../../AdminPages/PageBuilder/SelectDisplay';
-import { MainContainer, HeaderContainer, BoxContainer, TableContainer } from '../../AdminPages/PageBuilder/Styled';
+import Profile from '../PageBuilder/Profile';
+import DisplayBox from '../PageBuilder/DisplayBox';
+import SelectDisplay from '../PageBuilder/SelectDisplay';
+import { MainContainer, HeaderContainer, BoxContainer, TableContainer } from '../PageBuilder/Styled';
 import AuditTableData from './AuditTableData';
 
 function AuditDisplay() {

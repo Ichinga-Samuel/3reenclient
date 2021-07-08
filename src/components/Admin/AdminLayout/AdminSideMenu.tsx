@@ -12,7 +12,7 @@ import {
 } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
 import { LogoutIcon } from '@/utils/Icons';
-import { LogisticCompanyIcon, OrderDisplayIcon, SRMonitorIcon, UserMonitorIcon } from '@/components/AdminPages/icons/Icons';
+import { LogisticCompanyIcon, OrderDisplayIcon, SRMonitorIcon, UserMonitorIcon } from '../icons/Icons';
 const { Sider } = Layout;
 
 const AdminSideMenu = (props: any) => {

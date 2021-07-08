@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { MainContainer, CustomerServiceContainer } from '../../AdminPages/PageBuilder/Styled';
+import { MainContainer, CustomerServiceContainer } from '../PageBuilder/Styled';
 
 function CustomerService() {
     return (

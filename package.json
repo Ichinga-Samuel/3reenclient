@@ -24,6 +24,7 @@
     "antd": "^4.15.5",
     "antd-img-crop": "^3.14.1",
     "aos": "^2.3.4",
+    "axios": "^0.21.1",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "beauty-stars": "^1.1.0",
     "bootstrap": "^5.0.0-beta1",
@@ -116,10 +117,6 @@
     "ts-jest": "26.4.4",
     "typescript": "4.1.3"
   },
-<<<<<<< HEAD
- 
-=======
->>>>>>> db05e19eea524b91ba5030691c4e95d426208c3c
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
       "eslint --fix",
