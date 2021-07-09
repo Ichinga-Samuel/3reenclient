@@ -9,42 +9,42 @@ export class Products extends Component {
       products: [
         {
           productName: "Full Product Name",
-          imgUrl: "/img/Product-img.png",
+          imgUrl: "../../img/metal.png",
           description:
             " Short and precise product description not going more than 2 or 3 lines",
           key: 1,
         },
         {
           productName: "Full Product Name",
-          imgUrl: "/img/Product-img.png",
+          imgUrl: "/img/microwave.png",
           description:
             " Short and precise product description not going more than 2 or 3 lines",
           key: 2,
         },
         {
           productName: "Full Product Name",
-          imgUrl: "/img/Product-img.png",
+          imgUrl: "/img/phone.png",
           description:
             " Short and precise product description not going more than 2 or 3 lines",
           key: 3,
         },
         {
           productName: "Full Product Name",
-          imgUrl: "/img/Product-img.png",
+          imgUrl: "/img/laptop.png",
           description:
             " Short and precise product description not going more than 2 or 3 lines",
           key: 4,
         },
         {
           productName: "Full Product Name",
-          imgUrl: "/img/Product-img.png",
+          imgUrl: "/img/toaster.png",
           description:
             " Short and precise product description not going more than 2 or 3 lines",
           key: 5,
         },
         {
           productName: "Full Product Name",
-          imgUrl: "/img/Product-img.png",
+          imgUrl: "/img/toaster.png",
           description:
             " Short and precise product description not going more than 2 or 3 lines",
           key: 6,
