@@ -101,6 +101,7 @@ button{
 `;
 
 function Profile(props) {
+  const adminName = localStorage.getItem('name');
   return (
     <ProfileContainer active={props.active}>
       {props.active ? (
@@ -139,7 +140,7 @@ function Profile(props) {
           {" "}
           <img src='/img/User.png' alt="avatar" id="avatar" />
           <div>
-            <p>Jack Hanniel</p>
+            <p>{adminName}</p>
             <p>Admin</p>
           </div>
         </div>

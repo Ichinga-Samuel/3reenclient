@@ -40,14 +40,14 @@ const AdminRegister = () => {
                 const { data } = response;
                 if (data.status === 'success') {
                     addToLocalStorage('qatoken', response.data.token);
-                    addToLocalStorage('qauser', response.data.user);
+                    addToLocalStorage('name', response.data.user.fullName);
                     notification.success({
                         key: 'succ',
                         message: 'Success',
                         description: 'Your Account has been created sucessfully',
                         duration: 15,
                     });
-                    router.push('/qualityassurance');
+                    router.push('/admin/dashboard');
                     notification.close('succ');
                 }
             })

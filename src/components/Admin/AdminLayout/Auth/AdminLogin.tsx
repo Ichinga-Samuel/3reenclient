@@ -29,10 +29,10 @@ const AdminLogin = () => {
                 .then((response) => {
                     console.log('login response', response);
                     const { data } = response;
-                    if (data.status === 'success' && data.user.role !== 'user') {
+                    if (data.status === 'success' && data.user.role !== 'admin') {
                         notification.error({
                             message: 'Error',
-                            description: 'Account Does not belong to a QA',
+                            description: 'Account Does not belong to an Admin',
                             duration: 15,
                         });
                         setLoading(false);
@@ -47,10 +47,11 @@ const AdminLogin = () => {
                         });
                         setTimeout(() => {
                             notification.close('done');
-                            router.push('/qualityassurance');
+                            router.push('/admin/dashboard');
                         }, 1000);
-                        addToLocalStorage('qatoken', response.data.token);
-                        addToLocalStorage('qauser', response.data.user);
+                        addToLocalStorage('token', response.data.token);
+                        addToLocalStorage('user', response.data.user);
+                        addToLocalStorage('name', response.data.user.fullName);
                         // setCookie('', 'token', response.data.token, {
                         //     maxAge: 30 * 24 * 60 * 60,
                         //     path: '/',
@@ -124,7 +125,7 @@ const AdminLogin = () => {
 };
 
 export async function getServerSideProps(context: any) {
-    const token = getFromLocalStorage('qatoken');
+    const token = getFromLocalStorage('token');
     console.log('token', token);
     console.log('conte', context);
     if (token) {
