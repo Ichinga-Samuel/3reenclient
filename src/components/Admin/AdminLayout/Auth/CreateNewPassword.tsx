@@ -44,7 +44,7 @@ const CreateNewPassword = () => {
                     });
                     notification.close('error');
                     setTimeout(() => {
-                        router.push('/vendor/login');
+                        router.push('/admin/login');
                     }, 2000);
                 }
             })

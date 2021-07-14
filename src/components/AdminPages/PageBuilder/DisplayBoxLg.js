@@ -98,7 +98,7 @@ function DisplayBoxLg(props) {
       </div>
       <div className="d-info">
         <h5 style={{color:'rgba(0, 0, 0, 0.3)', fontWeight:'bold', fontSize:'18px'}}>{props.title}</h5>
-        <h4 style={{color:'#000', fontSize:'24px'}}>{props.info}</h4>
+        <h4 style={{color:'#590A5B', fontSize:'24px'}}>{props.info}</h4>
       </div>
       <div className="bottom">
         <div className="first ">

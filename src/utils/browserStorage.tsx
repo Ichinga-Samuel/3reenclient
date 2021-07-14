@@ -4,7 +4,11 @@
 export const isUserLoggedIn = () => {
     const token = getFromLocalStorage('token');
     const user = getFromLocalStorage('user');
+    const name = getFromLocalStorage('name');
     if ((token === null || !token) && (!user || user === null)) {
+        return false;
+    }
+   else  if((!name || name === null)){
         return false;
     }
     return true;

@@ -10,13 +10,13 @@ function LogisticComponents() {
             <Profile />
             <BodyHead title={'Logistic Companies'} searchplaceholder={'search logistic company'} />
             <Companies />
+            {/* <Companies />
             <Companies />
             <Companies />
             <Companies />
             <Companies />
             <Companies />
-            <Companies />
-            <Companies />
+            <Companies /> */}
         </MainContainer>
     );
 }

@@ -113,7 +113,7 @@ const AdminLogin = () => {
                                     </Button>
                                 </div>
                                 <div className="login__pwd">
-                                    <Link href="/qualityassurance/forgot-password">Forgot Password?</Link>
+                                    <Link href="/admin/resetnewpassword">Forgot Password?</Link>
                                 </div>
                             </form>
                         </div>
@@ -126,12 +126,14 @@ const AdminLogin = () => {
 
 export async function getServerSideProps(context: any) {
     const token = getFromLocalStorage('token');
+    const name = getFromLocalStorage('name');
     console.log('token', token);
+    console.log('name', name);
     console.log('conte', context);
     if (token) {
         return {
             redirect: {
-                destination: '/qualityassurance',
+                destination: '/admin/dashboard',
                 permanent: false,
             },
         };

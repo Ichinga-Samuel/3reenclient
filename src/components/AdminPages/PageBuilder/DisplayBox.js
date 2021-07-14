@@ -42,7 +42,7 @@ function DisplayBox(props) {
     <Box color={props.color}>
       <div className="info">
         <p>{props.title}</p>
-        <h4 style={{color:'#000'}}>{props.info}</h4>
+        <h4 style={{color:'#590A5B'}}>{props.info}</h4>
       </div>
 
       <div className="icon">
