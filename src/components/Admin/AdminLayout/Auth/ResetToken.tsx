@@ -60,7 +60,7 @@ const ResetToken = () => {
                 const { data } = response;
                 if (data.status === 'success') {
                     setTimeout(() => {
-                        router.push('/vendor/reset-password');
+                        router.push('/admin/resetPassword');
                     }, 2000);
                 }
             })

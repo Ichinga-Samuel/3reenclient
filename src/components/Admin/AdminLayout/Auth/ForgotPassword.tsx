@@ -48,7 +48,7 @@ const ForgotPassword = () => {
         const fakeResp = 'ee33e5ee2a5c74950df13';
         setloading(true);
         setTimeout(() => {
-            router.push(`/vendor/reset-token?${encodeURIComponent(fakeResp)}`);
+            router.push(`/admin/reset-token?${encodeURIComponent(fakeResp)}`);
         }, 500);
     };
 
@@ -72,7 +72,7 @@ const ForgotPassword = () => {
                     
                     <div className="reset_newpass">
                         <h2>RESET PASSWORD</h2>
-                        <h3>Please enter your registered email adress or phone number</h3>
+                        <h3 style={{fontWeight:'bold'}}>Please enter your registered email adress or phone number</h3>
                         <form onSubmit={handleSubmit(resetPassword)}> 
                             <Row>
                                 <Col span={24}>

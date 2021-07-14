@@ -118,12 +118,13 @@ function BodyHead(props) {
           {" "}
           <div className="searchbar">
             {" "}
-            <img src="/icon/search.png" alt="search" />
+            <img src="/img/search.png" alt="search" />
             <input
               type="search"
               id="searchorder"
               placeholder={props.searchplaceholder}
             />
+            
           </div>
           <button>search</button>{" "}
         </div>

@@ -39,7 +39,7 @@ const AdminRegister = () => {
                 console.log('login response', response);
                 const { data } = response;
                 if (data.status === 'success') {
-                    addToLocalStorage('qatoken', response.data.token);
+                    addToLocalStorage('token', response.data.token);
                     addToLocalStorage('name', response.data.user.fullName);
                     notification.success({
                         key: 'succ',
@@ -47,7 +47,7 @@ const AdminRegister = () => {
                         description: 'Your Account has been created sucessfully',
                         duration: 15,
                     });
-                    router.push('/admin/dashboard');
+                    router.push('/admin/login');
                     notification.close('succ');
                 }
             })

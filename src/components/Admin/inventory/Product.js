@@ -1,5 +1,5 @@
 import React from "react";
-import Styled from "styled-components";
+import Styled from 'styled-components';
 
 const Card = Styled.div`
 display:flex;
@@ -73,12 +73,12 @@ img{
 `;
 
 function Product(props) {
-  const { productName, imgUrl, description } = props;
+  const { productName, imgUrl, description, eachID} = props;
   return (
     <React.Fragment>
-      <Card>
+      <Card key={eachID}>
         <div className="product-image">
-          <img src={imgUrl} alt="product" />
+          <img src={imgUrl.length < 0 ? 'NO IMAGES' : imgUrl} alt="product" />
         </div>
         <div className="short-des">
           <p id="product-name">{productName}</p>
