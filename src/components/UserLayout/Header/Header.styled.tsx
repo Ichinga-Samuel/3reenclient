@@ -10,26 +10,33 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     .userlogo {
-        margin-left: 1rem;
+        transition: ease all 0.5s;
+        margin: 0 9rem 0 2rem;
     }
     .productsearch {
         display: flex;
         align-items: center;
+        flex: 0 0 50%;
+        min-width: 50%;
+        margin: 0 4rem;
+        transition: ease all 0.5s;
     }
     .nav {
         display: flex;
         align-items: center;
         position: relative;
         transition: ease all 0.5s;
-        margin-right: 3rem;
+        margin: 0 3rem 0 9rem;
         > div {
-            margin-right: 2rem;
+            margin-right: 7rem;
+            transition: ease all 0.5s;
         }
         .userprofile {
             display: flex;
             align-items: center;
             cursor: pointer;
             position: relative;
+            margin: auto;
             &__avatar {
                 width: 30px;
                 height: 30px;

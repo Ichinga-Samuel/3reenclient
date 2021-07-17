@@ -2,7 +2,7 @@ import React from 'react';
 import { HeaderContainer } from '@/components/UserLayout/Header/Header.styled';
 import { LogoIcon } from '@/utils/Icons';
 import { Button, Input } from 'antd';
-import { ArrowDownOutlined } from '@ant-design/icons';
+import { ShoppingCart, ArrowDropDown } from '@material-ui/icons';
 
 const Header = () => {
     return (
@@ -15,14 +15,16 @@ const Header = () => {
                 <Button>Search</Button>
             </div>
             <div className="nav">
-                <div>Cart</div>
                 <div>
-                    <Button>Login</Button>
+                    <ShoppingCart /> Cart
                 </div>
+                {/*<div>*/}
+                {/*    <Button>Login</Button>*/}
+                {/*</div>*/}
                 <div className="userprofile">
                     <div className="userprofile__avatar">A</div>
                     <div className="userprofile__name">
-                        <span>Hi, Jack</span> <ArrowDownOutlined />
+                        <span>Hi, Jack</span> <ArrowDropDown />
                     </div>
                     <div className="usermenu">
                         <ul>

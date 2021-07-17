@@ -3,7 +3,8 @@
   "version": "1.0.5",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev -p 4090\" \"yarn storybook\"",
+    "dev2": "concurrently \"next dev -p 4090\" \"yarn storybook\"",
+    "dev": "next dev -p 4090",
     "build": "next build",
     "release:prepare": "shipjs prepare",
     "release:trigger": "shipjs trigger",
@@ -20,6 +21,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "@babel/plugin-proposal-decorators": "^7.12.12",
     "antd": "^4.15.5",
     "antd-img-crop": "^3.14.1",

@@ -1,7 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Header from '@/components/UserLayout/Header/Header';
-// import Home from '@/components/Home-bl/index';
 
 const HomePage: React.FC = () => {
     return (
