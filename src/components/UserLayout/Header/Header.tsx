@@ -7,11 +7,14 @@ import { useRouter } from 'next/router';
 
 const Header = () => {
     const [searching, setsearching] = useState(false);
+    const [menuopen, setmenuopen] = useState(false);
 
     const router = useRouter();
     const cartPage = () => {
         router.push('/cart');
     };
+
+    const openUserMenu = () => setmenuopen(!menuopen);
 
     const SearchAllProduct = () => {
         setsearching(true);
@@ -36,8 +39,8 @@ const Header = () => {
                     Search
                 </Button>
             </div>
-            <div className="nav" onClick={cartPage}>
-                <div className="cart">
+            <div className="nav">
+                <div className="cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                     <div className="cart__count">
                         <span>0</span>
                     </div>
@@ -47,15 +50,15 @@ const Header = () => {
                 {/*<div>*/}
                 {/*    <Button>Login</Button>*/}
                 {/*</div>*/}
-                <div className="userprofile">
+                <div className="userprofile" onClick={openUserMenu} onKeyDown={openUserMenu} role="button" tabIndex={0}>
                     <div className="userprofile__avatar">J</div>
                     <div className="userprofile__name">
                         <span>Hi, Jack</span> <ArrowDropDown />
                     </div>
-                    <div className="usermenu">
+                    <div className={`usermenu ${menuopen ? 'isOpen' : ''}`}>
                         <ul>
-                            <li>Profile</li>
-                            <li>Orders</li>
+                            <li>My Profile</li>
+                            <li>My Orders</li>
                             <li className="logout">Logout</li>
                         </ul>
                     </div>

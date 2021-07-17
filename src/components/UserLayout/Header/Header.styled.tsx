@@ -82,11 +82,15 @@ export const HeaderContainer = styled.header`
                 justify-content: center;
                 margin-right: 10px;
                 color: var(--white-color);
+                font-size: 1.5rem;
+                font-weight: bold;
             }
             &__name {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                font-size: 1.5rem;
+                font-weight: bold;
                 span {
                     color: var(--background-color);
                     padding-left: 0.41rem;
@@ -102,6 +106,15 @@ export const HeaderContainer = styled.header`
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         border-radius: 3px;
         transition: ease all 0.5s;
+        opacity: 0;
+        transform: translateY(0);
+        visibility: hidden;
+        &.isOpen {
+            transition: ease all 0.5s;
+            opacity: 1;
+            transform: translateY(10px);
+            visibility: visible;
+        }
         ul {
             margin: 0;
             padding: 0;
@@ -111,6 +124,7 @@ export const HeaderContainer = styled.header`
             padding: 9px 0;
             transition: ease all 0.5s;
             justify-content: center;
+            font-size: 1.2rem;
             &.logout {
                 border-top: 1px solid #eee;
             }
