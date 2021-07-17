@@ -1,8 +1,9 @@
 import React from 'react';
-import { FooterContainer, FooterList } from '@/components/UserLayout/Footer/Footer.styled';
+import { FooterContainer, FooterList, SocialMediaList } from '@/components/UserLayout/Footer/Footer.styled';
 import { Row, Col } from 'antd';
 import Link from 'next/link';
-import { Mail } from '@material-ui/icons';
+import { Mail, Twitter } from '@material-ui/icons';
+import { GoogleIcon } from '@/utils/NewIcons';
 
 const Footer = () => {
     return (
@@ -63,6 +64,34 @@ const Footer = () => {
                     </Col>
                     <Col xs={24} xl={6} lg={6}>
                         <div className="foothead">Social Media</div>
+                        <SocialMediaList>
+                            <li>
+                                <Link href="/">
+                                    <a>
+                                        <img
+                                            style={{ width: '15px' }}
+                                            src="icons/facebook.svg"
+                                            className="icon"
+                                            alt="social"
+                                        />
+                                    </a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/">
+                                    <a>
+                                        <GoogleIcon />
+                                    </a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/">
+                                    <a>
+                                        <Twitter />
+                                    </a>
+                                </Link>
+                            </li>
+                        </SocialMediaList>
                     </Col>
                 </Row>
             </div>

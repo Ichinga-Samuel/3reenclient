@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import CheckoutFooter from '../Checkout/CheckoutFooter';
-import CheckoutHeader from '../Checkout/CheckoutHeader';
 import { CartStyled } from './Cart.styled';
 import CartContainer from './CartContainer';
 import axios from 'axios';
 import { APP_BASE } from '@/utils/ApiList';
 import EmptyCart from './EmptyCart';
 import { getFromLocalStorage } from '@/utils/browserStorage';
+import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 
 export default function Cart({}) {
     // if cart exists in local set state else state is empty array
@@ -99,19 +98,19 @@ export default function Cart({}) {
     };
 
     return userCart.length ? (
-        <div className="cart">
-            <CartStyled>
-                <CheckoutHeader />
-                <CartContainer
-                    usersCart={userCart}
-                    addToCart={addToCart}
-                    removeFromCart={removeFromCart}
-                    delFromCart={delFromCart}
-                    validMsg={validMsg}
-                />
-                <CheckoutFooter />
-            </CartStyled>
-        </div>
+        <UserWebLayout webtitle="Cart">
+            <div className="cart">
+                <CartStyled>
+                    <CartContainer
+                        usersCart={userCart}
+                        addToCart={addToCart}
+                        removeFromCart={removeFromCart}
+                        delFromCart={delFromCart}
+                        validMsg={validMsg}
+                    />
+                </CartStyled>
+            </div>
+        </UserWebLayout>
     ) : (
         <EmptyCart />
     );

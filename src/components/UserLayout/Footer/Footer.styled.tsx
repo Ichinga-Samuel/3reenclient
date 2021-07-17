@@ -54,3 +54,28 @@ export const FooterList = styled.ul`
         margin-right: 10px;
     }
 `;
+
+export const SocialMediaList = styled.ul`
+    transition: ease all 0.5s;
+    list-style: none;
+    display: flex;
+    margin: 0;
+    li a {
+        display: flex;
+        flex-direction: row;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        background: var(--white-color);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+        align-items: center;
+        justify-content: center;
+        margin-left: 15px;
+        transition: ease all 0.5s;
+        &:hover {
+            box-shadow: none;
+            transition: ease all 0.5s;
+            border: 1px solid var(--background-color-color);
+        }
+    }
+`;

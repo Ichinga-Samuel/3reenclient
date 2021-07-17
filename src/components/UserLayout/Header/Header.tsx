@@ -14,6 +14,10 @@ const Header = () => {
         router.push('/cart');
     };
 
+    const returnHome = () => {
+        router.push('/');
+    };
+
     const openUserMenu = () => setmenuopen(!menuopen);
 
     const SearchAllProduct = () => {
@@ -24,7 +28,7 @@ const Header = () => {
     };
     return (
         <HeaderContainer>
-            <div className="userlogo">
+            <div className="userlogo" onClick={returnHome} onKeyDown={returnHome} role="button" tabIndex={0}>
                 <LogoIcon />
             </div>
             <div className="productsearch">

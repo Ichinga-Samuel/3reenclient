@@ -1,7 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import Header from '@/components/UserLayout/Header/Header';
-import Footer from '@/components/UserLayout/Footer/Footer';
+import WelcomePage from '@/components/WelcomePage';
 
 const HomePage: React.FC = () => {
     return (
@@ -15,8 +14,7 @@ const HomePage: React.FC = () => {
                     url: 'https://www.3reenshop.com',
                 }}
             />
-            <Header />
-            <Footer />
+            <WelcomePage />
         </>
     );
 };

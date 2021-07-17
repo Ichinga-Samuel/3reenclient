@@ -10,6 +10,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     .userlogo {
+        cursor: pointer;
         transition: ease all 0.5s;
         margin: 0 9rem 0 2rem;
     }
