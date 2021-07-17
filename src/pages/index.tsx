@@ -1,12 +1,13 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import Home from '@/components/Home/index';
+import Header from '@/components/UserLayout/Header/Header';
+// import Home from '@/components/Home-bl/index';
 
 const HomePage: React.FC = () => {
     return (
         <>
             <NextSeo
-                title="Home"
+                title="Welcome"
                 description="The world best e-commence store"
                 openGraph={{
                     title: 'Open Graph Title',
@@ -14,7 +15,7 @@ const HomePage: React.FC = () => {
                     url: 'https://www.3reenshop.com',
                 }}
             />
-            <Home />
+            <Header />
         </>
     );
 };

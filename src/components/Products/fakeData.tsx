@@ -41,7 +41,7 @@ const fakeData = [
     {
         id: 4,
         product_name: 'Grocery',
-        description: 'Foods, Beverages, Home tools',
+        description: 'Foods, Beverages, Home-bl tools',
         remainder: '3 left',
         stars: '/img/stars.png',
         cart: '/img/cart.png',
@@ -119,7 +119,7 @@ const fakeData = [
     {
         id: 10,
         product_name: 'Grocery',
-        description: 'Foods, Beverages, Home tools',
+        description: 'Foods, Beverages, Home-bl tools',
         remainder: '3 left',
         stars: '/img/stars.png',
         cart: '/img/cart.png',
