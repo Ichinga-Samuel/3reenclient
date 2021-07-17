@@ -108,7 +108,7 @@ export const HeaderStyled = styled.header`
     @media only screen and (max-width: 768px) {
         .Header{
             padding: 20px;
-            
+
         }
         .Brand {
         display: none;
@@ -116,12 +116,12 @@ export const HeaderStyled = styled.header`
     .Input {
        display: none;
     }
-    .Cart {
-       display:none;
-    }
-    .Profile {
-       display: none;
-    }
+    //.Cart {
+    //   display:none;
+    //}
+    //.Profile {
+    //   display: none;
+    //}
 
     // large screens
 

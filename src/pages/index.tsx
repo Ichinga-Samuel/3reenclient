@@ -1,6 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Header from '@/components/UserLayout/Header/Header';
+import Footer from '@/components/UserLayout/Footer/Footer';
 
 const HomePage: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ const HomePage: React.FC = () => {
                 }}
             />
             <Header />
+            <Footer />
         </>
     );
 };

@@ -84,6 +84,7 @@ export const HeaderContainer = styled.header`
                 color: var(--white-color);
                 font-size: 1.5rem;
                 font-weight: bold;
+                overflow: hidden;
             }
             &__name {
                 display: flex;
@@ -127,6 +128,54 @@ export const HeaderContainer = styled.header`
             font-size: 1.2rem;
             &.logout {
                 border-top: 1px solid #eee;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .userlogo {
+            margin: 0;
+        }
+        .productsearch {
+            display: none;
+        }
+        .nav {
+            margin: 0 1rem 0 1rem;
+            > div {
+                margin-right: 2rem;
+            }
+            .cart {
+                font-size: 1.2rem;
+                svg {
+                    padding: 5px;
+                }
+                &__count {
+                    width: 20px;
+                    top: -5px;
+                    height: 20px;
+                }
+            }
+            .userprofile {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                position: relative;
+                margin: auto;
+                &__avatar {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50px;
+                    background: var(--background-color);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 10px;
+                    color: var(--white-color);
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+                //&__name {
+                //    display: none;
+                //}
             }
         }
     }
