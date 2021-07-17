@@ -20,6 +20,15 @@ export const HeaderContainer = styled.header`
         min-width: 50%;
         margin: 0 4rem;
         transition: ease all 0.5s;
+        .searchbtn {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            border-radius: 0;
+            text-transform: uppercase;
+            border: none;
+            padding: 2px 4rem;
+        }
     }
     .nav {
         display: flex;
@@ -31,6 +40,32 @@ export const HeaderContainer = styled.header`
             margin-right: 7rem;
             transition: ease all 0.5s;
         }
+        .cart {
+            position: relative;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--background-color);
+            svg {
+                padding: 4px;
+            }
+            &__count {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 25px;
+                left: 0;
+                top: -8px;
+                height: 25px;
+                border-radius: 50px;
+                background: var(--background-color);
+                span {
+                    color: var(--white-color);
+                    font-size: 1.3rem;
+                    font-weight: bold;
+                }
+            }
+        }
         .userprofile {
             display: flex;
             align-items: center;
@@ -41,11 +76,12 @@ export const HeaderContainer = styled.header`
                 width: 30px;
                 height: 30px;
                 border-radius: 50px;
-                background: #eee;
+                background: var(--background-color);
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 margin-right: 10px;
+                color: var(--white-color);
             }
             &__name {
                 display: flex;
