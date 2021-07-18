@@ -13,7 +13,7 @@ const BestSectionProducts = () => {
     const [pages, setPages] = useState([]);
     console.log('page', pages);
 
-    const token = getFromLocalStorage('token');
+    const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,

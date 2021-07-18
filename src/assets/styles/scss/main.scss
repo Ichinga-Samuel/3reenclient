@@ -5,12 +5,12 @@
 @import "variables";
 @import "global";
 //@import 'custom';
-@import "./pages/login";
-@import "./pages/register";
+//@import "./pages/login";
+//@import "./pages/register";
 @import "./pages/vendorProduct.scss";
-@import "./pages/resetPassword";
-@import "./pages/changePassword";
-@import "./pages/forgotPassword";
+//@import "./pages/resetPassword";
+//@import "./pages/changePassword";
+//@import "./pages/forgotPassword";
 @import "./pages/vendor";
 @import '../../../components/Vendor/Dashboard/Screen1.css';
 @import "./pages/qa";
@@ -36,4 +36,8 @@
   margin: auto;
   text-align: center;
   padding: 5rem 0;
+}
+
+.form-group {
+
 }

@@ -13,7 +13,7 @@ export default function Cart({}) {
     // const [userCart, setUserCart] = useState(localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : usersCart);
     const [validMsg, setValidMsg] = useState('');
 
-    const token = getFromLocalStorage('token');
+    const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -24,7 +24,8 @@ export default function Cart({}) {
         const getUserCart = async () => {
             try {
                 const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
-                const usersCart = data.doc;
+                console.log('getcart', data);
+                const usersCart = data.cart;
                 setUserCart(usersCart);
                 localStorage.setItem('cartItems', JSON.stringify(usersCart));
             } catch (err) {
@@ -36,9 +37,10 @@ export default function Cart({}) {
         // return () => {
         //     cleanup
         // }
-    }, [userCart]);
+    }, []);
 
-    const addToCart = async (product) => {
+    const addToCart = async (product, e) => {
+        e.preventDefault();
         let inCart = false;
         //get particular product's id
         const productId = product._id;

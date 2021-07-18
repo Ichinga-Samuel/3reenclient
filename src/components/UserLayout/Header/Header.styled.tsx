@@ -9,6 +9,7 @@ export const HeaderContainer = styled.header`
     width: 100%;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 2px 10px rgb(0, 0, 0, 0.2);
     .userlogo {
         cursor: pointer;
         transition: ease all 0.5s;
@@ -36,9 +37,9 @@ export const HeaderContainer = styled.header`
         align-items: center;
         position: relative;
         transition: ease all 0.5s;
-        margin: 0 3rem 0 9rem;
+        margin: 0 2rem 0 9rem;
         > div {
-            margin-right: 7rem;
+            margin-right: 4rem;
             transition: ease all 0.5s;
         }
         .cart {
@@ -100,6 +101,17 @@ export const HeaderContainer = styled.header`
                     padding-left: 0.41rem;
                 }
             }
+        }
+    }
+    .loginbtn {
+        display: flex;
+        align-items: center;
+        padding: 10px 2rem;
+        height: 41px;
+        font-size: 1.6rem;
+        svg {
+            margin-right: 10px;
+            font-size: 1.7rem;
         }
     }
     .usermenu {

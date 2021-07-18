@@ -2,10 +2,19 @@ import React, { useState } from 'react';
 import { HeaderContainer } from '@/components/UserLayout/Header/Header.styled';
 import { CartIcon, LogoIcon } from '@/utils/Icons';
 import { Button } from 'antd';
-import { ArrowDropDown } from '@material-ui/icons';
+import { ArrowDropDown, PersonOutline } from '@material-ui/icons';
 import { useRouter } from 'next/router';
+import {
+    emptyLocalStorage,
+    emptySessionStorage,
+    removeFromLocalStorage,
+    removeFromSessionStorage,
+} from '@/utils/browserStorage';
 
-const Header = () => {
+const Header = (props) => {
+    const { token, userDetail, cartItems } = props;
+    console.log('token', userDetail);
+    const details = JSON.parse(userDetail);
     const [searching, setsearching] = useState(false);
     const [menuopen, setmenuopen] = useState(false);
 
@@ -14,8 +23,20 @@ const Header = () => {
         router.push('/cart');
     };
 
+    const gotoLogin = () => {
+        router.push('/login');
+    };
+
     const returnHome = () => {
         router.push('/');
+    };
+
+    const logoutUser = () => {
+        removeFromLocalStorage('usertoken');
+        removeFromSessionStorage('usertoken');
+        emptySessionStorage();
+        emptyLocalStorage();
+        router?.push('/');
     };
 
     const openUserMenu = () => setmenuopen(!menuopen);
@@ -46,27 +67,45 @@ const Header = () => {
             <div className="nav">
                 <div className="cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                     <div className="cart__count">
-                        <span>0</span>
+                        <span>{cartItems?.length}</span>
                     </div>
                     <CartIcon />
                     Cart
                 </div>
-                {/*<div>*/}
-                {/*    <Button>Login</Button>*/}
-                {/*</div>*/}
-                <div className="userprofile" onClick={openUserMenu} onKeyDown={openUserMenu} role="button" tabIndex={0}>
-                    <div className="userprofile__avatar">J</div>
-                    <div className="userprofile__name">
-                        <span>Hi, Jack</span> <ArrowDropDown />
-                    </div>
-                    <div className={`usermenu ${menuopen ? 'isOpen' : ''}`}>
-                        <ul>
-                            <li>My Profile</li>
-                            <li>My Orders</li>
-                            <li className="logout">Logout</li>
-                        </ul>
-                    </div>
-                </div>
+                {token !== null ? (
+                    <>
+                        <div
+                            className="userprofile"
+                            onClick={openUserMenu}
+                            onKeyDown={openUserMenu}
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <div className="userprofile__avatar">J</div>
+                            <div className="userprofile__name">
+                                <span>Hi, {details?.fullName?.split(' ')[0]}</span> <ArrowDropDown />
+                            </div>
+                            <div className={`usermenu ${menuopen ? 'isOpen' : ''}`}>
+                                <ul>
+                                    <li>My Profile</li>
+                                    <li>My Orders</li>
+                                    {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                                    <li onClick={logoutUser} onKeyDown={logoutUser} className="logout">
+                                        Logout
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div onClick={gotoLogin} onKeyDown={gotoLogin} role="button" tabIndex={0}>
+                            <Button type="primary" className="loginbtn">
+                                <PersonOutline /> Login
+                            </Button>
+                        </div>
+                    </>
+                )}
             </div>
         </HeaderContainer>
     );

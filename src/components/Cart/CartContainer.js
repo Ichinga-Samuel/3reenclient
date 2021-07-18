@@ -17,7 +17,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                             <p>Unit Price</p>
                             <p>Sub Total</p>
                         </div>
-                        {usersCart.length ? (
+                        {usersCart?.length ? (
                             usersCart.map((product) => (
                                 <div className="cart-item" key={product.productId}>
                                     <form action="">
@@ -45,7 +45,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                             <div className="cart-quantity-controls">
                                                 <button onClick={() => removeFromCart(product)}>-</button>
                                                 <input type="number" value={product.count} readOnly />
-                                                <button onClick={() => addToCart(product)}>+</button>
+                                                <button onClick={(e) => addToCart(product, e)}>+</button>
                                             </div>
                                         </div>
 
