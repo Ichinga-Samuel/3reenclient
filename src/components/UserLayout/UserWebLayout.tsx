@@ -9,7 +9,6 @@ import AOS from 'aos';
 
 const UserWebLayout = ({ webtitle, children }) => {
     const router = useRouter();
-    console.log('all', router.pathname);
     const { pathname } = router;
     const getPath =
         pathname === '/account/login' ||
