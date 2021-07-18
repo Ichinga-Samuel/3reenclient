@@ -1,7 +1,11 @@
 import UserLogin from '@/components/UserAccount/UserLogin';
 
 const Login = () => {
-    return <UserLogin />;
+    return (
+        <>
+            <UserLogin />
+        </>
+    );
 };
 
 export default Login;

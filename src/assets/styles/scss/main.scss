@@ -19,6 +19,7 @@
 @import './pages/cst';
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
 
 .pageTitle {
   text-align: center;
@@ -40,6 +41,6 @@
   padding: 5rem 0;
 }
 
-.form-group {
-
+.form-group2 {
+  margin-bottom: 1rem;
 }

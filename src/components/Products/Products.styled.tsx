@@ -32,12 +32,35 @@ export const ProductDisplayContainer = styled.div`
         background: var(--white-color);
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.09);
         width: 200px;
-        height: 150px;
+        height: auto;
         border-radius: 3px;
-        padding: 15px;
+        padding: 1.4rem 2rem;
         z-index: 2;
         top: 30px;
-        display: none;
+        transform: translateX(-10px);
+        visibility: hidden;
+        opacity: 0;
+        &.isActive {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
+        h3 {
+            display: flex;
+            justify-content: flex-start;
+            font-size: 1.9rem;
+            font-weight: bold;
+        }
+        .eachcat {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: ease all 0.5s;
+            &:hover {
+                transition: ease all 0.5s;
+                font-weight: bold;
+            }
+        }
     }
     .producthead {
         display: flex;

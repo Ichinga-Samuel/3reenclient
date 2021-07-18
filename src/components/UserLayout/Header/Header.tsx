@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { HeaderContainer } from '@/components/UserLayout/Header/Header.styled';
 import { CartIcon, LogoIcon } from '@/utils/Icons';
 import { Button } from 'antd';
 import { ArrowDropDown, PersonOutline } from '@material-ui/icons';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import {
     emptyLocalStorage,
     emptySessionStorage,
@@ -16,6 +17,7 @@ const Header = (props) => {
     const details = JSON.parse(userDetail);
     const [searching, setsearching] = useState(false);
     const [menuopen, setmenuopen] = useState(false);
+    const userRef = useRef(null);
 
     const router = useRouter();
     const cartPage = () => {
@@ -23,7 +25,7 @@ const Header = (props) => {
     };
 
     const gotoLogin = () => {
-        router.push('/login');
+        router.push('/account/login');
     };
 
     const returnHome = () => {
@@ -84,10 +86,18 @@ const Header = (props) => {
                             <div className="userprofile__name">
                                 <span>Hi, {details?.fullName?.split(' ')[0]}</span> <ArrowDropDown />
                             </div>
-                            <div className={`usermenu ${menuopen ? 'isOpen' : ''}`}>
+                            <div className={`usermenu ${menuopen ? 'isOpen' : ''}`} ref={userRef}>
                                 <ul>
-                                    <li>My Profile</li>
-                                    <li>My Orders</li>
+                                    <li>
+                                        <Link href="/profile">
+                                            <a>My Profile</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/profile">
+                                            <a>My Orders</a>
+                                        </Link>
+                                    </li>
                                     {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
                                     <li onClick={logoutUser} onKeyDown={logoutUser} className="logout">
                                         Logout

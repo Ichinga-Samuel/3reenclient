@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BestSellerContainer } from '@/components/UserLayout/UserWebLayout.styled';
-import { Row, Col, Button, notification, Spin } from 'antd';
+import { Row, Col, notification, Spin, Pagination } from 'antd';
 import BestProductCard from '@/components/WelcomePage/BestSeller/BestProductCard';
 import axios from 'axios';
 import { APP_BASE, PRODUCT } from '@/utils/ApiList';
@@ -205,7 +205,15 @@ const BestSectionProducts = () => {
                             {bestProduct?.map((product) => {
                                 return (
                                     <>
-                                        <Col key={product.id} xs={12} xl={6} lg={6}>
+                                        <Col
+                                            key={product.id}
+                                            xs={12}
+                                            xl={6}
+                                            lg={6}
+                                            data-aos="flip-right"
+                                            data-aos-delay="800"
+                                            data-aos-duration="800"
+                                        >
                                             <BestProductCard
                                                 productObject={product}
                                                 addToCart={addToCart}
@@ -228,7 +236,7 @@ const BestSectionProducts = () => {
             </div>
 
             <div className="loadmore">
-                <Button>Load More</Button>
+                <Pagination />
             </div>
         </BestSellerContainer>
     );

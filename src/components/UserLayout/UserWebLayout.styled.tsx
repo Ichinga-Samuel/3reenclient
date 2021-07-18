@@ -5,7 +5,8 @@ export const HomeBannerContainer = styled.div`
     transition: ease all 0.5s;
     height: 100vh;
     background-image: url('/img/banner.png');
-    background-position: 90% 10%;
+    //background-position: 90% 10%;
+    background-repeat: no-repeat;
     .welcome {
         position: relative;
         transition: ease all 0.5s;
@@ -55,7 +56,7 @@ export const HomeBannerContainer = styled.div`
 export const BannerProduct = styled.div`
     width: 50%;
     transition: ease all 0.5s;
-    margin: -10rem auto 2rem;
+    margin: -23rem auto 2rem;
     //background: var(--white-color);
     z-index: 2;
     position: absolute;

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 import WelcomePage from '@/components/WelcomePage';
+import AOS from 'aos';
 
 const HomePage: React.FC = () => {
+    useEffect(() => {
+        AOS.init({ duration: 600 });
+    }, []);
     return (
         <>
             <NextSeo

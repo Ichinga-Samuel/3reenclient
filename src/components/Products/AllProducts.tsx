@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 import { ProductDisplayContainer, ImageHeader } from './Products.styled';
 import { Menu } from '@material-ui/icons';
@@ -11,9 +11,12 @@ import { useRouter } from 'next/router';
 
 const AllProducts = () => {
     const [fetch, setfetch] = useState(false);
+    const [menuOpen, setmenuOpen] = useState(false);
     const [catProduct, setcatproduct] = useState([]);
+    const [allcategory, setallCategory] = useState([]);
     const [userCart, setUserCart] = useState([]);
     const [pages, setPages] = useState([]);
+    const refMenu = useRef(null);
     console.log('page', pages);
     const router = useRouter();
 
@@ -23,6 +26,8 @@ const AllProducts = () => {
             Authorization: `Bearer ${token}`,
         },
     };
+
+    const OpenCatMenu = () => setmenuOpen(!menuOpen);
 
     const fetchUserCart = async () => {
         try {
@@ -129,6 +134,20 @@ const AllProducts = () => {
     };
 
     useEffect(() => {
+        const catEffectClick = (e) => {
+            if (refMenu.current !== null && !refMenu.current.contains(e.target)) {
+                setmenuOpen(!menuOpen);
+            }
+        };
+        if (menuOpen) {
+            window.addEventListener('click', catEffectClick);
+        }
+        return () => {
+            window.removeEventListener('click', catEffectClick);
+        };
+    }, [menuOpen]);
+
+    useEffect(() => {
         const fetchBestProducts = async () => {
             setfetch(true);
             try {
@@ -160,15 +179,53 @@ const AllProducts = () => {
         fetchBestProducts();
     }, []);
 
+    useEffect(() => {
+        const fetchCategory = async () => {
+            setfetch(true);
+            try {
+                const response = await axios.get(`${APP_BASE}${PRODUCT.allCategory}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const { doc } = response?.data;
+                setallCategory(doc);
+                console.log('res', response.data);
+                setTimeout(() => {
+                    setfetch(false);
+                }, 1000);
+            } catch (err) {
+                console.log('error', err.response);
+                notification.error({
+                    message: 'Product Error',
+                    description: err?.response?.data?.message,
+                    duration: 15,
+                });
+                setTimeout(() => {
+                    setfetch(false);
+                }, 1000);
+            }
+        };
+        // return () => {};
+        fetchCategory();
+    }, []);
+
     return (
         <UserWebLayout webtitle="Shop All Products">
             <ImageHeader />
             <ProductDisplayContainer>
-                <div className="menuicon">
+                <div className="menuicon" onClick={OpenCatMenu} onKeyDown={OpenCatMenu} role="button" tabIndex={0}>
                     <Menu />
                 </div>
-                <div className="allcategories">
-                    <div>Accessories</div>
+                <div className={`allcategories ${menuOpen ? 'isActive' : ''}`} ref={refMenu}>
+                    <h3>Categories</h3>
+                    {allcategory?.map((cat) => {
+                        return (
+                            <div key={cat?._id} className="eachcat">
+                                {cat?.name}
+                            </div>
+                        );
+                    })}
                 </div>
 
                 {fetch ? (
@@ -196,7 +253,7 @@ const AllProducts = () => {
                                 {catProduct?.map((product, index) => {
                                     return (
                                         <>
-                                            <Col key={index} xs={12} xl={6} lg={6}>
+                                            <Col key={index} xs={12} xl={6} lg={6} data-aos="zoom-in-down">
                                                 <BestProductCard
                                                     key={index + 1}
                                                     productObject={product}

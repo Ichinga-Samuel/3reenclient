@@ -15,14 +15,20 @@ const WelcomePage = () => {
     return (
         <>
             <UserWebLayout webtitle="Welcome">
-                <HomeBannerContainer>
+                <HomeBannerContainer data-aos="zoom-in">
                     <Row gutter={24}>
                         <Col xs={24} xl={12} lg={12}>
-                            <div className="welcome">
+                            <div className="welcome" data-aos="fade-left" data-aos-delay="800">
                                 <h3>Delivering</h3>
                                 <h4>constant happiness</h4>
 
-                                <Button onClick={StartShop} className="btn-shop">
+                                <Button
+                                    data-aos="flip-down"
+                                    data-aos-delay="800"
+                                    data-aos-duration="500"
+                                    onClick={StartShop}
+                                    className="btn-shop"
+                                >
                                     Shop Now
                                 </Button>
                             </div>
@@ -34,10 +40,10 @@ const WelcomePage = () => {
                 <FeaturedProducts />
                 <BestSectionProducts />
                 <LowerBannerSection>
-                    <Row gutter={24}>
+                    <Row gutter={24} data-aos="zoom-in-right">
                         <Col xs={24} xl={12} lg={12}>
                             <div className="welcomelower">
-                                <h3>iPhone 6 Plus</h3>
+                                <h3>iPhone 13</h3>
                                 <h4>
                                     Performance and design. <br /> At its peak
                                 </h4>

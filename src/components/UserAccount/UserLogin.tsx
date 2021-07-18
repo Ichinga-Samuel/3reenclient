@@ -50,7 +50,7 @@ const UserLogin = () => {
     return (
         <UserWebLayout webtitle="Login">
             <BodyContainer>
-                <UserLoginContainer>
+                <UserLoginContainer data-aos="zoom-in">
                     <AuthHeader>CUSTOMER LOGIN</AuthHeader>
                     <div className="login">
                         {token === null ? (
@@ -80,7 +80,7 @@ const UserLogin = () => {
                                         {errors.password && <span className="error">Password is required</span>}
                                     </div>
                                     <div className="login__pwd">
-                                        <Link href="/forgot-password">Forgot Password?</Link>
+                                        <Link href="/account/forgot-password">Forgot Password?</Link>
                                     </div>
                                     <div className="form-group">
                                         <Button
@@ -89,7 +89,6 @@ const UserLogin = () => {
                                             type="primary"
                                             size="large"
                                             block
-                                            disabled={token !== null}
                                         >
                                             {loading ? 'Authenticating...' : 'Sign In'}
                                         </Button>
@@ -99,7 +98,7 @@ const UserLogin = () => {
                                         <p>Social Media Login</p>
                                     </div>
                                     <p className="login__regtext">
-                                        Don’t have an account? <Link href="/register">Register</Link>
+                                        Don’t have an account? <Link href="/account/register">Register</Link>
                                     </p>
                                 </form>
                             </>
