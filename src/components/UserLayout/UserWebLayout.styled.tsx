@@ -4,9 +4,11 @@ export const HomeBannerContainer = styled.div`
     position: relative;
     transition: ease all 0.5s;
     height: 100vh;
-    background-image: url('/img/banner.png');
+    //background-image: url('/img/banner.png');
+    background: url('/img/treenbg2.png') no-repeat center;
     //background-position: 90% 10%;
-    background-repeat: no-repeat;
+    background-size: cover;
+    //background: var(--secondary-color);
     .welcome {
         position: relative;
         transition: ease all 0.5s;
