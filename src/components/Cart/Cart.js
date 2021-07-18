@@ -20,6 +20,9 @@ export default function Cart({}) {
     };
 
     const fetchUserCart = async () => {
+        if (!token) {
+            return;
+        }
         try {
             const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
             const usersCart = data.cart;
@@ -35,6 +38,9 @@ export default function Cart({}) {
 
     useEffect(() => {
         const getUserCart = async () => {
+            if (!token) {
+                return;
+            }
             try {
                 const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
                 const usersCart = data.cart;
@@ -48,9 +54,6 @@ export default function Cart({}) {
             }
         };
         getUserCart();
-        // return () => {
-        //     cleanup
-        // }
     }, []);
 
     const addToCart = async (product, e) => {

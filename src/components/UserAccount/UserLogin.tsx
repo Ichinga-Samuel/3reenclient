@@ -8,16 +8,38 @@ import { USER, APP_BASE } from '@/utils/ApiList';
 import Link from 'next/link';
 import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
+import { LOGGER } from '@/utils/helpers';
 
 const UserLogin = () => {
     const [loading, setloading] = useState(false);
+    const [userCart, setUserCart] = useState([]);
     const router = useRouter();
-    const token = getFromLocalStorage('usertoken');
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
+    const token = getFromLocalStorage('usertoken');
+
+    const fetchUserCart = async (token) => {
+        try {
+            const { data } = await axios.get(`${APP_BASE}/cart/myCart`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const usersCart = data.cart;
+            setUserCart(usersCart);
+            LOGGER('cart', userCart);
+            localStorage.setItem('cartItems', JSON.stringify(usersCart));
+        } catch (err) {
+            notification.error({
+                message: 'Error',
+                description: err?.response?.data?.message,
+            });
+        }
+    };
 
     const performAdminLogin = async (details, e) => {
         setloading(true);
@@ -34,6 +56,9 @@ const UserLogin = () => {
                 addToLocalStorage('usertoken', response.data.token);
                 addToLocalStorage('userdetails', response.data.user);
                 setloading(true);
+                setTimeout(() => {
+                    fetchUserCart(response.data.token);
+                }, 1200);
                 router.push('/');
                 return;
             }
@@ -105,6 +130,7 @@ const UserLogin = () => {
                         ) : (
                             <>
                                 <p style={{ textAlign: 'center' }}>
+                                    Seems you are already logged in. <br />
                                     Missed road? <Link href="/">Go back home</Link>
                                 </p>
                             </>

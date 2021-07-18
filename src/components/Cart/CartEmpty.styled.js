@@ -36,14 +36,14 @@ export const CartEmptyStyled = styled.div`
 
     .emptycartWrapper > h5 {
         font-weight: 500;
-        font-size: 1.3rem;
+        font-size: 3rem;
     }
 
     button {
         margin-top: 3rem;
-        background: orange;
-        color: #fff;
-        padding: 0.7rem;
+        padding: 1.7rem 2rem;
+        display: flex;
+        align-items: center;
     }
 
     .cartEmpty {
@@ -55,11 +55,9 @@ export const CartEmptyStyled = styled.div`
             margin-top: 3rem;
             background: #fff;
             color: orange;
-            padding: 0.7rem;
             border: 1px solid orange;
             border-radius: 3rem;
-            padding-right: 1.5rem;
-            padding-left: 1.5rem;
+            padding: 0.7rem 1.5rem;
         }
     }
 `;
