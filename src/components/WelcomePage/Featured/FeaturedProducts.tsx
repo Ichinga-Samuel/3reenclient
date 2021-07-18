@@ -42,7 +42,7 @@ const FeaturedProducts = () => {
                 {FeaturedData?.map((product) => {
                     return (
                         <>
-                            <Col xs={12} xl={8} lg={8} key={product.id} data-aos="zoom-in-down">
+                            <Col xs={24} xl={8} lg={8} key={product.id} data-aos="zoom-in-down">
                                 <FeaturedCard featuredProduct={product} />
                             </Col>
                         </>

@@ -62,6 +62,14 @@ export const BannerProduct = styled.div`
     position: absolute;
     left: 0;
     right: 0;
+    @media (max-width: 768px) {
+        width: 90%;
+        margin: 1rem auto 2rem;
+        position: relative;
+        .ant-row {
+            row-gap: 20px !important;
+        }
+    }
     h4 {
         text-align: center;
         padding: 10px 0;
@@ -73,6 +81,9 @@ export const EmptyDiv = styled.div`
     height: 150px;
     position: relative;
     transition: ease all 0.5s;
+    @media (max-width: 768px) {
+        height: 10px;
+    }
 `;
 
 export const TBHolder = styled.div`
@@ -90,6 +101,10 @@ export const TBHolder = styled.div`
         object-fit: contain;
         width: 100%;
         //height: inherit;
+    }
+    @media (max-width: 768px) {
+        height: 120px;
+        padding: 0 0 0 7px;
     }
 `;
 
