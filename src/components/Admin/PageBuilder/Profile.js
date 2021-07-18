@@ -1,8 +1,8 @@
 import React from "react";
-import { MessageIcon } from "../icons/Icons";
-import Link from "next/dist/client/link";
+import { MessageIcon } from "../../Admin/icons/Icons";
+import {useRouter} from 'next/router'
+import Link from 'next/link'
 import Styled from "styled-components";
-
 const ProfileContainer = Styled.div`
 
 height:130px;
@@ -25,6 +25,26 @@ button{
   margin: 35px 0 0 20px
  
 }
+.msg-num{
+  padding: 4px;
+  clip-path: circle();
+  position: absolute;
+  top: 8px;
+  right:165px;
+  color:#fff;
+  transform: translate(-10px,-10px);
+  background: #EB5757;
+}
+.notify{
+  padding: 4px;
+  clip-path: circle();
+  position: absolute;
+  top: 8px;
+  right:120px;
+  color:#fff;
+  transform: translate(-10px,-10px);
+  background: #FFAF38;
+}
 .avatar{
   display:inline-flex;
   width:auto;
@@ -41,7 +61,11 @@ button{
     margin-right:10px;
     text-align:center;
     padding:8.5px;
-    
+    background: ${(props) =>
+      props.active ? "rgba(89, 10, 91, 0.5)" : "white"};
+      
+      box-shadow: ${(props) =>
+        props.active ? "0px 4px 4px rgba(0, 0, 0, 0.25)" : "none"};
   }
   .notificon{
     padding:7px;
@@ -76,30 +100,47 @@ button{
 }
 `;
 
-function Profile() {
+function Profile(props) {
+  const adminName = localStorage.getItem('name');
   return (
-    <ProfileContainer>
-     
+    <ProfileContainer active={props.active}>
+      {props.active ? (
+        <div className="backbtn">
+          <Link href="/">
+            <button>
+              <img src="../../img/back-arrow.png" alt="back" /> Back
+            </button>
+          </Link>
+        </div>
+      ) : null}
 
       <div className="avatar">
-        <Link href="/admin/login">
+        <Link href="/messages">
+          <a>
           <div className="messageicon">
+            {" "}
             <MessageIcon />
-          </div>
+            <p className='msg-num'>2</p>
+          </div>{" "}
+          </a>
         </Link>
-        <Link to="/admin/login">
+        <Link href="/">
+          <a>
           <div className="notificon">
-            <img
-              src=" /icon/notification.png"
+            <img 
+               src='/img/notify.png'
               alt="notifications"
               id="notification"
-            />
+            />{" "}
+            <p className='notify'>1</p>
           </div>
-        </Link>
+          </a>
+        </Link> 
         <div className="details">
-          <img src=" /icon/avatar-small.png" alt="avatar" id="avatar" />
+          {" "}
+          <img src='/img/User.png' alt="avatar" id="avatar" />
           <div>
-            <p>Jack Hanniel</p>
+            <p>{adminName}</p>
             <p>Admin</p>
           </div>
         </div>

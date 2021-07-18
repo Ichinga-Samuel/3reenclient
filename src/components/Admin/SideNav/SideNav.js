@@ -86,7 +86,7 @@ class SideNav extends Component {
             <StyledSideNav>
                 <SideBar>
                     <div style={flexContainer}>
-                        <div style={{ marginLeft: '30px' }}>
+                        <div style={{ marginLeft: '0px' }}>
                             <img src="../../img/3reen.png" alt="3reen"></img>
                         </div>
                         <Link href="/admin/dashboard">
@@ -95,43 +95,43 @@ class SideNav extends Component {
                                 <p className="word">Dashboard</p>
                             </div>
                         </Link>
-                        <Link href="admin/inventory">
+                        <Link href="/admin/inventory">
                             <div style={flexChild} className="link">
                                 <img src="../../img/inev.png" alt="Inevntory"></img>
                                 <p className="word">Inventory</p>
                             </div>
                         </Link>
-                        <Link href="admin/usermonitor">
+                        <Link href="/admin/usermonitoring">
                             <div style={flexChild} className="link">
                                 <img src="../../img/usermonitor.png" alt="User Monitor"></img>
                                 <p className="word">User Monitoring</p>
                             </div>
                         </Link>
-                        <Link href="admin/logistic">
+                        <Link href="/admin/logistic">
                             <div style={flexChild} className="link">
                                 <img className="logi-img" src="../../img/logi.png" alt="Logi"></img>
                                 <p className="word">Logistic Companies</p>
                             </div>
                         </Link>
-                        <Link href="admin/audit">
+                        <Link href="/admin/audit">
                             <div style={flexChild} className="link">
                                 <img src="../../img/audit.png" alt="Audit"></img>
                                 <p className="word">Audit</p>
                             </div>
                         </Link>
-                        <Link href="admin/orderDisplay">
+                        <Link href="/admin/orderDisplay">
                             <div style={flexChild} className="link">
                                 <img className="" src="../../img/Order Display (4).png" alt="Order"></img>
                                 <p className="word">Order Display</p>
                             </div>
                         </Link>
-                        <Link href="admin/salesRep">
+                        <Link href="/admin/salesRep">
                             <div style={flexChild} className="link">
                                 <img className="" src="../../img/sr.png" alt="Sr"></img>
                                 <p className="word">SR Monitor</p>
                             </div>
                         </Link>
-                        <Link href="admin/customer">
+                        <Link href="/admin/customer">
                             <div style={flexChild} className="link">
                                 <img className="customer-img" src="../../img/customer.png" alt="Customer"></img>
                                 <p className="word">Customer Service</p>

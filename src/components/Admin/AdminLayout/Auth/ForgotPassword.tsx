@@ -47,7 +47,7 @@ const ForgotPassword = () => {
         const fakeResp = 'ee33e5ee2a5c74950df13';
         setloading(true);
         setTimeout(() => {
-            router.push(`/vendor/reset-token?${encodeURIComponent(fakeResp)}`);
+            router.push(`/admin/reset-token?${encodeURIComponent(fakeResp)}`);
         }, 500);
     };
 
