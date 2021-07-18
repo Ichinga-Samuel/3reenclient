@@ -1,6 +1,11 @@
 //baseURL
 export const APP_BASE = process.env.APP_BASE_URL;
 
+export const PRODUCT = {
+    allProducts: '/products',
+    singleProduct: (id: string) => `/product/${id}`,
+};
+
 // User & Vendor Endpoint
 export const userPrefix = '/users';
 

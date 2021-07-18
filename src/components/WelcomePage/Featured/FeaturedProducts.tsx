@@ -7,7 +7,7 @@ const FeaturedProducts = () => {
     const FeaturedData = [
         {
             id: 1,
-            price: 599,
+            price: 600,
             discount: 499,
             name: 'Beats Solo 2 Ear',
             type: 'Headphones - Black',
@@ -16,8 +16,8 @@ const FeaturedProducts = () => {
         },
         {
             id: 2,
-            price: 599,
-            discount: 499,
+            price: 759,
+            discount: 599,
             name: 'H-Squared tvTray',
             type: '',
             img: '/img/tvTray3x.png',
@@ -25,8 +25,8 @@ const FeaturedProducts = () => {
         },
         {
             id: 3,
-            price: 599,
-            discount: 499,
+            price: 499,
+            discount: 399,
             name: 'Rain gauge',
             type: '',
             img: '/img/gauge3x.png',

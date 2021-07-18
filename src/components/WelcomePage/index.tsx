@@ -36,14 +36,19 @@ const WelcomePage = () => {
                 <LowerBannerSection>
                     <Row gutter={24}>
                         <Col xs={24} xl={12} lg={12}>
-                            <div className="welcome">
+                            <div className="welcomelower">
                                 <h3>iPhone 6 Plus</h3>
-                                <h4>Performance and design. At its peak</h4>
+                                <h4>
+                                    Performance and design. <br /> At its peak
+                                </h4>
 
                                 <Button onClick={StartShop} className="btn-shop">
                                     Shop Now
                                 </Button>
                             </div>
+                        </Col>
+                        <Col xs={24} xl={12} lg={12}>
+                            <div className="lowerbanner" />
                         </Col>
                     </Row>
                 </LowerBannerSection>

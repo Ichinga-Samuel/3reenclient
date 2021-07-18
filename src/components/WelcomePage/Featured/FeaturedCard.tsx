@@ -5,23 +5,8 @@ import BeautyStars from 'beauty-stars';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 
 const FeaturedCard = ({ featuredProduct }) => {
-    console.log('tpp', featuredProduct);
     return (
         <FeaturedCardHolder>
-            {/*<div className="image" style={{ marginRight: '30px' }}>*/}
-            {/*    <img src={featuredProduct.img} alt={featuredProduct.name + featuredProduct.type} />*/}
-            {/*</div>*/}
-            {/*<div className="FeaturedProductsItemsDescription">*/}
-            {/*    <h4>*/}
-            {/*        {featuredProduct.name}*/}
-            {/*        <br />*/}
-            {/*        {featuredProduct.type}*/}
-            {/*    </h4>*/}
-            {/*    <img src="/img/rating.png" width="150px" height="30px" alt="Rating for Beats solo" />*/}
-            {/*    <p>*/}
-            {/*        <span>${featuredProduct.discount}</span> ${featuredProduct.price}*/}
-            {/*    </p>*/}
-            {/*</div>*/}
             <Row gutter={10}>
                 <Col xs={8} xl={8} lg={8}>
                     <div className="image">
@@ -43,13 +28,13 @@ const FeaturedCard = ({ featuredProduct }) => {
                             <Col>
                                 <span className="discount">
                                     {CURRENCY}
-                                    {formatAmount(499)}
+                                    {formatAmount(featuredProduct.discount)}
                                 </span>
                             </Col>
                             <Col>
                                 <span className="price">
                                     {CURRENCY}
-                                    {formatAmount(899)}
+                                    {formatAmount(featuredProduct.price)}
                                 </span>
                             </Col>
                         </Row>
