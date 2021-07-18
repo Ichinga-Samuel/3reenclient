@@ -47,7 +47,6 @@ const AllRegisteredUsers = () => {
                 const { doc, result } = response.data;
                 setuserList(doc);
                 setTotal(result);
-                console.log('users', doc);
                 setTimeout(() => {
                     setFetching(false);
                 }, 500);

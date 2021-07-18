@@ -36,7 +36,6 @@ const AdminRegister = () => {
         await axios
             .post(`${APP_BASE}${USER.onlyUser}`, data)
             .then((response) => {
-                console.log('login response', response);
                 const { data } = response;
                 if (data.status === 'success') {
                     addToLocalStorage('qatoken', response.data.token);
@@ -52,7 +51,6 @@ const AdminRegister = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     message: 'Error',

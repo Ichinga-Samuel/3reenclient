@@ -70,7 +70,6 @@ const CSTMessages = () => {
             });
             return;
         }
-        console.log(msgData);
         try {
             setloading(true);
             const config = {
@@ -79,7 +78,6 @@ const CSTMessages = () => {
                 },
             };
             const res = await axios.post(`${APP_BASE}${MESSAGES.sendMessage(loggedUser._id)}`, msgData, config);
-            console.log(res.data);
             if (res) {
                 setMsg({
                     messageBody: '',
@@ -94,7 +92,6 @@ const CSTMessages = () => {
             }
         } catch (error) {
             setloading(false);
-            console.log('error', error.response);
             const { data } = error.response;
             notification.error({
                 key: 'error',

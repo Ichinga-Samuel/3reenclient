@@ -8,6 +8,7 @@ import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import axios from 'axios';
 import { APP_BASE, PRODUCT } from '@/utils/ApiList';
 import { useRouter } from 'next/router';
+import { LOGGER } from '@/utils/helpers';
 
 const AllProducts = () => {
     const [fetch, setfetch] = useState(false);
@@ -17,7 +18,7 @@ const AllProducts = () => {
     const [userCart, setUserCart] = useState([]);
     const [pages, setPages] = useState([]);
     const refMenu = useRef(null);
-    console.log('page', pages);
+    LOGGER('page', pages);
     const router = useRouter();
 
     const token = getFromLocalStorage('usertoken');
@@ -55,7 +56,7 @@ const AllProducts = () => {
                 //increment count and update user cart endpoint
                 const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
                 // const { data } = resp;
-                console.log(resp, 'cart rsponse');
+                LOGGER('cart rsponse', resp);
                 item.count++;
                 inCart = true;
             }
@@ -67,7 +68,7 @@ const AllProducts = () => {
             try {
                 const { data } = await axios.post(`${APP_BASE}/cart/${productId}`, { productId }, config);
                 //add to usercart duplicate array
-                console.log('cart', data);
+                LOGGER('cart', data);
                 cartItems.push({ ...product, count: 1 });
                 notification.success({
                     message: 'Success',
@@ -106,12 +107,12 @@ const AllProducts = () => {
             const { doc, pages } = response?.data;
             setPages(pages);
             setcatproduct(doc);
-            console.log('res', response.data);
+            LOGGER('res', response.data);
             setTimeout(() => {
                 setfetch(false);
             }, 1000);
         } catch (err) {
-            console.log('error', err.response);
+            LOGGER('error', err.response);
             notification.error({
                 message: 'Product Error',
                 description: err?.response?.data?.message,
@@ -124,9 +125,7 @@ const AllProducts = () => {
     };
 
     const getProductDetails = (record) => {
-        console.log('record', record);
         const slug = record.name.replace(' ', '-') + '-' + record._id;
-        console.log('slug-rul', slug);
         router.push({
             pathname: '/products/[details]',
             query: { details: slug },
@@ -159,12 +158,10 @@ const AllProducts = () => {
                 const { doc, pages } = response?.data;
                 setPages(pages);
                 setcatproduct(doc);
-                console.log('res', response.data);
                 setTimeout(() => {
                     setfetch(false);
                 }, 1000);
             } catch (err) {
-                console.log('error', err.response);
                 notification.error({
                     message: 'Product Error',
                     description: err?.response?.data?.message,
@@ -190,12 +187,10 @@ const AllProducts = () => {
                 });
                 const { doc } = response?.data;
                 setallCategory(doc);
-                console.log('res', response.data);
                 setTimeout(() => {
                     setfetch(false);
                 }, 1000);
             } catch (err) {
-                console.log('error', err.response);
                 notification.error({
                     message: 'Product Error',
                     description: err?.response?.data?.message,

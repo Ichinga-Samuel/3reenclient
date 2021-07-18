@@ -38,7 +38,6 @@ const Reviews = () => {
                     }
                 })
                 .catch((err) => {
-                    console.log('login err', err.response);
                     setFetching(false);
                     // setorders([]);
                     notification.error({

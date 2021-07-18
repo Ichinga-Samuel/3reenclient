@@ -33,7 +33,6 @@ const ForgotPassword = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     key: 'error',
@@ -64,16 +63,14 @@ const ForgotPassword = () => {
                 />
             ) : (
                 <div className="authcontainer">
-                    <div className='logoicon'>
-                     
-                         <LogoIcon/>
-                     
+                    <div className="logoicon">
+                        <LogoIcon />
                     </div>
-                    
+
                     <div className="reset_newpass">
                         <h2>RESET PASSWORD</h2>
                         <h3>Please enter your registered email adress or phone number</h3>
-                        <form onSubmit={handleSubmit(resetPassword)}> 
+                        <form onSubmit={handleSubmit(resetPassword)}>
                             <Row>
                                 <Col span={24}>
                                     <div className="form-group">
@@ -84,14 +81,12 @@ const ForgotPassword = () => {
                                                 required: true,
                                                 pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
                                             })}
-                                          
                                         />
                                         <span className="error">
-                                         {errors.email && <span className="error">Enter a valid email address</span>}
+                                            {errors.email && <span className="error">Enter a valid email address</span>}
                                         </span>
                                     </div>
                                 </Col>
-                                
                             </Row>
                         </form>
 
@@ -104,14 +99,13 @@ const ForgotPassword = () => {
                                         type="primary"
                                         onClick={handleSubmit(resetPassword)}
                                     >
-                                         SEND CODE
+                                        SEND CODE
                                     </Button>
                                 </Col>
                             </Row>
                         </div>
                     </div>
                 </div>
-
             )}
         </>
     );
