@@ -12,8 +12,7 @@ import {
 } from '@/utils/browserStorage';
 
 const Header = (props) => {
-    const { token, userDetail, cartItems } = props;
-    console.log('token', userDetail);
+    const { token, userDetail, cartCount } = props;
     const details = JSON.parse(userDetail);
     const [searching, setsearching] = useState(false);
     const [menuopen, setmenuopen] = useState(false);
@@ -67,7 +66,7 @@ const Header = (props) => {
             <div className="nav">
                 <div className="cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                     <div className="cart__count">
-                        <span>{cartItems?.length}</span>
+                        <span>{cartCount}</span>
                     </div>
                     <CartIcon />
                     Cart
@@ -81,7 +80,7 @@ const Header = (props) => {
                             role="button"
                             tabIndex={0}
                         >
-                            <div className="userprofile__avatar">J</div>
+                            <div className="userprofile__avatar">{details?.fullName?.split(' ')[0][0]}</div>
                             <div className="userprofile__name">
                                 <span>Hi, {details?.fullName?.split(' ')[0]}</span> <ArrowDropDown />
                             </div>

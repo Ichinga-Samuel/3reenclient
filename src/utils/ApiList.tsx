@@ -3,7 +3,7 @@ export const APP_BASE = process.env.APP_BASE_URL;
 
 export const PRODUCT = {
     allProducts: '/products',
-    singleProduct: (id: string) => `/product/${id}`,
+    singleProduct: (id: string) => `/products/${id}`,
 };
 
 // User & Vendor Endpoint

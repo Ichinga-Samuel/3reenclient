@@ -39,10 +39,10 @@ const FeaturedProducts = () => {
                 <h3 className="pageTitle">Featured Products</h3>
             </div>
             <Row gutter={58}>
-                {FeaturedData?.map((product, index) => {
+                {FeaturedData?.map((product) => {
                     return (
                         <>
-                            <Col xs={12} xl={8} lg={8} key={index}>
+                            <Col xs={12} xl={8} lg={8} key={product.id}>
                                 <FeaturedCard featuredProduct={product} />
                             </Col>
                         </>

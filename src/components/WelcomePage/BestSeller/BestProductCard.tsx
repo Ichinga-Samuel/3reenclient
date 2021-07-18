@@ -5,9 +5,10 @@ import { Col, Row } from 'antd';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import { AddShoppingCart, FavoriteBorder } from '@material-ui/icons';
 
-const BestProductCard = ({ productObject, addToCart }) => {
+const BestProductCard = (props) => {
+    const { productObject, addToCart, getProductDetails } = props;
     return (
-        <BestProductHolder>
+        <BestProductHolder onClick={() => getProductDetails(productObject)}>
             <div className="image">
                 <img
                     src={productObject.images[0] !== undefined ? productObject.images[0] : `img/mackbook3x.png`}

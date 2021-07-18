@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { CartContainerStyled } from './CartContainer.styled';
+import { CURRENCY, formatAmount } from '@/utils/helpers';
 
-export default function CartContainer({ usersCart, addToCart, removeFromCart, delFromCart, validMsg }) {
+export default function CartContainer({ usersCart, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
     return (
         <CartContainerStyled>
@@ -17,51 +18,55 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                             <p>Unit Price</p>
                             <p>Sub Total</p>
                         </div>
-                        {usersCart?.length ? (
-                            usersCart.map((product) => (
-                                <div className="cart-item" key={product.productId}>
-                                    <form action="">
-                                        <div className="cart-productSystem">
-                                            <div className="cart-image">
-                                                <img src={product.product.images} alt="crt" />
-                                            </div>
-                                            <div className="cart-product-info">
-                                                <p className="cart-product-name">{product.product.name}</p>
+                        {usersCart?.map((product) => (
+                            <div className="cart-item" key={product.productId}>
+                                <form action="">
+                                    <div className="cart-productSystem">
+                                        <div className="cart-image">
+                                            <img src={product.product.images} alt="crt" />
+                                        </div>
+                                        <div className="cart-product-info">
+                                            <p className="cart-product-name">{product.product.name}</p>
 
-                                                <div className="actionDelete" onClick={() => delFromCart()}>
-                                                    <div className="deleteIcon">
-                                                        <img
-                                                            src="icons/delete.png"
-                                                            className="deletebutton"
-                                                            alt="cart"
-                                                        />
-                                                    </div>
-                                                    <p>Remove</p>
+                                            <div
+                                                className="actionDelete"
+                                                onClick={() => delFromCart(product)}
+                                                onKeyDown={() => delFromCart(product)}
+                                                role="button"
+                                                tabIndex={0}
+                                            >
+                                                <div className="deleteIcon">
+                                                    <img src="icons/delete.png" className="deletebutton" alt="cart" />
                                                 </div>
+                                                <p>Remove</p>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div className="cart-quantity-md">
-                                            <div className="cart-quantity-controls">
-                                                <button onClick={() => removeFromCart(product)}>-</button>
-                                                <input type="number" value={product.count} readOnly />
-                                                <button onClick={(e) => addToCart(product, e)}>+</button>
-                                            </div>
+                                    <div className="cart-quantity-md">
+                                        <div className="cart-quantity-controls">
+                                            <button onClick={(e) => removeFromCart(product, e)}>-</button>
+                                            <input type="number" value={product.quantity} readOnly />
+                                            <button onClick={(e) => addToCart(product, e)}>+</button>
                                         </div>
+                                    </div>
 
-                                        <div className="cart-unit-price">
-                                            <h4>{product.product.price}</h4>
-                                        </div>
+                                    <div className="cart-unit-price">
+                                        <h4>
+                                            {CURRENCY}
+                                            {formatAmount(product.product.price)}
+                                        </h4>
+                                    </div>
 
-                                        <div className="cart-product-total">
-                                            <h4>{product.product.price * product.count}</h4>
-                                        </div>
-                                    </form>
-                                </div>
-                            ))
-                        ) : (
-                            <div>{validMsg}</div>
-                        )}
+                                    <div className="cart-product-total">
+                                        <h4>
+                                            {CURRENCY}
+                                            {formatAmount(product.product.price * product.quantity)}
+                                        </h4>
+                                    </div>
+                                </form>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
@@ -70,12 +75,18 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                         <div className="actionPrice">
                             <div className="cart-total">
                                 <p>Shipping Fee:</p>
-                                <p>$1,200</p>
+                                <p>
+                                    {CURRENCY}
+                                    {formatAmount(0)}
+                                </p>
                             </div>
 
                             <div className="cart-total">
                                 <p>Total:</p>
-                                <p>N{totalPrice}</p>
+                                <p>
+                                    {CURRENCY}
+                                    {formatAmount(totalPrice)}
+                                </p>
                             </div>
                         </div>
                     )}
@@ -93,50 +104,46 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
 
             {/***********************Cart Mobile Display ************************/}
             <div className="cartMobile">
-                {usersCart.length ? (
-                    usersCart.map((product) => (
-                        <div key={product.productId}>
-                            <div className="cartMobileWrapper">
-                                <div className="mobileImage">
-                                    <img src={product.product.images} className="sm-cartImage" alt="product" />
-                                </div>
+                {usersCart?.map((product) => (
+                    <div key={product.productId}>
+                        <div className="cartMobileWrapper">
+                            <div className="mobileImage">
+                                <img src={product.product.images} className="sm-cartImage" alt="product" />
+                            </div>
 
-                                <div className="cartmobileDetail">
-                                    <div className="detail">
-                                        <div className="sectionOne">
-                                            <div className="sectionOneDetails">
-                                                <h5 className="productname">{product.product.name}</h5>
-                                            </div>
-                                            <div className="sectionOneCat">
-                                                <p className="cat">Vendor</p>
-                                                <p className="reducedPrice">N700</p>
-                                            </div>
+                            <div className="cartmobileDetail">
+                                <div className="detail">
+                                    <div className="sectionOne">
+                                        <div className="sectionOneDetails">
+                                            <h5 className="productname">{product.product.name}</h5>
                                         </div>
-                                        <div className="sectionTwo">
-                                            <img src="img/MobileDelete.png" alt="ing" />
+                                        <div className="sectionOneCat">
+                                            <p className="cat">Vendor</p>
+                                            <p className="reducedPrice">N700</p>
                                         </div>
                                     </div>
+                                    <div className="sectionTwo">
+                                        <img src="img/MobileDelete.png" alt="ing" />
+                                    </div>
+                                </div>
 
-                                    <div className="downPart">
-                                        <div className="amount">
-                                            <h4 className="normalPrice">{product.product.price}</h4>
-                                        </div>
+                                <div className="downPart">
+                                    <div className="amount">
+                                        <h4 className="normalPrice">{product.product.price}</h4>
+                                    </div>
 
-                                        <div className="cartSelect">
-                                            <button onClick={() => removeFromCart(product)}>-</button>
-                                            <input type="number" value={product.count} readOnly />
-                                            <button onClick={() => addToCart(product)}>+</button>
-                                        </div>
+                                    <div className="cartSelect">
+                                        <button onClick={() => removeFromCart(product)}>-</button>
+                                        <input type="number" value={product.count} readOnly />
+                                        <button onClick={() => addToCart(product)}>+</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    ))
-                ) : (
-                    <div>{validMsg}</div>
-                )}
+                    </div>
+                ))}
 
-                {usersCart.length && (
+                {usersCart?.length && (
                     <div>
                         <div className="Total">
                             <h4>Total</h4>

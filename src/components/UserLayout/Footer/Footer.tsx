@@ -14,15 +14,15 @@ const Footer = () => {
                         <div className="foothead">Contact</div>
                         <FooterList>
                             <li>
-                                <Link href="/">
+                                <Link href="tel:+23490808332938">
                                     <a>
-                                        <img src="img/contact.png" alt="contact" />
+                                        <img src="/img/contact.png" alt="contact" />
                                         +234 (0) 908 0833 2938
                                     </a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="mailto:helpdesk@3treen.com">
                                     <a>
                                         <Mail />
                                         helpdesk@3treen.com
@@ -50,7 +50,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/myacount">
+                                <Link href="/profile">
                                     <a>My Account</a>
                                 </Link>
                             </li>
@@ -59,7 +59,7 @@ const Footer = () => {
                     <Col xs={24} xl={6} lg={6}>
                         <div className="foothead">Payment Method</div>
                         <div>
-                            <img src="img/flutterwave-logo-1.png" className="footerPayment" alt="contact" />
+                            <img src="/img/flutterwave-logo-1.png" className="footerPayment" alt="contact" />
                         </div>
                     </Col>
                     <Col xs={24} xl={6} lg={6}>
@@ -70,7 +70,7 @@ const Footer = () => {
                                     <a>
                                         <img
                                             style={{ width: '15px' }}
-                                            src="icons/facebook.svg"
+                                            src="/icons/facebook.svg"
                                             className="icon"
                                             alt="social"
                                         />

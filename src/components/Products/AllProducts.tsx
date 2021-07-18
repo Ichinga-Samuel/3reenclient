@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { BestSellerContainer } from '@/components/UserLayout/UserWebLayout.styled';
-import { Row, Col, Button, notification, Spin } from 'antd';
+import UserWebLayout from '@/components/UserLayout/UserWebLayout';
+import { ProductDisplayContainer, ImageHeader } from './Products.styled';
+import { Menu } from '@material-ui/icons';
+import { Row, Col, notification, Spin } from 'antd';
 import BestProductCard from '@/components/WelcomePage/BestSeller/BestProductCard';
+import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import axios from 'axios';
 import { APP_BASE, PRODUCT } from '@/utils/ApiList';
-import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
 
-const BestSectionProducts = () => {
-    const [loading, setloading] = useState(false);
-    const [bestProduct, setbestProduct] = useState([]);
+const AllProducts = () => {
+    const [fetch, setfetch] = useState(false);
+    const [catProduct, setcatproduct] = useState([]);
     const [userCart, setUserCart] = useState([]);
     const [pages, setPages] = useState([]);
     console.log('page', pages);
@@ -20,6 +22,20 @@ const BestSectionProducts = () => {
         headers: {
             Authorization: `Bearer ${token}`,
         },
+    };
+
+    const fetchUserCart = async () => {
+        try {
+            const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
+            const usersCart = data.cart;
+            setUserCart(usersCart);
+            localStorage.setItem('cartItems', JSON.stringify(usersCart));
+        } catch (err) {
+            notification.error({
+                message: 'Error',
+                description: err?.response?.data?.message,
+            });
+        }
     };
 
     const addToCart = async (product) => {
@@ -53,6 +69,7 @@ const BestSectionProducts = () => {
                     description: 'Item Added to Cart',
                     duration: 10,
                 });
+                fetchUserCart();
             } catch (err) {
                 notification.error({
                     message: 'Error',
@@ -68,7 +85,7 @@ const BestSectionProducts = () => {
     };
 
     const getProductByCat = async (cat) => {
-        setloading(true);
+        setfetch(true);
         let url = '';
         if (cat === 'all') {
             url = `${APP_BASE}${PRODUCT.allProducts}`;
@@ -83,10 +100,10 @@ const BestSectionProducts = () => {
             });
             const { doc, pages } = response?.data;
             setPages(pages);
-            setbestProduct(doc);
+            setcatproduct(doc);
             console.log('res', response.data);
             setTimeout(() => {
-                setloading(false);
+                setfetch(false);
             }, 1000);
         } catch (err) {
             console.log('error', err.response);
@@ -96,7 +113,7 @@ const BestSectionProducts = () => {
                 duration: 15,
             });
             setTimeout(() => {
-                setloading(false);
+                setfetch(false);
             }, 1000);
         }
     };
@@ -113,7 +130,7 @@ const BestSectionProducts = () => {
 
     useEffect(() => {
         const fetchBestProducts = async () => {
-            setloading(true);
+            setfetch(true);
             try {
                 const response = await axios.get(`${APP_BASE}${PRODUCT.allProducts}`, {
                     headers: {
@@ -122,10 +139,10 @@ const BestSectionProducts = () => {
                 });
                 const { doc, pages } = response?.data;
                 setPages(pages);
-                setbestProduct(doc);
+                setcatproduct(doc);
                 console.log('res', response.data);
                 setTimeout(() => {
-                    setloading(false);
+                    setfetch(false);
                 }, 1000);
             } catch (err) {
                 console.log('error', err.response);
@@ -135,7 +152,7 @@ const BestSectionProducts = () => {
                     duration: 15,
                 });
                 setTimeout(() => {
-                    setloading(false);
+                    setfetch(false);
                 }, 1000);
             }
         };
@@ -144,94 +161,59 @@ const BestSectionProducts = () => {
     }, []);
 
     return (
-        <BestSellerContainer>
-            <h3 className="pageTitle">Best Seller</h3>
-            <div className="bestCat">
-                <div
-                    onClick={() => getProductByCat('all')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                    className="active"
-                >
-                    All
+        <UserWebLayout webtitle="Shop All Products">
+            <ImageHeader />
+            <ProductDisplayContainer>
+                <div className="menuicon">
+                    <Menu />
                 </div>
-                <div
-                    onClick={() => getProductByCat('mac')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    Mac
+                <div className="allcategories">
+                    <div>Accessories</div>
                 </div>
-                <div
-                    onClick={() => getProductByCat('iphone')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    iPhone
-                </div>
-                <div
-                    onClick={() => getProductByCat('ipad')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    iPad
-                </div>
-                <div
-                    onClick={() => getProductByCat('ipod')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    iPod
-                </div>
-                <div
-                    onClick={() => getProductByCat('accessories')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    Accessories
-                </div>
-            </div>
 
-            <div className="bestproducts">
-                {!loading ? (
-                    <>
-                        <Row gutter={28}>
-                            {bestProduct?.map((product) => {
-                                return (
-                                    <>
-                                        <Col key={product.id} xs={12} xl={6} lg={6}>
-                                            <BestProductCard
-                                                productObject={product}
-                                                addToCart={addToCart}
-                                                getProductDetails={getProductDetails}
-                                            />
-                                        </Col>
-                                    </>
-                                );
-                            })}
-                        </Row>
-                    </>
-                ) : (
+                {fetch ? (
                     <>
                         <div className="fetchingloading">
                             <Spin />
                             <small>Fetching Products...</small>
                         </div>
                     </>
+                ) : (
+                    <>
+                        <div className="sectionholder">
+                            <div className="producthead">
+                                <div>Top Deals</div>
+                                <div
+                                    onClick={() => getProductByCat('all')}
+                                    onKeyDown={() => getProductByCat('all')}
+                                    role="button"
+                                    tabIndex={0}
+                                >
+                                    View all
+                                </div>
+                            </div>
+                            <Row gutter={24}>
+                                {catProduct?.map((product, index) => {
+                                    return (
+                                        <>
+                                            <Col key={index} xs={12} xl={6} lg={6}>
+                                                <BestProductCard
+                                                    key={index + 1}
+                                                    productObject={product}
+                                                    addToCart={addToCart}
+                                                    getProductDetails={getProductDetails}
+                                                />
+                                            </Col>
+                                        </>
+                                    );
+                                })}
+                            </Row>
+                        </div>
+                    </>
                 )}
-            </div>
-
-            <div className="loadmore">
-                <Button>Load More</Button>
-            </div>
-        </BestSellerContainer>
+            </ProductDisplayContainer>
+        </UserWebLayout>
     );
 };
 
-export default BestSectionProducts;
+export default AllProducts;

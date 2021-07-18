@@ -290,7 +290,7 @@ export const BestProductHolder = styled.div`
                     fill: var(--white-color);
                 }
                 &:hover {
-                    background: var(--white-color);
+                    //background: var(--white-color);
                     svg {
                         fill: var(--background-color);
                     }
