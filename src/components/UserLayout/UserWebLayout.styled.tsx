@@ -58,7 +58,7 @@ export const HomeBannerContainer = styled.div`
 export const BannerProduct = styled.div`
     width: 50%;
     transition: ease all 0.5s;
-    margin: -23rem auto 2rem;
+    margin: -11rem auto 2rem;
     //background: var(--white-color);
     z-index: 2;
     position: absolute;
