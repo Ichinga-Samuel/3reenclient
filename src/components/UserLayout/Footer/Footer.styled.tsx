@@ -5,7 +5,7 @@ export const FooterContainer = styled.footer`
     transition: ease all 0.5s;
     height: 100%;
     background: var(--white-color);
-    margin-top: 20px;
+    margin-top: 4rem;
     padding: 3rem 5rem 0;
     .upperfooter {
         position: relative;

@@ -1,5 +1,4 @@
 import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
 import Card from '@/components/Products/CardsLayout';
 
 import { Page, ImageHeader } from '@/components/Products/CardsLayout.styled';
@@ -10,7 +9,6 @@ function products() {
             <Header />
             <ImageHeader />
             <Card />
-            <Footer />
         </Page>
     );
 }

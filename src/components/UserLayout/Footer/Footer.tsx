@@ -35,22 +35,22 @@ const Footer = () => {
                         <div className="foothead">Sitemap</div>
                         <FooterList>
                             <li>
-                                <Link href="/">
+                                <Link href="/vendor">
                                     <a>Online Store</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/vendor">
                                     <a>Sell on 3reen</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/about-us">
                                     <a>About Us</a>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/">
+                                <Link href="/myacount">
                                     <a>My Account</a>
                                 </Link>
                             </li>

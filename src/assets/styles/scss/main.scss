@@ -4,7 +4,7 @@
 @import 'antd/dist/antd.css';
 @import "variables";
 @import "global";
-@import 'custom';
+//@import 'custom';
 @import "./pages/login";
 @import "./pages/register";
 @import "./pages/vendorProduct.scss";
@@ -17,3 +17,11 @@
 @import "./pages/admin";
 @import "aos/dist/aos.css";
 @import './pages/cst';
+
+.pageTitle {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Made Tommy', sans-serif;
+  color: var(--black-color);
+  font-size: 2.5rem;
+}

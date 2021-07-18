@@ -1,8 +1,11 @@
 import React from 'react';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
-import { HomeBannerContainer } from '@/components/UserLayout/UserWebLayout.styled';
+import { EmptyDiv, HomeBannerContainer, LowerBannerSection } from '@/components/UserLayout/UserWebLayout.styled';
 import { Row, Col, Button } from 'antd';
 import { useRouter } from 'next/router';
+import TopBannerProductHolder from '@/components/WelcomePage/TopBannerProductHolder';
+import FeaturedProducts from '@/components/WelcomePage/Featured/FeaturedProducts';
+import BestSectionProducts from '@/components/WelcomePage/BestSeller/BestSectionProducts';
 
 const WelcomePage = () => {
     const router = useRouter();
@@ -26,6 +29,24 @@ const WelcomePage = () => {
                         </Col>
                     </Row>
                 </HomeBannerContainer>
+                <TopBannerProductHolder />
+                <EmptyDiv />
+                <FeaturedProducts />
+                <BestSectionProducts />
+                <LowerBannerSection>
+                    <Row gutter={24}>
+                        <Col xs={24} xl={12} lg={12}>
+                            <div className="welcome">
+                                <h3>iPhone 6 Plus</h3>
+                                <h4>Performance and design. At its peak</h4>
+
+                                <Button onClick={StartShop} className="btn-shop">
+                                    Shop Now
+                                </Button>
+                            </div>
+                        </Col>
+                    </Row>
+                </LowerBannerSection>
             </UserWebLayout>
         </>
     );

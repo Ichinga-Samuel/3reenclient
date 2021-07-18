@@ -14,7 +14,6 @@ const FeaturedProducts = () => {
                 img: '/img/headphone3x.png',
             },
         },
-
         {
             product2: {
                 id: 2,
@@ -25,7 +24,6 @@ const FeaturedProducts = () => {
                 img: '/img/tvTray3x.png',
             },
         },
-
         {
             product3: {
                 id: 3,

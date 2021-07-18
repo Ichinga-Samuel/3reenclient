@@ -46,6 +46,8 @@ export const HeaderContainer = styled.header`
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--background-color);
+            display: flex;
+            align-items: center;
             svg {
                 padding: 4px;
             }
@@ -111,6 +113,7 @@ export const HeaderContainer = styled.header`
         opacity: 0;
         transform: translateY(0);
         visibility: hidden;
+        z-index: 2;
         &.isOpen {
             transition: ease all 0.5s;
             opacity: 1;
