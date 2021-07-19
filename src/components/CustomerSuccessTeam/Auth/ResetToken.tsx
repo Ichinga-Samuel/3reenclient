@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { APP_BASE, USER } from '@/utils/ApiList';
 import axios from 'axios';
+import { LOGGER } from '@/utils/helpers';
 
 const ResetToken = () => {
     const [loading, setloading] = useState(false);
@@ -17,7 +18,7 @@ const ResetToken = () => {
         const [fieldName, fieldIndex] = name.split('_');
 
         let fieldIntIndex = parseInt(fieldIndex, 10);
-        console.log('fie', fieldName);
+        LOGGER('fie', fieldName);
         // Check if no of char in field == maxlength
         if (value.length >= maxLength) {
             // It should not be last input field
@@ -49,12 +50,10 @@ const ResetToken = () => {
         const token = {
             resetCode: `${code_1}${code_2}${code_3}${code_4}`,
         };
-        console.log('token', token);
         setloading(true);
         await axios
             .post(`${APP_BASE}${USER.confirmToken}`, token)
             .then((response) => {
-                console.log('reset response', response);
                 const { data } = response;
                 if (data.status === 'success') {
                     setTimeout(() => {
@@ -63,11 +62,10 @@ const ResetToken = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     message: 'Error',
-                    description: err.response?.data.message,
+                    description: err?.response?.data.message,
                     duration: 15,
                 });
             });

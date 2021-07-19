@@ -3,10 +3,10 @@ import { media } from './device';
 
 export const ProfileWrap = styled.div`
     background-color: #ededed;
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
-    padding: 100px 80px;
+    padding: 20px 80px;
 
     ${media.mobileL} {
         width: 100%;

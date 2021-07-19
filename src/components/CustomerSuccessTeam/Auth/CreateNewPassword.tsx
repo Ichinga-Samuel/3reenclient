@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { APP_BASE, USER } from '@/utils/ApiList';
 import axios from 'axios';
 import SuccessMessage from '@/components/Vendor/Auth/SuccessMessage';
+import { LOGGER } from '@/utils/helpers';
 
 const CreateNewPassword = () => {
     const [loading, setloading] = useState(false);
@@ -17,7 +18,6 @@ const CreateNewPassword = () => {
     const router = useRouter();
 
     const SaveNewPassword = async (data: any) => {
-        console.log(data);
         const { password, passwordConfirm } = data;
         if (password !== passwordConfirm) {
             notification.error({
@@ -31,7 +31,6 @@ const CreateNewPassword = () => {
         await axios
             .patch(`${APP_BASE}${USER.resetPassword('434545')}`, data)
             .then((response) => {
-                console.log('reset response', response);
                 const { data } = response;
                 if (data.status === 'success') {
                     setsuccess(true);
@@ -47,7 +46,6 @@ const CreateNewPassword = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     key: 'error',
@@ -62,7 +60,7 @@ const CreateNewPassword = () => {
     const matchPwd = (e: any) => {
         const { value } = e.target;
         // if (value === )
-        console.log('value', value);
+        LOGGER('value', value);
     };
 
     const proceedLogin = () => {

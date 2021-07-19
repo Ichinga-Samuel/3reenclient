@@ -65,7 +65,6 @@ const ResetToken = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     message: 'Error',
@@ -77,65 +76,68 @@ const ResetToken = () => {
 
     return (
         <>
-                <Header/>
-                <div className="authcontainer">
-                    <div className='logoicon'>
-                             
-                             <LogoIcon/>
-                         
-                    </div>
-                           
-                    <div className="reset_code">
-                        <h2>ENTER REST CODE</h2>
-                        <form>
-                            <Row gutter={24}>
-                                <Col span={6}>
-                                    <Input
-                                        name="code_1"
-                                        maxLength={1}
-                                        {...register('code_1', { required: true })}
-                                        onChange={handleAutoFocus}
-                                    />
-                                </Col>
-                                <Col span={6}>
-                                    <Input
-                                        name="code_2"
-                                        maxLength={1}
-                                        {...register('code_2', { required: true })}
-                                        onChange={handleAutoFocus}
-                                    />
-                                </Col>
-                                <Col span={6}>
-                                    <Input
-                                        name="code_3"
-                                        maxLength={1}
-                                        {...register('code_3', { required: true })}
-                                        onChange={handleAutoFocus}
-                                    />
-                                </Col>
-                                <Col span={6}>
-                                    <Input
-                                        name="code_4"
-                                        maxLength={1}
-                                        {...register('code_4', { required: true })}
-                                        onChange={handleAutoFocus}
-                                        onBlur={handleSubmit(conifirmResetCode)}
-                                    />
-                                </Col>
-                            </Row>
-                        </form>
-        
-                        <div className="resetpass__btn">
-                            <Row>
-                                <Col span={16} offset={4}>
-                                    <Button block loading={loading} type="primary" onClick={handleSubmit(conifirmResetCode)}>
-                                        CONTINUE
-                                    </Button>
-                                </Col>
-                            </Row>
-                        </div>
+            <Header />
+            <div className="authcontainer">
+                <div className="logoicon">
+                    <LogoIcon />
+                </div>
+
+                <div className="reset_code">
+                    <h2>ENTER REST CODE</h2>
+                    <form>
+                        <Row gutter={24}>
+                            <Col span={6}>
+                                <Input
+                                    name="code_1"
+                                    maxLength={1}
+                                    {...register('code_1', { required: true })}
+                                    onChange={handleAutoFocus}
+                                />
+                            </Col>
+                            <Col span={6}>
+                                <Input
+                                    name="code_2"
+                                    maxLength={1}
+                                    {...register('code_2', { required: true })}
+                                    onChange={handleAutoFocus}
+                                />
+                            </Col>
+                            <Col span={6}>
+                                <Input
+                                    name="code_3"
+                                    maxLength={1}
+                                    {...register('code_3', { required: true })}
+                                    onChange={handleAutoFocus}
+                                />
+                            </Col>
+                            <Col span={6}>
+                                <Input
+                                    name="code_4"
+                                    maxLength={1}
+                                    {...register('code_4', { required: true })}
+                                    onChange={handleAutoFocus}
+                                    onBlur={handleSubmit(conifirmResetCode)}
+                                />
+                            </Col>
+                        </Row>
+                    </form>
+
+                    <div className="resetpass__btn">
+                        <Row>
+                            <Col span={16} offset={4}>
+                                <Button
+                                    block
+                                    loading={loading}
+                                    type="primary"
+                                    onClick={handleSubmit(conifirmResetCode)}
+                                >
+                                    CONTINUE
+                                </Button>
+                            </Col>
+                        </Row>
                     </div>
                 </div>
+            </div>
         </>
     );
 };

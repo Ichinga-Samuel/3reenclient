@@ -49,7 +49,6 @@ const CreateNewPassword = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     key: 'error',
@@ -80,7 +79,7 @@ const CreateNewPassword = () => {
 
     return (
         <>
-            <Header/>
+            <Header />
             {success ? (
                 <SuccessMessage
                     loading={loading}
@@ -91,16 +90,14 @@ const CreateNewPassword = () => {
                 />
             ) : (
                 <div className="authcontainer">
-                    <div className='logoicon'>
-                     
-                         <LogoIcon/>
-                     
+                    <div className="logoicon">
+                        <LogoIcon />
                     </div>
-                    
+
                     <div className="create_new">
                         <h2>ENTER NEW PASSWORD</h2>
                         <h3>Create and confirm your new password</h3>
-                        <form className="form"> 
+                        <form className="form">
                             <Row>
                                 <Col span={24}>
                                     <div className="form-group">

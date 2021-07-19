@@ -27,7 +27,6 @@ const AdminLogin = () => {
             await axios
                 .post(`${APP_BASE}${USER.login}`, data)
                 .then((response) => {
-                    console.log('login response', response);
                     const { data } = response;
                     if (data.status === 'success' && data.user.role !== 'admin') {
                         notification.error({
@@ -59,7 +58,6 @@ const AdminLogin = () => {
                     }
                 })
                 .catch((err) => {
-                    console.log('login err', err.response);
                     setLoading(false);
                     notification.error({
                         message: 'Error',
@@ -80,9 +78,13 @@ const AdminLogin = () => {
                 <div className="login" data-aos="slide-right" data-aos-delay="2s" data-aos-duration="1s">
                     <Card>
                         <div className="login__form">
-                            <h3 style={{
-                                color: '#590A5B',fontSize: '28px',lineHeight:'90.9%'
-                            }}>
+                            <h3
+                                style={{
+                                    color: '#590A5B',
+                                    fontSize: '28px',
+                                    lineHeight: '90.9%',
+                                }}
+                            >
                                 Log In
                             </h3>
                             <h4>Log in to your account</h4>
@@ -106,7 +108,8 @@ const AdminLogin = () => {
                                         block
                                         onClick={handleSubmit(PerformLogin)}
                                         style={{
-                                            background: "#FFAF38" , borderColor:'white'
+                                            background: '#FFAF38',
+                                            borderColor: 'white',
                                         }}
                                     >
                                         {loading ? 'Authenticating...' : 'LOG IN'}

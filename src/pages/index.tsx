@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NextSeo } from 'next-seo';
-import Home from '@/components/Home/index';
+import WelcomePage from '@/components/WelcomePage';
+import AOS from 'aos';
 
 const HomePage: React.FC = () => {
+    useEffect(() => {
+        AOS.init({ duration: 600 });
+    }, []);
     return (
         <>
             <NextSeo
-                title="Home"
+                title="Welcome"
                 description="The world best e-commence store"
                 openGraph={{
                     title: 'Open Graph Title',
@@ -14,7 +18,7 @@ const HomePage: React.FC = () => {
                     url: 'https://www.3reenshop.com',
                 }}
             />
-            <Home />
+            <WelcomePage />
         </>
     );
 };

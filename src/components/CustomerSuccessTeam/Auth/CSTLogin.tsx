@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { USER } from '@/utils/ApiList';
 import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
+import { LOGGER } from '@/utils/helpers';
 
 const CSTLogin = () => {
     const [loading, setLoading] = useState(false);
@@ -22,12 +23,10 @@ const CSTLogin = () => {
 
     const PerformLogin = useCallback(
         async (data: any) => {
-            console.log('login', data);
             setLoading(true);
             await axios
                 .post(`${APP_BASE}${USER.login}`, data)
                 .then((response) => {
-                    console.log('login response', response);
                     const { data } = response;
                     // if (data.status === 'success') {
                     //     notification.error({
@@ -58,7 +57,6 @@ const CSTLogin = () => {
                     }
                 })
                 .catch((err) => {
-                    console.log('login err', err.response);
                     setLoading(false);
                     notification.error({
                         message: 'Error',
@@ -118,8 +116,7 @@ const CSTLogin = () => {
 
 export async function getServerSideProps(context: any) {
     const token = getFromLocalStorage('csttoken');
-    console.log('token', token);
-    console.log('conte', context);
+    LOGGER('conte', context);
     if (token) {
         return {
             redirect: {

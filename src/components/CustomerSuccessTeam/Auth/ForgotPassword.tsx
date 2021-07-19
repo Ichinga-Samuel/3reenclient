@@ -18,12 +18,10 @@ const CSTForgotPassword = () => {
     const [loading, setloading] = useState(false);
     const [success, setSuccess] = useState(false);
     const resetPassword = async (data: any) => {
-        console.log('data', data);
         setloading(true);
         await axios
             .post(`${APP_BASE}${USER.forgotPassword}`, data)
             .then((response) => {
-                console.log('for', response);
                 const { data } = response;
                 if (data.status === 'success') {
                     setSuccess(true);
@@ -32,12 +30,11 @@ const CSTForgotPassword = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     key: 'error',
                     message: 'Error',
-                    description: err.response.data.message,
+                    description: err?.response?.data?.message,
                     duration: 25,
                 });
             });
