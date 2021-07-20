@@ -1,12 +1,12 @@
 import CreateNewPassword from '@/components/Admin/AdminLayout/Auth/CreateNewPassword';
 import React from 'react';
 
-function create() {
+function CreateNew() {
     return (
         <>
-            <CreateNewPassword/>
+            <CreateNewPassword />
         </>
     );
 }
 
-export default create;
+export default CreateNew;

@@ -17,6 +17,10 @@ const nextConfig = {
                 destination: '/vendor/login',
             },
             {
+                source: '/admin',
+                destination: '/admin/login',
+            },
+            {
                 source: '/qualityassurance/orders',
                 destination: '/qualityassurance',
             },
