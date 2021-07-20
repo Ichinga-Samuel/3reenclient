@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import SuccessMessage from '@/components/Vendor/Auth/SuccessMessage';
 import { APP_BASE, USER } from '@/utils/ApiList';
-import Header from '@/components/Header/Header';
+// import Header from '@/components/Header/Header';
 import { LogoIcon } from '@/utils/Icons';
 
 const ForgotPassword = () => {
@@ -53,7 +53,7 @@ const ForgotPassword = () => {
 
     return (
         <>
-            <Header />
+            {/*<Header />*/}
             {success ? (
                 <SuccessMessage
                     loading={loading}

@@ -18,7 +18,6 @@ const AdminHeader = () => {
     return (
         <>
             <QAHeaderContainer className="trigger">
-                
                 <div className="profileDetails">
                     <div
                         className="notification"

@@ -35,8 +35,8 @@ const Footer = () => {
                         <div className="foothead">Sitemap</div>
                         <FooterList>
                             <li>
-                                <Link href="/vendor">
-                                    <a>Online Store</a>
+                                <Link href="/termsandconditions">
+                                    <a>Terms & Condition</a>
                                 </Link>
                             </li>
                             <li>

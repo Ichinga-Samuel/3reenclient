@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { APP_BASE, USER } from '@/utils/ApiList';
 import axios from 'axios';
 import { LogoIcon } from '@/utils/Icons';
-import Header from '@/components/Header/Header';
+// import Header from '@/components/Header/Header';
 
 const ResetToken = () => {
     const [loading, setloading] = useState(false);
@@ -76,7 +76,7 @@ const ResetToken = () => {
 
     return (
         <>
-            <Header />
+            {/*<Header />*/}
             <div className="authcontainer">
                 <div className="logoicon">
                     <LogoIcon />
