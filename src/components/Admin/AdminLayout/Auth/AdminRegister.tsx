@@ -32,9 +32,13 @@ const AdminRegister = () => {
             setloading(false);
             return;
         }
+        const newOb = {
+            ...data,
+            role: 'admin',
+        };
         setloading(true);
         await axios
-            .post(`${APP_BASE}${USER.onlyUser}`, data)
+            .post(`${APP_BASE}${USER.onlyUser}`, newOb)
             .then((response) => {
                 const { data } = response;
                 if (data.status === 'success') {

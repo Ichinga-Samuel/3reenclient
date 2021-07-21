@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { APP_BASE, USER } from '@/utils/ApiList';
 import axios from 'axios';
 import SuccessMessage from '@/components/Vendor/Auth/SuccessMessage';
-import Header from '@/components/Header/Header';
+// import Header from '@/components/Header/Header';
 import { LogoIcon } from '@/utils/Icons';
 
 const CreateNewPassword = () => {
@@ -79,7 +79,7 @@ const CreateNewPassword = () => {
 
     return (
         <>
-            <Header />
+            {/*<Header />*/}
             {success ? (
                 <SuccessMessage
                     loading={loading}

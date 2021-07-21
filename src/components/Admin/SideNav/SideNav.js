@@ -170,6 +170,6 @@ const flexChild = {
     height: '20px',
     'align-items': 'center',
     cursor: 'pointer',
-    height: '100%',
+    // height: '100%',
 };
 export default SideNav;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import Styled from "styled-components";
+import Styled from 'styled-components';
 
 const data = {
   labels: [
@@ -75,7 +75,7 @@ function SalesRepGraph() {
           height={70}
           width={20}
           options={{ maintainAspectRatio: false }}
-        ></Bar>
+        />
       </div>
     </Styles>
   );

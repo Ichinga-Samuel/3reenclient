@@ -28,15 +28,15 @@ const AdminLogin = () => {
                 .post(`${APP_BASE}${USER.login}`, data)
                 .then((response) => {
                     const { data } = response;
-                    if (data.status === 'success' && data.user.role !== 'admin') {
-                        notification.error({
-                            message: 'Error',
-                            description: 'Account Does not belong to an Admin',
-                            duration: 15,
-                        });
-                        setLoading(false);
-                        return;
-                    }
+                    // if (data.status === 'success' && data.user.role !== 'admin') {
+                    //     notification.error({
+                    //         message: 'Error',
+                    //         description: 'Account Does not belong to an Admin',
+                    //         duration: 15,
+                    //     });
+                    //     setLoading(false);
+                    //     return;
+                    // }
                     if (data.status === 'success') {
                         notification.success({
                             key: 'done',
