@@ -26,7 +26,16 @@ const AdminLogin = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.login}`, details);
             const { data } = response;
-            if (data.status === 'success' && data.user.role === 'user') {
+            if (data.status === 'success' && data.user.role !== 'admin') {
+                notification.error({
+                    message: 'Error',
+                    description: 'User not an admin',
+                    duration: 15,
+                });
+                setloading(false);
+                return;
+            }
+            if (data.status === 'success' && data.user.role === 'admin') {
                 notification.success({
                     message: 'Success',
                     description: 'Login Successfully',
@@ -36,7 +45,6 @@ const AdminLogin = () => {
                 addToLocalStorage('admindetails', response.data.user);
                 setloading(true);
                 router.push('/admin/dashboard');
-                return;
             }
         } catch (err) {
             notification.error({

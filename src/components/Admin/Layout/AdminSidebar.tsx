@@ -6,6 +6,12 @@ import Link from 'next/link';
 import { LogoWhiteIcon, Dashboard, Inventory, LogoutIcon } from '@/utils/Icons';
 import { AuditIcon, LogisticCompanyIcon, OrderIcon } from '@/utils/NewIcons';
 import { CustomerServiceIcon, SRMonitorIcon, UserMonitorIcon } from '@/utils/NewIcons2';
+import {
+    emptyLocalStorage,
+    emptySessionStorage,
+    removeFromLocalStorage,
+    removeFromSessionStorage,
+} from '@/utils/browserStorage';
 
 const AgentSidebar = (props) => {
     const { isAdminOpen, closeDrawer, adminDrawerRef } = props;
@@ -13,6 +19,12 @@ const AgentSidebar = (props) => {
     const { pathname } = router;
 
     const logoutAdmin = () => {
+        removeFromLocalStorage('admintoken');
+        removeFromLocalStorage('admindetails');
+        removeFromSessionStorage('admintoken');
+        removeFromSessionStorage('admindetails');
+        emptySessionStorage();
+        emptyLocalStorage();
         router.push('/admin/login');
     };
     return (

@@ -7,23 +7,19 @@ export const DashboardCardHolder = styled.div`
     border-radius: 5px;
     margin-bottom: 15px;
     .iconHolder {
-        width: 100px;
-        height: 100px;
-        border-radius: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(153, 231, 255, 0.1);
         span {
-            color: var(--black-color);
+            color: rgba(0, 0, 0, 0.3);
         }
     }
     .content {
         transition: ease all 0.5s;
         p {
-            font-size: 1.1rem;
-            color: #333333;
-            margin: 0;
+            font-size: 1.7rem;
+            color: rgba(0, 0, 0, 0.6);
+            margin-bottom: 1rem;
             word-break: break-word;
         }
         strong {
@@ -34,15 +30,92 @@ export const DashboardCardHolder = styled.div`
 `;
 
 export const CountHolder = styled.div`
-    position: relative;
+    background: var(--white-color);
+    padding: 15px 2rem;
     transition: ease all 0.5s;
-    text-align: center;
-    font-family: 'Avenir Light', sans-serif;
+    border-radius: 5px;
+    margin-bottom: 15px;
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+        color: rgba(0, 0, 0, 0.3);
     }
-    .count__head {
+    span {
+        font-size: 2rem;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.9);
     }
+`;
+
+export const LargeMHolder = styled.div`
+    background: var(--white-color);
+    padding: 15px 2rem;
+    transition: ease all 0.5s;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: 260px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgb(0, 0, 0, 0.02);
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        margin-top: 1.2rem;
+        color: rgba(0, 0, 0, 0.3);
+    }
+    span {
+        font-size: 2rem;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.8);
+    }
+    svg {
+        padding: 1rem;
+    }
+    .bdetails {
+        transition: ease all 0.5s;
+        margin-top: 15px;
+        display: flex;
+        //padding: 15px;
+        justify-content: space-between;
+        > div {
+            flex: 0 0 50%;
+            text-align: center;
+            &:first-child {
+                border-right: 1px solid #ddd;
+            }
+            h5 {
+                color: rgba(0, 0, 0, 0.3);
+                margin-bottom: 0;
+            }
+            h4 {
+                color: rgba(0, 0, 0, 0.8);
+            }
+        }
+        &__btn {
+            padding: 1rem;
+            .ant-btn-default {
+                background: var(--gray-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                span {
+                    color: var(--white-color);
+                    font-size: 1rem;
+                    font-weight: lighter;
+                }
+                &:hover {
+                    font-weight: bold;
+                    border-color: var(--black-color);
+                }
+            }
+        }
+    }
+`;
+
+export const SmallCircle = styled.div`
+    transition: ease all 0.5s;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background: ${(props) => props.circleColor || ' var(--secondary-color)'};
 `;
 
 export const OrderContainer = styled.div`

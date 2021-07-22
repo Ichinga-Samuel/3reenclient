@@ -17,10 +17,10 @@ const AdminPlainHeader = () => {
                 </Link>
             </div>
             {/*<div className="links">*/}
-            {/*    <Link href="/qualityassurance/login">*/}
+            {/*    <Link href="/admin/login">*/}
             {/*        <a className={pathname === '/qualityassurance/login' ? 'active' : ''}>Login</a>*/}
             {/*    </Link>*/}
-            {/*    <Link href="/qualityassurance/register">*/}
+            {/*    <Link href="/admin/register">*/}
             {/*        <a className={pathname === '/qualityassurance/register' ? 'active' : ''}>Register</a>*/}
             {/*    </Link>*/}
             {/*</div>*/}

@@ -3,10 +3,16 @@ import { AgentHeaderLayout } from './AdminLayout.styled';
 import { Notifications, Menu, ArrowDropDown } from '@material-ui/icons';
 import { useRouter } from 'next/router';
 import { MessageIcon } from '@/utils/NewIcons2';
+import {
+    emptyLocalStorage,
+    emptySessionStorage,
+    removeFromLocalStorage,
+    removeFromSessionStorage,
+} from '@/utils/browserStorage';
 
 const AdminHeader = (props) => {
     // const { adminDetails } = props;
-    const details = { fullName: 'Admin Temitope' };
+    const details = JSON.parse(props.adminDetails);
     const [menuopen, setmenuopen] = useState(false);
     const userRef = useRef(null);
     const openUserMenu = () => setmenuopen(!menuopen);
@@ -14,6 +20,12 @@ const AdminHeader = (props) => {
     const router = useRouter();
 
     const logoutAdmin = () => {
+        removeFromLocalStorage('admintoken');
+        removeFromLocalStorage('admindetails');
+        removeFromSessionStorage('admintoken');
+        removeFromSessionStorage('admindetails');
+        emptySessionStorage();
+        emptyLocalStorage();
         router.push('/admin/login');
     };
 
