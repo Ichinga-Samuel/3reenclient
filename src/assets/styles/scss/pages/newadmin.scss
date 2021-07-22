@@ -96,12 +96,18 @@
     }
     .activelink {
       position: relative;
-      border-right: 4px solid var(--trouvere-blue);
-      li a {
-        color: var(--trouvere-blue);
+      //border-right: 4px solid var(--background-color);
+      svg {
+        fill: var(--background-color);
+        stroke: var(--background-color);
+      }
+      li, a {
+        color: var(--background-color);
+        background: var(--white-color);
+        font-weight: bold;
         svg {
-          fill: var(--trouvere-blue);
-          stroke: var(--trouvere-blue);
+          fill: var(--background-color);
+          stroke: var(--background-color);
         }
       }
     }

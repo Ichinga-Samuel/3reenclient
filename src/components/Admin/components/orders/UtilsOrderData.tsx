@@ -1,0 +1,148 @@
+export const FakeQAOrders = [
+    {
+        _id: '95405',
+        placedOn: '18/08/20',
+        product: 'Macbook Pro',
+        quantity: 2,
+        status: 'Completed',
+        paymentType: 'Debit Card',
+        totalCost: 45000,
+        trackingID: '3cw32Gvf',
+    },
+    {
+        _id: '952034',
+        placedOn: '18/08/20',
+        product: 'xbox',
+        quantity: 2,
+        trackingID: '3wc32Gvf',
+        status: 'Cancelled',
+        paymentType: 'debit card',
+        totalCost: 50000,
+    },
+    {
+        placedOn: '18/08/20',
+        product: 'iPad air',
+        quantity: 1,
+        trackingID: '3wc32Gvf',
+        status: 'Onhold',
+        paymentType: 'debit card',
+        _id: '20565',
+        totalCost: 35000,
+    },
+    {
+        placedOn: '18/08/20',
+        product: 'Macbook Air',
+        quantity: 2,
+        trackingID: '3wc32Gvf',
+        status: 'Pending',
+        paymentType: 'debit card',
+        _id: '20695',
+        totalCost: 560000,
+    },
+    {
+        placedOn: '18/08/20',
+        product: 'xbox',
+        quantity: 2,
+        trackingID: '3wc32Gvf',
+        status: 'Refunded',
+        paymentType: 'debit card',
+        _id: '20334',
+        totalCost: 40000,
+    },
+    {
+        placedOn: '18/08/20',
+        product: 'iPad Globe',
+        quantity: 2,
+        trackingID: '3wc32dvf',
+        status: 'Refunded',
+        paymentType: 'debit card',
+        _id: '20540',
+        totalCost: 90000,
+    },
+    {
+        placedOn: '18/08/20',
+        product: 'Samsung S20',
+        quantity: 2,
+        trackingID: '3wc32dvf',
+        status: 'Failed',
+        paymentType: 'Flutter Wave',
+        _id: '40540',
+        totalCost: 519000,
+    },
+];
+
+export const ActionList = [
+    {
+        id: '1',
+        name: 'Delivered',
+    },
+    {
+        id: '2',
+        name: 'Returned',
+    },
+    {
+        id: '3',
+        name: 'Completed',
+    },
+    {
+        id: '4',
+        name: 'Cancelled',
+    },
+    {
+        id: '5',
+        name: 'Onhold',
+    },
+    {
+        id: '6',
+        name: 'Failed',
+    },
+    {
+        id: '7',
+        name: 'Refunded',
+    },
+];
+
+export const fakeReview = [
+    {
+        id: 1,
+        productName: 'Nike summer Combo Sports',
+        rating: 4,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2020',
+    },
+    {
+        id: 2,
+        productName: 'Nike summer Combo',
+        rating: 3,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2021',
+    },
+    {
+        id: 3,
+        productName: 'Nike summer Combo 2',
+        rating: 5,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2021',
+    },
+    {
+        id: 4,
+        productName: 'Nike summer Combo',
+        rating: 3,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '15-12-2021',
+    },
+    {
+        id: 5,
+        productName: 'Nike summer Combo',
+        rating: 5,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '05-12-2021',
+    },
+    {
+        id: 6,
+        productName: 'Nike summer Combo',
+        rating: 5,
+        ratingDesc: 'Fabulous Shoes with strong build. I look forward to buy more stuffs like this from your shop.',
+        datePosted: '15-05-2021',
+    },
+];
