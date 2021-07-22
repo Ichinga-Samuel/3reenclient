@@ -69,7 +69,6 @@ const AllOrdersTable = () => {
                 },
             })
             .then((response: any) => {
-                console.log('login response', response);
                 const { doc, data, pages, results } = response;
                 if (data.status === 'success') {
                     console.log('record', orders);
@@ -80,7 +79,6 @@ const AllOrdersTable = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setFetching(false);
                 // setorders([]);
                 notification.error({

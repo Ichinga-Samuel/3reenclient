@@ -17,7 +17,6 @@ const ProductLists = () => {
     const router = useRouter();
 
     const viewProductsById = (record: any) => {
-        console.log('record', record);
         router.push({
             pathname: '/cst/products/[id]',
             query: { id: record.id },

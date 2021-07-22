@@ -20,7 +20,6 @@ const CSTRegister = () => {
 
     const PerformRegister = async (data: any) => {
         setloading(true);
-        console.log(data);
         const { password, passwordConfirm } = data;
         if (password !== passwordConfirm) {
             notification.error({
@@ -35,7 +34,6 @@ const CSTRegister = () => {
         await axios
             .post(`${APP_BASE}${USER.onlyUser}`, data)
             .then((response) => {
-                console.log('login response', response);
                 const { data } = response;
                 if (data.status === 'success') {
                     addToLocalStorage('csttoken', response.data.token);
@@ -51,11 +49,10 @@ const CSTRegister = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     message: 'Error',
-                    description: err.response?.data.message,
+                    description: err?.response?.data.message,
                     duration: 15,
                 });
             });

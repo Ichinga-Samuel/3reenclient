@@ -29,7 +29,6 @@ const Dashboard = () => {
                 },
             })
             .then((response) => {
-                console.log('login response', response);
                 const { data } = response;
                 if (data.status === 'success') {
                     console.log('record', getRecord);
@@ -39,7 +38,7 @@ const Dashboard = () => {
             })
             .catch((err) => {
                 console.log('record', getRecord);
-                console.log('login err', err.response);
+
                 setIsProcessing(false);
                 console.log(isProcessing);
                 notification.error({
@@ -69,7 +68,7 @@ const Dashboard = () => {
                 })
                 .catch((err) => {
                     console.log('record', getRecord);
-                    console.log('login err', err.response);
+
                     setIsProcessing(false);
                     console.log(isProcessing);
                     notification.error({

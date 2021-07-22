@@ -38,7 +38,7 @@ const Signup = () => {
     //             password,
     //         })
     //         .then((response) => {
-    //             console.log('login response', response);
+    //
     //             const { data } = response;
     //             if (data.status === 'success' && data.user.role !== 'company') {
     //                 notification.error({
@@ -60,7 +60,7 @@ const Signup = () => {
     //             }
     //         })
     //         .catch((err) => {
-    //             console.log('login err', err.response);
+    //
     //             setIsProcessing(false);
     //             setloading(false);
     //             notification.error({
@@ -72,7 +72,6 @@ const Signup = () => {
     // };
 
     const createVendor = async (data) => {
-        console.log('data', data);
         const { password, passwordConfirm } = data;
         if (password !== passwordConfirm) {
             notification.error({
@@ -88,7 +87,6 @@ const Signup = () => {
         await axios
             .post(`${APP_BASE}${USER.register}`, data)
             .then((response) => {
-                console.log('login response', response);
                 const { data } = response;
                 if (data.status === 'success' && data.user.role === 'company') {
                     setContent('Registration Successful. Authenticating In Progress...');
@@ -106,7 +104,6 @@ const Signup = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setIsProcessing(false);
                 setloading(false);
                 notification.error({

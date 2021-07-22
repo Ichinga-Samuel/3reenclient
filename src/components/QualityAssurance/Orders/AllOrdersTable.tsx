@@ -47,7 +47,6 @@ const AllOrdersTable = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setfetchorders(false);
                 // setorders([]);
                 notification.error({

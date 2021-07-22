@@ -49,7 +49,6 @@ const Signin = () => {
             await axios
                 .post(`${APP_BASE}${USER.login}`, data)
                 .then((response) => {
-                    console.log('login response', response);
                     const { data } = response;
                     if (data.status === 'success' && data.user.role !== 'company') {
                         notification.error({
@@ -75,7 +74,6 @@ const Signin = () => {
                     }
                 })
                 .catch((err) => {
-                    console.log('login err', err.response);
                     setIsProcessing(false);
                     setLoading(false);
                     notification.error({
@@ -143,7 +141,6 @@ const Signin = () => {
 
 export async function getServerSideProps(context) {
     const token = getFromLocalStorage('token');
-    console.log('token', token);
     console.log('conte', context);
     if (token) {
         return {
