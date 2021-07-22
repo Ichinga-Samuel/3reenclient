@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminRegister from '@/components/Admin/AdminLayout/Auth/AdminRegister';
+import AdminRegister from '@/components/Admin/AdminLayout/Auth/SubAdminRegister';
 
 const adminlogin=()=> {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
 import Styled from 'styled-components';
-
+import { useRouter } from 'next/router';
 const Card = Styled.div`
 display:flex;
 align-items: center;
@@ -74,17 +74,21 @@ img{
 
 function Product(props) {
   const { productName, imgUrl, description, eachID} = props;
+  const router = useRouter();
+  const ProductID = () => {
+
+  }
   return (
     <React.Fragment>
       <Card key={eachID}>
-        <div className="product-image">
+        <div className="product-image" key={eachID}>
           <img src={imgUrl.length < 0 ? 'NO IMAGES' : imgUrl} alt="product" />
         </div>
         <div className="short-des">
           <p id="product-name">{productName}</p>
           <p id="description">{description}</p>
           <span className="buttons">
-            <button>Available for Purchase </button> <button>Update</button>
+            <button>Available for Purchase </button> <button onClick={ProductID}>Update</button>
           </span>
         </div>
       </Card>

@@ -1,209 +1,101 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
-
-const dataSource = [
-    {
-        key: '1',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '2',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '3',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '4',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '5',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '6',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '7',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '8',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '9',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '10',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '11',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-    {
-        key: '12',
-        date: '19/08/2020',
-        product: 'Mac Book Pro',
-        qty: '1',
-        itemId: '#20695',
-        tracking: '3cw32gvf',
-        amount: '$350.00',
-        status: 'Approved',
-        paymentType: 'Debit Card',
-        action: '...',
-    },
-];
-
-const columns = [
-    {
-        title: 'Date',
-        dataIndex: 'date',
-        key: 'date',
-    },
-    {
-        title: 'Product',
-        dataIndex: 'product',
-        key: 'product',
-    },
-    {
-        title: 'Qty',
-        dataIndex: 'qty',
-        key: 'qty',
-    },
-    {
-        title: 'Item ID',
-        dataIndex: 'itemId',
-        key: 'itemId',
-    },
-    {
-        title: 'Tracking',
-        dataIndex: 'tracking',
-        key: 'tracking',
-    },
-    {
-        title: 'Amount',
-        dataIndex: 'amount',
-        key: 'amount',
-    },
-    {
-        title: 'Status',
-        dataIndex: 'status',
-        key: 'status',
-    },
-    {
-        title: 'Payment Type',
-        dataIndex: 'paymentType',
-        key: 'paymentType',
-    },
-    {
-        title: 'Action',
-        dataIndex: 'action',
-        key: 'action',
-    },
-];
-
+import axios from 'axios';
+import 'antd/dist/antd.css';
 export const OrderTable = () => {
+    const APP_URL = process.env.APP_BASE_URL;
+    const colums = [
+        {
+            key:'1',
+            title:'Date',
+            dataIndex:'data'
+        },
+        {
+            key:'2',
+            title:'Product',
+            dataIndex:'name'
+        },
+        {
+            key:'3',
+            title:'Qty',
+            dataIndex:'quantity'
+        },
+        {
+            key:'4',
+            title:'Item ID',
+            dataIndex:'_id'
+        },
+        {
+            key:'5',
+            title:'Tracking',
+            dataIndex:'tracking'
+        },
+        {
+            key:'6',
+            title:'Amount',
+            dataIndex:'totalCost'
+        },
+        {
+            key:'7',
+            title:'Status',
+            dataIndex:'status',
+            render: (status) => (
+                <>
+                    {status === 'completed' || status === 'Completed' ? (
+                        <span style={{ color: '#219653' }}>Completed</span>
+                    ) : status === 'refunded' || status === 'Refunded' ? (
+                        <span style={{ color: '#7F7806' }}>Refunded</span>
+                    ) : status === 'onhold' || status === 'Onhold' ? (
+                        <span style={{ color: '#C5BC09' }}>On Hold</span>
+                    ) : status === 'cancelled' || status === 'Cancelled' ? (
+                        <span style={{ color: '#BE1E2D' }}>Cancelled</span>
+                    ) : status === 'pending' || status === 'Pending' ? (
+                        <span style={{ color: '#FFAF38' }}>Pending</span>
+                    ) : status === 'failed' || status === 'Failed' ? (
+                        <span style={{ color: '#BE1E2D' }}>Failed</span>
+                    ) : (
+                        ''
+                    )}
+                </>
+            ),
+        },
+        {
+            key:'8',
+            title:'Payment',
+            dataIndex:'payment'
+        },
+        {
+            key:'9',
+            title:'Action',
+            dataIndex:'action'
+        },
+        
+    ]
+    const [dataSource, setDataSource] = useState([]);
+    const [loading, setLoading] = useState(false);
+    try {
+        const token = localStorage.getItem('token');
+        const config = {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }
+        useEffect(async() => {
+          setLoading(true)
+          const res =  await axios.get(`${APP_URL}/orders`, config)
+          const {doc} = res.data
+          setDataSource(doc)
+          setLoading(false)
+        }, []);
+    } catch (error) {
+        console.log(error);
+    } 
     return (
-        <Table
-            dataSource={dataSource}
-            columns={columns}
+        <Table 
+         dataSource={dataSource}
+         loading={loading}
+         columns={colums}
             pagination={{
-                defaultCurrent: '1',
-                total: '30',
                 position: ['bottomCenter'],
             }}
             style={{ width: '100%' }}

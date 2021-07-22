@@ -20,6 +20,7 @@ function DashboardData() {
     useEffect(async () => {
         try {
             const res = await axios.get(`${APP_BASE}/users/admin/dashboard`);
+            //Destructuring
             const {registered, verified, totalUsers, users, totalRevenue, totalOrders} = res.data;
             console.log(res.data)
             setAllRegisterdUsers(registered.total);

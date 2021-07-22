@@ -203,7 +203,7 @@ export const AuditTable = () => {
             columns={columns}
             pagination={{
                 defaultCurrent: '1',
-                total: '30',
+                total: '10',
                 position: ['bottomCenter'],
             }}
             style={{ width: '100%' }}

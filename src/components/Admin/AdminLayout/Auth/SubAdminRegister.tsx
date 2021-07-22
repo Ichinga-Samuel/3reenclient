@@ -5,13 +5,15 @@ import { Button, Card, Input, Row, Col, Checkbox, notification } from 'antd';
 import { useForm } from 'react-hook-form';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { USER } from '@/utils/ApiList';
+// import { USER } from '@/utils/ApiList';
 import { addToLocalStorage /*isUserLoggedIn*/ } from '@/utils/browserStorage';
 import axios from 'axios';
 
-const AdminRegister = () => {
+const SubAdminRegister = () => {
     const [loading, setloading] = useState(false);
     const APP_BASE = process.env.APP_BASE_URL;
+     //Get Token from Local Storage
+     const adminToken = localStorage.getItem('admintoken');
     const router = useRouter();
     const {
         register,
@@ -21,7 +23,6 @@ const AdminRegister = () => {
 
     const PerformRegister = async (data: any) => {
         setloading(true);
-        console.log(data);
         const { password, passwordConfirm } = data;
         if (password !== passwordConfirm) {
             notification.error({
@@ -34,10 +35,17 @@ const AdminRegister = () => {
         }
         setloading(true);
         await axios
-            .post(`${APP_BASE}${USER.onlyUser}`, data)
+            .post(`${APP_BASE}/users/inviteAdmin`,
+                data
+            , {
+                headers: {
+                    'Authorization': `Bearer ${adminToken}`
+                }
+            })
             .then((response) => {
                 console.log('login response', response);
                 const { data } = response;
+                console.log
                 if (data.status === 'success') {
                     addToLocalStorage('token', response.data.token);
                     addToLocalStorage('name', response.data.user.fullName);
@@ -47,7 +55,7 @@ const AdminRegister = () => {
                         description: 'Your Account has been created sucessfully',
                         duration: 15,
                     });
-                    router.push('/admin/login');
+                    router.push('/admin/allAdminLogin');
                     notification.close('succ');
                 }
             })
@@ -63,7 +71,7 @@ const AdminRegister = () => {
     };
     return (
         <div>
-            <AdminPlainLayout pageTitle="ADMIN REGISTERATION">
+            <AdminPlainLayout pageTitle=" SUB ADMIN REGISTERATION">
                 <div className="login register" data-aos="slide-right" data-aos-delay="2s" data-aos-duration="1s">
                     <Card>
                         <div className="login__form">
@@ -141,7 +149,7 @@ const AdminRegister = () => {
                                             block
                                             onClick={handleSubmit(PerformRegister)}
                                         >
-                                            REGISTER
+                                            CREATE A SUB ADMIN
                                         </Button>
                                     </Col>
                                 </Row>
@@ -154,4 +162,4 @@ const AdminRegister = () => {
     );
 };
 
-export default AdminRegister;
+export default SubAdminRegister;

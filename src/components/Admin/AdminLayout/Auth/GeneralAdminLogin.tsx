@@ -8,9 +8,9 @@ import { useRouter } from 'next/router';
 import { USER } from '@/utils/ApiList';
 import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 
-const AdminLogin = () => {
+const GeneralAdminLogin= () => {
     const [loading, setLoading] = useState(false);
-
+    const [hideForgotPassword, setHideForgotPassword] = useState(false)
     const {
         register,
         handleSubmit,
@@ -29,7 +29,8 @@ const AdminLogin = () => {
                 .then((response) => {
                     console.log('login response', response);
                     const { data } = response;
-                    if (data.status === 'success' && data.user.role !== 'admin') {
+                    console.log(data)
+                    if (data.user.role !== 'admin' && data.user.role !=='sub-admin' && data.status === 'success') {
                         notification.error({
                             message: 'Error',
                             description: 'Account Does not belong to an Admin',
@@ -37,6 +38,9 @@ const AdminLogin = () => {
                         });
                         setLoading(false);
                         return;
+                    }
+                    if(data.user.role === 'sub-admin'){
+                        setHideForgotPassword(true)
                     }
                     if (data.status === 'success') {
                         notification.success({
@@ -112,9 +116,11 @@ const AdminLogin = () => {
                                         {loading ? 'Authenticating...' : 'LOG IN'}
                                     </Button>
                                 </div>
-                                <div className="login__pwd">
-                                    <Link href="/admin/resetnewpassword">Forgot Password?</Link>
-                                </div>
+                                {
+                                    hideForgotPassword ? ''
+                                : <div className="login__pwd">
+                                <Link href="/admin/resetnewpassword">Forgot Password?</Link>
+                            </div>}
                             </form>
                         </div>
                     </Card>
@@ -141,4 +147,4 @@ export async function getServerSideProps(context: any) {
     return { props: {} };
 }
 
-export default AdminLogin;
+export default GeneralAdminLogin;
