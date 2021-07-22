@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { AgentHeaderLayout } from './AdminLayout.styled';
+import { AdminHeaderLayout } from './AdminLayout.styled';
 import { Notifications, Menu, ArrowDropDown } from '@material-ui/icons';
 import { useRouter } from 'next/router';
 import { MessageIcon } from '@/utils/NewIcons2';
@@ -30,7 +30,7 @@ const AdminHeader = (props) => {
     };
 
     return (
-        <AgentHeaderLayout>
+        <AdminHeaderLayout>
             <div
                 onClick={props.openDrawer}
                 onKeyDown={props.openDrawer}
@@ -66,7 +66,7 @@ const AdminHeader = (props) => {
                     </ul>
                 </div>
             </div>
-        </AgentHeaderLayout>
+        </AdminHeaderLayout>
     );
 };
 

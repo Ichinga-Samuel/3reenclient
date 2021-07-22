@@ -7,12 +7,13 @@ const LargeMetricCard = (props) => {
     const title = props.cardTitle.includes('Orders');
     const titleU = props.cardTitle.includes('User');
     const titleR = props.cardTitle.includes('Revenue');
+
     return (
         <LargeMHolder>
             <Row align="middle" justify="space-between">
                 <Col>{props.cardIcon}</Col>
                 <Col>
-                    <SmallCircle circleColor={props.circleColor} />
+                    <SmallCircle background={props.circleColor} />
                 </Col>
             </Row>
             <Row>

@@ -5,11 +5,12 @@ export const LayoutHolder = styled.div`
     //background: #777;
 `;
 
-export const AgentHeaderLayout = styled.header`
+export const AdminHeaderLayout = styled.header`
     position: fixed;
     width: 100%;
     transition: ease all 0.6s;
     background: var(--white-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
     display: flex;
     align-items: center;
     height: 55px;
@@ -123,11 +124,17 @@ export const AgentSidebarLayout = styled.aside``;
 export const AgentMainContainer = styled.main`
     position: relative;
     transition: ease all 0.6s;
-    background: #e5e5e5;
+    background: var(--white-color);
     padding: 7rem 2rem 1rem 27rem;
     height: auto;
     width: auto;
     margin-bottom: 15px;
+    .breadtitle {
+        font-size: 2.45rem;
+        margin-bottom: 15px;
+        transition: ease all 0.5s;
+        padding: 2.5rem 0 0;
+    }
     @media (max-width: 449px) {
         padding: 5rem 2rem 1rem 2rem;
         transition: ease all 0.6s;
@@ -138,6 +145,7 @@ export const FooterContainer = styled.footer`
     position: relative;
     bottom: 0;
     z-index: 1;
+    border-top: var(--gray-color);
     background: var(--white-color);
     padding: 10px;
     transition: ease all 0.5s;

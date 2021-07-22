@@ -2,13 +2,13 @@ import React from 'react';
 import DefaultLayout from '../Layout/DefaultLayout';
 import { Col, Row } from 'antd';
 import DashboardCard from './DashboardCard';
-import { GroupOutlined } from '@material-ui/icons';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import PaidCountCard from '@/components/Admin/components/cards/PaidCountCard';
 import LargeMetricCard from '@/components/Admin/components/cards/LargeMetricCard';
 import { OrderDisplayIcon, RegIcon, RevenueIcon, TotalIcon, UserCountIcon, VerifiedIcon } from '@/utils/NewIcons2';
 
 const AdminDashboard = () => {
+    const title = 'Admin Dashboard';
     // useEffect(() => {
     //     const getDashboardMetrics = async () => {
     //         const res = await GetDashboardData();
@@ -36,7 +36,7 @@ const AdminDashboard = () => {
     // }, []);
     return (
         <>
-            <DefaultLayout browserTitle="Admin Dashboard">
+            <DefaultLayout browserTitle={title} breadTitle={title}>
                 <Row gutter={40} justify="space-between">
                     <Col xs={24} xl={8} lg={6}>
                         <DashboardCard icon={<RegIcon />} title="Registered Users" count="3500" />

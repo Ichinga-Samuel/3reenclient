@@ -6,7 +6,7 @@ import AOS from 'aos';
 import AdminSidebar from './AdminSidebar';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 
-const DefaultLayout = ({ browserTitle, children }) => {
+const DefaultLayout = ({ browserTitle, breadTitle, children }) => {
     const [isAdminOpen, setIsAdminOpen] = useState(false);
     const adminDrawerRef = useRef(null);
     const adminDetails = getFromLocalStorage('admindetails');
@@ -39,7 +39,10 @@ const DefaultLayout = ({ browserTitle, children }) => {
             </Head>
             <AdminHeader adminDetails={adminDetails} isAdminOpen={isAdminOpen} openDrawer={openDrawerOnMobile} />
             <AdminSidebar adminDrawerRef={adminDrawerRef} isAdminOpen={isAdminOpen} closeDrawer={openDrawerOnMobile} />
-            <AgentMainContainer>{children}</AgentMainContainer>
+            <AgentMainContainer>
+                <div className="breadtitle">{breadTitle}</div>
+                {children}
+            </AgentMainContainer>
             <FooterContainer>
                 <span>&copy; 2021 Copyrights</span>
             </FooterContainer>

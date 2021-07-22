@@ -5,7 +5,9 @@ export const DashboardCardHolder = styled.div`
     padding: 15px 2rem;
     transition: ease all 0.5s;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 2.3rem;
+    //background: linear-gradient(145deg, #ffffff, #ffffff);
+    box-shadow: 3px 5px 10px #d4d4d4;
     .iconHolder {
         display: flex;
         align-items: center;
@@ -35,6 +37,8 @@ export const CountHolder = styled.div`
     transition: ease all 0.5s;
     border-radius: 5px;
     margin-bottom: 15px;
+    //background: linear-gradient(145deg, #ffffff, #ffffff);
+    box-shadow: 2px 5px 10px #d4d4d4;
     h3 {
         font-size: 1.5rem;
         color: rgba(0, 0, 0, 0.3);
@@ -47,14 +51,16 @@ export const CountHolder = styled.div`
 `;
 
 export const LargeMHolder = styled.div`
-    background: var(--white-color);
+    //background: var(--white-color);
     padding: 15px 2rem;
     transition: ease all 0.5s;
     border-radius: 5px;
     margin-bottom: 15px;
     height: 260px;
     overflow: hidden;
-    box-shadow: 0 3px 10px rgb(0, 0, 0, 0.02);
+    //box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #ffffff, #ffffff);
+    box-shadow: 5px 5px 10px #d4d4d4, -5px -5px 10px #ffffff;
     h3 {
         font-size: 1.5rem;
         margin-bottom: 0;
@@ -115,7 +121,7 @@ export const SmallCircle = styled.div`
     width: 30px;
     height: 30px;
     border-radius: 50px;
-    background: ${(props) => props.circleColor || ' var(--secondary-color)'};
+    background: ${(props) => props.background || ' var(--secondary-color)'};
 `;
 
 export const OrderContainer = styled.div`
