@@ -1,40 +1,19 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import DisplayBox from '@/components/AdminPages/PageBuilder/DisplayBox';
-import Profile from '@/components/AdminPages/PageBuilder/Profile';
-import axios from 'axios'
-import DisplayBoxLg from '@/components/AdminPages/PageBuilder/DisplayBoxLg';
-import DisplayBoxMd from '@/components/AdminPages/PageBuilder/DisplayBoxMd';
-import { MainContainer, HeaderContainer, BoxContainer } from '@/components/AdminPages/PageBuilder/Styled';
+import React, { useEffect, useState } from 'react';
+import DisplayBox from '../PageBuilder/DisplayBox';
+import Profile from '../PageBuilder/Profile';
+import axios from 'axios';
+import DisplayBoxLg from '../PageBuilder/DisplayBoxLg';
+import DisplayBoxMd from '../PageBuilder/DisplayBoxMd';
+import { MainContainer, HeaderContainer, BoxContainer } from '../PageBuilder/Styled';
 
 const APP_BASE = process.env.APP_BASE_URL;
 function DashboardData() {
-    const [registeredUsers, setAllRegisterdUsers] = useState();
-    const [verifiedUsers, setVerifiedUsers] = useState();
-    const [getTotalUsers, setTotalUsers] = useState();
-    const [vendors , setVendors] = useState();
-    const [totalRevenues, setTotalRevenue] = useState();
-    const [totalOrder, setTotalOrders] = useState();
-    const [cst, setCst] = useState();
-    //Get The Api
+    const [register, setRegister] = useState()
     useEffect(async () => {
-        try {
-            const res = await axios.get(`${APP_BASE}/users/admin/dashboard`);
-            //Destructuring
-            const {registered, verified, totalUsers, users, totalRevenue, totalOrders} = res.data;
-            console.log(res.data)
-            setAllRegisterdUsers(registered.total);
-            setVerifiedUsers(verified.total);
-            setTotalUsers(totalUsers);
-            setCst(users[0].total)
-            setVendors(users[1].total);
-            setTotalRevenue(totalRevenue);
-            setTotalOrders(totalOrders);
-        } catch (error) {
-            if(error){
-                console.log(error);
-        }
-        }
+        const res = await axios.get('https://treen-shop-api.herokuapp.com/api/v1/users')
+        console.log(res.data)
+       const totalUsersRegister  =  res.data.doc.length
+       setRegister(totalUsersRegister)
     }, [])
     return (
         <MainContainer>
@@ -45,9 +24,9 @@ function DashboardData() {
                         <h1>Admin Dashboard</h1>
                     </div>
                     <BoxContainer>
-                        <DisplayBox title={'registered users'} info={registeredUsers} icon={'/img/edit 1.png'} color={true} />
-                        <DisplayBox title={'verified users'} info={verifiedUsers} icon={'/img/verify 1.png'} color={true} />
-                        <DisplayBox title={'total users'} info={getTotalUsers} icon={'/img/userProfile.png'} color={true} />
+                        <DisplayBox title={'registered users'} info={register} icon={'/img/edit 1.png'} color={true} />
+                        <DisplayBox title={'verified users'} info={'2,356'} icon={'/img/verify 1.png'} color={true} />
+                        <DisplayBox title={'total users'} info={register} icon={'/img/userProfile.png'} color={true} />
                     </BoxContainer>
                 </div>
             </HeaderContainer>

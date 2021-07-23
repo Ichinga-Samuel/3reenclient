@@ -36,15 +36,15 @@ const CSTRegister = () => {
             .then((response) => {
                 const { data } = response;
                 if (data.status === 'success') {
-                    addToLocalStorage('csttoken', response.data.token);
-                    addToLocalStorage('cstuser', response.data.user);
+                    addToLocalStorage('qatoken', response.data.token);
+                    addToLocalStorage('name', response.data.user.fullName);
                     notification.success({
                         key: 'succ',
                         message: 'Success',
                         description: 'Your Account has been created sucessfully',
                         duration: 15,
                     });
-                    router.push('/cst');
+                    router.push('/admin/dashboard');
                     notification.close('succ');
                 }
             })

@@ -29,7 +29,6 @@ const SuperAdminLogin= () => {
                 .then((response) => {
                     console.log('login response', response);
                     const { data } = response;
-                    console.log(data)
                     if (data.status === 'success' && data.user.role !== 'admin') {
                         notification.error({
                             message: 'Error',
@@ -48,10 +47,9 @@ const SuperAdminLogin= () => {
                         });
                         setTimeout(() => {
                             notification.close('done');
-                            router.push('/admin/register');
+                            router.push('/admin/dashboard');
                         }, 1000);
-                        addToLocalStorage('token', response.data.token);
-                        addToLocalStorage('user', response.data.user);
+                        addToLocalStorage('qatoken', response.data.token);
                         addToLocalStorage('name', response.data.user.fullName);
                         // setCookie('', 'token', response.data.token, {
                         //     maxAge: 30 * 24 * 60 * 60,
