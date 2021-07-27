@@ -41,7 +41,9 @@ const DefaultLayout = ({ browserTitle, breadTitle, children }) => {
             <AdminSidebar adminDrawerRef={adminDrawerRef} isAdminOpen={isAdminOpen} closeDrawer={openDrawerOnMobile} />
             <AgentMainContainer>
                 <div className="breadtitle">{breadTitle}</div>
-                {children}
+                <div data-aos="fade-up" data-aos-duration="700">
+                    {children}
+                </div>
             </AgentMainContainer>
             <FooterContainer>
                 <span>&copy; 2021 Copyrights</span>

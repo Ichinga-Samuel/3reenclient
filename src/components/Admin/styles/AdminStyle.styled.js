@@ -247,3 +247,78 @@ export const SRMonitorContainer = styled.div`
     transition: ease all 0.5s;
     border-radius: 4px;
 `;
+
+export const InventoryCardHolder = styled.div`
+    background: var(--white-color);
+    //padding: 15px 2rem;
+    transition: ease all 0.5s;
+    border-radius: 5px;
+    margin-bottom: 2.3rem;
+    box-shadow: 3px 5px 10px #d4d4d4;
+    overflow: hidden;
+    .image {
+        height: 200px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .content {
+        padding: 10px;
+        background: #eee;
+        overflow: hidden;
+        button {
+            font-size: 12px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            background: var(--secondary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 0;
+            &:hover {
+                background: var(--secondary-color);
+                color: var(--white-color);
+            }
+        }
+    }
+`;
+
+export const InventoryContainer = styled.div`
+    transition: ease all 0.5s;
+    position: relative;
+    .catops {
+        cursor: pointer;
+        color: gray;
+        position: relative;
+        &.active {
+            font-weight: bold;
+            color: var(--background-color);
+            &:after {
+                position: absolute;
+                content: '';
+                background: var(--background-color);
+                height: 2px;
+                left: 0;
+                right: 0;
+                width: auto;
+                bottom: 2px;
+            }
+        }
+    }
+    .searchform {
+        display: flex;
+        input {
+            margin-right: 5px;
+        }
+    }
+`;
+
+export const GeneralContainer = styled.div`
+    background: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    transition: ease all 0.5s;
+    border-radius: 4px;
+`;
