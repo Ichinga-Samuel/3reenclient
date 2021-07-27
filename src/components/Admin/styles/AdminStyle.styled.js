@@ -239,3 +239,11 @@ export const OrderDetailContainer = styled.div`
         }
     }
 `;
+
+export const SRMonitorContainer = styled.div`
+    background: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    transition: ease all 0.5s;
+    border-radius: 4px;
+`;

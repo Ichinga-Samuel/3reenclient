@@ -63,16 +63,16 @@ const AgentSidebar = (props) => {
                             </a>
                         </Link>
                     </li>
-                    <li className={pathname === '/admin/user-monitoring' ? 'activelink' : ''}>
-                        <Link href="/admin/user-monitoring">
+                    <li className={pathname === '/admin/user-monitor' ? 'activelink' : ''}>
+                        <Link href="/admin/user-monitor">
                             <a>
                                 <UserMonitorIcon />
                                 <span>User Monitoring</span>
                             </a>
                         </Link>
                     </li>
-                    <li className={pathname === '/admin/logistic-company' ? 'activelink' : ''}>
-                        <Link href="/admin/logistic-company">
+                    <li className={pathname === '/admin/logistics-company' ? 'activelink' : ''}>
+                        <Link href="/admin/logistics-company">
                             <a>
                                 <LogisticCompanyIcon />
                                 <span>Logistics Companies</span>
