@@ -1,5 +1,5 @@
 import React from 'react';
-import { DashboardCardHolder } from '../styles/AdminStyle.styled';
+import { DashboardCardHolder } from '../../styles/AdminStyle.styled';
 import { Row, Col } from 'antd';
 
 const DashboardCard = ({ icon, count, title }) => {

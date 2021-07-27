@@ -1,7 +1,7 @@
 import React from 'react';
 import DefaultLayout from '../Layout/DefaultLayout';
 import { Col, Row } from 'antd';
-import DashboardCard from './DashboardCard';
+import DashboardCard from './cards/DashboardCard';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import PaidCountCard from '@/components/Admin/components/cards/PaidCountCard';
 import LargeMetricCard from '@/components/Admin/components/cards/LargeMetricCard';
