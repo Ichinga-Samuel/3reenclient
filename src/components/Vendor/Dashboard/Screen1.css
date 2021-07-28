@@ -1,12 +1,12 @@
-:root{
+/* :root{
     --background-color: #590A5B;
     --secondary--color: #FFAF38;
 }
-/* @font-face{
+ @font-face{
     font-family:'Made Tommy';
     src: url(Fonts/MADE\ TOMMY\ Regular_PERSONAL\ USE.otf);
 
-} */
+}
 body{
     padding: 0;
     margin: 0;
@@ -533,7 +533,7 @@ body{
     table{
         border-collapse: collapse;
         width: 725px;
-        /* margin-left: 20px !important; */
+
         text-align: center;
         margin-right: 0px !important;
         font-size: 15px;
@@ -1014,4 +1014,4 @@ body{
      .flex-2{
         width: 360px;
     }   
-}
+} */

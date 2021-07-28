@@ -1,5 +1,65 @@
 import Styled from "styled-components";
 
+export const AdminTableContainer = Styled.div`
+.table-header{
+  text-align:center;
+  margin-top:30px;
+  color:red;
+}
+.table-header h1{
+  color:#590A5B;
+}
+.spinner-div{
+  transform:translate(700px, 200px);
+ }
+table{
+  width:50%; 
+  margin-left:25% !important; 
+}
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.5em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+  background-color: #590A5B;
+  color: #ffffff;
+  text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 22px 20px;
+}
+.styled-table tbody tr {
+  border-bottom: 1px solid #333;
+  color:#000;
+}
+
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #590A5B;
+}
+.admin-btn{
+  text-align:center;
+}
+.admin-btn button{
+  padding:10px;
+  background:#590A5B;
+  color:#fff;
+  font-size:1.5em;
+  cursor:pointer;
+}
+.reset-btn{
+  margin-top:20px;
+  background-color:#FFAF38;
+  padding:4px;
+  border:none;
+  color:#ffff;
+}
+`
 export const MainContainer = Styled.div`
   display: flex;
   flex-direction: column;

@@ -14,7 +14,7 @@ const SpinnerLoading = () => {
     return (
         <Container>
              <h3>Loading</h3> {' '}
-            <img src='/img/spinner.gif'></img>
+            <img src='/img/loading.svg'></img>
         </Container>
     )
 }

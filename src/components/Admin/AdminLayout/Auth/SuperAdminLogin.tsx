@@ -48,7 +48,7 @@ const SuperAdminLogin= () => {
                         });
                         setTimeout(() => {
                             notification.close('done');
-                            router.push('/admin/register');
+                            router.push('/admin/adminmangement');
                         }, 1000);
                         addToLocalStorage('token', response.data.token);
                         addToLocalStorage('user', response.data.user);
