@@ -9,7 +9,7 @@ import {
     removeFromSessionStorage,
 } from '@/utils/browserStorage';
 
-const AdminHeader = (props) => {
+const SuperAdminHeader = (props) => {
     // const { adminDetails } = props;
     const details = JSON.parse(props.adminDetails);
     const [menuopen, setmenuopen] = useState(false);
@@ -29,7 +29,7 @@ const AdminHeader = (props) => {
     };
 
     return (
-        <AdminHeaderLayout>
+        <AdminHeaderLayout style={{ justifyContent: 'space-between' }}>
             <div
                 onClick={props.openDrawer}
                 onKeyDown={props.openDrawer}
@@ -57,4 +57,4 @@ const AdminHeader = (props) => {
     );
 };
 
-export default AdminHeader;
+export default SuperAdminHeader;

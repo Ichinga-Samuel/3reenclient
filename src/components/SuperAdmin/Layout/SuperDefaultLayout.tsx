@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import AdminHeader from './AdminHeader';
+import SuperAdminHeader from './SuperAdminHeader';
 import { AgentMainContainer, FooterContainer, LayoutHolder } from './AdminLayout.styled';
 import Head from 'next/head';
 import AOS from 'aos';
@@ -37,12 +37,8 @@ const SuperDefaultLayout = ({ browserTitle, breadTitle, children }) => {
     }, []);
 
     useEffect(() => {
-        AOS.init({ duration: 600 });
-    }, []);
-
-    useEffect(() => {
         if (!token && token === null && adminDetails === null) {
-            router.push('/admin/login');
+            router.push('/admin/super-login');
             return;
         }
     }, [adminDetails, router, token]);
@@ -54,9 +50,9 @@ const SuperDefaultLayout = ({ browserTitle, breadTitle, children }) => {
             ) : (
                 <LayoutHolder>
                     <Head>
-                        <title>{browserTitle} | Admin</title>
+                        <title>{browserTitle} | Super Admin</title>
                     </Head>
-                    <AdminHeader
+                    <SuperAdminHeader
                         adminDetails={adminDetails}
                         isAdminOpen={isAdminOpen}
                         openDrawer={openDrawerOnMobile}

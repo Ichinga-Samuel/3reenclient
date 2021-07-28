@@ -18,10 +18,10 @@ const SuperAdminSidebar = (props) => {
     const { pathname } = router;
 
     const logoutAdmin = () => {
-        removeFromLocalStorage('admintoken');
-        removeFromLocalStorage('admindetails');
-        removeFromSessionStorage('admintoken');
-        removeFromSessionStorage('admindetails');
+        removeFromLocalStorage('supertoken');
+        removeFromLocalStorage('superdetails');
+        removeFromSessionStorage('supertoken');
+        removeFromSessionStorage('superdetails');
         emptySessionStorage();
         emptyLocalStorage();
         router.push('/admin/super-login');
@@ -46,19 +46,19 @@ const SuperAdminSidebar = (props) => {
             </div>
             <div className="sidemenu">
                 <ul>
-                    <li className={pathname === '/superadmin/add-user' ? 'activelink' : ''}>
-                        <Link href="/superadmin/add-user">
-                            <a>
-                                <UserAddOutlined />
-                                <span>Add New Admin</span>
-                            </a>
-                        </Link>
-                    </li>
                     <li className={pathname === '/superadmin/admin-users' ? 'activelink' : ''}>
                         <Link href="/superadmin/admin-users">
                             <a>
                                 <UserMonitorIcon />
                                 <span>Admin Users</span>
+                            </a>
+                        </Link>
+                    </li>
+                    <li className={pathname === '/superadmin/add-user' ? 'activelink' : ''}>
+                        <Link href="/superadmin/add-user">
+                            <a>
+                                <UserAddOutlined />
+                                <span>Add New Admin</span>
                             </a>
                         </Link>
                     </li>

@@ -1,12 +1,12 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import AdminPlainLayout from '@/components/Admin/Layout/AdminPlainLayout';
 import { Button, Input, notification } from 'antd';
-import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { USER } from '@/utils/ApiList';
+import { APP_BASE, USER } from '@/utils/ApiList';
 import { addToLocalStorage } from '@/utils/browserStorage';
+// import Link from 'next/link';
 
 const SuperAdminLogin = () => {
     const [loading, setLoading] = useState(false);
@@ -17,8 +17,6 @@ const SuperAdminLogin = () => {
         formState: { errors },
     } = useForm();
     const router = useRouter();
-
-    const APP_BASE = process.env.APP_BASE_URL;
 
     const PerformLogin = useCallback(
         async (data: any) => {
@@ -48,11 +46,10 @@ const SuperAdminLogin = () => {
                         });
                         setTimeout(() => {
                             notification.close('done');
-                            router.push('/admin/register');
+                            router.push('/superadmin/admin-users');
                         }, 1000);
-                        addToLocalStorage('token', response.data.token);
-                        addToLocalStorage('user', response.data.user);
-                        addToLocalStorage('name', response.data.user.fullName);
+                        addToLocalStorage('supertoken', response.data.token);
+                        addToLocalStorage('superdetails', response.data.user);
                         // setCookie('', 'token', response.data.token, {
                         //     maxAge: 30 * 24 * 60 * 60,
                         //     path: '/',
@@ -73,11 +70,11 @@ const SuperAdminLogin = () => {
     );
 
     useEffect(() => {
-        router.prefetch('/admin');
+        router.prefetch('/superadmin/admin-users');
     }, [router]);
     return (
         <>
-            <AdminPlainLayout pageTitle=" SUPER ADMIN LOGIN">
+            <AdminPlainLayout pageTitle="Super Admin Login">
                 <div className="login" data-aos="slide-right" data-aos-delay="2s" data-aos-duration="1s">
                     <div className="login__form">
                         <h3
@@ -117,9 +114,9 @@ const SuperAdminLogin = () => {
                                     {loading ? 'Authenticating...' : 'LOG IN'}
                                 </Button>
                             </div>
-                            <div className="login__pwd">
-                                <Link href="/admin/resetnewpassword">Forgot Password?</Link>
-                            </div>
+                            {/*<div className="login__pwd">*/}
+                            {/*    <Link href="/admin/resetnewpassword">Forgot Password?</Link>*/}
+                            {/*</div>*/}
                         </form>
                     </div>
                 </div>
