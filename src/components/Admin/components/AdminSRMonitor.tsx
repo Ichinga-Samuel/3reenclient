@@ -38,13 +38,11 @@ const AdminSRMonitor = () => {
     ];
 
     const viewMore = (x) => {
-        console.log('ss', x);
         setCurrentIndex(x.id);
         setviewDetail(!viewdetail);
         if (currentIndex !== x.id) {
             setviewDetail(false);
         }
-        // setviewDetail(!viewdetail);
     };
 
     return (
