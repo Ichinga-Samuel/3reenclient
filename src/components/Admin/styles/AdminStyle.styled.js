@@ -322,3 +322,29 @@ export const GeneralContainer = styled.div`
     transition: ease all 0.5s;
     border-radius: 4px;
 `;
+
+export const LogisticsCard = styled.div`
+    background: var(--white-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: ease all 0.5s;
+    border-radius: 4px;
+    height: 90px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    .selectedCompany {
+        cursor: pointer;
+        color: var(--secondary-color);
+        background: transparent;
+        border: 1px solid var(--secondary-color);
+        height: 90px;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.selected {
+            color: var(--white-color);
+            background: var(--secondary-color);
+            border: none;
+        }
+    }
+`;
