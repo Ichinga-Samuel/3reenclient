@@ -52,7 +52,7 @@ const SRMonitorGraph = (props) => {
                     </Col>
                 </Row>
                 <div className="graph">
-                    <Bar data={data} height={70} width={20} options={{ maintainAspectRatio: false }} />
+                    <Bar data={data} height={70} width={20} options={{ maintainAspectRatio: false }} type="" />
                 </div>
             </SRGraphCard>
         </>

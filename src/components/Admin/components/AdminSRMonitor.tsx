@@ -27,14 +27,14 @@ const AdminSRMonitor = () => {
             state: 'Lagos',
             selected: false,
         },
-        // {
-        //     id: 42,
-        //     companyName: 'DREP Express',
-        //     address: 'Plot 100, Ison Eleran Avenue, Ojoo',
-        //     state: 'Oyo',
-        //     rating: 3,
-        //     selected: false,
-        // },
+        {
+            id: 42,
+            companyName: 'DREP Express',
+            address: 'Plot 100, Ison Eleran Avenue, Ojoo',
+            state: 'Oyo',
+            rating: 3,
+            selected: false,
+        },
     ];
 
     const viewMore = (x) => {
@@ -107,7 +107,7 @@ const AdminSRMonitor = () => {
                                 </Col>
                             </Row>
 
-                            <div className={`moredetails ${viewdetail ? 'showmore' : ''}`}>
+                            <div className={`moredetails ${viewdetail && currentIndex === res.id ? 'showmore' : ''}`}>
                                 <SRMonitorGraph salename={res.companyName} />
                             </div>
                         </LogisticsCard>

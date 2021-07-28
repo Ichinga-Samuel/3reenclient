@@ -377,9 +377,11 @@ export const LogisticsCard = styled.div`
         padding: 3rem 4rem;
         transition: ease all 0.5s;
         visibility: hidden;
+        //display: none;
         transform: translateY(0px);
         opacity: 0;
         &.showmore {
+            //display: block;
             visibility: visible;
             transform: translateY(-5px);
             opacity: 1;
