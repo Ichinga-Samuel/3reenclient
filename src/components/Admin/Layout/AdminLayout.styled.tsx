@@ -125,7 +125,7 @@ export const AgentMainContainer = styled.main`
     position: relative;
     transition: ease all 0.6s;
     background: var(--white-color);
-    padding: 7rem 2rem 1rem 27rem;
+    padding: 7rem 2rem 3rem 27rem;
     height: auto;
     width: auto;
     margin-bottom: 15px;
@@ -134,6 +134,7 @@ export const AgentMainContainer = styled.main`
         margin-bottom: 15px;
         transition: ease all 0.5s;
         padding: 2.5rem 0 0;
+        font-weight: bold;
     }
     @media (max-width: 449px) {
         padding: 5rem 2rem 1rem 2rem;
@@ -142,15 +143,16 @@ export const AgentMainContainer = styled.main`
 `;
 
 export const FooterContainer = styled.footer`
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    //position: relative;
+    bottom: -30rem;
     z-index: 1;
     border-top: var(--gray-color);
     background: var(--white-color);
     padding: 10px;
     transition: ease all 0.5s;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     span {
         text-align: center;
@@ -268,7 +270,7 @@ export const MainContainer = styled.main`
 `;
 
 export const PlainAdminFooter = styled.footer`
-    position: absolute;
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;

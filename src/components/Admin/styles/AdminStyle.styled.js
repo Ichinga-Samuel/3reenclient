@@ -334,9 +334,10 @@ export const LogisticsCard = styled.div`
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     transition: ease all 0.5s;
     border-radius: 4px;
-    height: 90px;
-    overflow: hidden;
+    height: ${(props) => props.height || '90px'};
+    //overflow: hidden;
     margin-bottom: 15px;
+    position: relative;
     .selectedCompany {
         cursor: pointer;
         color: var(--secondary-color);
@@ -352,5 +353,49 @@ export const LogisticsCard = styled.div`
             background: var(--secondary-color);
             border: none;
         }
+    }
+    .sr-image {
+        width: 50px;
+        height: 50px;
+        background: gray;
+        margin-right: 10px;
+    }
+    .morebtn {
+        cursor: pointer;
+        color: var(--secondary-color);
+        display: flex;
+        align-items: center;
+    }
+    .moredetails {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: auto;
+        background: var(--white-color);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
+        //border: 1px solid #000;
+        padding: 3rem 4rem;
+        transition: ease all 0.5s;
+        visibility: hidden;
+        transform: translateY(0px);
+        opacity: 0;
+        &.showmore {
+            visibility: visible;
+            transform: translateY(-5px);
+            opacity: 1;
+            transition: ease all 0.5s;
+        }
+    }
+`;
+
+export const SRGraphCard = styled.div`
+    color: #333333;
+    .title {
+        font-size: 26px;
+        line-height: 45px;
+        color: #333333;
+    }
+    .graph {
+        height: 285.3px;
     }
 `;
