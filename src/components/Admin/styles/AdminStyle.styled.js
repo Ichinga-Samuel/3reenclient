@@ -321,6 +321,12 @@ export const GeneralContainer = styled.div`
     padding: 1rem;
     transition: ease all 0.5s;
     border-radius: 4px;
+    .searchform {
+        display: flex;
+        input {
+            margin-right: 5px;
+        }
+    }
 `;
 
 export const LogisticsCard = styled.div`

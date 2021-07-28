@@ -22,11 +22,41 @@ const AdminLogisticCompany = () => {
         }
     };
 
+    const logData = [
+        {
+            id: 12,
+            companyName: 'GIG Logistics',
+            address: 'Plot 300, Gbagada Avenue, Gbagada',
+            rating: 5,
+            state: 'Lagos',
+            selected: true,
+        },
+        {
+            id: 14,
+            companyName: 'FAX Express',
+            address: 'No 100, Ojo Ayo Avenue, Surulere',
+            rating: 4,
+            state: 'Lagos',
+            selected: false,
+        },
+        {
+            id: 42,
+            companyName: 'DREP Express',
+            address: 'Plot 100, Ison Eleran Avenue, Ojoo',
+            state: 'Oyo',
+            rating: 3,
+            selected: false,
+        },
+    ];
+
     useEffect(() => {
         setactive(true);
     }, []);
     const [buttonText, setButtonText] = useState('Tap To Select');
     const [getCompany, setCompany] = useState([]);
+
+    console.log(getCompany);
+    console.log(buttonText);
 
     const token = getFromLocalStorage('admintoken');
 
@@ -88,78 +118,46 @@ const AdminLogisticCompany = () => {
                     </Col>
                 </Row>
                 <div style={{ marginTop: '15px' }} />
-                <LogisticsCard>
-                    <Row justify="space-between">
-                        <Col xs={14} xl={6} lg={4}>
-                            <div style={{ padding: '10px' }}>
-                                <p>
-                                    <strong>Full Name of Logistics Company</strong> | Office Address
-                                </p>
-                                <span>State | Location</span>
-                            </div>
-                        </Col>
-                        <Col xs={6} xl={6} lg={4}>
-                            <div style={{ padding: '10px' }}>
-                                <span>Rating/Review</span>
-                                <BeautyStars
-                                    value={5}
-                                    activeColor="#ffaf38"
-                                    size="14px"
-                                    inactiveColor="#E2DDDD"
-                                    maxStars={5}
-                                    gap={5}
-                                />
-                            </div>
-                        </Col>
-                        <Col xs={3} xl={3} lg={3}>
-                            <div
-                                onClick={() => changeText('Selected Logistic Company')}
-                                onKeyDown={changeText}
-                                role="button"
-                                tabIndex={0}
-                                className="selectedCompany selected"
-                            >
-                                Selected <br /> Logistic Company
-                            </div>
-                        </Col>
-                    </Row>
-                </LogisticsCard>
-                <LogisticsCard>
-                    <Row justify="space-between">
-                        <Col xs={14} xl={6} lg={4}>
-                            <div style={{ padding: '10px' }}>
-                                <p>
-                                    <strong>Full Name of Logistics Company</strong> | Office Address
-                                </p>
-                                <span>State | Location</span>
-                            </div>
-                        </Col>
-                        <Col xs={6} xl={6} lg={4}>
-                            <div style={{ padding: '10px' }}>
-                                <p>Rating/Review</p>
-                                <BeautyStars
-                                    value={5}
-                                    activeColor="#ffaf38"
-                                    size="14px"
-                                    inactiveColor="#E2DDDD"
-                                    maxStars={5}
-                                    gap={5}
-                                />
-                            </div>
-                        </Col>
-                        <Col xs={3} xl={3} lg={3}>
-                            <div
-                                onClick={() => changeText('Tap to Select Company')}
-                                onKeyDown={changeText}
-                                role="button"
-                                tabIndex={0}
-                                className="selectedCompany"
-                            >
-                                Tap to Select Company
-                            </div>
-                        </Col>
-                    </Row>
-                </LogisticsCard>
+                {logData?.map((res) => {
+                    return (
+                        <LogisticsCard key={res.id}>
+                            <Row justify="space-between">
+                                <Col xs={14} xl={6} lg={4}>
+                                    <div style={{ padding: '10px' }}>
+                                        <p style={{ marginBottom: '5px' }}>
+                                            <strong>{res.companyName}</strong> | {res.address}
+                                        </p>
+                                        <span>{res.state}</span>
+                                    </div>
+                                </Col>
+                                <Col xs={6} xl={6} lg={4}>
+                                    <div style={{ padding: '10px' }}>
+                                        <p style={{ marginBottom: '15px' }}>Rating/Review</p>
+                                        <BeautyStars
+                                            value={res.rating}
+                                            activeColor="#ffaf38"
+                                            size="14px"
+                                            inactiveColor="#E2DDDD"
+                                            maxStars={5}
+                                            gap={5}
+                                        />
+                                    </div>
+                                </Col>
+                                <Col xs={3} xl={3} lg={3}>
+                                    <div
+                                        onClick={() => changeText('Selected Logistic Company')}
+                                        onKeyDown={changeText}
+                                        role="button"
+                                        tabIndex={0}
+                                        className={`selectedCompany ${res.selected ? 'selected' : ''}`}
+                                    >
+                                        {res.selected ? `Selected Logistic Company` : 'Tap To Select'}
+                                    </div>
+                                </Col>
+                            </Row>
+                        </LogisticsCard>
+                    );
+                })}
             </InventoryContainer>
         </DefaultLayout>
     );
