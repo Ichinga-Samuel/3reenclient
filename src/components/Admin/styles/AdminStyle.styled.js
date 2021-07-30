@@ -121,7 +121,7 @@ export const SmallCircle = styled.div`
     width: 30px;
     height: 30px;
     border-radius: 50px;
-    background: ${(props) => props.background || ' var(--secondary-color)'};
+    background: ${(props) => props.theme.main || ' var(--secondary-color)'};
 `;
 
 export const OrderContainer = styled.div`

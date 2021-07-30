@@ -1,8 +1,8 @@
 import React from 'react';
-import SingleQAOrderDetails from '@/components/QualityAssurance/Orders/SingleQAOrderDetails';
+import SingleAdminOrderDetails from '@/components/Admin/components/orders/SingleAdminOrderDetails';
 
-const QASingleOrders = () => {
-    return <SingleQAOrderDetails />;
+const AdminSingleOrders = () => {
+    return <SingleAdminOrderDetails />;
 };
 
-export default QASingleOrders;
+export default AdminSingleOrders;

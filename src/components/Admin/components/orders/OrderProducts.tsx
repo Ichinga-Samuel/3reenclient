@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Table, Collapse } from 'antd';
-import { formatAmount } from '@/utils/helpers';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import { formatAmount } from '@/utils/helpers';
 
 const { Panel } = Collapse;
 

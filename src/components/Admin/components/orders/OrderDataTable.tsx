@@ -25,12 +25,12 @@ const OrderDataTable = (props: any) => {
     const getOneOrderRecord = (record: any) => {
         console.log('record', record);
         router.push({
-            pathname: '/qualityassurance/orders/[id]',
+            pathname: '/admin/orders/[id]',
             query: { id: record._id },
         });
     };
 
-    const orderColumns: ColumnsType<orders> = [
+    const adminOrderColumns: ColumnsType<orders> = [
         {
             title: 'Date',
             dataIndex: 'placedOn',
@@ -126,7 +126,7 @@ const OrderDataTable = (props: any) => {
             <Table<orders>
                 rowKey="_id"
                 loading={fetching}
-                columns={orderColumns}
+                columns={adminOrderColumns}
                 dataSource={orders}
                 pagination={false}
             />

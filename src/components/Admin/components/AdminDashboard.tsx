@@ -80,9 +80,9 @@ const AdminDashboard = () => {
                             cardTitle="Number of Users"
                             count={metricObject?.totalUsers}
                             bTitle="Number of CST"
-                            bCount1={`${metricObject?.users?.[0].total} CST`}
+                            bCount1={`${metricObject?.users?.[0]?.total} CST`}
                             bTitle2="Number of Vendor"
-                            bCount2={`${metricObject?.users?.[1].total} Vendor`}
+                            bCount2={`${metricObject?.users?.[1]?.total} Vendor`}
                         />
                     </Col>
                     <Col xs={24} xl={8} lg={6}>

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import QAMainLayout from '@/components/QualityAssurance/QALayout/QAMainLayout';
 import { QAOrderDetailsContainer } from '@/components/QualityAssurance/QALayout/QAGeneral.styled';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { APP_BASE, QA_ORDER } from '@/utils/ApiList';
+import { APP_BASE, ADMIN } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { Button, Input, Spin, Row, Select, Col, Card, notification } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';
@@ -13,14 +12,15 @@ import NotificationCard from '@/components/QualityAssurance/Orders/NotificationC
 import { ActionList } from './UtilsOrderData';
 import OrderProducts from './OrderProducts';
 import ProductImageCard from './ProductImageCard';
+import DefaultLayout from '@/components/Admin/Layout/DefaultLayout';
 
 const { Option } = Select;
 
-const SingleQAOrderDetails = () => {
+const SingleAdminOrderDetails = () => {
     const title = 'Order Details';
     const router = useRouter();
     const { id } = router.query;
-    const token = getFromLocalStorage('qatoken');
+    const token = getFromLocalStorage('admintoken');
     const [details, setdetails] = useState(null);
     const [updating, setUpdating] = useState(false);
     const [val, setVal] = useState('');
@@ -32,7 +32,7 @@ const SingleQAOrderDetails = () => {
             }
             try {
                 setUpdating(true);
-                const response = await axios.get(`${APP_BASE}${QA_ORDER.getSingleOrder(id)}`, {
+                const response = await axios.get(`${APP_BASE}${ADMIN.getSingleOrder(id)}`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -65,7 +65,7 @@ const SingleQAOrderDetails = () => {
         }
         try {
             setUpdating(true);
-            const response = await axios.patch(`${APP_BASE}${QA_ORDER.updateStatus(id, val)}`, {
+            const response = await axios.patch(`${APP_BASE}${ADMIN.updateStatus(id, val)}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -92,10 +92,10 @@ const SingleQAOrderDetails = () => {
     };
 
     return (
-        <QAMainLayout pageTitle={title}>
+        <DefaultLayout browserTitle={title} breadTitle={title}>
             <QAOrderDetailsContainer>
                 <div className="title">
-                    <Link href="/qualityassurance/orders">
+                    <Link href="/admin/orders">
                         <a>
                             <ArrowLeftOutlined /> <span>View Orders</span>
                         </a>
@@ -325,39 +325,8 @@ const SingleQAOrderDetails = () => {
                     </>
                 )}
             </QAOrderDetailsContainer>
-        </QAMainLayout>
+        </DefaultLayout>
     );
 };
 
-export default SingleQAOrderDetails;
-
-export async function getInitialProps({ params }) {
-    console.log(params);
-    const token = getFromLocalStorage('token');
-    const APP_BASE = process.env.APP_BASE_URL;
-    const res = await axios.get(`${APP_BASE}${QA_ORDER.getSingleOrder(params.id)}`, {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
-    console.log('order res', res);
-    return {
-        props: { details: res },
-    };
-}
-
-export async function getStaticPaths() {
-    const APP_BASE = process.env.APP_BASE_URL;
-    const res = await fetch(`${APP_BASE}${QA_ORDER.getAllOrders}`);
-    console.log('order res', res);
-    const response = await res.json();
-    console.log('order res', response);
-    const path = response.map((order: any) => {
-        return { params: { id: order.refId } };
-    });
-
-    return {
-        path,
-        fallback: false,
-    };
-}
+export default SingleAdminOrderDetails;
