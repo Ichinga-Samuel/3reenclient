@@ -1,8 +1,9 @@
 import React from 'react';
 import { ProductCard } from '@/components/QualityAssurance/QALayout/QAGeneral.styled';
-import { formatAmount } from '@/utils/helpers';
+// import { formatAmount } from '@/utils/helpers';
 import BeautyStars from 'beauty-stars';
 import { Carousel } from 'antd';
+import { CURRENCY, formatAmount } from '@/utils/helpers';
 
 const ProductImageCard = (props: any) => {
     const { details } = props;
@@ -26,7 +27,11 @@ const ProductImageCard = (props: any) => {
                                     maxStars={5}
                                     gap={5}
                                 />
-                                <p>&#x20A6; {formatAmount(detail.product.price)}</p>
+                                <p>
+                                    {CURRENCY}
+                                    {formatAmount(detail.product.price)}
+                                </p>
+                                <p>&#x20A6; detail.product.price</p>
                             </div>
                         </ProductCard>
                     );

@@ -19,16 +19,16 @@ const AdminAuditRecord = () => {
         const fetchAuditProducts = async () => {
             setfetching(true);
             try {
-                const response = await axios.get(`${APP_BASE}/admin/audit`, {
+                const response = await axios.get(`${APP_BASE}/orders/audit`, {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${token}`,
                     },
                 });
-                const { doc } = response?.data;
+                const { products } = response?.data;
                 // setPages(pages);
-                setAuditData(doc);
-                console.log('res', response.data);
+                setAuditData(products);
+                console.log('res', products);
                 setTimeout(() => {
                     setfetching(false);
                 }, 200);
@@ -52,13 +52,13 @@ const AdminAuditRecord = () => {
             <div>
                 <Row gutter={40} justify="space-between">
                     <Col xs={24} xl={8} lg={6}>
-                        <AuditCountCard icon={<AmountMadeIcon />} title="Amount Made" count="35000000" />
+                        <AuditCountCard icon={<AmountMadeIcon />} title="Amount Made" count="0" />
                     </Col>
                     <Col xs={24} xl={8} lg={6}>
-                        <AuditCountCard icon={<PendingIcon />} title="Pending Payments" count="45000" />
+                        <AuditCountCard icon={<PendingIcon />} title="Pending Payments" count="0" />
                     </Col>
                     <Col xs={24} xl={8} lg={6}>
-                        <AuditCountCard icon={<CancelIcon />} title="Total Cancelled" count="400000" />
+                        <AuditCountCard icon={<CancelIcon />} title="Total Cancelled" count="0" />
                     </Col>
                 </Row>
             </div>

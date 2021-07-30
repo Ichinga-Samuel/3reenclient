@@ -104,7 +104,7 @@ const AgentSidebar = (props) => {
                         </Link>
                     </li>
                     <li className={pathname === '/admin/customer-service' ? 'activelink' : ''}>
-                        <Link href="/admin/customer-service">
+                        <Link href="/admin/customer-services">
                             <a>
                                 <CustomerServiceIcon />
                                 <span>Customer Service</span>

@@ -8,12 +8,16 @@ const LargeMetricCard = (props) => {
     const titleU = props.cardTitle.includes('User');
     const titleR = props.cardTitle.includes('Revenue');
 
+    const theme = {
+        main: props.circleColor,
+    };
+
     return (
         <LargeMHolder>
             <Row align="middle" justify="space-between">
                 <Col>{props.cardIcon}</Col>
                 <Col>
-                    <SmallCircle background={props.circleColor} />
+                    <SmallCircle theme={theme} />
                 </Col>
             </Row>
             <Row>
