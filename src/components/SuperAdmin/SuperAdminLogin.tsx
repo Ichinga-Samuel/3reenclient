@@ -25,9 +25,7 @@ const SuperAdminLogin = () => {
             await axios
                 .post(`${APP_BASE}${USER.login}`, data)
                 .then((response) => {
-                    console.log('login response', response);
                     const { data } = response;
-                    console.log(data);
                     if (data.status === 'success' && data.user.role !== 'admin') {
                         notification.error({
                             message: 'Error',

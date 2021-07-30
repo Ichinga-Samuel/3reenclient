@@ -10,7 +10,7 @@ import {
     removeFromLocalStorage,
     removeFromSessionStorage,
 } from '@/utils/browserStorage';
-import { UserAddOutlined } from '@ant-design/icons';
+// import { UserAddOutlined } from '@ant-design/icons';
 
 const SuperAdminSidebar = (props) => {
     const { isAdminOpen, closeDrawer, adminDrawerRef } = props;
@@ -54,14 +54,14 @@ const SuperAdminSidebar = (props) => {
                             </a>
                         </Link>
                     </li>
-                    <li className={pathname === '/superadmin/add-user' ? 'activelink' : ''}>
-                        <Link href="/superadmin/add-user">
-                            <a>
-                                <UserAddOutlined />
-                                <span>Add New Admin</span>
-                            </a>
-                        </Link>
-                    </li>
+                    {/*<li className={pathname === '/superadmin/add-user' ? 'activelink' : ''}>*/}
+                    {/*    <Link href="/superadmin/add-user">*/}
+                    {/*        <a>*/}
+                    {/*            <UserAddOutlined />*/}
+                    {/*            <span>Add New Admin</span>*/}
+                    {/*        </a>*/}
+                    {/*    </Link>*/}
+                    {/*</li>*/}
                 </ul>
             </div>
             <div className="lowermenu">
