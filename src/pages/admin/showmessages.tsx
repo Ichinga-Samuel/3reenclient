@@ -1,11 +1,9 @@
 import React from 'react';
-import Messages from '@/components/Admin/CustomerService/Messages';
-import SideNav from '@/components/Admin/SideNav/SideNav';
+import Messages from '@/components/Admin/components/customerservice/Messages';
 const ShowMessages = () => {
     return (
         <div>
             <Messages />
-            <SideNav />
         </div>
     );
 };

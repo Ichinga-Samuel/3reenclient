@@ -401,3 +401,37 @@ export const SRGraphCard = styled.div`
         height: 285.3px;
     }
 `;
+
+export const CustomerContainer = styled.div`
+    position: relative;
+    transition: ease all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .image-container {
+        display: flex;
+        margin: auto;
+        img {
+            width: 70%;
+            margin: auto;
+            object-fit: contain;
+        }
+    }
+    .callbuttons {
+        display: flex;
+        button {
+            margin-right: 10px;
+            background: var(--white-color);
+            border-radius: 0;
+            border: 2px solid #000;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            color: var(--black-color);
+            &:hover {
+                border: 2px solid var(--background-color);
+            }
+        }
+    }
+`;

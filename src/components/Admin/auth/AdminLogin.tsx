@@ -35,6 +35,15 @@ const AdminLogin = () => {
                 setloading(false);
                 return;
             }
+            // if (data.user.role !== 'admin' && data.user.role !== 'sub-admin' && data.status === 'success') {
+            //    notification.error({
+            //       message: 'Error',
+            //       description: 'Account Does not belong to an Admin',
+            //       duration: 15,
+            //    });
+            //    setLoading(false);
+            //    return;
+            // }
             if (data.status === 'success' && data.user.role === 'admin') {
                 notification.success({
                     message: 'Success',
