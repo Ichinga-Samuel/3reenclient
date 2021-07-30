@@ -63,3 +63,11 @@ export const findAllTotal = (list: any) => {
     }
     return '0.00';
 };
+
+// TO REDUCE STRING LENGTH
+export const truncateText = (str = '', length: any = '30', ending = '...') => {
+    if (!(str && length)) {
+        return;
+    }
+    return length > str.length ? str : str.substring(0, length - ending.length) + ending;
+};

@@ -1,0 +1,190 @@
+.aside {
+  position: fixed;
+  transition: ease all 0.6s;
+  height: 100%;
+  width: 250px;
+  background: var(--background-color);
+  z-index: 99;
+  transform: translateX(0);
+  overflow-y: auto;
+  &.open {
+    transform: translateX(0);
+    transition: ease all 0.6s;
+  }
+  .profile {
+    padding: 1.4rem 15px 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: ease all 0.6s;
+    &__avatar {
+      //width: 100px;
+      //height: 100px;
+      background: var(--white-color);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 15px;
+      span {
+        color: var(--white-color);
+        font-size: 2rem;
+        font-weight: bold;
+      }
+    }
+    h4 {
+      text-transform: capitalize;
+      margin-bottom: 0;
+      font-size: 1.1rem;
+    }
+    .admin {
+      background: var(--green-color);
+    }
+  }
+  .sidemenu {
+    transition: ease all 0.5s;
+    position: relative;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    li a {
+      transition: ease all 0.5s;
+      display: flex;
+      align-items: center;
+      padding: 10px 1rem;
+      margin-bottom: 10px;
+      color: var(--white-color);
+      position: relative;
+      font-size: 1.4rem;
+      span {
+        padding-left: 1rem;
+        text-align: left;
+      }
+      svg {
+        fill: var(--white-color);
+        stroke: var(--white-color);
+        padding: 5px;
+        flex: 0 0 16%;
+      }
+      &:after {
+        position: absolute;
+        content: "";
+        right: 0;
+        height: 100%;
+        border: 2px solid var(--white-colr);
+        opacity: 0;
+        transform: translateX(5px);
+        visibility: hidden;
+      }
+      &:hover {
+        color: var(--background-color);
+        background: var(--white-color);
+        font-weight: bold;
+        &:after {
+          transform: translateX(-2px);
+          transition: ease all 0.5s;
+          opacity: 1;
+          visibility: visible;
+        }
+        svg {
+          fill: var(--background-color);
+          stroke: var(--background-color);
+        }
+      }
+    }
+    .activelink {
+      position: relative;
+      //border-right: 4px solid var(--background-color);
+      svg {
+        fill: var(--background-color);
+        stroke: var(--background-color);
+      }
+      li, a {
+        color: var(--background-color);
+        background: var(--white-color);
+        font-weight: bold;
+        svg {
+          fill: var(--background-color);
+          stroke: var(--background-color);
+        }
+      }
+    }
+  }
+  .lowermenu {
+    transition: ease all 0.5s;
+    position: absolute;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+    ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      transition: ease all 0.5s;
+      display: flex;
+      align-items: center;
+      padding: 2px 1rem;
+      cursor: pointer;
+      color: var(--secondary-color);
+      span {
+        padding-left: 1.5rem;
+      }
+      svg {
+        padding: 3px;
+        fill: var(--secondary-color);
+        stroke: var(--secondary-color);
+      }
+    }
+  }
+  @media (min-width: 449px) {
+    .closedrawer {
+      display: none;
+    }
+  }
+  @media (max-width: 449px) {
+    transform: translateX(-25rem);
+    transition: ease all 0.6s;
+    width: 165px;
+    .closedrawer {
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+      transition: ease all 0.5s;
+      transform: translateX(0);
+
+      svg {
+        fill: var(--white-color);
+        stroke: var(--white-color);
+      }
+
+      &:hover {
+        transform: translateX(10px);
+        transition: ease all 0.5s;
+      }
+    }
+    .sidemenu {
+      li a {
+        padding: 8px 1rem;
+        font-size: 1rem;
+        svg {
+          fill: var(--white-color);
+          stroke: var(--white-color);
+          //padding: 8px;
+          flex: 0 0 16%;
+        }
+        span {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+  }
+}

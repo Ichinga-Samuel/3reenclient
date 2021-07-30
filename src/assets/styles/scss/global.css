@@ -1,11 +1,3 @@
-:root {
-  /*
-        Declaring font-size by 62.5% helps the dev calculated other values relative to px by dividing by 10
-        ie px/10 = rem. Thus default font-size is now 10px
-    */
-  font-size: 62.5%;
-}
-
 html {
   max-width: 100%;
 }

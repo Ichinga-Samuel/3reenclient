@@ -1,25 +1,8 @@
-<<<<<<<<< Temporary merge branch 1
-import AdminDashboard from '@/components/Admin/AdminLayout/AdminDashboard';
 import React from 'react';
-const admindashboard=()=> {
-    return (
-        <div>
-            <AdminDashboard/>
-        </div>
-    );
-}
+import AdminDashboard from '@/components/Admin/components/AdminDashboard';
 
-export default admindashboard;
-=========
-import React from 'react';
-import AdminDashBoard from '@/components/Admin/DashBoard/AdminDashBoard';
-const Dashboard = () => {
-    return (
-        <div>
-            <AdminDashBoard />
-        </div>
-    );
+const AdminDashPage = () => {
+    return <AdminDashboard />;
 };
 
-export default Dashboard;
->>>>>>>>> Temporary merge branch 2
+export default AdminDashPage;

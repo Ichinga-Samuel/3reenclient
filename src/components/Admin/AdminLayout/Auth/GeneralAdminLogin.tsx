@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import AdminPlainLayout from '@/components/Admin/AdminLayout/AdminPlainLayout';
+import AdminPlainLayout from '@/components/Admin/Layout/AdminPlainLayout';
 import { Button, Card, Input, notification } from 'antd';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
@@ -8,9 +8,9 @@ import { useRouter } from 'next/router';
 import { USER } from '@/utils/ApiList';
 import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 
-const GeneralAdminLogin= () => {
+const GeneralAdminLogin = () => {
     const [loading, setLoading] = useState(false);
-    const [hideForgotPassword, setHideForgotPassword] = useState(false)
+    const [hideForgotPassword, setHideForgotPassword] = useState(false);
     const {
         register,
         handleSubmit,
@@ -29,8 +29,8 @@ const GeneralAdminLogin= () => {
                 .then((response) => {
                     console.log('login response', response);
                     const { data } = response;
-                    console.log(data)
-                    if (data.user.role !== 'admin' && data.user.role !=='sub-admin' && data.status === 'success') {
+                    console.log(data);
+                    if (data.user.role !== 'admin' && data.user.role !== 'sub-admin' && data.status === 'success') {
                         notification.error({
                             message: 'Error',
                             description: 'Account Does not belong to an Admin',
@@ -39,8 +39,8 @@ const GeneralAdminLogin= () => {
                         setLoading(false);
                         return;
                     }
-                    if(data.user.role === 'sub-admin'){
-                        setHideForgotPassword(true)
+                    if (data.user.role === 'sub-admin') {
+                        setHideForgotPassword(true);
                     }
                     if (data.status === 'success') {
                         notification.success({
@@ -84,9 +84,13 @@ const GeneralAdminLogin= () => {
                 <div className="login" data-aos="slide-right" data-aos-delay="2s" data-aos-duration="1s">
                     <Card>
                         <div className="login__form">
-                            <h3 style={{
-                                color: '#590A5B',fontSize: '28px',lineHeight:'90.9%'
-                            }}>
+                            <h3
+                                style={{
+                                    color: '#590A5B',
+                                    fontSize: '28px',
+                                    lineHeight: '90.9%',
+                                }}
+                            >
                                 Log In
                             </h3>
                             <h4>Log in to your account</h4>
@@ -110,17 +114,20 @@ const GeneralAdminLogin= () => {
                                         block
                                         onClick={handleSubmit(PerformLogin)}
                                         style={{
-                                            background: "#FFAF38" , borderColor:'white'
+                                            background: '#FFAF38',
+                                            borderColor: 'white',
                                         }}
                                     >
                                         {loading ? 'Authenticating...' : 'LOG IN'}
                                     </Button>
                                 </div>
-                                {
-                                    hideForgotPassword ? ''
-                                : <div className="login__pwd">
-                                <Link href="/admin/resetnewpassword">Forgot Password?</Link>
-                            </div>}
+                                {hideForgotPassword ? (
+                                    ''
+                                ) : (
+                                    <div className="login__pwd">
+                                        <Link href="/admin/resetnewpassword">Forgot Password?</Link>
+                                    </div>
+                                )}
                             </form>
                         </div>
                     </Card>
