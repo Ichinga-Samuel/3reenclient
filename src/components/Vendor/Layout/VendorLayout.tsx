@@ -13,7 +13,6 @@ import 'aos/dist/aos.css';
 const VendorLayout = ({ pageTitle, dashboardTitle, crumbName, children }) => {
     // const value = useAuth();
     // const user = useContext(AuthContext);
-    // console.log('all', user);
     const router = useRouter();
 
     const token = getFromLocalStorage('token');

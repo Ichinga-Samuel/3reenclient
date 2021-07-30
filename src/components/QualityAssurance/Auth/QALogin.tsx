@@ -27,7 +27,6 @@ const QALogin = () => {
             await axios
                 .post(`${APP_BASE}${USER.login}`, data)
                 .then((response) => {
-                    console.log('login response', response);
                     const { data } = response;
                     if (data.status === 'success' && data.user.role !== 'user') {
                         notification.error({
@@ -58,7 +57,6 @@ const QALogin = () => {
                     }
                 })
                 .catch((err) => {
-                    console.log('login err', err.response);
                     setLoading(false);
                     notification.error({
                         message: 'Error',

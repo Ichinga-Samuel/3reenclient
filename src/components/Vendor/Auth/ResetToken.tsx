@@ -63,7 +63,6 @@ const ResetToken = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     message: 'Error',

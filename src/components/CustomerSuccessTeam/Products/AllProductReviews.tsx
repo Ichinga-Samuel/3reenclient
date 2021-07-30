@@ -9,6 +9,7 @@ import { APP_BASE, MESSAGES } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import CSTReviewCard from './CSTReviewCard';
 import BeautyStars from 'beauty-stars';
+import { LOGGER } from '@/utils/helpers';
 // import moment from 'moment';
 
 const AllProductReviews = () => {
@@ -28,7 +29,7 @@ const AllProductReviews = () => {
     // const viewDetails = () => setCollapse(!collapse);
 
     const viewDetails2 = () => {
-        console.log(collapse);
+        LOGGER('c', collapse);
         setCollapse(!collapse);
     };
 
@@ -45,7 +46,6 @@ const AllProductReviews = () => {
             });
             return;
         }
-        console.log(msgData);
         try {
             setloading(true);
             const config = {
@@ -54,7 +54,6 @@ const AllProductReviews = () => {
                 },
             };
             const res = await axios.post(`${APP_BASE}${MESSAGES}`, msgData, config);
-            console.log(res.data);
             if (res) {
                 setMsg({
                     messageBody: '',

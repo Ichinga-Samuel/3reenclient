@@ -33,109 +33,101 @@ select {
 }
 
 @font-face {
-  font-family: "made-tommy-regular";
+  font-family: "Made Tommy Regular";
   font-style: normal;
   font-weight: 900;
   src: url("/fonts/MadeTommy/Made-Tommy-ExtraBold.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-regular";
+  font-family: "Made Tommy Regular";
   font-style: normal;
   font-weight: 800;
   src: url("/fonts/MadeTommy/Made-Tommy-Black.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-regular";
+  font-family: "Made Tommy Regular";
   font-style: normal;
   font-weight: 700;
   src: url("/fonts/MadeTommy/Made-Tommy-Bold.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-regular";
+  font-family: "Made Tommy Regular";
   font-style: normal;
   font-weight: 500;
   src: url("/fonts/MadeTommy/Made-Tommy-Medium.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-regular";
+  font-family: "Made Tommy Regular";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/MadeTommy/Made-Tommy-Regular.otf");
+  src: url("/fonts/MadeTommy/Made Tommy Regular.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-regular";
+  font-family: "Made Tommy Regular";
   font-style: normal;
   font-weight: 300;
   src: url("/fonts/MadeTommy/Made-Tommy-Light.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-regular";
+  font-family: "Made Tommy Regular";
   font-style: normal;
   font-weight: 200;
   src: url("/fonts/MadeTommy/Made-Tommy-Thin.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-outline";
+  font-family: "Made Tommy Outline";
   font-style: normal;
   font-weight: 900;
   src: url("/fonts/MadeTommy/Made-Tommy-ExtraBold-Outline.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-outline";
+  font-family: "Made Tommy Outline";
   font-style: normal;
   font-weight: 800;
   src: url("/fonts/MadeTommy/Made-Tommy-Black-Outline.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-outline";
+  font-family: "Made Tommy Outline";
   font-style: normal;
   font-weight: 700;
   src: url("/fonts/MadeTommy/Made-Tommy-Bold-Outline.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-outline";
+  font-family: "Made Tommy Outline";
   font-style: normal;
   font-weight: 500;
   src: url("/fonts/MadeTommy/Made-Tommy-Medium-Outline.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-outline";
+  font-family: "Made Tommy Outline";
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/MadeTommy/Made-Tommy-Regular-Outline.otf");
+  src: url("/fonts/MadeTommy/Made Tommy Regular-Outline.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-outline";
+  font-family: "Made Tommy Outline";
   font-style: normal;
   font-weight: 300;
   src: url("/fonts/MadeTommy/Made-Tommy-Light-Outline.otf");
 }
 
 @font-face {
-  font-family: "made-tommy-outline";
+  font-family: "Made Tommy Outline";
   font-style: normal;
   font-weight: 200;
   src: url("/fonts/MadeTommy/Made-Tommy-Thin-Outline.otf");
-}
-
-:root {
-  /*
-        Declaring font-size by 62.5% helps the dev calculated other values relative to px by dividing by 10
-        ie px/10 = rem. Thus default font-size is now 10px
-    */
-  font-size: 62.5%;
 }
 
 html {
@@ -143,7 +135,7 @@ html {
 }
 
 body {
-  font-family: "made-tommy-regular", 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', system-ui, sans-serif !important;
+  font-family: "Made Tommy Regular", 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', system-ui, sans-serif !important;
 }
 
 /*!

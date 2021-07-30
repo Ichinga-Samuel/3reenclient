@@ -1,3 +1,6 @@
+// export const CURRENCY = '$';
+export const CURRENCY = '₦';
+
 export const isObjectEmpty = (obj) => {
     return Object.keys(obj).length === 0;
 };
@@ -59,4 +62,12 @@ export const findAllTotal = (list: any) => {
         return list.reduce((a: any, b: any) => a + parseFloat(b), 0);
     }
     return '0.00';
+};
+
+// TO REDUCE STRING LENGTH
+export const truncateText = (str = '', length: any = '30', ending = '...') => {
+    if (!(str && length)) {
+        return;
+    }
+    return length > str.length ? str : str.substring(0, length - ending.length) + ending;
 };

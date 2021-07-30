@@ -47,7 +47,6 @@ const CreateNewPassword = () => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
                 setloading(false);
                 notification.error({
                     key: 'error',
