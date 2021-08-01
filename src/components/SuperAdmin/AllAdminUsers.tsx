@@ -4,7 +4,7 @@ import { Button, Col, Modal, Input, notification, Row, Table, Tag } from 'antd';
 import { GeneralContainer } from '@/components/Admin/styles/AdminStyle.styled';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import axios from 'axios';
-import { APP_BASE, ADMIN, USER } from '@/utils/ApiList';
+import { APP_BASE, /*ADMIN*/ USER } from '@/utils/ApiList';
 import { ColumnsType } from 'antd/es/table/Table';
 import { UserMenu } from '@/components/SuperAdmin/UserMenu';
 import ChangePasswordModal from '@/components/SuperAdmin/ChangePasswordModal';
@@ -78,7 +78,13 @@ const AllAdminUsers = () => {
         const getAllAdminUsers = async () => {
             try {
                 setloading(true);
-                const res = await axios.get(`${APP_BASE}${ADMIN.getUserByType('admin')}`, {
+                // const res = await axios.get(`${APP_BASE}${ADMIN.getUserByType('admin')}`, {
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //         Authorization: `Bearer ${token}`,
+                //     },
+                // });
+                const res = await axios.get(`${APP_BASE}/users/?role=sub-admin`, {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${token}`,
@@ -86,7 +92,7 @@ const AllAdminUsers = () => {
                 });
                 if (res) {
                     setloading(false);
-                    setAdminUsers(res?.data?.users);
+                    setAdminUsers(res?.data?.doc);
                 }
             } catch (e) {
                 setloading(false);

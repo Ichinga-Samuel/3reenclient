@@ -1,5 +1,5 @@
-import React from 'react'
-import Styled from "styled-components";
+import React from 'react';
+import Styled from 'styled-components';
 const SpinnerLoading = () => {
     const Container = Styled.div`
     display:flex;
@@ -13,10 +13,9 @@ const SpinnerLoading = () => {
     `;
     return (
         <Container>
-             <h3>Loading</h3> {' '}
-            <img src='/img/loading.svg'></img>
+            <h3>Loading</h3> <img src="/img/loading.svg" alt="treen" />
         </Container>
-    )
-}
+    );
+};
 
 export default SpinnerLoading;
