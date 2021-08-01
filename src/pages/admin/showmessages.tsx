@@ -1,5 +1,5 @@
 import React from 'react';
-import Messages from '@/components/Admin/components/customerservice/Messages';
+import Messages from '@/components/Admin/components/customerservice/AdminMessages';
 const ShowMessages = () => {
     return (
         <div>

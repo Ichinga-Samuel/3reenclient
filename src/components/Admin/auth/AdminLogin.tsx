@@ -26,24 +26,24 @@ const AdminLogin = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.login}`, details);
             const { data } = response;
-            if (data.status === 'success' && data.user.role !== 'admin') {
+            // if (data.status === 'success' && data.user.role !== 'admin') {
+            //     notification.error({
+            //         message: 'Error',
+            //         description: 'User not an admin',
+            //         duration: 15,
+            //     });
+            //     setloading(false);
+            //     return;
+            // }
+            if (data.user.role !== 'admin' && data.user.role !== 'sub-admin' && data.status === 'success') {
                 notification.error({
                     message: 'Error',
-                    description: 'User not an admin',
+                    description: 'Account Does not belong to an Admin',
                     duration: 15,
                 });
                 setloading(false);
                 return;
             }
-            // if (data.user.role !== 'admin' && data.user.role !== 'sub-admin' && data.status === 'success') {
-            //    notification.error({
-            //       message: 'Error',
-            //       description: 'Account Does not belong to an Admin',
-            //       duration: 15,
-            //    });
-            //    setLoading(false);
-            //    return;
-            // }
             if (data.status === 'success' && data.user.role === 'admin') {
                 notification.success({
                     message: 'Success',
