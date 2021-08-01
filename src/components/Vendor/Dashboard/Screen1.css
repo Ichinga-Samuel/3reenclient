@@ -257,7 +257,6 @@
       .dot9 ul{
         top: 440px;
       }
-}
 @media(max-width:1350px){
     .timess{
         display: none;
@@ -504,7 +503,7 @@
     table{
         border-collapse: collapse;
         width: 725px;
-        /* margin-left: 20px !important; */
+
         text-align: center;
         margin-right: 0px !important;
         font-size: 15px;
@@ -975,3 +974,4 @@
         width: 360px;
     }
 }
+}   

@@ -54,12 +54,15 @@ const AdminInventory = () => {
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={24} xl={10} lg={10}>
-                        <div className="searchform">
-                            <Input placeholder="Search 'Inventory'" />
-                            <Button type="primary">Search</Button>
-                        </div>
-                    </Col>
+                   {
+                       catactive ? '' :
+                       <Col xs={24} xl={10} lg={10}>
+                       <div className="searchform">
+                           <Input placeholder="Search 'Inventory'" />
+                           <Button type="primary">Search</Button>
+                       </div>
+                   </Col>
+                   }
                 </Row>
                 {active ? (
                     <>

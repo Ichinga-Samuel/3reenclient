@@ -3,7 +3,7 @@ import { ColumnsType } from 'antd/es/table';
 import { EyeOutlined, MoreOutlined } from '@ant-design/icons';
 import { Table, Pagination } from 'antd';
 import { useRouter } from 'next/router';
-import { formatAmount } from '@/utils/helpers';
+import { formatAmount } from '@/utils/helpers'
 
 const OrderDataTable = (props: any) => {
     const { total, onShowSizeChange, pagination, fetching, orders } = props;
