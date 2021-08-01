@@ -10,6 +10,7 @@ export const PRODUCT = {
 export const ADMIN = {
     dashboard: '/users/admin/dashboard',
     createCategory: '/category',
+    getAllCategory: '/category',
     addAdmin: '/users/inviteAdmin',
     getSingleCat: (catId: string) => `/category/${catId}`,
     delSingleCat: (catId: string) => `/category/${catId}`,

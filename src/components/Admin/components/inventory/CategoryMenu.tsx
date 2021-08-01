@@ -1,15 +1,11 @@
 import { Menu, Dropdown } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
-import { Edit, Delete } from '@material-ui/icons';
-// import Link from 'next/link';
+import { Delete } from '@material-ui/icons';
 
-export const UserMenu = ({ record, ...props }) => {
+export const CategoryMenu = ({ ...props}) => {
     const menu = (
         <Menu>
-            <Menu.Item key="0" onClick={() => props.confirmNewPassword(record)}>
-                <Edit /> Reset Password
-            </Menu.Item>
-            <Menu.Item key="1">
+            <Menu.Item key="1" onClick={() => props.deleteCategory()}>
                 <Delete /> Delete
             </Menu.Item>
         </Menu>
@@ -27,4 +23,3 @@ export const UserMenu = ({ record, ...props }) => {
         </Dropdown>
     );
 };
-
