@@ -202,7 +202,7 @@ const BestSectionProducts = () => {
                 {!loading ? (
                     <>
                         <Row gutter={28}>
-                            {bestProduct?.map((product) => {
+                            {bestProduct?.map((product, index) => {
                                 return (
                                     <>
                                         <Col
@@ -215,6 +215,7 @@ const BestSectionProducts = () => {
                                             data-aos-duration="800"
                                         >
                                             <BestProductCard
+                                                key={index + 1}
                                                 productObject={product}
                                                 addToCart={addToCart}
                                                 getProductDetails={getProductDetails}

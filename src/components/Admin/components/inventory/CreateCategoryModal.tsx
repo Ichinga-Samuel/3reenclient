@@ -7,8 +7,7 @@ import { getFromLocalStorage } from '@/utils/browserStorage';
 
 const CreateCategoryModal = (props) => {
     const [loading, setloading] = useState(false);
-    const token = getFromLocalStorage('supertoken');
-    const [modal, showModal] = useState(true);
+    const token = getFromLocalStorage('admintoken');
     const {
         register,
         handleSubmit,
@@ -19,28 +18,30 @@ const CreateCategoryModal = (props) => {
     const cancelModal = () => {
         props.closeModal();
         reset();
+        setloading(false);
     };
 
     const CreateNewCategory = async (data: any) => {
+        setloading(true);
         await axios
             .post(`${APP_BASE}${ADMIN.createCategory}`, data, {
                 headers: {
+                    'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
                 },
             })
             .then((response) => {
-                console.log('login response', response);
                 const { data } = response;
                 if (data.status === 'success') {
+                    props.fetchAllCategory();
                     notification.success({
-                        key: 'succ',
                         message: 'Success',
                         description: 'Your Category has been created successfully',
                         duration: 15,
                     });
-                    notification.close('succ');
+                    cancelModal();
+                    setloading(false);
                 }
-                showModal(false);
             })
             .catch((err) => {
                 console.log('login err', err.response);
@@ -55,9 +56,7 @@ const CreateCategoryModal = (props) => {
 
     return (
         <>
-            {
-                modal ? <div>
-                    <Modal
+            <Modal
                 title={`Create A New Category`}
                 onCancel={cancelModal}
                 visible={props.visible}
@@ -71,8 +70,8 @@ const CreateCategoryModal = (props) => {
                         <Col xs={24} xl={24} lg={24}>
                             <div className="form-group2">
                                 <label htmlFor="name">Name of Category</label>
-                                <Input size="large" {...register('name', { required: true })} />
-                                {errors.name && <span className="error">Category Name is Required</span>}
+                                <Input name="name" size="large" {...register('name', { required: true })} />
+                                {errors.name && <small className="error">Category Name is Required</small>}
                             </div>
                         </Col>
                     </Row>
@@ -84,7 +83,6 @@ const CreateCategoryModal = (props) => {
                                 size="large"
                                 block
                                 onClick={handleSubmit(CreateNewCategory)}
-                                
                             >
                                 CREATE A NEW CATEGORY
                             </Button>
@@ -92,8 +90,6 @@ const CreateCategoryModal = (props) => {
                     </Row>
                 </form>
             </Modal>
-                </div> : ''
-            }
         </>
     );
 };
