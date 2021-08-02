@@ -59,6 +59,9 @@ const AllOrdersTable = () => {
 
     useEffect(() => {
         const fetchAllOrders = async () => {
+            if (!token) {
+                return;
+            }
             setFetching(true);
             try {
                 const response = await axios.get(`${APP_BASE}${QA_ORDER.getAllOrders}`, {

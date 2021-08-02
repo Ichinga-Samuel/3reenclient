@@ -7,6 +7,20 @@ export const PRODUCT = {
     allCategory: '/category',
 };
 
+export const ADMIN = {
+    dashboard: '/users/admin/dashboard',
+    createCategory: '/category',
+    getAllCategory: '/category',
+    addAdmin: '/users/inviteAdmin',
+    getSingleCat: (catId: string) => `/category/${catId}`,
+    delSingleCat: (catId: string) => `/category/${catId}`,
+    getUserByType: (type: string) => `/users/${type}`,
+    getSRStat: (userId: string) => `/referrals/sales-rep-referrals/${userId}`,
+    getAllOrders: '/orders',
+    getSingleOrder: (id: any) => `/orders/${id}`,
+    byStatus: (status: string) => `/orders/status/${status}`,
+    updateStatus: (id: any, status: string) => `/orders/${id}/${status}`,
+};
 // User & Vendor Endpoint
 export const userPrefix = '/users';
 
