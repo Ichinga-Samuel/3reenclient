@@ -16,7 +16,6 @@ export interface ModalFuncProps {
 
 const AllAdminUsers = () => {
     const [adminUsers, setAdminUsers] = useState([]);
-    // const [currentuser, setcurrentuser] = useState({});
     const [visiblePwd, setVisiblePwd] = useState(false);
     const [visibleNew, setVisibleNew] = useState(false);
     const [loading, setloading] = useState(false);
