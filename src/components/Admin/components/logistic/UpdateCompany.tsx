@@ -7,13 +7,13 @@ import { getFromLocalStorage } from '@/utils/browserStorage';
 
 
 const UpdateCompany = (props) => {
-    const {updateData} = props;
+    const {record} = props;
+    const {_id, enabled, state, email, companyName, address, phone} = record;
     const [loading, setloading] = useState(false);
     const token = getFromLocalStorage('admintoken');
     const {
         register,
         handleSubmit,
-        formState: { errors },
         reset,
     } = useForm();
 
@@ -24,10 +24,9 @@ const UpdateCompany = (props) => {
     };
 
     const UpdateACompany = async (data: any) => {
-        console.log(updateData)
         setloading(true);
         await axios
-            .post(`${APP_BASE}${ADMIN.updateACompany(data)}`, data, {
+            .put(`${APP_BASE}${ADMIN.updateACompany(_id)}`, data, {
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`,
@@ -39,7 +38,7 @@ const UpdateCompany = (props) => {
                     props.fetchAllCompany();
                     notification.success({
                         message: 'Success',
-                        description: 'Your Company has been created successfully',
+                        description: 'Your Company has been updated successfully',
                         duration: 15,
                     });
                     cancelModal();
@@ -47,7 +46,7 @@ const UpdateCompany = (props) => {
                 }
             })
             .catch((err) => {
-                console.log('login err', err.response);
+                console.log('login err', err);
                 setloading(false);
                 notification.error({
                     message: 'Error',
@@ -72,31 +71,27 @@ const UpdateCompany = (props) => {
                         <Col xs={24} xl={24} lg={24}>
                             <div className="form-group2">
                                 <label htmlFor="companyName">Name of Company</label>
-                                <Input size="large" {...register('companyName', { required: true })} />
-                                {errors.companyName && <small className="error">Company Name is Required</small>}
+                                <Input size="large"  defaultValue={companyName} {...register('companyName')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="email">Email</label>
-                                <Input  size="large" {...register('email', { required: true })} />
-                                {errors.email && <small className="error">Email is Requried</small>}
+                                <Input  size="large" defaultValue={email} {...register('email')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="address">Company Address</label>
-                                <Input size="large" {...register('address')} />
+                                <Input size="large" defaultValue={address} {...register('address')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="state">Name of State</label>
-                                <Input  size="large" {...register('state')} />
+                                <Input  size="large" defaultValue={state} {...register('state')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="phone">Phone Number</label>
-                                <Input  size="large" {...register('phone', { required: true })} />
-                                {errors.phone && <small className="error">Phone Number is Requried</small>}
+                                <Input  size="large" defaultValue={phone} {...register('phone')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="enabled">Select Company</label>
-                                <Input  value={'333'} size="large" placeholder='True or False' {...register('enabled', { required: true })} />
-                                {errors.enabled && <small className="error">True of False</small>}
+                                <Input  defaultValue={enabled} size="large" placeholder='True or False' {...register('enabled')} /> <h4 style={{fontWeight:'bolder'}}>Note: true or false not True of False</h4>
                             </div>
                         </Col>
                     </Row>
