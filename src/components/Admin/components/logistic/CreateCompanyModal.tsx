@@ -81,15 +81,22 @@ const CreateCompanyModal = (props) => {
                             <div className="form-group2">
                                 <label htmlFor="address">Company Address</label>
                                 <Input size="large" {...register('address')} />
+                                {errors.address && <small className="error">Address is Required</small>}
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="state">Name of State</label>
                                 <Input  size="large" {...register('state')} />
+                                {errors.state && <small className="error">State is Required</small>}
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="phone">Phone Number</label>
                                 <Input  size="large" {...register('phone', { required: true })} />
                                 {errors.phone && <small className="error">Phone Number is Requried</small>}
+                            </div>
+                            <div className="form-group2">
+                                <label htmlFor="phone">Select Company</label>
+                                <Input  placeholder='true or false' size="large" {...register('enabled', { required: true })} /> <h4 style={{fontWeight:'bolder'}}>Note: true or false not True of False</h4>
+                                {errors.enabled && <small className="error">True or False</small>}
                             </div>
                         </Col>
                     </Row>

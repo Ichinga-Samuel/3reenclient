@@ -9,11 +9,11 @@ import CreateCompanyModal from './CreateCompanyModal';
 import UpdateCompany from './UpdateCompany';
 
 const LogisticCompany = () => {
-    let updateData;
     const [getCompany, setCompany] = useState([]);
     const [fetching, setFetching] = useState(false);
     const [visibleUpdate, setVisibleUpdate] = useState(false);
     const [visibleNew, setVisibleNew] = useState(false);
+    const [singleCompany, setSingleCompany] = useState('');
       const addNewCompany = () => {
         setVisibleNew(true);
     };
@@ -112,10 +112,7 @@ const LogisticCompany = () => {
     };
     const updateCompany = (record) => {
         setVisibleUpdate(true)
-        updateData = {
-            record
-        }
-
+        setSingleCompany(record)
     }
     interface logistic {
         _id: any;
@@ -184,7 +181,7 @@ const LogisticCompany = () => {
                 <br></br>
           <Table  columns={logisticCol} dataSource={getCompany} />
           <CreateCompanyModal visible={visibleNew} fetchAllCompany={fetchAllCompany} closeModal={closeModal}></CreateCompanyModal>
-          <UpdateCompany  visible={visibleUpdate} closeModal={closeModal} updateData={updateData} ></UpdateCompany>
+          <UpdateCompany  visible={visibleUpdate} record={singleCompany} fetchAllCompany={fetchAllCompany} closeModal={closeModal} ></UpdateCompany>
      </div>
         }
         </>
