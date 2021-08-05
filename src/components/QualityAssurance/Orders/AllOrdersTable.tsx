@@ -6,14 +6,14 @@ import { OrderTableContainer } from '@/components/QualityAssurance/QALayout/QAGe
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { APP_BASE, QA_ORDER } from '@/utils/ApiList';
 import axios from 'axios';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import OrderDataTable from './OrderDataTable';
 
 const { TabPane } = Tabs;
 const { Option } = Select;
 
 const AllOrdersTable = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, control } = useForm();
     const token = getFromLocalStorage('qatoken');
     const [fetchorders, setfetchorders] = useState(false);
     const [fetching, setFetching] = useState(false);
@@ -156,19 +156,37 @@ const AllOrdersTable = () => {
                 </Row>
                 <Row gutter={12} justify="end" className="pt-3">
                     <Col xs={24} xl={3}>
-                        <DatePicker placeholder="Date" {...register('orderdate')} />
+                        <Controller
+                            name="orderdate"
+                            control={control}
+                            render={({ field: { onChange } }) => (
+                                <DatePicker name="orderdat" onChange={onChange} placeholder="Date" />
+                            )}
+                        />
                     </Col>
                     <Col xs={24} xl={3}>
-                        <Select style={{ width: '115px' }} placeholder="Currency" {...register('currency')}>
-                            <Option value="NGN">NGN</Option>
-                            <Option value="USD">USD</Option>
-                            <Option value="EUR">EUR</Option>
-                        </Select>
+                        <Controller
+                            name="currency"
+                            control={control}
+                            render={({ field: { onChange } }) => (
+                                <Select style={{ width: '115px' }} onChange={onChange} placeholder="Currency">
+                                    <Option value="NGN">NGN</Option>
+                                    <Option value="USD">USD</Option>
+                                    <Option value="EUR">EUR</Option>
+                                </Select>
+                            )}
+                        />
                     </Col>
                     <Col xs={24} xl={3}>
-                        <Select style={{ width: '115px' }} placeholder="Registered User" {...register('users')}>
-                            <Option value="User 1">User 1</Option>
-                        </Select>
+                        <Controller
+                            name="currency"
+                            control={control}
+                            render={({ field: { onChange } }) => (
+                                <Select style={{ width: '115px' }} onChange={onChange} placeholder="Registered User">
+                                    <Option value="User 1">User 1</Option>
+                                </Select>
+                            )}
+                        />
                     </Col>
                     <Col xs={24} xl={3}>
                         <Button loading={fetchorders} type="default">
