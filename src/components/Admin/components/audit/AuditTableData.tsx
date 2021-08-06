@@ -40,7 +40,7 @@ export const AuditTable = (props) => {
         },
         {
             title: 'Item ID',
-            dataIndex: 'itemId',
+            dataIndex: '_id',
             key: 'itemId',
         },
         {

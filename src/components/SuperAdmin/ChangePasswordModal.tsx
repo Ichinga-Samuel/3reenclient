@@ -63,7 +63,7 @@ const ChangePasswordModal = (props) => {
     return (
         <>
             <Modal
-                title={`Create New Password for ${user?.fullName}`}
+                title={`Create New Password for ${user.full}`}
                 onCancel={cancelModal}
                 visible={props.visible}
                 footer={null}

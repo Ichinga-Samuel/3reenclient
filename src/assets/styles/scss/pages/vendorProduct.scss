@@ -98,11 +98,16 @@
         }
     }
     .newProduct {
+        width: 70%;
+        margin: auto;
         padding: 2rem 7rem;
-        border: 1px solid #ddd;
+       box-shadow: 0 2px 10px rgba(0, 0,0, 0.1);
         textarea.ant-input {
             resize: none;
             height: 150px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
         }
     }
 

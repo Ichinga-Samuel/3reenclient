@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import VendorLayout from '../Layout/VendorLayout';
 import axios from 'axios';
-import { APP_BASE, VENDOR_PRODUCT } from '@/utils/ApiList';
-import { Row, Col, Upload, Input, Button, notification } from 'antd';
+import { ADMIN, APP_BASE, VENDOR_PRODUCT } from '@/utils/ApiList';
+import { Row, Col, Upload, Input, Select, Button, notification } from 'antd';
 // import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import ImgCrop from 'antd-img-crop';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { getFromLocalStorage } from '@/utils/browserStorage';
+// import { GetAllCategories } from '@/apis/EndPointsActions';
 
-// const { Option } = Select;
+const { Option } = Select;
 const NewProduct = () => {
     const title = 'New Product';
     const router = useRouter();
@@ -32,10 +33,12 @@ const NewProduct = () => {
         register,
         handleSubmit,
         reset,
+        control,
         formState: { errors },
     } = useForm();
     const [loading, setloading] = useState(false);
     const [fileList, setFileList] = useState([]);
+    const [listCategories, setlistCategories] = useState([]);
 
     const onSubmit = async (data: any) => {
         const { name, price, description, category, specification, keyFeatures } = data;
@@ -60,7 +63,6 @@ const NewProduct = () => {
                 },
             };
             const res = await axios.post(`${APP_BASE}${VENDOR_PRODUCT.createProduct}`, formData, config);
-            // const res = await axios.post('https://treen-shop-api.herokuapp.com/api/v1/products', formData, config);
             console.log(res.data);
             if (res) {
                 notification.close('error');
@@ -88,6 +90,38 @@ const NewProduct = () => {
             });
         }
     };
+
+    // let listCategories = [];
+
+    useEffect(() => {
+        const getAllCat = async () => {
+            try {
+                const res = await axios.get(`${APP_BASE}${ADMIN.getAllCategory}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (res) {
+                    const { doc } = res?.data;
+                    setlistCategories(doc);
+                }
+            } catch (e) {
+                notification.error({
+                    message: 'Cat Error',
+                    description: e?.response?.data?.details,
+                });
+            }
+        };
+        getAllCat();
+    }, []);
+
+    const children = listCategories.map((cat) => {
+        return (
+            <Option value={cat.name} key={cat._id}>
+                {cat.name}
+            </Option>
+        );
+    });
 
     // const getBase64 = (img: any, callback: any) => {
     //     const reader = new FileReader();
@@ -125,6 +159,7 @@ const NewProduct = () => {
                                 <div className="form-group">
                                     <label htmlFor="productName">Enter Name of Product</label>
                                     <Input
+                                        size="large"
                                         placeholder="Enter Name of Product"
                                         {...register('name', { required: true })}
                                     />
@@ -134,14 +169,22 @@ const NewProduct = () => {
                             <Col xs={24} xl={12} lg={8}>
                                 <div className="form-group">
                                     <label htmlFor="productName">Price of Product</label>
-                                    <Input placeholder="Price of Product" {...register('price', { required: true })} />
+                                    <Input
+                                        size="large"
+                                        placeholder="Price of Product"
+                                        {...register('price', { required: true })}
+                                    />
                                     {errors.price && <span className="error">Product Price is required</span>}
                                 </div>
                             </Col>
                             <Col xs={24} xl={12} lg={8}>
                                 <div className="form-group">
                                     <label htmlFor="productName">Key Feature</label>
-                                    <Input placeholder="Key Feature" {...register('keyFeatures', { required: true })} />
+                                    <Input
+                                        size="large"
+                                        placeholder="Key Feature"
+                                        {...register('keyFeatures', { required: true })}
+                                    />
                                     {errors.keyFeatures && <span className="error">Key Feature is required</span>}
                                 </div>
                             </Col>
@@ -149,6 +192,7 @@ const NewProduct = () => {
                                 <div className="form-group">
                                     <label htmlFor="productName">Specification</label>
                                     <Input
+                                        size="large"
                                         placeholder="Enter Specification"
                                         {...register('specification', { required: true })}
                                     />
@@ -160,14 +204,16 @@ const NewProduct = () => {
                                     <label htmlFor="productName" style={{ display: 'flex' }}>
                                         Category
                                     </label>
-                                    {/* <Select style={{ width: '100%' }} {...register('category', { required: true })}>
-                                        <Option value="Electronics">Electronics</Option>
-                                    </Select> */}
-                                    <select {...register('category')}>
-                                        <option value="Electronics">Electronics</option>
-                                        <option value="Phone">Phone</option>
-                                        <option value="Accessories">Accessories</option>
-                                    </select>
+                                    <Controller
+                                        control={control}
+                                        name="category"
+                                        rules={{ required: true }}
+                                        render={({ field: { onChange } }) => (
+                                            <Select onChange={onChange} size="large" style={{ width: '100%' }}>
+                                                {children}
+                                            </Select>
+                                        )}
+                                    />
                                     {errors.category && <span className="error">Category is required</span>}
                                 </div>
                             </Col>
