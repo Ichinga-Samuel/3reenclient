@@ -5,15 +5,16 @@ export const HomeBannerContainer = styled.div`
     transition: ease all 0.5s;
     height: 100vh;
     //background-image: url('/img/banner.png');
-    background: url('/img/treenbg2.png') no-repeat center;
+    background: url('/img/home/3reen-banner.jpg') no-repeat center;
     //background-position: 90% 10%;
     background-size: cover;
     //background: var(--secondary-color);
     .welcome {
         position: relative;
         transition: ease all 0.5s;
-        padding: 2rem 9rem;
-        top: 50%;
+        padding: 2rem 8rem;
+        margin-top: 12rem;
+        top: 80%;
         font-family: 'Made Tommy', sans-serif;
         h3 {
             color: var(--white-color);
@@ -29,12 +30,13 @@ export const HomeBannerContainer = styled.div`
         }
         .btn-shop {
             display: flex;
-            padding: 10px 4rem;
-            height: 50px;
+            padding: 10px 5rem;
+            height: 56px;
             justify-content: center;
             align-items: center;
-            background: transparent;
-            border: 2px solid var(--white-color);
+            background: var(--background-color);
+            border: 2px solid var(--background-color);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
             transition: ease all 0.5s;
             transform: translateY(0);
             text-transform: uppercase;
@@ -45,9 +47,10 @@ export const HomeBannerContainer = styled.div`
             font-size: 1.7rem;
             &:hover {
                 transition: ease all 0.5s;
-                transform: translateY(-5px);
-                background: var(--deeper-main);
-                border: 2px solid var(--deeper-main);
+                transform: translateY(-2px);
+                //background: var(--deeper-main);
+                //border: 2px solid var(--deeper-main);
+                box-shadow: none;
                 color: var(--white-color);
                 //padding: 10px 4.5rem;
             }
@@ -340,7 +343,9 @@ export const LowerBannerSection = styled.div`
     position: relative;
     transition: ease all 0.5s;
     height: 430px;
-    background: var(--background-color);
+    //background: var(--background-color);
+    background: var(--black-color) url('/img/home/banner-small.jpg') no-repeat center;
+    background-size: cover;
     .welcomelower {
         position: relative;
         transition: ease all 0.5s;
