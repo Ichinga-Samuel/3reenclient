@@ -87,7 +87,7 @@ export default function Checkout() {
                                                                 // checked={addr?.selected}
                                                             />
                                                             <div>
-                                                                <div className="selected" data-aos="fade-right">
+                                                                <div className="selected">
                                                                     {addr.selected ? 'selected' : ''}
                                                                 </div>
                                                                 <h3>{addr?.name}</h3>
