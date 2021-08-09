@@ -350,8 +350,9 @@ export const LowerBannerSection = styled.div`
         position: relative;
         transition: ease all 0.5s;
         padding: 2rem 9rem;
+        margin-top: 9rem;
         font-family: 'Made Tommy', sans-serif;
-        top: 30%;
+        top: 80%;
         h3 {
             color: var(--white-color);
             //text-transform: capitalize;
@@ -370,20 +371,19 @@ export const LowerBannerSection = styled.div`
             height: 50px;
             justify-content: center;
             align-items: center;
-            background: var(--secondary--color);
+            background: var(--secondary-color);
             border: none;
             transition: ease all 0.5s;
             transform: translateY(0);
             //text-transform: uppercase;
             margin-top: 5rem;
-            color: var(--white-color);
+            color: var(--background-color);
             border-radius: 4px;
             font-weight: bold;
             font-size: 1.7rem;
             &:hover {
                 transition: ease all 0.5s;
                 transform: translateY(-2px);
-                background: var(--secondary--color);
                 border: none;
                 color: var(--white-color);
                 //padding: 10px 4.5rem;
