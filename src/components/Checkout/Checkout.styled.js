@@ -61,6 +61,9 @@ export const CheckoutContainer = styled.div`
         [type='radio'] + div {
             cursor: pointer;
             position: relative;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         /* CHECKED STYLES */
