@@ -2,10 +2,12 @@ import React from 'react';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import { CartItems } from '@/components/Checkout/Checkout.styled';
 
-const CheckoutCarts = ({ price, qty, productName }) => {
+const CheckoutCarts = ({ price, qty, image, productName }) => {
     return (
         <CartItems>
-            <div className="image" />
+            <div className="image">
+                <img src={image} alt="img" />
+            </div>
             <div className="c-name">
                 <p style={{ marginBottom: '0' }}>{productName}</p>
                 <p>Qty: {qty}</p>

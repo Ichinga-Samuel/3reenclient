@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 import { CheckoutContainer } from '@/components/Checkout/Checkout.styled';
-import { Row, Col, Input, Button } from 'antd';
+import { Row, Col, Input, Button, notification } from 'antd';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import CheckoutCarts from '@/components/Checkout/CheckoutCarts';
 import OrderPaymentSummary from '@/components/Checkout/OrderPaymentSummary';
 import { Home, PaymentOutlined } from '@material-ui/icons';
 import { CarFilled, PlusCircleFilled } from '@ant-design/icons';
+import axios from 'axios';
+import { APP_BASE } from '@/utils/ApiList';
+import { getFromLocalStorage } from '@/utils/browserStorage';
 
 export default function Checkout() {
     const [applying, setApplying] = useState(false);
+    const [userCart, setUserCart] = useState([]);
+    const [cartTotal, setcartTotal] = useState(0);
+
+    const token = getFromLocalStorage('usertoken');
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    };
+
     const {
         register,
         reset,
@@ -26,6 +39,26 @@ export default function Checkout() {
             reset();
         }, 1000);
     };
+
+    useEffect(() => {
+        const getUserCart = async () => {
+            if (!token) {
+                return;
+            }
+            try {
+                const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
+                const usersCart = data.cart;
+                setcartTotal(data?.total);
+                setUserCart(usersCart);
+            } catch (err) {
+                notification.error({
+                    message: 'Error',
+                    description: err?.response?.data?.message,
+                });
+            }
+        };
+        getUserCart();
+    }, []);
 
     return (
         <UserWebLayout webtitle="Checkout">
@@ -108,7 +141,7 @@ export default function Checkout() {
                                         </form>
                                         {errors.coupon && <small className="error">Please, Enter a valid coupon</small>}
                                     </div>
-                                    <OrderPaymentSummary />
+                                    <OrderPaymentSummary total={cartTotal} shipping="500" discount="0" />
                                 </div>
                                 <Button type="primary" block size="large">
                                     CONFIRM ORDER
@@ -118,19 +151,25 @@ export default function Checkout() {
                         <Col xs={24} xl={8} lg={8}>
                             <div className="checkout__card no-pad">
                                 <div className="carthead">
-                                    <h4>Your Orders (3 Items)</h4>
+                                    <h4>Your Orders ({userCart.length} Items)</h4>
                                     <Link href="/cart">Modify Cart?</Link>
                                 </div>
                                 <div style={{ padding: '15px' }}>
                                     <div className="cartitems">
-                                        <CheckoutCarts
-                                            qty="3"
-                                            productName="White Small Sneakers for women"
-                                            price="10000"
-                                        />
-                                        <CheckoutCarts qty="1" productName="Las Vegas Cloth" price="14000" />
+                                        {userCart &&
+                                            userCart?.map((cart) => {
+                                                return (
+                                                    <CheckoutCarts
+                                                        key={cart?.id}
+                                                        image={cart?.product.images}
+                                                        qty={cart?.quantity}
+                                                        productName={cart?.product.name}
+                                                        price={cart?.product.price * cart?.quantity}
+                                                    />
+                                                );
+                                            })}
                                     </div>
-                                    <OrderPaymentSummary />
+                                    <OrderPaymentSummary total={cartTotal} shipping="500" discount="0" />
                                 </div>
                             </div>
                         </Col>

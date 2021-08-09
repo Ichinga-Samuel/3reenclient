@@ -34,6 +34,7 @@ export const CheckoutContainer = styled.div`
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin: 2.5rem auto 0;
             &:hover {
                 border: 1px solid var(--secondary-color);
             }
@@ -171,6 +172,10 @@ export const CartItems = styled.div`
         background: #ddd;
         img {
             object-fit: contain;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            padding: 2px;
         }
     }
     .c-name {

@@ -2,7 +2,8 @@ import React from 'react';
 import { Col, Divider, Row } from 'antd';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 
-const OrderPaymentSummary = () => {
+const OrderPaymentSummary = ({ total, shipping, discount }) => {
+    const allTotal = parseFloat(total) + parseFloat(shipping) + parseFloat(discount);
     return (
         <div className="carttotal">
             <Row gutter={28} align="middle" justify="space-between" className="pb">
@@ -12,7 +13,7 @@ const OrderPaymentSummary = () => {
                 <Col xs={12} xl={12} lg={12}>
                     <p>
                         {CURRENCY}
-                        {formatAmount('24000')}
+                        {formatAmount(total)}
                     </p>
                 </Col>
             </Row>
@@ -23,7 +24,7 @@ const OrderPaymentSummary = () => {
                 <Col xs={12} xl={12} lg={12}>
                     <p>
                         {CURRENCY}
-                        {formatAmount('2000')}
+                        {formatAmount(shipping)}
                     </p>
                 </Col>
             </Row>
@@ -33,7 +34,7 @@ const OrderPaymentSummary = () => {
                 </Col>
                 <Col xs={12} xl={12} lg={12}>
                     <p className="discount">
-                        {CURRENCY}-{formatAmount('500')}
+                        {CURRENCY}-{formatAmount(discount)}
                     </p>
                 </Col>
             </Row>
@@ -45,7 +46,7 @@ const OrderPaymentSummary = () => {
                 <Col xs={12} xl={12} lg={12}>
                     <p className="total">
                         {CURRENCY}
-                        {formatAmount('25500')}
+                        {formatAmount(allTotal)}
                     </p>
                 </Col>
             </Row>
