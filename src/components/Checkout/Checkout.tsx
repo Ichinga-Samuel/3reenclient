@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import CheckoutCarts from '@/components/Checkout/CheckoutCarts';
 import OrderPaymentSummary from '@/components/Checkout/OrderPaymentSummary';
 import { Home, PaymentOutlined } from '@material-ui/icons';
-import { MailFilled } from '@ant-design/icons';
+import { CarFilled, PlusCircleFilled } from '@ant-design/icons';
 
 export default function Checkout() {
     const [applying, setApplying] = useState(false);
@@ -38,11 +38,44 @@ export default function Checkout() {
                                 <h4 className="sumaryheader">
                                     <Home /> Address
                                 </h4>
-                                <div className="detailsInner">list of address</div>
+                                <div className="detailsInner">
+                                    <div className="delAddress">
+                                        <Row gutter={40}>
+                                            <Col xs={24} xl={9} lg={9}>
+                                                <label htmlFor="address1" className="addressInput">
+                                                    <input type="radio" name="delivery_address" id="address1" />
+                                                    <div>
+                                                        <div className="selected">selected</div>
+                                                        <h3>Falua Temitope</h3>
+                                                        <p>No 3, Ijare Street, Port Harcourt. River State</p>
+                                                        <p>07075978490</p>
+                                                    </div>
+                                                </label>
+                                            </Col>
+                                            <Col xs={24} xl={9} lg={9}>
+                                                <label htmlFor="address2" className="addressInput">
+                                                    <input type="radio" name="delivery_address" id="address2" />
+                                                    <div>
+                                                        <div className="selected">selected</div>
+                                                        <h3>Falua Oyewole</h3>
+                                                        <p>No 3, Ijare Street, Moduloore Road, Akure. Ondo State</p>
+                                                        <p>07045974849</p>
+                                                    </div>
+                                                </label>
+                                            </Col>
+                                            <Col xs={24} xl={5} lg={5}>
+                                                <div className="addNewAddress">
+                                                    <PlusCircleFilled />
+                                                    <small>Add New</small>
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </div>
                             </div>
                             <div className="checkout__card">
                                 <h4 className="sumaryheader">
-                                    <MailFilled /> Shipping Details
+                                    <CarFilled /> Delivery Details
                                 </h4>
                                 <div className="detailsInner">Home Delivery or</div>
                             </div>

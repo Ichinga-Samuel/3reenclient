@@ -22,6 +22,67 @@ export const CheckoutContainer = styled.div`
     .detailsInner {
         padding: 5px 0 5px 3rem;
     }
+    .delAddress {
+        .addNewAddress {
+            background: #ddd;
+            padding: 10px;
+            width: 70px;
+            height: 70px;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                border: 1px solid var(--secondary-color);
+            }
+        }
+        .addressInput {
+            text-align: left;
+            position: relative;
+            h3 {
+                font-size: 1.4rem;
+                margin-bottom: 0;
+                font-weight: bold;
+            }
+            p {
+                margin-bottom: 2px;
+            }
+        }
+        [type='radio'] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            transition: ease all 0.5s;
+        }
+        [type='radio'] + div {
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* CHECKED STYLES */
+        [type='radio']:checked + div {
+            border: 1px solid var(--secondary-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            .selected {
+                opacity: 1;
+            }
+        }
+        .selected {
+            background: var(--secondary-color);
+            color: var(--white-color);
+            padding: 0 4px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+    }
     .checkoutPage {
         margin-top: 2rem;
         .checkout__card {
