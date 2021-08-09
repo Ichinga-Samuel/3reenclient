@@ -58,9 +58,16 @@ const UserLogin = () => {
                 setloading(true);
                 setTimeout(() => {
                     fetchUserCart(response.data.token);
-                }, 1200);
+                }, 1000);
                 router.push('/');
                 return;
+            } else {
+                setloading(false);
+                notification.error({
+                    message: 'Login Error',
+                    description: 'Account does not belong to user',
+                    duration: 20,
+                });
             }
         } catch (err) {
             notification.error({
