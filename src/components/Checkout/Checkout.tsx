@@ -11,6 +11,7 @@ import { CarFilled, PlusCircleFilled } from '@ant-design/icons';
 import axios from 'axios';
 import { APP_BASE } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
+import { UserAddress } from '@/components/Checkout/fakeData';
 
 export default function Checkout() {
     const [applying, setApplying] = useState(false);
@@ -74,28 +75,31 @@ export default function Checkout() {
                                 <div className="detailsInner">
                                     <div className="delAddress">
                                         <Row gutter={40}>
-                                            <Col xs={24} xl={9} lg={9}>
-                                                <label htmlFor="address1" className="addressInput">
-                                                    <input type="radio" name="delivery_address" id="address1" />
-                                                    <div>
-                                                        <div className="selected">selected</div>
-                                                        <h3>Falua Temitope</h3>
-                                                        <p>No 3, Ijare Street, Port Harcourt. River State</p>
-                                                        <p>07075978490</p>
-                                                    </div>
-                                                </label>
-                                            </Col>
-                                            <Col xs={24} xl={9} lg={9}>
-                                                <label htmlFor="address2" className="addressInput">
-                                                    <input type="radio" name="delivery_address" id="address2" />
-                                                    <div>
-                                                        <div className="selected">selected</div>
-                                                        <h3>Falua Oyewole</h3>
-                                                        <p>No 3, Ijare Street, Moduloore Road, Akure. Ondo State</p>
-                                                        <p>07045974849</p>
-                                                    </div>
-                                                </label>
-                                            </Col>
+                                            {UserAddress?.map((addr) => {
+                                                return (
+                                                    <Col key={addr.id} xs={24} xl={9} lg={9}>
+                                                        <label htmlFor={`address` + addr?.id} className="addressInput">
+                                                            <input
+                                                                type="radio"
+                                                                name="delivery_address"
+                                                                id={`address` + addr?.id}
+                                                                value={addr?.id}
+                                                                // checked={addr?.selected}
+                                                            />
+                                                            <div>
+                                                                <div className="selected" data-aos="fade-right">
+                                                                    {addr.selected ? 'selected' : ''}
+                                                                </div>
+                                                                <h3>{addr?.name}</h3>
+                                                                <p>
+                                                                    {addr?.address}, {addr?.city}. {addr?.state}
+                                                                </p>
+                                                                <p>{addr?.phoneNumber}</p>
+                                                            </div>
+                                                        </label>
+                                                    </Col>
+                                                );
+                                            })}
                                             <Col xs={24} xl={5} lg={5}>
                                                 <div className="addNewAddress">
                                                     <PlusCircleFilled />
