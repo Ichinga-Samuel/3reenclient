@@ -78,7 +78,7 @@ const AdminDashboard = () => {
                         <LargeMetricCard
                             cardIcon={<UserCountIcon />}
                             cardTitle="Number of Users"
-                            count={metricObject?.totalUsers}
+                            // count={metricObject?.users?.[0].total + metricObject?.users?.[1]?.total}
                             bTitle="Number of CST"
                             bCount1={`${metricObject?.users?.[0]?.total} CST`}
                             bTitle2="Number of Vendor"

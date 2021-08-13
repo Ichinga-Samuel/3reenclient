@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Col, Input, Modal, notification, Row } from 'antd';
+import { Button, Col, Dropdown, Input, Menu, Modal, notification, Row } from 'antd';
 import axios from 'axios';
 import { APP_BASE, ADMIN } from '@/utils/ApiList';
 import { useForm } from 'react-hook-form';
 import { getFromLocalStorage } from '@/utils/browserStorage';
+import { DownOutlined } from '@ant-design/icons';
 
 const CreateCompanyModal = (props) => {
     const [loading, setloading] = useState(false);
@@ -53,7 +54,16 @@ const CreateCompanyModal = (props) => {
                 });
             });
     };
+    const handleClick = ({ key }) => {
+        //you can perform setState here
+    };
 
+    const menu = (
+        <Menu onClick={handleClick}>
+            <Menu.Item key="true">True</Menu.Item>
+            <Menu.Item key="false">False</Menu.Item>
+        </Menu>
+    );
     return (
         <>
             <Modal
@@ -95,8 +105,13 @@ const CreateCompanyModal = (props) => {
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="phone">Select Company</label>
-                                <Input  placeholder='true or false' size="large" {...register('enabled', { required: true })} /> <h4 style={{fontWeight:'bolder'}}>Note: true or false not True of False</h4>
-                                {errors.enabled && <small className="error">True or False</small>}
+                                <div className="form-group2">
+                                <Dropdown overlay={menu} {...register('enabled')} trigger={['click']}>
+                                    <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+                                        Select Company <DownOutlined />
+                                    </a>
+                                </Dropdown>{' '}
+                            </div>
                             </div>
                         </Col>
                     </Row>

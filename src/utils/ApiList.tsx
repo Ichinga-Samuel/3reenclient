@@ -14,6 +14,7 @@ export const ADMIN = {
     addAdmin: '/users/inviteAdmin',
     getAllCompany:'/logistics/getAllCompany',
     createNewCompany:'/logistics/add',
+    getSalesRep: '/admin/sr_monitor',
     deleteSingleCompany: (comId: string) => `/logistics/remove/${comId}`,
     updateACompany:(upId: string) => `/logistics/update/${upId}`,
     getSingleCat: (catId: string) => `/category/${catId}`,
