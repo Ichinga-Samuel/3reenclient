@@ -152,7 +152,6 @@ export const ProductCardHolder = styled.div`
     transition: ease all 0.5s;
     transform: translateY(0);
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     border-radius: 4px;
     font-family: 'Made Tommy', sans-serif;
     height: 330px;
@@ -160,20 +159,21 @@ export const ProductCardHolder = styled.div`
     padding: 1rem 0;
     margin-bottom: 25px;
     .image {
-        padding: 15px;
+        padding: 0 0 15px 0;
+        height: 200px;
         img {
             object-fit: contain;
             width: 100%;
-            height: 140px;
+            height: inherit;
             margin: auto;
         }
     }
     .carddetails {
-        padding: 10px 3rem;
+        padding: 10px 15px;
         position: relative;
         transition: ease all 0.5s;
         h4 {
-            font-size: 1.82rem;
+            font-size: 1.52rem;
         }
         span {
             font-size: 1.65rem;
@@ -198,13 +198,17 @@ export const ProductCardHolder = styled.div`
     }
     .actions {
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         z-index: 2;
         transition: ease all 0.5s;
         width: 100%;
         transform: translateY(50px);
         visibility: hidden;
         opacity: 0;
+        span {
+            color: var(--white-color);
+            font-weight: bold;
+        }
         svg {
             font-size: 2.5rem;
         }
@@ -213,6 +217,9 @@ export const ProductCardHolder = styled.div`
             text-align: center;
             padding: 0.81rem 0;
             transition: ease all 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             &.cartops {
                 background: #908;
                 svg {
@@ -239,6 +246,7 @@ export const ProductCardHolder = styled.div`
     }
     &:hover {
         transform: translateY(1px);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
         .actions {
             transform: translateY(0);
             visibility: visible;

@@ -16,9 +16,21 @@ const ProductSearchResult = () => {
                     </Col>
                     <Col xs={24} xl={18} lg={18}>
                         <div className="card-style">
-                            <h3>Result Pages</h3>
+                            <h3>Shop All Products: 0 product found</h3>
                             <Divider />
                             <Row gutter={28}>
+                                <Col xs={24} xl={6} lg={6}>
+                                    <ProductCard />
+                                </Col>
+                                <Col xs={24} xl={6} lg={6}>
+                                    <ProductCard />
+                                </Col>
+                                <Col xs={24} xl={6} lg={6}>
+                                    <ProductCard />
+                                </Col>
+                                <Col xs={24} xl={6} lg={6}>
+                                    <ProductCard />
+                                </Col>
                                 <Col xs={24} xl={6} lg={6}>
                                     <ProductCard />
                                 </Col>
