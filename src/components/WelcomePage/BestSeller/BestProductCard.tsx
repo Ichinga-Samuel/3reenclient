@@ -11,7 +11,7 @@ const BestProductCard = (props) => {
         <BestProductHolder onClick={() => getProductDetails(productObject)}>
             <div className="image">
                 <img
-                    src={productObject.images[0] !== undefined ? productObject.images[0] : `img/mackbook3x.png`}
+                    src={productObject?.images[0] !== undefined ? productObject?.images[0] : `img/mackbook3x.png`}
                     alt={productObject?.name}
                 />
                 {/*<img src={productObject.images[0]} alt={productObject?.name} />*/}
@@ -23,13 +23,13 @@ const BestProductCard = (props) => {
                     gap="10px"
                     activeColor="#ffaf38"
                     inactiveColor="#ddd"
-                    value={productObject.averageRating}
+                    value={productObject?.averageRating}
                 />
                 <Row gutter={30} style={{ marginTop: '15px' }}>
                     <Col>
                         <span className="discount">
                             {CURRENCY}
-                            {formatAmount(productObject.price)}
+                            {formatAmount(productObject?.price)}
                         </span>
                     </Col>
                     <Col>

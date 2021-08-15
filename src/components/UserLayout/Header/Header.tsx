@@ -45,6 +45,7 @@ const Header = (props) => {
     const SearchAllProduct = () => {
         setsearching(true);
         setTimeout(() => {
+            router.push('/products/catalogue');
             setsearching(false);
         }, 2000);
     };

@@ -4,10 +4,8 @@ export const ImageHeader = styled.div`
     height: 70vh;
     //min-width: 100%;
     margin: 20px 4rem;
-    background: url('/img/hp-omen.png');
-    background-repeat: no-repeat;
+    background: url('/img/hp-omen.png') no-repeat center;
     background-size: cover;
-    background-position: center;
     /* mobile */
     @media only screen and (max-width: 768px) {
         display: none;
@@ -146,5 +144,122 @@ export const ProductDetailsContainer = styled.div`
     }
     @media (max-width: 768px) {
         margin: 4rem 1rem;
+    }
+`;
+
+export const ProductCardHolder = styled.div`
+    position: relative;
+    transition: ease all 0.5s;
+    transform: translateY(0);
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    font-family: 'Made Tommy', sans-serif;
+    height: 330px;
+    overflow: hidden;
+    padding: 1rem 0;
+    margin-bottom: 25px;
+    .image {
+        padding: 15px;
+        img {
+            object-fit: contain;
+            width: 100%;
+            height: 140px;
+            margin: auto;
+        }
+    }
+    .carddetails {
+        padding: 10px 3rem;
+        position: relative;
+        transition: ease all 0.5s;
+        h4 {
+            font-size: 1.82rem;
+        }
+        span {
+            font-size: 1.65rem;
+        }
+        .discount {
+            color: #ff0000;
+        }
+        .price {
+            color: #878787;
+            position: relative;
+            &:after {
+                position: absolute;
+                content: '';
+                background: var(--black-color);
+                height: 1px;
+                bottom: 10px;
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+    .actions {
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        transition: ease all 0.5s;
+        width: 100%;
+        transform: translateY(50px);
+        visibility: hidden;
+        opacity: 0;
+        svg {
+            font-size: 2.5rem;
+        }
+        &__ops {
+            cursor: pointer;
+            text-align: center;
+            padding: 0.81rem 0;
+            transition: ease all 0.5s;
+            &.cartops {
+                background: #908;
+                svg {
+                    fill: var(--white-color);
+                }
+                &:hover {
+                    //background: var(--white-color);
+                    svg {
+                        fill: var(--background-color);
+                    }
+                }
+            }
+            &.whistlist {
+                background: var(--white-color);
+                transition: ease all 0.5s;
+                &:hover {
+                    transition: ease all 0.5s;
+                    svg {
+                        stroke: #ff0000;
+                    }
+                }
+            }
+        }
+    }
+    &:hover {
+        transform: translateY(1px);
+        .actions {
+            transform: translateY(0);
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+`;
+
+export const ProductSearchContainer = styled.div`
+    margin: 20px 5rem;
+    position: relative;
+    transition: ease all 0.5s;
+    .card-style {
+        border-radius: 3px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+    .sidebar_result {
+        transition: ease all 0.5s;
+        h3 {
+            font-size: 1.2rem;
+        }
     }
 `;
