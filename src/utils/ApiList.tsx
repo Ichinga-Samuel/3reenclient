@@ -5,6 +5,8 @@ export const PRODUCT = {
     allProducts: '/products',
     singleProduct: (id: string) => `/products/${id}`,
     allCategory: '/category',
+    searchProduct: (search: any) => `/search/productSearch/?search=${search}`,
+    filterByCat: `/category/categoryFilter/?`,
 };
 
 export const ADMIN = {
@@ -12,13 +14,13 @@ export const ADMIN = {
     createCategory: '/category',
     getAllCategory: '/category',
     addAdmin: '/users/inviteAdmin',
-    getAllCompany:'/logistics/getAllCompany',
-    createNewCompany:'/logistics/add',
+    getAllCompany: '/logistics/getAllCompany',
+    createNewCompany: '/logistics/add',
     deleteSingleCompany: (comId: string) => `/logistics/remove/${comId}`,
-    updateACompany:(upId: string) => `/logistics/update/${upId}`,
+    updateACompany: (upId: string) => `/logistics/update/${upId}`,
     getSingleCat: (catId: string) => `/category/${catId}`,
     delSingleCat: (catId: string) => `/category/${catId}`,
-    getCompanyByState:(state: string) => `/logistics/getCompanyByState/${state}`,
+    getCompanyByState: (state: string) => `/logistics/getCompanyByState/${state}`,
     getUserByType: (type: string) => `/users/${type}`,
     getSRStat: (userId: string) => `/referrals/sales-rep-referrals/${userId}`,
     getAllOrders: '/orders',

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { BestSellerContainer } from '@/components/UserLayout/UserWebLayout.styled';
-import { Row, Col, notification, Spin, Pagination } from 'antd';
+import { Row, Col, notification, Pagination } from 'antd';
 import BestProductCard from '@/components/WelcomePage/BestSeller/BestProductCard';
 import axios from 'axios';
 import { APP_BASE, PRODUCT } from '@/utils/ApiList';
 import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
+import SkeletonLoader from '@/components/Products/Skeleton';
 
 const BestSectionProducts = () => {
     const [loading, setloading] = useState(false);
@@ -206,7 +207,7 @@ const BestSectionProducts = () => {
                                 return (
                                     <>
                                         <Col
-                                            key={product.id}
+                                            key={index}
                                             xs={12}
                                             xl={6}
                                             lg={6}
@@ -215,7 +216,7 @@ const BestSectionProducts = () => {
                                             data-aos-duration="800"
                                         >
                                             <BestProductCard
-                                                key={index + 1}
+                                                key={product?.id}
                                                 productObject={product}
                                                 addToCart={addToCart}
                                                 getProductDetails={getProductDetails}
@@ -228,10 +229,11 @@ const BestSectionProducts = () => {
                     </>
                 ) : (
                     <>
-                        <div className="fetchingloading">
-                            <Spin />
-                            <small>Fetching Products...</small>
-                        </div>
+                        <Row>
+                            {[1, 2, 3, 4, 5, 6].map((_item, index) => (
+                                <SkeletonLoader key={index} />
+                            ))}
+                        </Row>
                     </>
                 )}
             </div>

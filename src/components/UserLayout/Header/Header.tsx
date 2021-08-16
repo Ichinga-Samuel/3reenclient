@@ -11,6 +11,7 @@ import {
     removeFromLocalStorage,
     removeFromSessionStorage,
 } from '@/utils/browserStorage';
+import { useForm } from 'react-hook-form';
 
 const Header = (props) => {
     const { token, userDetail, cartCount } = props;
@@ -18,6 +19,8 @@ const Header = (props) => {
     const [searching, setsearching] = useState(false);
     const [menuopen, setmenuopen] = useState(false);
     const userRef = useRef(null);
+
+    const { register, handleSubmit } = useForm();
 
     const router = useRouter();
     const cartPage = () => {
@@ -42,12 +45,16 @@ const Header = (props) => {
 
     const openUserMenu = () => setmenuopen(!menuopen);
 
-    const SearchAllProduct = () => {
+    const SearchAllProduct = (data) => {
+        console.log(data);
         setsearching(true);
         setTimeout(() => {
-            router.push('/products/catalogue');
+            router.push({
+                pathname: '/products/catalogue',
+                query: { search: data?.search },
+            });
             setsearching(false);
-        }, 2000);
+        }, 100);
     };
     return (
         <HeaderContainer>
@@ -55,10 +62,15 @@ const Header = (props) => {
                 <LogoIcon />
             </div>
             <div className="productsearch">
-                <input className="ant-input ant-input-lg" placeholder="Enter Products" />
+                <input
+                    {...register('search')}
+                    name="search"
+                    className="ant-input ant-input-lg"
+                    placeholder="Enter Products"
+                />
                 <Button
                     loading={searching}
-                    onClick={SearchAllProduct}
+                    onClick={handleSubmit(SearchAllProduct)}
                     className="searchbtn"
                     type="primary"
                     size="large"

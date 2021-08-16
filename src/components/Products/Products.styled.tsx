@@ -259,6 +259,7 @@ export const ProductSearchContainer = styled.div`
     margin: 20px 5rem;
     position: relative;
     transition: ease all 0.5s;
+    font-family: 'Made Tommy Regular', sans-serif;
     .card-style {
         border-radius: 3px;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -269,5 +270,60 @@ export const ProductSearchContainer = styled.div`
         h3 {
             font-size: 1.2rem;
         }
+    }
+    .noproduct {
+        transition: ease;
+        position: relative;
+        h3 {
+            text-align: center;
+            margin: 1rem 0 2rem;
+            font-weight: lighter;
+            font-size: 2rem;
+        }
+        .nobar {
+            background: var(--background-color);
+            color: var(--white-color);
+            border-left: 10px solid rgb(30, 3, 30);
+            padding: 15px;
+        }
+    }
+    .catside {
+        position: relative;
+        transition: ease all 0.5s;
+        padding: 0 0 0 14px;
+        h3 {
+            font-size: 1.51rem;
+            font-weight: bolder;
+            margin-right: 10px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        .catItem {
+            cursor: pointer;
+            padding: 5px;
+            margin: 5px 0 0 10px;
+            &:hover {
+                font-weight: bold;
+            }
+            &:last-child {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+    //.ant-slider {
+    //    &:hover {
+    //        background: var(--secondary-color);
+    //    }
+    //}
+    .ant-slider-rail {
+        //background-color: var(--background-color);
+    }
+    .ant-slider-track {
+        background-color: var(--background-color);
+        color: var(--white-color);
+    }
+    .ant-slider-handle {
+        border: 3px solid var(--background-color);
+        background-color: var(--background-color);
     }
 `;
