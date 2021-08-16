@@ -1,7 +1,7 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
 import { SRGraphCard } from '@/components/Admin/styles/AdminStyle.styled';
 import { Row, Col, Select } from 'antd';
+import { Bar } from 'react-chartjs-2';
 
 const { Option } = Select;
 
