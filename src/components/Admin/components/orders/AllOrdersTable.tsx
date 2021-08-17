@@ -55,6 +55,7 @@ const AllOrdersTable = () => {
                     },
                 });
                 const { doc, result } = response.data;
+                console.log(response.data.doc);
                 setAllOrders(doc);
                 setTotal(result);
                 setPagination(result);

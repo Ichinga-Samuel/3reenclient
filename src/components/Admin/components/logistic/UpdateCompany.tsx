@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Col, Input, Modal, notification, Row } from 'antd';
+import { Button, Col, Input, Modal, notification, Row, Switch } from 'antd';
 import axios from 'axios';
 import { APP_BASE, ADMIN } from '@/utils/ApiList';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 
-
 const UpdateCompany = (props) => {
-    const {record} = props;
-    const {_id, enabled, state, email, companyName, address, phone} = record;
+    const { record } = props;
+    console.log(record);
+    const { _id, state, enabled, email, companyName, address, phone } = record;
     const [loading, setloading] = useState(false);
     const token = getFromLocalStorage('admintoken');
-    const {
-        register,
-        handleSubmit,
-        reset,
-    } = useForm();
+    const { register, handleSubmit, reset, control } = useForm();
 
     const cancelModal = () => {
         props.closeModal();
@@ -55,6 +51,7 @@ const UpdateCompany = (props) => {
                 });
             });
     };
+
     return (
         <>
             <Modal
@@ -71,11 +68,11 @@ const UpdateCompany = (props) => {
                         <Col xs={24} xl={24} lg={24}>
                             <div className="form-group2">
                                 <label htmlFor="companyName">Name of Company</label>
-                                <Input size="large"  defaultValue={companyName} {...register('companyName')} />
+                                <Input size="large" defaultValue={companyName} {...register('companyName')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="email">Email</label>
-                                <Input  size="large" defaultValue={email} {...register('email')} />
+                                <Input size="large" defaultValue={email} {...register('email')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="address">Company Address</label>
@@ -83,15 +80,30 @@ const UpdateCompany = (props) => {
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="state">Name of State</label>
-                                <Input  size="large" defaultValue={state} {...register('state')} />
+                                <Input size="large" defaultValue={state} {...register('state')} />
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="phone">Phone Number</label>
-                                <Input  size="large" defaultValue={phone} {...register('phone')} />
+                                <Input size="large" defaultValue={phone} {...register('phone')} />
                             </div>
                             <div className="form-group2">
-                                <label htmlFor="enabled">Select Company</label>
-                                <Input  defaultValue={enabled} size="large" placeholder='True or False' {...register('enabled')} /> <h4 style={{fontWeight:'bolder'}}>Note: true or false not True of False</h4>
+                                <label htmlFor="phone">Phone Number</label>
+                                <Input size="large" defaultValue={phone} {...register('phone')} />
+                            </div>
+                            <div className="form-group2">
+                                <Controller
+                                    name="enabled"
+                                    control={control}
+                                    render={({ field: { onChange, value } }) => (
+                                        <Switch
+                                            unCheckedChildren="No"
+                                            checkedChildren="Yes"
+                                            onChange={onChange}
+                                            checked={value}
+                                            defaultChecked={enabled}
+                                        />
+                                    )}
+                                />
                             </div>
                         </Col>
                     </Row>

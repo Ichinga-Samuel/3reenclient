@@ -1,42 +1,51 @@
 import React, { useState } from 'react';
 import DefaultLayout from '@/components/Admin/Layout/DefaultLayout';
-import { Button, Col, Input, Row } from 'antd';
+import { Button, Col, Input, notification, Row, Spin } from 'antd';
 import { GeneralContainer, LogisticsCard } from '../styles/AdminStyle.styled';
 import BeautyStars from 'beauty-stars';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import SRMonitorGraph from '@/components/Admin/components/srmonitor/SRMonitorGraph';
+import { getFromLocalStorage } from '@/utils/browserStorage';
+import { ADMIN, APP_BASE } from '@/utils/ApiList';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const AdminSRMonitor = () => {
     const title = 'SR Monitor';
     const [viewdetail, setviewDetail] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(null);
-    const logData = [
-        {
-            id: 12,
-            companyName: 'GIG Logistics',
-            address: 'Plot 300, Gbagada Avenue, Gbagada',
-            rating: 5,
-            state: 'Lagos',
-            selected: true,
-        },
-        {
-            id: 14,
-            companyName: 'FAX Express',
-            address: 'No 100, Ojo Ayo Avenue, Surulere',
-            rating: 4,
-            state: 'Lagos',
-            selected: false,
-        },
-        {
-            id: 42,
-            companyName: 'DREP Express',
-            address: 'Plot 100, Ison Eleran Avenue, Ojoo',
-            state: 'Oyo',
-            rating: 3,
-            selected: false,
-        },
-    ];
+    const [salesRep, getAllSalesReps] = useState([]);
+    const [fetching, setFetching] = useState(false);
 
+    const token = getFromLocalStorage('admintoken');
+    const fetchSalesRep = async () => {
+        setFetching(true);
+        try {
+            const response = await axios.get(`${APP_BASE}${ADMIN.getSalesRep}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            const {data} = response.data
+            console.log(data);
+            getAllSalesReps(data)
+            setFetching(false);
+            setTimeout(() => {
+                notification.destroy();
+            }, 200);
+        } catch (error) {
+            console.log('error', error.response);
+            notification.error({
+                message: 'Category Error',
+                description: error?.response?.data?.message,
+                duration: 10,
+            });
+        }
+    };
+    useEffect(() => {
+        fetchSalesRep();
+    }, []);
     const viewMore = (x) => {
         setCurrentIndex(x.id);
         setviewDetail(!viewdetail);
@@ -58,17 +67,21 @@ const AdminSRMonitor = () => {
                 </Row>
             </GeneralContainer>
             <div style={{ marginTop: '15px' }} />
-            {logData?.map((res) => {
+            {
+                fetching ? <div className="fetchingloading">
+                <Spin />
+                <small>Fetching Logistic Companies...</small>
+            </div> : salesRep?.map((res) => {
                 return (
                     <>
-                        <LogisticsCard key={res.id} height={'auto'}>
+                        <LogisticsCard key={res._id} height={'auto'}>
                             <Row justify="space-between" align="middle">
                                 <Col xs={14} xl={14} lg={14}>
                                     <div style={{ padding: '10px', display: 'flex' }}>
                                         <div className="sr-image" />
                                         <div>
                                             <p style={{ marginBottom: '5px' }}>
-                                                <strong>{res.companyName}</strong> | {res.address}
+                                                <strong>{res.fullName}</strong> | {res.address}
                                             </p>
                                             <span>{res.state}</span>
                                         </div>
@@ -111,7 +124,8 @@ const AdminSRMonitor = () => {
                         </LogisticsCard>
                     </>
                 );
-            })}
+            })
+            }
         </DefaultLayout>
     );
 };

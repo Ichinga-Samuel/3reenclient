@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Col, Input, Modal, notification, Row } from 'antd';
+import { Button, Col, Input, Modal, notification, Row, Switch } from 'antd';
 import axios from 'axios';
 import { APP_BASE, ADMIN } from '@/utils/ApiList';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { getFromLocalStorage } from '@/utils/browserStorage';
+// import { DownOutlined } from '@ant-design/icons';
+// import { LOGGER } from '@/utils/helpers';
 
 const CreateCompanyModal = (props) => {
     const [loading, setloading] = useState(false);
@@ -13,6 +15,7 @@ const CreateCompanyModal = (props) => {
         handleSubmit,
         formState: { errors },
         reset,
+        control,
     } = useForm();
 
     const cancelModal = () => {
@@ -22,6 +25,7 @@ const CreateCompanyModal = (props) => {
     };
 
     const CreateNewCompany = async (data: any) => {
+        console.log('a', data);
         setloading(true);
         await axios
             .post(`${APP_BASE}${ADMIN.createNewCompany}`, data, {
@@ -53,7 +57,17 @@ const CreateCompanyModal = (props) => {
                 });
             });
     };
+    // const handleClick = (key) => {
+    //     //you can perform setState here
+    //     LOGGER('k', key);
+    // };
 
+    // const menu = (
+    //     <Menu onClick={handleClick}>
+    //         <Menu.Item key="true">True</Menu.Item>
+    //         <Menu.Item key="false">False</Menu.Item>
+    //     </Menu>
+    // );
     return (
         <>
             <Modal
@@ -75,7 +89,7 @@ const CreateCompanyModal = (props) => {
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="email">Email</label>
-                                <Input  size="large" {...register('email', { required: true })} />
+                                <Input size="large" {...register('email', { required: true })} />
                                 {errors.email && <small className="error">Email is Requried</small>}
                             </div>
                             <div className="form-group2">
@@ -85,18 +99,30 @@ const CreateCompanyModal = (props) => {
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="state">Name of State</label>
-                                <Input  size="large" {...register('state')} />
+                                <Input size="large" {...register('state')} />
                                 {errors.state && <small className="error">State is Required</small>}
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="phone">Phone Number</label>
-                                <Input  size="large" {...register('phone', { required: true })} />
-                                {errors.phone && <small className="error">Phone Number is Requried</small>}
+                                <Input size="large" {...register('phone', { required: true })} />
+                                {errors.phone && <small className="error">Phone Number is Required</small>}
                             </div>
                             <div className="form-group2">
-                                <label htmlFor="phone">Select Company</label>
-                                <Input  placeholder='true or false' size="large" {...register('enabled', { required: true })} /> <h4 style={{fontWeight:'bolder'}}>Note: true or false not True of False</h4>
-                                {errors.enabled && <small className="error">True or False</small>}
+                                <label htmlFor="phone">Set As Selected Company</label>
+                                <div className="form-group2">
+                                    <Controller
+                                        name="enabled"
+                                        control={control}
+                                        render={({ field: { onChange, value } }) => (
+                                            <Switch
+                                                unCheckedChildren="No"
+                                                checkedChildren="Yes"
+                                                onChange={onChange}
+                                                checked={value}
+                                            />
+                                        )}
+                                    />
+                                </div>
                             </div>
                         </Col>
                     </Row>
