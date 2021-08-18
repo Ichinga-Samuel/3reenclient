@@ -9,15 +9,14 @@ import UserCountCard from '@/components/Admin/components/cards/UserCountCard';
 
 const AdminUserMonitoring = () => {
     const title = 'User Monitoring';
-
+    const [length, setLength] = useState(0)
     const [useractivities, setUserActivities] = useState([]);
     const [fetching, setfetching] = useState(false);
-
     interface useractivities {
         id: number | string;
         key: number | string;
         username: string;
-        timeOfLogin: string;
+        lastLoginTime: any;
         timeOfLogout: string;
         actionTaken: string;
     }
@@ -25,14 +24,15 @@ const AdminUserMonitoring = () => {
     const columns: ColumnsType<useractivities> = [
         {
             title: 'Username',
-            dataIndex: 'username',
-            key: 'username',
+            dataIndex: 'fullName',
+            key: 'fullName',
         },
 
         {
             title: 'Time Of Login',
-            dataIndex: 'TimeOfLogin',
-            key: 'TimeOfLogin',
+            dataIndex: 'lastLoginTime',
+            render: (_text, record) => <>{record.lastLoginTime ? <>{record.lastLoginTime.split('T')[1].slice(0, 5)}</>: ''}</>,
+            
         },
         {
             title: 'Time Of Logout',
@@ -46,71 +46,27 @@ const AdminUserMonitoring = () => {
             width: '40%',
         },
     ];
-    // const userData = [
-    //     {
-    //         key: 1,
-    //         username: 'user@firstuseroftheyear',
-    //         timeOfLogin: '11:59am',
-    //         timeOfLogout: '12:30pm',
-    //         actionTaken: 'added a new product, made a delivery, applied for a new dispatch, rider',
-    //     },
-    //     {
-    //         key: 2,
-    //         username: 'user@firstuseroftheyear1',
-    //         timeOfLogin: '11:59am',
-    //         timeOfLogout: '12:30pm',
-    //         actionTaken: 'added a new product, made a delivery, applied for a new dispatch, rider',
-    //     },
-    //     {
-    //         key: 3,
-    //         username: 'user@firstuseroftheyear2',
-    //         timeOfLogin: '11:59am',
-    //         timeOfLogout: '12:30pm',
-    //         actionTaken: 'added a new product, made a delivery, applied for a new dispatch, rider',
-    //     },
-    //     {
-    //         key: 4,
-    //         username: 'user@firstuseroftheyear2',
-    //         timeOfLogin: '11:59am',
-    //         timeOfLogout: '12:30pm',
-    //         actionTaken: 'added a new product, made a delivery, applied for a new dispatch, rider',
-    //     },
-    //     {
-    //         key: 5,
-    //         username: 'user@firstuseroftheyear2',
-    //         timeOfLogin: '11:59am',
-    //         timeOfLogout: '12:30pm',
-    //         actionTaken: 'added a new product, made a delivery, applied for a new dispatch, rider',
-    //     },
-    //     {
-    //         key: 6,
-    //         username: 'user@firstuseroftheyear2',
-    //         timeOfLogin: '11:59am',
-    //         timeOfLogout: '12:30pm',
-    //         actionTaken: 'added a new product, made a delivery, applied for a new dispatch, rider',
-    //     },
-    //     {
-    //         key: 7,
-    //         username: 'user@firstuseroftheyear2',
-    //         timeOfLogin: '11:59am',
-    //         timeOfLogout: '12:30pm',
-    //         actionTaken: 'added a new product, made a delivery, applied for a new dispatch, rider',
-    //     },
-    // ];
+
 
     useEffect(() => {
         const fetchUserActions = async () => {
             setfetching(true);
             try {
-                const response = await axios.get(`${APP_BASE}/allusers/activities`, {
+                const response = await axios.get(`${APP_BASE}/users/allUsers`, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
-                const { doc } = response?.data;
+                const { All_Users, length } = response?.data;
+                All_Users.map(user => {
+                    while(user.email == 'user'){
+                        console.log('Hello')
+                    }
+                })
                 // setPages(pages);
-                setUserActivities(doc);
-                console.log('res', response.data);
+                setLength(length)
+                setUserActivities(All_Users);
+                console.log('res',);
                 setTimeout(() => {
                     setfetching(false);
                 }, 200);
@@ -130,14 +86,14 @@ const AdminUserMonitoring = () => {
     }, []);
 
     return (
-        <DefaultLayout breadTitle={title} browserTitle={title}>
+    <DefaultLayout breadTitle={title} browserTitle={title}>
             <div>
                 <Row gutter={40} justify="space-between">
                     <Col xs={24} xl={8} lg={6}>
-                        <UserCountCard title="Number of Users" count="3500" />
+                        <UserCountCard title="Number of Users" count={length} />
                     </Col>
                     <Col xs={24} xl={8} lg={6}>
-                        <UserCountCard title="Number of Users Online" count="45" />
+                        <UserCountCard title="Number of Users Online" count={'0'} />
                     </Col>
                     <Col xs={24} xl={8} lg={6}>
                         <UserCountCard title="Total Cancelled" count="40000" />

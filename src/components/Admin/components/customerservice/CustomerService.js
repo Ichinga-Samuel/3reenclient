@@ -18,7 +18,9 @@ function CustomerService() {
                     </h1>
                 </div>
                 <div className="callbuttons">
+                    <Link href='/admin/customer-email-list'>
                     <Button type="primary">Email Contact List</Button>
+                    </Link>
                     <Button type="primary">Phone Contact List</Button>
                 </div>
             </CustomerContainer>
