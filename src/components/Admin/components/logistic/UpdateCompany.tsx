@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Col, Dropdown, Input, Menu, Modal, notification, Row } from 'antd';
+import { Button, Col, Input, Modal, notification, Row, Switch } from 'antd';
 import axios from 'axios';
 import { APP_BASE, ADMIN } from '@/utils/ApiList';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { getFromLocalStorage } from '@/utils/browserStorage';
-import { DownOutlined } from '@ant-design/icons';
 
 const UpdateCompany = (props) => {
-    let { record } = props;
-    console.log(record)
+    const { record } = props;
+    console.log(record);
     const { _id, state, enabled, email, companyName, address, phone } = record;
     const [loading, setloading] = useState(false);
     const token = getFromLocalStorage('admintoken');
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, control } = useForm();
 
     const cancelModal = () => {
         props.closeModal();
@@ -52,16 +51,6 @@ const UpdateCompany = (props) => {
                 });
             });
     };
-    const handleClick = ({ key }) => {
-        //you can perform setState here
-    };
-
-    const menu = (
-        <Menu onClick={handleClick}>
-            <Menu.Item key="true">True</Menu.Item>
-            <Menu.Item key="false">False</Menu.Item>
-        </Menu>
-    );
 
     return (
         <>
@@ -99,14 +88,22 @@ const UpdateCompany = (props) => {
                             </div>
                             <div className="form-group2">
                                 <label htmlFor="phone">Phone Number</label>
-                                <Input size="large" defaultValue={enabled} {...register('phone')} />
+                                <Input size="large" defaultValue={phone} {...register('phone')} />
                             </div>
                             <div className="form-group2">
-                                <Dropdown overlay={menu} {...register('enabled')} trigger={['click']}>
-                                    <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-                                        Select Company <DownOutlined />
-                                    </a>
-                                </Dropdown>{' '}
+                                <Controller
+                                    name="enabled"
+                                    control={control}
+                                    render={({ field: { onChange, value } }) => (
+                                        <Switch
+                                            unCheckedChildren="No"
+                                            checkedChildren="Yes"
+                                            onChange={onChange}
+                                            checked={value}
+                                            defaultChecked={enabled}
+                                        />
+                                    )}
+                                />
                             </div>
                         </Col>
                     </Row>
