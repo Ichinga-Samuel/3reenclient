@@ -19,8 +19,8 @@ const BestProductCard = (props) => {
             <div className="carddetails">
                 <h4>{productObject?.name}</h4>
                 <BeautyStars
-                    size="20px"
-                    gap="10px"
+                    size="15px"
+                    gap="5px"
                     activeColor="#ffaf38"
                     inactiveColor="#ddd"
                     value={productObject?.averageRating}

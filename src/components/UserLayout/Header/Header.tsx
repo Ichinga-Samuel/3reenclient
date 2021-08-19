@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { HeaderContainer } from '@/components/UserLayout/Header/Header.styled';
 import { CartIcon, LogoIcon } from '@/utils/Icons';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import { ArrowDropDown, PersonOutline } from '@material-ui/icons';
+import { ArrowDropDown, PersonOutline, SearchOutlined } from '@material-ui/icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import {
@@ -78,7 +79,7 @@ const Header = (props) => {
                     Search
                 </Button>
             </div>
-            <div className="nav">
+            <div className="nav hidden">
                 <div className="cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                     <div className="cart__count">
                         <span>{cartCount}</span>
@@ -89,7 +90,7 @@ const Header = (props) => {
                 {token !== null ? (
                     <>
                         <div
-                            className="userprofile"
+                            className="hidden userprofile"
                             onClick={openUserMenu}
                             onKeyDown={openUserMenu}
                             role="button"
@@ -128,6 +129,20 @@ const Header = (props) => {
                         </div>
                     </>
                 )}
+            </div>
+            <div className="mobilenav hideOnweb">
+                <div>
+                    <SearchOutlined />
+                </div>
+                <div className="cartmobile">
+                    <div className="cartmobile__count">
+                        <span>{cartCount || 0}</span>
+                    </div>
+                    <ShoppingCartOutlined />
+                </div>
+                <div>
+                    <PersonOutline />
+                </div>
             </div>
         </HeaderContainer>
     );

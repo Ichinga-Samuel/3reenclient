@@ -147,7 +147,44 @@ export const HeaderContainer = styled.header`
             }
         }
     }
+    .mobilenav {
+        display: flex;
+        margin-right: 10px;
+        > div {
+            position: relative;
+            margin-left: 20px;
+            cursor: pointer;
+            svg {
+                font-size: 3rem;
+            }
+        }
+        .cartmobile {
+            position: relative;
+            //font-size: 1.5rem;
+            //cursor: pointer;
+            display: flex;
+            align-items: center;
+            &__count {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 23px;
+                left: 0;
+                top: -8px;
+                height: 23px;
+                border-radius: 50px;
+                background: var(--background-color);
+                span {
+                    color: var(--white-color);
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
     @media (max-width: 768px) {
+        padding: 10px 0.7rem;
         .userlogo {
             margin: 0;
         }

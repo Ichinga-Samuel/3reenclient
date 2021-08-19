@@ -329,6 +329,18 @@ export const BestProductHolder = styled.div`
             }
         }
     }
+    @media (max-width: 768px) {
+        height: 300px;
+        .image {
+            padding: 10px;
+            img {
+                height: 100px;
+            }
+        }
+        .carddetails {
+            padding: 10px 2rem;
+        }
+    }
     &:hover {
         transform: translateY(1px);
         .actions {
@@ -399,5 +411,8 @@ export const LowerBannerSection = styled.div`
         background-position: 32% center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+    @media (max-width: 768px) {
+        background-size: contain;
     }
 `;

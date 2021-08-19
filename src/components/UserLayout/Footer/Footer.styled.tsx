@@ -29,6 +29,12 @@ export const FooterContainer = styled.footer`
         align-items: center;
         padding: 15px;
     }
+    @media (max-width: 768px) {
+        padding: 3rem 3rem 0;
+        .innerfooter {
+            margin-top: 2rem;
+        }
+    }
 `;
 
 export const FooterList = styled.ul`
@@ -73,6 +79,9 @@ export const SocialMediaList = styled.ul`
         justify-content: center;
         margin-left: 15px;
         transition: ease all 0.5s;
+        &:first-child {
+            margin-left: 0;
+        }
         &:hover {
             box-shadow: none;
             transition: ease all 0.5s;
