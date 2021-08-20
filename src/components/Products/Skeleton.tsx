@@ -15,7 +15,7 @@ const styles = {
 
 const SkeletonLoader = () => {
     return (
-        <div style={{ width: '25%' }}>
+        <div className="skeleton">
             <div style={styles.container}>
                 <Skeleton height={'83%'} />
                 <div style={styles.content}>

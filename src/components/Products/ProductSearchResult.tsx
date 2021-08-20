@@ -105,7 +105,7 @@ const ProductSearchResult = () => {
         <UserWebLayout webtitle="Shop All Product">
             <ProductSearchContainer>
                 <Row gutter={28}>
-                    <Col xs={24} xl={6} lg={6}>
+                    <Col className="hidden" xs={24} xl={6} lg={6}>
                         <div className="sidebar_result card-style">
                             <div className="catside">
                                 <h3>Filter By Category</h3>
