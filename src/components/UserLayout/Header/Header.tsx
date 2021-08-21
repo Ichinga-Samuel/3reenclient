@@ -195,15 +195,48 @@ const Header = (props) => {
                     <div onClick={showSearch} onKeyDown={showSearch} role="button" tabIndex={0}>
                         <SearchOutlined />
                     </div>
-                    <div className="cartmobile">
+                    <div className="cartmobile" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                         <div className="cartmobile__count">
                             <span>{cartCount || 0}</span>
                         </div>
                         <ShoppingCartOutlined />
                     </div>
-                    <div>
-                        <PersonOutline />
-                    </div>
+                    {token !== null ? (
+                        <>
+                            <div
+                                className="userprofile"
+                                onClick={openUserMenu}
+                                onKeyDown={openUserMenu}
+                                role="button"
+                                tabIndex={0}
+                            >
+                                <div className="userprofile__avatar">{details?.fullName?.split(' ')[0][0]}</div>
+                                <ArrowDropDown />
+                                <div className={`usermenu ${menuopen ? 'isOpen' : ''}`} ref={userRef}>
+                                    <ul>
+                                        <li>
+                                            <Link href="/profile">
+                                                <a>My Profile</a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/profile">
+                                                <a>My Orders</a>
+                                            </Link>
+                                        </li>
+                                        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+                                        <li onClick={logoutUser} onKeyDown={logoutUser} className="logout">
+                                            Logout
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </>
+                    ) : (
+                        <div onClick={gotoLogin} onKeyDown={gotoLogin} role="button" tabIndex={0}>
+                            <PersonOutline />
+                        </div>
+                    )}
                 </div>
             </HeaderContainer>
             <MobileSearch className={mobileSearch ? 'open' : ''}>

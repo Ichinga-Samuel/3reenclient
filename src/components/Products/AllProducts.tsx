@@ -22,7 +22,7 @@ const AllProducts = () => {
     LOGGER('page', pages);
     const router = useRouter();
     const { category } = router.query;
-    console.log('routet', router);
+    console.log('routet', category);
 
     const token = getFromLocalStorage('usertoken');
     const config = {
@@ -147,26 +147,41 @@ const AllProducts = () => {
         };
     }, [menuOpen]);
 
+    const fetchAllProducts = async () => {
+        setfetch(true);
+        try {
+            const response = await axios.get(`${APP_BASE}${PRODUCT.allProducts}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const { doc } = response?.data;
+            console.log('doc', response);
+            setPages(pages);
+            setcatproduct(doc);
+            setTimeout(() => {
+                setfetch(false);
+            }, 500);
+        } catch (err) {
+            notification.error({
+                message: 'Product Error',
+                description: err?.response?.data?.message,
+                duration: 15,
+            });
+            setfetch(false);
+        }
+    };
+
     useEffect(() => {
         const fetchBestProducts = async () => {
             setfetch(true);
             try {
-                // const response = await axios.get(`${APP_BASE}${PRODUCT.allProducts}`, {
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //     },
-                // });
-                const response = await axios.get(`${APP_BASE}${PRODUCT.filterByCat}`, {
-                    params: {
-                        filter: category,
-                        page: 1,
-                        limit: 20,
-                    },
+                const response = await axios.get(`${APP_BASE}${PRODUCT.allProducts}`, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
-                const { doc } = response?.data?.data;
+                const { doc } = response?.data;
                 console.log('doc', response);
                 setPages(pages);
                 setcatproduct(doc);
@@ -234,7 +249,14 @@ const AllProducts = () => {
                     <h3>Categories</h3>
                     {allcategory?.map((cat) => {
                         return (
-                            <div key={cat?._id} className="eachcat">
+                            <div
+                                onClick={() => getProductByCat(cat?.name)}
+                                onKeyDown={() => getProductByCat(cat?.name)}
+                                role="button"
+                                tabIndex={0}
+                                key={cat?._id}
+                                className="eachcat"
+                            >
                                 {cat?.name}
                             </div>
                         );
@@ -254,12 +276,7 @@ const AllProducts = () => {
                         <div className="sectionholder">
                             <div className="producthead">
                                 <div>Top Deals</div>
-                                <div
-                                    onClick={() => getProductByCat('all')}
-                                    onKeyDown={() => getProductByCat('all')}
-                                    role="button"
-                                    tabIndex={0}
-                                >
+                                <div onClick={fetchAllProducts} onKeyDown={fetchAllProducts} role="button" tabIndex={0}>
                                     View all
                                 </div>
                             </div>

@@ -183,6 +183,38 @@ export const HeaderContainer = styled.header`
                 }
             }
         }
+        .userprofile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            margin: auto;
+            &__avatar {
+                width: 30px;
+                height: 30px;
+                border-radius: 50px;
+                background: var(--background-color);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 25px;
+                color: var(--white-color);
+                font-size: 1.5rem;
+                font-weight: bold;
+                overflow: hidden;
+            }
+            &__name {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                font-weight: bold;
+                span {
+                    color: var(--background-color);
+                    padding-left: 0.41rem;
+                }
+            }
+        }
     }
     .mobileSideMenu {
         cursor: pointer;
