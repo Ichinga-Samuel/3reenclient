@@ -12,21 +12,17 @@ export const HomeBannerContainer = styled.div`
     .welcome {
         position: relative;
         transition: ease all 0.5s;
-        padding: 2rem 8rem;
-        margin-top: 12rem;
-        top: 80%;
+        padding: 6rem 0 2rem 5rem;
+        //margin-top: 12rem;
+        //top: 80%;
         font-family: 'Made Tommy', sans-serif;
         h3 {
-            color: var(--white-color);
-            text-transform: uppercase;
+            color: var(--background-color);
+            //text-transform: uppercase;
             font-size: 6.5rem;
             margin-bottom: 0;
-            font-weight: bold;
-        }
-        h4 {
-            color: var(--white-color);
-            font-size: 4rem;
-            font-weight: lighter;
+            font-weight: bolder;
+            text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
         }
         .btn-shop {
             display: flex;
@@ -53,6 +49,14 @@ export const HomeBannerContainer = styled.div`
                 box-shadow: none;
                 color: var(--white-color);
                 //padding: 10px 4.5rem;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .welcome {
+            padding: 12rem 0 1rem 3rem;
+            h3 {
+                font-size: 5.5rem;
             }
         }
     }
