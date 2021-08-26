@@ -4,10 +4,12 @@ import { InventoryContainer } from '@/components/Admin/styles/AdminStyle.styled'
 import { Col, Row } from 'antd';
 import CustomerVendors from './customerservice/CustomerVendors';
 import CustomerUsers from './customerservice/CustomerUsers';
+import AdminMessages from './customerservice/AdminMessages';
 const AdminCustomerService = () => {
     const title = 'Customer Service';
     const [active, setactive] = useState(false);
     const [catactive, setcatactive] = useState(false);
+    const [msgactive, setmsgactive] = useState(false);
     useEffect(() => {
         setactive(true);
     }, []);
@@ -18,6 +20,10 @@ const AdminCustomerService = () => {
         } else if (tab === 'cat') {
             setcatactive(true);
             setactive(false);
+        } else if (tab === 'msg') {
+            setactive(false);
+            setcatactive(false);
+            setmsgactive(true);
         }
     };
 
@@ -46,7 +52,18 @@ const AdminCustomerService = () => {
                                     tabIndex={0}
                                     className={`catops ${catactive ? 'active' : ''}`}
                                 >
-                                  Users Details
+                                    Users Details
+                                </div>
+                            </Col>
+                            <Col>
+                                <div
+                                    onClick={() => changeCategory('msg')}
+                                    onKeyDown={() => changeCategory('msg')}
+                                    role="button"
+                                    tabIndex={0}
+                                    className={`catops ${msgactive ? 'active' : ''}`}
+                                >
+                                    Messages
                                 </div>
                             </Col>
                         </Row>
@@ -57,10 +74,16 @@ const AdminCustomerService = () => {
                     <>
                         <CustomerVendors />
                     </>
-                ) : (
-                    <div>
+                ) : catactive ? (
+                    <>
                         <CustomerUsers />
-                    </div>
+                    </>
+                ) : msgactive ? (
+                    <>
+                        <AdminMessages />
+                    </>
+                ) : (
+                    ''
                 )}
             </InventoryContainer>
         </DefaultLayout>

@@ -4,6 +4,7 @@ import Table, { ColumnsType } from 'antd/lib/table';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
+
 const CustomerVendors = () => {
     const [useractivities, setUserActivities] = useState([]);
     const [fetching, setfetching] = useState(false);

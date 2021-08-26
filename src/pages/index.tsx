@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
             <NextSeo
                 title="Welcome"
                 description="The world best e-commence store"
-                openGraph={{
+            openGraph={{
                     title: 'Open Graph Title',
                     description: 'Description of open graph video',
                     url: 'https://www.3reenshop.com',
