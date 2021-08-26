@@ -134,7 +134,8 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
 
                                     <div className="cartSelect">
                                         <button onClick={() => removeFromCart(product)}>-</button>
-                                        <input type="number" value={product.count} readOnly />
+                                        {/*<input type="number" value={product.count} readOnly />*/}
+                                        <input type="number" value="2" readOnly />
                                         <button onClick={() => addToCart(product)}>+</button>
                                     </div>
                                 </div>

@@ -2,13 +2,14 @@ import React, { useEffect, useState, useRef } from 'react';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 import { ProductDisplayContainer, ImageHeader } from './Products.styled';
 import { Menu } from '@material-ui/icons';
-import { Row, Col, notification, Spin } from 'antd';
+import { Row, Col, notification } from 'antd';
 import BestProductCard from '@/components/WelcomePage/BestSeller/BestProductCard';
 import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import axios from 'axios';
 import { APP_BASE, PRODUCT } from '@/utils/ApiList';
 import { useRouter } from 'next/router';
 import { LOGGER } from '@/utils/helpers';
+import SkeletonLoader from '@/components/Products/Skeleton';
 
 const AllProducts = () => {
     const [fetch, setfetch] = useState(false);
@@ -20,6 +21,8 @@ const AllProducts = () => {
     const refMenu = useRef(null);
     LOGGER('page', pages);
     const router = useRouter();
+    const { category } = router.query;
+    console.log('routet', category);
 
     const token = getFromLocalStorage('usertoken');
     const config = {
@@ -92,21 +95,19 @@ const AllProducts = () => {
 
     const getProductByCat = async (cat) => {
         setfetch(true);
-        let url = '';
-        if (cat === 'all') {
-            url = `${APP_BASE}${PRODUCT.allProducts}`;
-        } else {
-            url = `${APP_BASE}${PRODUCT.allProducts}/${cat}`;
-        }
         try {
-            const response = await axios.get(`${url}`, {
+            const response = await axios.get(`${APP_BASE}${PRODUCT.filterByCat}`, {
+                params: {
+                    filter: cat,
+                    page: 1,
+                    limit: 20,
+                },
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
-            const { doc, pages } = response?.data;
-            setPages(pages);
-            setcatproduct(doc);
+            const { result } = response?.data?.data;
+            setcatproduct(result);
             LOGGER('res', response.data);
             setTimeout(() => {
                 setfetch(false);
@@ -146,6 +147,31 @@ const AllProducts = () => {
         };
     }, [menuOpen]);
 
+    const fetchAllProducts = async () => {
+        setfetch(true);
+        try {
+            const response = await axios.get(`${APP_BASE}${PRODUCT.allProducts}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const { doc } = response?.data;
+            console.log('doc', response);
+            setPages(pages);
+            setcatproduct(doc);
+            setTimeout(() => {
+                setfetch(false);
+            }, 500);
+        } catch (err) {
+            notification.error({
+                message: 'Product Error',
+                description: err?.response?.data?.message,
+                duration: 15,
+            });
+            setfetch(false);
+        }
+    };
+
     useEffect(() => {
         const fetchBestProducts = async () => {
             setfetch(true);
@@ -155,7 +181,8 @@ const AllProducts = () => {
                         'Content-Type': 'application/json',
                     },
                 });
-                const { doc, pages } = response?.data;
+                const { doc } = response?.data;
+                console.log('doc', response);
                 setPages(pages);
                 setcatproduct(doc);
                 setTimeout(() => {
@@ -209,14 +236,27 @@ const AllProducts = () => {
         <UserWebLayout webtitle="Shop All Products">
             <ImageHeader />
             <ProductDisplayContainer>
-                <div className="menuicon" onClick={OpenCatMenu} onKeyDown={OpenCatMenu} role="button" tabIndex={0}>
+                <div
+                    className="hidden menuicon"
+                    onClick={OpenCatMenu}
+                    onKeyDown={OpenCatMenu}
+                    role="button"
+                    tabIndex={0}
+                >
                     <Menu />
                 </div>
                 <div className={`allcategories ${menuOpen ? 'isActive' : ''}`} ref={refMenu}>
                     <h3>Categories</h3>
                     {allcategory?.map((cat) => {
                         return (
-                            <div key={cat?._id} className="eachcat">
+                            <div
+                                onClick={() => getProductByCat(cat?.name)}
+                                onKeyDown={() => getProductByCat(cat?.name)}
+                                role="button"
+                                tabIndex={0}
+                                key={cat?._id}
+                                className="eachcat"
+                            >
                                 {cat?.name}
                             </div>
                         );
@@ -225,22 +265,18 @@ const AllProducts = () => {
 
                 {fetch ? (
                     <>
-                        <div className="fetchingloading">
-                            <Spin />
-                            <small>Fetching Products...</small>
-                        </div>
+                        <Row>
+                            {[1, 2, 3, 4].map((_item, index) => (
+                                <SkeletonLoader key={index} />
+                            ))}
+                        </Row>
                     </>
                 ) : (
                     <>
                         <div className="sectionholder">
                             <div className="producthead">
                                 <div>Top Deals</div>
-                                <div
-                                    onClick={() => getProductByCat('all')}
-                                    onKeyDown={() => getProductByCat('all')}
-                                    role="button"
-                                    tabIndex={0}
-                                >
+                                <div onClick={fetchAllProducts} onKeyDown={fetchAllProducts} role="button" tabIndex={0}>
                                     View all
                                 </div>
                             </div>

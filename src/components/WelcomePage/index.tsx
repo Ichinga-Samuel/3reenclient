@@ -18,9 +18,9 @@ const WelcomePage = () => {
                 <HomeBannerContainer data-aos="zoom-in">
                     <Row gutter={24}>
                         <Col xs={24} xl={12} lg={12}>
-                            <div className="welcome" data-aos="fade-left" data-aos-delay="800">
-                                {/*<h3>Delivering</h3>*/}
-                                {/*<h4>constant happiness</h4>*/}
+                            <div className="welcome">
+                                <h3>Delivering Constant</h3>
+                                <h3>Happiness</h3>
 
                                 <Button
                                     data-aos="flip-down"
