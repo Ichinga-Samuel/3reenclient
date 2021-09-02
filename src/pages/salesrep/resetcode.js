@@ -7,15 +7,15 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { APP_BASE } from '@/utils/ApiList';
 
-export const getStaticProps = async () => {
-    const { data } = await axios.get(`${APP_BASE}/users`);
-    const allUsers = data.doc;
-    return {
-        props: {
-            allUsers,
-        },
-    };
-};
+// export const getStaticProps = async () => {
+//     const { data } = await axios.get(`${APP_BASE}/users`);
+//     const allUsers = data.doc;
+//     return {
+//         props: {
+//             allUsers,
+//         },
+//     };
+// };
 
 const Register = ({ allUsers }) => {
     const route = useRouter();
