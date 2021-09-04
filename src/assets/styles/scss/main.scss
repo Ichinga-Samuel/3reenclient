@@ -4,13 +4,7 @@
 @import 'antd/dist/antd.css';
 @import "variables";
 @import "global";
-//@import 'custom';
-//@import "./pages/login";
-//@import "./pages/register";
 @import "./pages/vendorProduct.scss";
-//@import "./pages/resetPassword";
-//@import "./pages/changePassword";
-//@import "./pages/forgotPassword";
 @import "./pages/vendor";
 @import '../../../components/Vendor/Dashboard/Screen1.css';
 @import "./pages/qa";
@@ -44,4 +38,28 @@
 
 .form-group2 {
   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hidden {
+    display: none !important;
+  }
+}
+
+.skeleton {
+  width: 25%;
+  @media (max-width: 768px) {
+    width: 99%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hideOnweb {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .hidden {
+    display: none !important;
+  }
 }

@@ -250,8 +250,11 @@ export const CartContainerStyled = styled.div`
 
         .cartMobileWrapper {
             display: flex;
-            box-shadow: 0px 4px 5px rgba(79, 0, 81, 0.1);
+            box-shadow: 0 4px 5px rgba(79, 0, 81, 0.1);
             margin-bottom: 3rem;
+            .mobileImage {
+                width: 100px;
+            }
         }
 
         .cart-quantity-controls {

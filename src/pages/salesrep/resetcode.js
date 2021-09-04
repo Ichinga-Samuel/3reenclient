@@ -1,21 +1,21 @@
 import { useState /*,useEffect, useRef*/ } from 'react';
-import { FormStyled } from '../../components/SalesRep/form.styled';
+import { FormStyled } from '@/components/SalesRep/form.styled';
 
 import Header from '../../components/SalesRep/Header/Header';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { apiUrl } from '@/components/SalesRep/lib/auth';
+import { APP_BASE } from '@/utils/ApiList';
 
-export const getStaticProps = async () => {
-    const { data } = await axios.get(`${apiUrl}users`);
-    const allUsers = data.doc;
-    return {
-        props: {
-            allUsers,
-        },
-    };
-};
+// export const getStaticProps = async () => {
+//     const { data } = await axios.get(`${APP_BASE}/users`);
+//     const allUsers = data.doc;
+//     return {
+//         props: {
+//             allUsers,
+//         },
+//     };
+// };
 
 const Register = ({ allUsers }) => {
     const route = useRouter();
@@ -42,7 +42,7 @@ const Register = ({ allUsers }) => {
 
         setTimeout(() => {
             allUsers.forEach((user) => {
-                if (user.passwordResetCode && user.passwordResetCode == resetCode) {
+                if (user.passwordResetCode && user.passwordResetCode === resetCode) {
                     localStorage.setItem('resetCode', resetCode);
                     setConfirmCode(true);
                     route.push(`/salesrepresentative/newpassword`);
