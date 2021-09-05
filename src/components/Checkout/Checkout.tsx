@@ -12,6 +12,7 @@ import axios from 'axios';
 import { APP_BASE } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { UserAddress } from '@/components/Checkout/fakeData';
+import UserPayment from '../FlutterPayment/UserPayment';
 
 export default function Checkout() {
     const [applying, setApplying] = useState(false);
@@ -147,9 +148,10 @@ export default function Checkout() {
                                     </div>
                                     <OrderPaymentSummary total={cartTotal} shipping="500" discount="0" />
                                 </div>
-                                <Button type="primary" block size="large">
+                                {/* <Button type="primary" block size="large">
                                     CONFIRM ORDER
-                                </Button>
+                                </Button> */}
+                                <UserPayment cartTotal={cartTotal}/>
                             </div>
                         </Col>
                         <Col xs={24} xl={8} lg={8}>
