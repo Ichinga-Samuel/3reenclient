@@ -1,6 +1,8 @@
 //baseURL
 export const APP_BASE = process.env.APP_BASE_URL;
-
+export const PUBLIC_KEY = process.env.NEXT_PUBLIC_KEY;
+export const SECRET_KEY = process.env.NEXT_SECRET_KEY;
+export const TEST_KEY = process.env.NEXT_PUBLIC_TEST;
 export const PRODUCT = {
     allProducts: '/products',
     singleProduct: (id: string) => `/products/${id}`,
@@ -14,8 +16,8 @@ export const ADMIN = {
     createCategory: '/category',
     getAllCategory: '/category',
     addAdmin: '/users/inviteAdmin',
-    getAllCompany:'/logistics/getAllCompany',
-    createNewCompany:'/logistics/add',
+    getAllCompany: '/logistics/getAllCompany',
+    createNewCompany: '/logistics/add',
     getSalesRep: '/admin/sr_monitor',
     deleteSingleCompany: (comId: string) => `/logistics/remove/${comId}`,
     updateACompany: (upId: string) => `/logistics/update/${upId}`,
@@ -78,4 +80,9 @@ export const CST_API = {
     getSingleProduct: (id: any) => `/products/${id}`,
     getAllOrders: '/orders',
     getAllUsers: '/users/',
+};
+
+//Payment
+export const PAYMENT_API = {
+    cardPayment: '/payment/card',
 };

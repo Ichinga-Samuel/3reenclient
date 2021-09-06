@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import DefaultLayout from '@/components/Admin/Layout/DefaultLayout';
 import { Alert, Button, Col, Input, notification, Row } from 'antd';
 import { ProfileIcon } from '@/utils/Icons';
 import moment from 'moment';
@@ -103,9 +102,7 @@ const AdminMessages = () => {
         getAllMessages();
     }, []);
 
-    const title = 'Messages';
     return (
-        <DefaultLayout browserTitle={title} breadTitle={title}>
             <Row>
                 <Col xs={24} xl={6} lg={8}>
                     <div className="mailleft">
@@ -191,7 +188,7 @@ const AdminMessages = () => {
                     </div>
                 </Col>
             </Row>
-        </DefaultLayout>
+        
     );
 };
 

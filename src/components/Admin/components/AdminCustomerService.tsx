@@ -25,6 +25,10 @@ const AdminCustomerService = () => {
         } else if (tab === 'cat') {
             setcatactive(true);
             setactive(false);
+        } else if (tab === 'msg') {
+            setactive(false);
+            setcatactive(false);
+
         }
     };
 
