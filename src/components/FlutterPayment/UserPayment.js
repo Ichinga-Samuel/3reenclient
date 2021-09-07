@@ -6,7 +6,7 @@ import router from "next/router";
 export default function UserPayment({cartTotal}) {
   const userDetails = getFromLocalStorage('userdetails');
   const details = JSON.parse(userDetails)
-  const {fullName, email} = details
+  console.log(details?.email)
   const config = {
     public_key: PUBLIC_KEY,
     tx_ref: Date.now(),
@@ -14,9 +14,9 @@ export default function UserPayment({cartTotal}) {
     currency: "NGN",  
     payment_options: "card,mobilemoney,ussd",
     customer: {
-      email,
+      email: details?.email,
       phonenumber: "07064586146",
-      name: fullName,
+      name: details?.fullName,
     },
     customizations: {
       title: "my Payment Title",

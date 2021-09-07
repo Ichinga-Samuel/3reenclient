@@ -51,6 +51,7 @@ export default function Checkout() {
                 const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
                 const usersCart = data.cart;
                 setcartTotal(data?.total);
+                console.log(cartTotal)
                 setUserCart(usersCart);
             } catch (err) {
                 notification.error({
