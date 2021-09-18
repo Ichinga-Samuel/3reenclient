@@ -30,6 +30,7 @@ export const ADMIN = {
     getSingleOrder: (id: any) => `/orders/${id}`,
     byStatus: (status: string) => `/orders/status/${status}`,
     updateStatus: (id: any, status: string) => `/orders/${id}/${status}`,
+    message: '/email/mailUser'
 };
 // User & Vendor Endpoint
 export const userPrefix = '/users';

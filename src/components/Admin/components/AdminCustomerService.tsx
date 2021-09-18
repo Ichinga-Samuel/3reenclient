@@ -7,9 +7,11 @@ import CustomerUsers from './customerservice/CustomerUsers';
 import axios from 'axios';
 import { APP_BASE } from '@/utils/ApiList';
 import { ColumnsType } from 'antd/lib/table';
+import CustomerMessage from './customerservice/CustomerMessages';
 const AdminCustomerService = () => {
     const title = 'Customer Service';
     const [active, setactive] = useState(false);
+    const [msgActive, setMsgActive] = useState(false);
     const [catactive, setcatactive] = useState(false);
     const [fetching, setfetching] = useState(false);
     const [userRecord, setuserRecord] = useState([]);
@@ -22,13 +24,15 @@ const AdminCustomerService = () => {
         if (tab === 'all') {
             setactive(true);
             setcatactive(false);
+            setMsgActive(false);
         } else if (tab === 'cat') {
             setcatactive(true);
             setactive(false);
+            setMsgActive(false);
         } else if (tab === 'msg') {
             setactive(false);
             setcatactive(false);
-
+            setMsgActive(true);
         }
     };
 
@@ -125,6 +129,17 @@ const AdminCustomerService = () => {
                                     Users Details
                                 </div>
                             </Col>
+                            <Col>
+                                <div
+                                    onClick={() => changeCategory('msg')}
+                                    onKeyDown={() => changeCategory('msg')}
+                                    role="button"
+                                    tabIndex={0}
+                                    className={`catops ${msgActive ? 'active' : ''}`}
+                                >
+                                    Message
+                                </div>
+                            </Col>
                         </Row>
                     </Col>
                 </Row>
@@ -133,11 +148,24 @@ const AdminCustomerService = () => {
                     <>
                         <CustomerVendors fetching={fetching} columns={columns} vendorRecord={vendorRecord} />
                     </>
+                ) : catactive ? (
+                    <div>
+                        <CustomerUsers fetching={fetching} columns={columns} userRecord={userRecord} />
+                    </div>
+                ) : (
+                    <>
+                     <CustomerMessage/>
+                    </>
+                )}
+                {/* {active ? (
+                    <>
+                        <CustomerVendors fetching={fetching} columns={columns} vendorRecord={vendorRecord} />
+                    </>
                 ) : (
                     <div>
                         <CustomerUsers fetching={fetching} columns={columns} userRecord={userRecord} />
                     </div>
-                )}
+                )} */}
             </InventoryContainer>
         </DefaultLayout>
     );
