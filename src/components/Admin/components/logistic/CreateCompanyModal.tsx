@@ -92,6 +92,7 @@ const CreateCompanyModal = (props) => {
                                 <Input size="large" {...register('email', { required: true })} />
                                 {errors.email && <small className="error">Email is Requried</small>}
                             </div>
+                            
                             <div className="form-group2">
                                 <label htmlFor="address">Company Address</label>
                                 <Input size="large" {...register('address')} />
