@@ -4,11 +4,11 @@ export const HeaderContainer = styled.header`
     position: relative;
     transition: ease all 0.5s;
     display: flex;
-    padding: 10px 2rem;
+    padding: 10px;
     background: #fff;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     box-shadow: 0 2px 10px rgb(0, 0, 0, 0.2);
     .userlogo {
         cursor: pointer;
@@ -79,7 +79,7 @@ export const HeaderContainer = styled.header`
             &__avatar {
                 width: 30px;
                 height: 30px;
-                border-radius: 50px;
+                clip-path: circle();
                 background: var(--background-color);
                 display: flex;
                 align-items: center;
@@ -114,6 +114,11 @@ export const HeaderContainer = styled.header`
             font-size: 1.7rem;
         }
     }
+    .user-prof {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     .usermenu {
         position: absolute;
         top: 43px;
@@ -147,6 +152,27 @@ export const HeaderContainer = styled.header`
             }
         }
     }
+    // @media (max-width: 1400px and min-width:1300px) {
+    //     .cart {
+    //         right: 40px;
+    //     }
+    //     .usermenu {
+    //         right: 20px;
+    //     }
+    //     .user-prof {
+    //         position: relative;
+    //         right: 40px;
+    //     }
+    //     .userprofile {
+    //         &__avatar {
+    //         }
+    //         &__name {
+    //             display: flex;
+    //             align-items: center;
+    //             justify-content: center;
+    //         }
+    //     }
+    // }
     .mobilenav {
         display: flex;
         margin-right: 10px;
