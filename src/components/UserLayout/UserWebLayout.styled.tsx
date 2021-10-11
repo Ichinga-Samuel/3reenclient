@@ -55,6 +55,19 @@ export const HomeBannerContainer = styled.div`
             }
         }
     }
+    @media (max-width: 420px) {
+        .welcome {
+            padding: 12rem 0 1rem 3rem;
+            h3 {
+                font-size: 3.5rem;
+            }
+            .btn-shop {
+                padding: 10px 4rem;
+                height: 40px;
+                font-size: 15px;
+            }
+        }
+    }
 `;
 
 export const BannerProduct = styled.div`
@@ -397,6 +410,15 @@ export const LowerBannerSection = styled.div`
                 border: none;
                 color: var(--white-color);
                 //padding: 10px 4.5rem;
+            }
+        }
+    }
+    @media (max-width: 420px) {
+        .welcomelower {
+            .btn-shop {
+                padding: 10px 4rem;
+                height: 40px;
+                transform: translateX(-60px);
             }
         }
     }

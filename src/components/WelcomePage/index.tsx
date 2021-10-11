@@ -36,19 +36,17 @@ const WelcomePage = () => {
                 <FeaturedProducts />
                 <BestSectionProducts />
                 <LowerBannerSection>
-                    <Row gutter={24} data-aos="zoom-in-right">
+                    <Row  data-aos="zoom-in-right">
                         <Col xs={24} xl={12} lg={12}>
                             <div className="welcomelower">
-                               
-
                                 <Button onClick={StartShop} className="btn-shop">
                                     Shop Now
                                 </Button>
                             </div>
                         </Col>
-                        <Col xs={24} xl={12} lg={12}>
+                        {/* <Col xs={24} xl={12} lg={12}>
                             <div className="lowerbanner" />
-                        </Col>
+                        </Col> */}
                     </Row>
                 </LowerBannerSection>
             </UserWebLayout>
