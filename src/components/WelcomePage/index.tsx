@@ -36,7 +36,7 @@ const WelcomePage = () => {
                 <FeaturedProducts />
                 <BestSectionProducts />
                 <LowerBannerSection>
-                    <Row  data-aos="zoom-in-right">
+                    <Row data-aos="zoom-in-right">
                         <Col xs={24} xl={12} lg={12}>
                             <div className="welcomelower">
                                 <Button onClick={StartShop} className="btn-shop">
