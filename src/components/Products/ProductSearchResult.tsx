@@ -186,6 +186,19 @@ const ProductSearchResult = () => {
                                                     return (
                                                         <>
                                                             <Col xs={24} xl={6} lg={6}>
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
                                                                 <ProductCard
                                                                     key={prod._id}
                                                                     productObject={prod}

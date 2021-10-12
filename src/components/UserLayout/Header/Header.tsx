@@ -157,9 +157,12 @@ const Header = (props) => {
                                 role="button"
                                 tabIndex={0}
                             >
-                                <div className="userprofile__avatar">{details?.fullName?.split(' ')[0][0]}</div>
-                                <div className="userprofile__name">
-                                    <span>Hi, {details?.fullName?.split(' ')[0]}</span> <ArrowDropDown />
+                                <div className="user-prof">
+                                    <div className="userprofile__avatar">{details?.fullName?.split(' ')[0][0]}</div>
+                                    <div className="userprofile__name">
+                                        <span>Hi, {details?.fullName?.split(' ')[0]}</span>
+                                        <ArrowDropDown />
+                                    </div>
                                 </div>
                                 <div className={`usermenu ${menuopen ? 'isOpen' : ''}`} ref={userRef}>
                                     <ul>
