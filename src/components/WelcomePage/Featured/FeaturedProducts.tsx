@@ -38,7 +38,7 @@ const FeaturedProducts = () => {
             <div style={{ marginBottom: '3rem' }}>
                 <h3 className="pageTitle">Featured Products</h3>
             </div>
-            <Row gutter={58}>
+            <Row gutter={40}>
                 {FeaturedData?.map((product) => {
                     return (
                         <>

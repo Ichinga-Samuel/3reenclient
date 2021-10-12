@@ -4,22 +4,17 @@ export const HomeBannerContainer = styled.div`
     position: relative;
     transition: ease all 0.5s;
     height: 100vh;
-    //background-image: url('/img/banner.png');
     background: url('/img/home/3reen-banner.jpg') no-repeat center;
-    //background-position: 90% 10%;
     background-size: cover;
-    //background: var(--secondary-color);
     .welcome {
         position: relative;
         transition: ease all 0.5s;
-        padding: 6rem 0 2rem 5rem;
-        //margin-top: 12rem;
-        //top: 80%;
+        padding: 8rem 0 2rem 5rem;
         font-family: 'Made Tommy', sans-serif;
         h3 {
             color: var(--background-color);
             //text-transform: uppercase;
-            font-size: 6.5rem;
+            font-size: 5.5rem;
             margin-bottom: 0;
             font-weight: bolder;
             text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
@@ -57,6 +52,19 @@ export const HomeBannerContainer = styled.div`
             padding: 12rem 0 1rem 3rem;
             h3 {
                 font-size: 5.5rem;
+            }
+        }
+    }
+    @media (max-width: 420px) {
+        .welcome {
+            padding: 12rem 0 1rem 3rem;
+            h3 {
+                font-size: 3.5rem;
+            }
+            .btn-shop {
+                padding: 10px 4rem;
+                height: 40px;
+                font-size: 15px;
             }
         }
     }
@@ -359,7 +367,6 @@ export const LowerBannerSection = styled.div`
     position: relative;
     transition: ease all 0.5s;
     height: 430px;
-    //background: var(--background-color);
     background: var(--black-color) url('/img/home/banner-small.jpg') no-repeat center;
     background-size: cover;
     .welcomelower {
@@ -403,6 +410,15 @@ export const LowerBannerSection = styled.div`
                 border: none;
                 color: var(--white-color);
                 //padding: 10px 4.5rem;
+            }
+        }
+    }
+    @media (max-width: 420px) {
+        .welcomelower {
+            .btn-shop {
+                padding: 10px 4rem;
+                height: 40px;
+                transform: translateX(-60px);
             }
         }
     }
