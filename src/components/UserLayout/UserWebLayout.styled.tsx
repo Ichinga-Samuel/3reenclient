@@ -194,12 +194,12 @@ export const BestSellerContainer = styled.div`
     .bestCat {
         padding-top: 4rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-wrap: wrap;
         > div {
             transition: ease all 0.5s;
             display: flex;
-            margin-left: 4rem;
+            margin-left: 3rem;
             font-weight: bold;
             font-size: 1.8rem;
             cursor: pointer;
