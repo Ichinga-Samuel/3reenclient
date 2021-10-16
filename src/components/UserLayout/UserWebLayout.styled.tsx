@@ -4,8 +4,14 @@ export const HomeBannerContainer = styled.div`
     position: relative;
     transition: ease all 0.5s;
     height: 100vh;
-    background: url('/img/home/3reen-banner.jpg') no-repeat center;
+    background: url('/img/home/3reen-banner.jpg') no-repeat;
+    background-position: center;
     background-size: cover;
+    @media (max-width: 768px) {
+        width: 100%;
+        height: 45vh;
+        background-position: bottom center;
+    }
     .welcome {
         position: relative;
         transition: ease all 0.5s;
@@ -49,7 +55,7 @@ export const HomeBannerContainer = styled.div`
     }
     @media (max-width: 768px) {
         .welcome {
-            padding: 12rem 0 1rem 3rem;
+            padding: 10rem 0 1rem 3rem;
             h3 {
                 font-size: 5.5rem;
             }
@@ -57,13 +63,14 @@ export const HomeBannerContainer = styled.div`
     }
     @media (max-width: 420px) {
         .welcome {
-            padding: 12rem 0 1rem 3rem;
+            padding: 8rem 0 1rem 3rem;
             h3 {
                 font-size: 3.5rem;
             }
             .btn-shop {
                 padding: 10px 4rem;
                 height: 40px;
+                margin-top: 20px;
                 font-size: 15px;
             }
         }
@@ -187,12 +194,12 @@ export const BestSellerContainer = styled.div`
     .bestCat {
         padding-top: 4rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-wrap: wrap;
         > div {
             transition: ease all 0.5s;
             display: flex;
-            margin-left: 4rem;
+            margin-left: 3rem;
             font-weight: bold;
             font-size: 1.8rem;
             cursor: pointer;

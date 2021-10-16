@@ -20,7 +20,7 @@ export const CartContainerStyled = styled.div`
         width: 50px;
         height: 50px;
         border-radius: 7px;
-        background-size: cover;
+        background-size: cover;se
     }
     .cart-header {
         display: flex;
@@ -251,6 +251,10 @@ export const CartContainerStyled = styled.div`
         .cartMobileWrapper {
             display: flex;
             box-shadow: 0 4px 5px rgba(79, 0, 81, 0.1);
+            justify-content:space-around;
+            text-align:center;
+            padding:10px;
+            padding-bottom:15px;
             margin-bottom: 3rem;
             .mobileImage {
                 width: 100px;
@@ -285,6 +289,19 @@ export const CartContainerStyled = styled.div`
 
         .cartSelect {
             margin-right: 0.5rem;
+           
+            .cartSelectInfo{
+                display:flex;
+                justify-content:space-around;
+                align-items:center;
+                text-align:center;
+                p{
+                    font-size:15px;
+                    text-align:center;
+                    color: #590a5b;
+                }
+               
+            }
         }
 
         .downPart {
@@ -293,23 +310,21 @@ export const CartContainerStyled = styled.div`
         }
         input {
             height: 30px;
-            width: 30px;
-            display: flex;
-            justify-content: center;
-            border: none;
-            outline: none;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-left: 0.4rem;
-            margin-right: 0.4rem;
+            width: 20px;
+            // #display: flex;
+            // justify-content: center;
+            // border: none;
+            // outline: none;
+            // text-align: center;
+            // font-weight: bold;
+            // font-size: 1.1rem;
+            // margin-left: 0.4rem;
+            // margin-right: 0.4rem;
         }
         button {
-            height: 24px;
-            width: 21px;
-            border-radius: 50%;
+            width: 20px;
             border: 1px solid #590a5b;
-            font-size: 1.6rem;
+            text-align:center;
             color: #590a5b;
             background: #ffff;
             font-weight: bold;

@@ -108,38 +108,55 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                     <div key={product.productId}>
                         <div className="cartMobileWrapper">
                             <div className="mobileImage">
+                                <h5 className="productname">{product.product.name}</h5>
                                 <img src={product.product.images} className="sm-cartImage" alt="product" />
                             </div>
+                            <div className="cartSelect">
+                                <h5>Quantity</h5>
+                                <div className='cartSelectInfo'>
+                                <button onClick={() => removeFromCart(product)}>-</button>
+                                <button onClick={() => addToCart(product)}>+</button>
+                                </div>
+                            </div>
+                            <div className="amount">
+                                <h4>Price</h4>
+                                <h4 className="normalPrice">{product.product.price}</h4>
+                            </div>
+                            <div className="sectionTwo">
+                                <h5>Delete</h5>
+                                <img src="img/MobileDelete.png" alt="ing" />
+                            </div>
 
-                            <div className="cartmobileDetail">
+                            {/* <div className="cartmobileDetail">
                                 <div className="detail">
                                     <div className="sectionOne">
-                                        <div className="sectionOneDetails">
+                                         <div className="sectionOneDetails">
                                             <h5 className="productname">{product.product.name}</h5>
-                                        </div>
+                                        </div> *
                                         <div className="sectionOneCat">
-                                            <p className="cat">Vendor</p>
+                                            <p className="cat">Vendor</p> 
                                             <p className="reducedPrice">N700</p>
                                         </div>
                                     </div>
                                     <div className="sectionTwo">
                                         <img src="img/MobileDelete.png" alt="ing" />
-                                    </div>
+                                    </div> 
                                 </div>
 
                                 <div className="downPart">
                                     <div className="amount">
+                                        <h4>Price</h4>
                                         <h4 className="normalPrice">{product.product.price}</h4>
                                     </div>
 
-                                    <div className="cartSelect">
+                                     <div className="cartSelect">
                                         <button onClick={() => removeFromCart(product)}>-</button>
-                                        {/*<input type="number" value={product.count} readOnly />*/}
+                                        <input type="number" value={product.count} readOnly />
                                         <input type="number" value="2" readOnly />
                                         <button onClick={() => addToCart(product)}>+</button>
-                                    </div>
+                                    </div> 
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 ))}

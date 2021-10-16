@@ -157,7 +157,7 @@ const BestSectionProducts = () => {
                 >
                     All
                 </div>
-                <div
+                {/* <div
                     onClick={() => getProductByCat('mac')}
                     onKeyDown={() => getProductByCat('all')}
                     role="button"
@@ -188,6 +188,14 @@ const BestSectionProducts = () => {
                     tabIndex={0}
                 >
                     iPod
+                </div> */}
+                <div
+                    onClick={() => getProductByCat('ipod')}
+                    onKeyDown={() => getProductByCat('all')}
+                    role="button"
+                    tabIndex={0}
+                >
+                    Electronics
                 </div>
                 <div
                     onClick={() => getProductByCat('accessories')}
