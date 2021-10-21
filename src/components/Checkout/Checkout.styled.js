@@ -20,7 +20,6 @@ export const CheckoutContainer = styled.div`
         }
     }
     .detailsInner {
-        padding: 5px 0 5px 3rem;
     }
     .delAddress {
         .addNewAddress {
@@ -71,6 +70,7 @@ export const CheckoutContainer = styled.div`
             border: 1px solid var(--secondary-color);
             padding: 5px 10px;
             border-radius: 5px;
+
             overflow: hidden;
             .selected {
                 opacity: 1;
@@ -155,6 +155,23 @@ export const CheckoutContainer = styled.div`
         .no-pad {
             padding: 0 !important;
         }
+    }
+    @media (max-width: 768px) {
+        margin: 1rem 3rem;
+        .checkout__card {
+            padding: 12px;
+        }
+
+        .select {
+            margin-bottom: 10px;
+        }
+        .delAddress {
+            .addNewAddress {
+                background: #ddd;
+                padding: 10px;
+                width: 100px;
+                height: 70px;
+            }
     }
 `;
 

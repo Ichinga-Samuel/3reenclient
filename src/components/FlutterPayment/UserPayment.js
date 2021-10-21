@@ -31,6 +31,7 @@ export default function UserPayment({ cartTotal }) {
     return (
         <div className="App">
             <button
+            style={{background:'#FFAF38', color:'#fff', padding:'10px'}}
                 onClick={() => {
                     handleFlutterPayment({
                         callback: (response) => {
@@ -40,6 +41,7 @@ export default function UserPayment({ cartTotal }) {
                         },
                         onClose: () => {},
                     });
+                    
                 }}
             >
                 Payment with Flutterwave

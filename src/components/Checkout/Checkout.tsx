@@ -51,7 +51,7 @@ export default function Checkout() {
                 const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
                 const usersCart = data.cart;
                 setcartTotal(data?.total);
-                console.log(cartTotal)
+                console.log(cartTotal);
                 setUserCart(usersCart);
             } catch (err) {
                 notification.error({
@@ -88,7 +88,7 @@ export default function Checkout() {
                                                                 value={addr?.id}
                                                                 // checked={addr?.selected}
                                                             />
-                                                            <div>
+                                                            <div className='select'>
                                                                 <div className="selected">
                                                                     {addr.selected ? 'selected' : ''}
                                                                 </div>
@@ -152,7 +152,9 @@ export default function Checkout() {
                                 {/* <Button type="primary" block size="large">
                                     CONFIRM ORDER
                                 </Button> */}
-                                <UserPayment cartTotal={cartTotal}/>
+                               <div>
+                               <UserPayment cartTotal={cartTotal} />
+                               </div>
                             </div>
                         </Col>
                         <Col xs={24} xl={8} lg={8}>
