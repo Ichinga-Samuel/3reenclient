@@ -88,7 +88,8 @@ const Signup = () => {
             .post(`${APP_BASE}${USER.register}`, data)
             .then((response) => {
                 const { data } = response;
-                if (data.status === 'success' && data.user.role === 'company') {
+                console.log(data);
+                if (data.status === 'success' && data.user.role === 'user') {
                     setContent('Registration Successful. Authenticating In Progress...');
                     addToLocalStorage('token', response.data.token);
                     addToLocalStorage('user', response.data.user);
@@ -105,10 +106,11 @@ const Signup = () => {
             })
             .catch((err) => {
                 setIsProcessing(false);
+                console.log(err)
                 setloading(false);
                 notification.error({
                     message: 'Error',
-                    description: err.response.data.message,
+                    // description: err.response.data.message,
                     duration: 15,
                 });
             });
