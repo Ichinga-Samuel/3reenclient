@@ -126,21 +126,14 @@ const SingleProductDetails = () => {
                 <>
                     <ProductDetailsContainer>
                         <div className="rowdetails" style={{ paddingBottom: '6rem' }}>
-                            <Row gutter={40}>
+                            <Row gutter={20}>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
-                                        {/*<Slider {...settings}>*/}
-                                        {/*    {productdetails?.images.map((image) => {*/}
-                                        {/*        <div>*/}
-                                        {/*            <img src={image} alt={productdetails?.name} />*/}
-                                        {/*        </div>;*/}
-                                        {/*    })}*/}
-                                        {/*</Slider>*/}
                                         <Slider {...settings}>
                                             <div>
                                                 <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
                                             </div>
-                                            <div>
+                                            {/* <div>
                                                 <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
                                             </div>
                                             <div>
@@ -149,8 +142,10 @@ const SingleProductDetails = () => {
                                             <div>
                                                 <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
                                             </div>
+                                            <div>
+                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
+                                            </div> */}
                                         </Slider>
-                                        {/*<img src={productdetails?.images?.[0]} alt={productdetails?.name} />*/}
                                     </div>
                                 </Col>
                                 <Col xs={24} xl={12} lg={12}>
@@ -183,7 +178,7 @@ const SingleProductDetails = () => {
                             </Row>
                         </div>
                         <div className="rowdetails">
-                            <Row gutter={40}>
+                            <Row gutter={20}>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="sidedetails" style={{ padding: '5rem' }}>
                                         <h3>Product Details</h3>
@@ -194,28 +189,27 @@ const SingleProductDetails = () => {
                                 </Col>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
-                                        {/*<img src={productdetails?.images?.[0]} alt={productdetails?.name} />*/}
                                         <img src="/img/phone.png" alt="umgidi" />
                                     </div>
                                 </Col>
                             </Row>
                         </div>
-                        <div className="rowdetails">
+                        {/* <div className="rowdetails">
                             <Row gutter={40}>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
                                         <img src="/img/matrix.png" alt="matrix" />
-                                        {/*<img src={productdetails?.images?.[2]} alt={productdetails?.name} />*/}
+                                    
                                     </div>
                                 </Col>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
                                         <img src="/img/matrix.png" alt="matrix" />
-                                        {/*<img src={productdetails?.images?.[3]} alt={productdetails?.name} />*/}
+                                      
                                     </div>
                                 </Col>
                             </Row>
-                        </div>
+                        </div> */}
                     </ProductDetailsContainer>
                 </>
             ) : (
