@@ -8,7 +8,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
     return (
         <CartContainerStyled>
             <div className="product-cart">
-                <h4 className="desktopHeading">Your Shopping Cart</h4>
+                <h2 className="desktopHeading">Your Shopping Cart</h2>
                 <h4 className="mobileHeading">Trolley</h4>
                 <div className="wrapper">
                     <div className="cart-collection">
@@ -17,11 +17,12 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                             <p>Quantity</p>
                             <p>Unit Price</p>
                             <p>Sub Total</p>
+                            <p>Remove</p>
                         </div>
                         {usersCart?.map((product) => (
                             <div className="cart-item" key={product.productId}>
                                 <form action="">
-                                    <div className="cart-productSystem">
+                                    <div className="cart-productSystemm">
                                         <div className="cart-image">
                                             <img src={product.product.images} alt="crt" />
                                         </div>
@@ -35,10 +36,8 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                                 role="button"
                                                 tabIndex={0}
                                             >
-                                                <div className="deleteIcon">
-                                                    <img src="icons/delete.png" className="deletebutton" alt="cart" />
-                                                </div>
-                                                <p>Remove</p>
+                                                
+                                            
                                             </div>
                                         </div>
                                     </div>
@@ -64,6 +63,9 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                             {formatAmount(product.product.price * product.quantity)}
                                         </h4>
                                     </div>
+                                    <div className="deleteIcon">
+                                                    <img src="icons/delete.png" className="deletebuttons" alt="cart" />
+                                                </div>
                                 </form>
                             </div>
                         ))}
