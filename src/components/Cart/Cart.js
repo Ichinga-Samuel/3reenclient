@@ -24,12 +24,10 @@ export default function Cart({}) {
             return;
         }
         try {
-            setLoading(true)
             const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
             const usersCart = data.cart;
             setUserCart(usersCart);
             localStorage.setItem('cartItems', JSON.stringify(usersCart));
-            setLoading(false)
         } catch (err) {
             notification.error({
                 message: 'Error',
@@ -44,10 +42,16 @@ export default function Cart({}) {
                 return;
             }
             try {
+                setLoading(true)
                 const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
                 const usersCart = data.cart;
                 setUserCart(usersCart);
                 localStorage.setItem('cartItems', JSON.stringify(usersCart));
+                console.log(userCart)
+                setLoading(false)
+                if(userCart.length === 0){
+                    setLoading(false)
+                }
             } catch (err) {
                 notification.error({
                     message: 'Error',
@@ -154,7 +158,7 @@ export default function Cart({}) {
             </div>
         </UserWebLayout>
     ) : (
-       loading ?  <div style={{display:'flex', alignItems:'center', flexDirection:'column',justifyContent:'center', minHeight:'100vh'}}>
+       loading ?  <div style={{display:'flex', alignItems:'center', flexDirection:'column',justifyContent:'center', minHeight:'80vh'}}>
        <Spin />
        <h3>Fetching Cart Details...</h3>
    </div> : <EmptyCart/>

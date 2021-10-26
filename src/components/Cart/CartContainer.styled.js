@@ -186,6 +186,7 @@ export const CartContainerStyled = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor:pointer;
         }
 
         // .cart-quantity-md {
