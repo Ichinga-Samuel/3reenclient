@@ -122,9 +122,29 @@ export const UserLoginContainer = styled.div`
             }
         }
     }
-    @media (max-width: 449px) {
+    @media (max-width: 500px) {
         .login {
             width: 99%;
+            &.register {
+                width: 95%;
+            }
+            .terms{
+                font-size:13.5px;
+            }
         }
     }
+    @media (max-width: 380px) {
+        .login {
+            width: 99%;
+            &.register {
+                width: 95%;
+            }
+            .terms{
+                font-size:12px;
+                transform:translateY(-10px);
+            }
+            .state{
+                margin-top:10px;
+            }
+        }
 `;

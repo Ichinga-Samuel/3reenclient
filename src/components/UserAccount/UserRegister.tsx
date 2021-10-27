@@ -143,7 +143,7 @@ const UserRegister = () => {
                                                                 style={{ stroke: 'white', fill: 'white' }}
                                                             />
                                                         </svg>
-                                                        <label htmlFor="tandc">
+                                                        <label htmlFor="tandc" className='terms'>
                                                             I accept Terms and condition in private policy
                                                         </label>
                                                     </div>

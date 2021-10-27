@@ -123,7 +123,15 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                             </div>
                             <div className="sectionTwo">
                                 <h5>Delete</h5>
-                                <img src="img/MobileDelete.png" alt="ing" />
+                                <div
+                                        className="deleteIcon"
+                                        onClick={() => delFromCart(product)}
+                                        onKeyDown={() => delFromCart(product)}
+                                        role="button"
+                                        tabIndex={0}
+                                    >
+                                        <img src="icons/delete.png" className="deletebuttons" alt="cart" />
+                                    </div>
                             </div>
 
                             {/* <div className="cartmobileDetail">
