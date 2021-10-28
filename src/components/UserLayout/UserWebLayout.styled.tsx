@@ -405,7 +405,7 @@ export const LowerBannerSection = styled.div`
             border: none;
             transition: ease all 0.5s;
             transform: translateY(0);
-            //text-transform: uppercase;
+            //text-transform: uppercase;p
             margin-top: 5rem;
             color: var(--background-color);
             border-radius: 4px;

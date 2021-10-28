@@ -6,12 +6,12 @@ import { APP_BASE } from '@/utils/ApiList';
 import EmptyCart from './EmptyCart';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
-import { notification } from 'antd';
+import { notification, Spin } from 'antd';
 
 export default function Cart({}) {
     // if cart exists in local set state else state is empty array
     const [userCart, setUserCart] = useState([]);
-
+    const [loading, setLoading] = useState(true);
     const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
@@ -42,10 +42,16 @@ export default function Cart({}) {
                 return;
             }
             try {
+                setLoading(true)
                 const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
                 const usersCart = data.cart;
                 setUserCart(usersCart);
                 localStorage.setItem('cartItems', JSON.stringify(usersCart));
+                console.log(userCart)
+                setLoading(false)
+                if(userCart.length === 0){
+                    setLoading(false)
+                }
             } catch (err) {
                 notification.error({
                     message: 'Error',
@@ -138,7 +144,6 @@ export default function Cart({}) {
             });
         }
     };
-
     return userCart.length ? (
         <UserWebLayout webtitle="Cart">
             <div className="cart">
@@ -153,6 +158,9 @@ export default function Cart({}) {
             </div>
         </UserWebLayout>
     ) : (
-        <EmptyCart />
+       loading ?  <div style={{display:'flex', alignItems:'center', flexDirection:'column',justifyContent:'center', minHeight:'80vh'}}>
+       <Spin />
+       <h3>Fetching Cart Details...</h3>
+   </div> : <EmptyCart/>
     );
 }

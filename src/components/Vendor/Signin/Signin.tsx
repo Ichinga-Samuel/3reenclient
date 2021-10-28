@@ -50,7 +50,8 @@ const Signin = () => {
                 .post(`${APP_BASE}${USER.login}`, data)
                 .then((response) => {
                     const { data } = response;
-                    if (data.status === 'success' && data.user.role !== 'company') {
+                    console.log(data)
+                    if (data.status === 'success' && data.user.role !== 'user') {
                         notification.error({
                             message: 'Error',
                             description: 'Account Does not belong to a vendor',
@@ -60,7 +61,7 @@ const Signin = () => {
                         setLoading(false);
                         return;
                     }
-                    if (data.status === 'success' && data.user.role === 'company') {
+                    if (data.status === 'success' && data.user.role === 'user') {
                         setContent('Authentication Successful. Redirecting...');
                         setTimeout(() => {
                             router.push('/vendor/dashboard');
@@ -105,7 +106,7 @@ const Signin = () => {
                         </div>
 
                         <div className="header-div">
-                            <h4>Log in</h4>
+                            <h2>Log in</h2>
                             <p>
                                 Log in to your account <span>to start selling</span>
                             </p>
@@ -129,7 +130,7 @@ const Signin = () => {
                         <p>
                             Do not have an account?
                             <Link href="/vendor/signup">
-                                <a>REGSTER NOW</a>
+                                <a>REGISTER NOW</a>
                             </Link>
                         </p>
                     </LoginForm>

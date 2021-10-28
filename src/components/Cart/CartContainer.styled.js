@@ -24,17 +24,18 @@ export const CartContainerStyled = styled.div`
     }
     .cart-header {
         display: flex;
-        padding: 1rem 0;
+        align-items:center;
+        justify-content:space-around;
         p {
             font-weight: bold;
             color: #333;
-            width: 14.1%;
-            margin-left: -0.3rem;
-            &:first-child {
-                width: auto;
-                flex: 1;
-                text-align: left;
-                margin-left: 5.5rem;
+            // width: 14.1%;
+            // margin-left: -0.3rem;
+            // &:first-child {
+            //     width: auto;
+            //     flex: 1;
+            //     text-align: left;
+            //     margin-left: 5.5rem;
             }
         }
     }
@@ -181,15 +182,23 @@ export const CartContainerStyled = styled.div`
             justify-content: center;
             width: 10rem;
         }
-
-        .cart-quantity-md {
-            margin-right: 3rem;
+        .deleteIcon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor:pointer;
         }
+
+        // .cart-quantity-md {
+        //     text-align:center;
+        // }
 
         .cart-item form {
             display: flex;
             transition: ease all 0.5s;
             flex-wrap: wrap;
+            align-items:center;
+            justify-content:space-around;
             margin-bottom: 10px;
             background: var(--white-color);
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
@@ -198,6 +207,7 @@ export const CartContainerStyled = styled.div`
 
         .cart-quantity-md,
         .cart-unit-price,
+        .deleteIcon,
         .cart-product-total {
             display: block;
         }
@@ -205,7 +215,6 @@ export const CartContainerStyled = styled.div`
         .cart-productSystem {
             //margin-right: 5.25rem;
             display: flex;
-            flex: 0 0 55%;
             align-items: center;
         }
         .cart-quantity-controls {
@@ -219,15 +228,18 @@ export const CartContainerStyled = styled.div`
             }
         }
 
-        .cart-unit-price {
+        .cart-unit-price{
             margin-top: 2.7rem;
             margin-right: 2rem;
         }
-
-        .cart-product-total {
+        .deleteIcon{
             margin-top: 2.7rem;
+            transform:translate(-10px, -10px);
         }
-
+        .cart-product-total{
+            margin-top: 2.7rem;
+            transform:translate(-25px);
+        }
         .cart-collection {
             flex-wrap: wrap;
         }
