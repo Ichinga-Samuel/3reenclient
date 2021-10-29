@@ -161,56 +161,56 @@
     }
  }
 
-// .emailsent {
-//     width: 100%;
-//     height: 100vh;
-//     background: var(--background-color);
-//     margin: 0;
-//     padding: 0;
-//     display: flex;
-//     justify-content: center;
-//     position: absolute;
-//     z-index: 100;
-//     opacity: 0.9;
-//     &__message {
-//         width: 32%;
-//         margin: auto;
-//         text-align: center;
-//         padding: 1rem;
-//         transition: ease all 0.5s;
-//         animation: zoomIn 1s 1s;
-//         .icon {
-//             display: flex;
-//             justify-content: center;
-//             width: 100%;
-//             padding: 2rem 0;
-//             transition: ease all 0.5s;
-//             img {
-//                 width: 75px;
-//                 object-fit: contain;
-//             }
-//         }
-//         .ant-btn-primary {
-//             height: 40px;
-//             font-family: 'Montserrat', sans-serif;
-//             background: var(--secondary-color);
-//             border-color: var(--secondary-color);
-//             border-radius: 0;
-//             animation: 1s ease-out 2s 1 slideInUp;
-//         }
-//         h3 {
-//             color: var(--white-color);
-//             font-size: 1.6rem;
-//             margin: 2rem 0;
-//         }
-//         h4 {
-//             color: var(--white-color);
-//             font-size: 1rem;
-//             font-weight: 400;
-//             margin-bottom: 3rem;
-//         }
-//     }
-// }
+.emailsent {
+    width: 100%;
+    height: 100vh;
+    background: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    opacity: 0.9;
+    &__message {
+        width: 32%;
+        margin: auto;
+        text-align: center;
+        padding: 1rem;
+        transition: ease all 0.5s;
+        animation: zoomIn 1s 1s;
+        .icon {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            padding: 2rem 0;
+            transition: ease all 0.5s;
+            img {
+                width: 75px;
+                object-fit: contain;
+            }
+        }
+        .ant-btn-primary {
+            height: 40px;
+            font-family: 'Montserrat', sans-serif;
+            background: var(--secondary-color);
+            border-color: var(--secondary-color);
+            border-radius: 0;
+            animation: 1s ease-out 2s 1 slideInUp;
+        }
+        h3 {
+            color: var(--white-color);
+            font-size: 1.6rem;
+            margin: 2rem 0;
+        }
+        h4 {
+            color: var(--white-color);
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 3rem;
+        }
+    }
+}
 
 // // Enter Reset Code
 .resetpass,
