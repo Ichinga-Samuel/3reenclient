@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
-import { AuthHeader, BodyContainer, UserLoginContainer } from '@/components/UserAccount/UserAccount.styled';
+import { AuthHeader,  UserLoginContainer } from '@/components/UserAccount/UserAccount.styled';
 import { Button, Col, Input, notification, Row } from 'antd';
 import Link from 'next/link';
 import { getFromLocalStorage } from '@/utils/browserStorage';
@@ -27,8 +27,8 @@ const ForgotPassword = () => {
             console.log(data);
             if (data.status === 'success') {
                 notification.success({
-                    message:'Your Reset Token Has been sent succesfully, check your mail'
-                })
+                    message: 'Your Reset Token Has been sent succesfully, check your mail',
+                });
                 setloading(false);
                 setTimeout(() => {
                     router.push('/account/password-reset-token');
@@ -47,10 +47,9 @@ const ForgotPassword = () => {
     return (
         <>
             <UserWebLayout webtitle="Forgot Password">
-                <BodyContainer>
                     <UserLoginContainer data-aos="zoom-in">
                         <AuthHeader>RESET YOUR PASSWORD</AuthHeader>
-                        <div className="login">
+                        <div className="login form">
                             {token === null ? (
                                 <>
                                     <h4>Enter your registered Email</h4>
@@ -99,7 +98,6 @@ const ForgotPassword = () => {
                             )}
                         </div>
                     </UserLoginContainer>
-                </BodyContainer>
             </UserWebLayout>
         </>
     );

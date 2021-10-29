@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { APP_BASE, USER } from '@/utils/ApiList';
 import axios from 'axios';
-import { BodyContainer, UserLoginContainer } from './UserAccount.styled';
+import { UserLoginContainer } from './UserAccount.styled';
 import UserWebLayout from '../UserLayout/UserWebLayout';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 
@@ -66,7 +66,6 @@ const UserResetToken = () => {
 
     return (
         <UserWebLayout webtitle="Reset Token">
-            <BodyContainer>
                 <UserLoginContainer>
                     <div className="auth-cover">
                         <div className="resetpass">
@@ -133,7 +132,6 @@ const UserResetToken = () => {
                         </div>
                     </div>
                 </UserLoginContainer>
-            </BodyContainer>
         </UserWebLayout>
     );
 };
