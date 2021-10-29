@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CartContainerStyled } from './CartContainer.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import { MinusCircleFilled, MinusCircleTwoTone, PlusCircleFilled, PlusCircleTwoTone} from '@ant-design/icons';
-import { AddBoxRounded } from '@material-ui/icons';
+import { Delete } from '@material-ui/icons';
 
 export default function CartContainer({ usersCart, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
@@ -37,7 +37,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
 
                                     <div className="cart-quantity-md">
                                         <div className="cart-quantity-controls">
-                                            <button onClick={(e) => removeFromCart(product, e)}><MinusCircleFilled style={{color:'#ffaf38'}} /></button>
+                                            <button className='plus' onClick={(e) => removeFromCart(product, e)}><MinusCircleFilled style={{color:'#ffaf38'}} /></button>
                                           <p>{product.quantity}</p>
                                             <button onClick={(e) => addToCart(product, e)}><PlusCircleFilled style={{color:'#ffaf38'}}  /></button>
                             
@@ -48,9 +48,9 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                         <h4>
                                             {CURRENCY}
                                             {formatAmount(product.product.price)}
-                                             <p>{product.product.description}</p>
+                                             {/* <p>{product.product.description}</p>
                                              <p>{product.product.specification}</p>
-                                        <p>{product.product.keyFeatures}</p>
+                                        <p>{product.product.keyFeatures}</p> */}
                                         </h4>
                                     </div>
 
@@ -67,7 +67,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                         role="button"
                                         tabIndex={0}
                                     >
-                                        <img src="icons/delete.png" className="deletebuttons" alt="cart" />
+                                        <Delete className='deletebutton'/>
                                     </div>
                                 </form>
                             </div>
@@ -139,7 +139,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                         role="button"
                                         tabIndex={0}
                                     >
-                                        <img src="icons/delete.png" className="deletebuttons" alt="cart" />
+                                      <Delete className='deletebutton'/>
                                     </div>
                             </div>
 

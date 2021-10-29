@@ -24,8 +24,11 @@ const ForgotPassword = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.forgotPassword}`, details);
             const { data } = response;
+            console.log(data);
             if (data.status === 'success') {
-                notification.close('error');
+                notification.success({
+                    message:'Your Reset Token Has been sent succesfully, check your mail'
+                })
                 setloading(false);
                 setTimeout(() => {
                     router.push('/account/password-reset-token');

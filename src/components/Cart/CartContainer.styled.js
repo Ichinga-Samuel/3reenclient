@@ -60,10 +60,12 @@ export const CartContainerStyled = styled.div`
         }
     }
     .deletebutton {
-        width: 10px;
+        font-size:30px;
         display: flex;
+        color:#ffaf38;
         align-items: center;
-        margin-right: 0.5rem;
+        margin-top:10px;
+        justify-content:center;
         margin-bottom: 0.6rem;
     }
 
@@ -190,6 +192,7 @@ export const CartContainerStyled = styled.div`
             align-items: center;
             justify-content: center;
             width: 10rem;
+            margin-left:20px;
         }
         .deleteIcon{
             display: flex;
@@ -232,6 +235,12 @@ export const CartContainerStyled = styled.div`
             align-items:center;
             justify-content:space-around;
             width:85px;
+            .plus{
+                transform:translateX(10px);
+            }
+            p{
+                transform:translate(5px, 5px);
+            }
             // > button {
             //     background: #ffffff;
             // }
