@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { CartContainerStyled } from './CartContainer.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
+import { MinusCircleFilled, MinusCircleTwoTone, PlusCircleFilled, PlusCircleTwoTone} from '@ant-design/icons';
+import { AddBoxRounded } from '@material-ui/icons';
 
 export default function CartContainer({ usersCart, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
@@ -35,9 +37,10 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
 
                                     <div className="cart-quantity-md">
                                         <div className="cart-quantity-controls">
-                                            <button onClick={(e) => removeFromCart(product, e)}>-</button>
-                                            <input type="number" value={product.quantity} readOnly />
-                                            <button onClick={(e) => addToCart(product, e)}>+</button>
+                                            <button onClick={(e) => removeFromCart(product, e)}><MinusCircleFilled style={{color:'#ffaf38'}} /></button>
+                                          <p>{product.quantity}</p>
+                                            <button onClick={(e) => addToCart(product, e)}><PlusCircleFilled style={{color:'#ffaf38'}}  /></button>
+                            
                                         </div>
                                     </div>
 
@@ -45,6 +48,9 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                         <h4>
                                             {CURRENCY}
                                             {formatAmount(product.product.price)}
+                                             <p>{product.product.description}</p>
+                                             <p>{product.product.specification}</p>
+                                        <p>{product.product.keyFeatures}</p>
                                         </h4>
                                     </div>
 
@@ -120,6 +126,9 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                             <div className="amount">
                                 <h4>Price</h4>
                                 <h4 className="normalPrice">{product.product.price}</h4>
+                                <p>{product.product.description}</p>
+                                        {/* <p>{productdetails?.specification}</p>
+                                        <p>{productdetails?.keyFeatures}</p> */}
                             </div>
                             <div className="sectionTwo">
                                 <h5>Delete</h5>

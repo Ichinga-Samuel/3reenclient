@@ -158,7 +158,7 @@ export default function Cart({}) {
             </div>
         </UserWebLayout>
     ) : (
-       loading ?  <div style={{display:'flex', alignItems:'center', flexDirection:'column',justifyContent:'center', minHeight:'80vh'}}>
+       loading ?  <div style={{display:'flex', alignItems:'center', flexDirection:'column',justifyContent:'center', minHeight:'100vh'}}>
        <Spin />
        <h3>Fetching Cart Details...</h3>
    </div> : <EmptyCart/>

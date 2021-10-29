@@ -7,6 +7,7 @@ import { getFromLocalStorage } from '@/utils/browserStorage';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { APP_BASE, USER } from '@/utils/ApiList';
+import router from 'next/router';
 
 const ForgotPassword = () => {
     const [loading, setloading] = useState(false);
@@ -26,6 +27,9 @@ const ForgotPassword = () => {
             if (data.status === 'success') {
                 notification.close('error');
                 setloading(false);
+                setTimeout(() => {
+                    router.push('/account/password-reset-token');
+                }, 2000);
             }
         } catch (err) {
             notification.error({

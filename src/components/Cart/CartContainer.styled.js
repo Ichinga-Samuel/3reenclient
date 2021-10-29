@@ -77,17 +77,26 @@ export const CartContainerStyled = styled.div`
         display: flex;
     }
 
-    .cart-quantity-controls button,
-    .cart-quantity-controls input {
-        height: 20px;
-        width: 20px;
-        border: none;
-        outline: none;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.1rem;
+    // .cart-quantity-controls input {
+    //     // height: 20px;
+    //     // width: 20px;
+    //     // border: none;
+    //     // outline: none;
+    //     // text-align: center;
+    //     // font-weight: bold;
+    //     // font-size: 1.1rem;
+    // }
+    .cart-quantity-controls button{
+        clip-path:circle();
+        color:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
     }
-
+    .cart-quantity-controls .minus{
+        font-size:23px;
+    }
     .cartMobile {
         display: none;
     }
@@ -219,13 +228,17 @@ export const CartContainerStyled = styled.div`
         }
         .cart-quantity-controls {
             margin-top: 2.2rem;
-            > button {
-                background: #ffffff;
-            }
-            input {
-                border: 1px solid #590a5b;
-                width: 3rem;
-            }
+            display:flex;
+            align-items:center;
+            justify-content:space-around;
+            width:85px;
+            // > button {
+            //     background: #ffffff;
+            // }
+            // input {
+            //     border: 1px solid #590a5b;
+            //     width: 3rem;
+            // }
         }
 
         .cart-unit-price{
