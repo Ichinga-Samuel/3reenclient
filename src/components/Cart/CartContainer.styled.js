@@ -296,6 +296,7 @@ export const CartContainerStyled = styled.div`
             .mobileImage, .cartSelect,.amount, .sectionTwo {
                 img{
                     width:100px;
+
                 }
                 display:flex;
                 align-items:center;
@@ -303,7 +304,8 @@ export const CartContainerStyled = styled.div`
             }
             .amount{
                 .normalPrice{
-                    margin-right:20px;
+                    margin-right:25px;
+                    text-align:center;
                 }
             }
             .deletebutton{
