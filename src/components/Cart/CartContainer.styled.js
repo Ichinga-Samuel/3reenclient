@@ -239,6 +239,8 @@ export const CartContainerStyled = styled.div`
                 transform:translateX(10px);
             }
             p{
+
+
                 transform:translate(5px, 5px);
             }
             // > button {
@@ -287,11 +289,26 @@ export const CartContainerStyled = styled.div`
             box-shadow: 0 4px 5px rgba(79, 0, 81, 0.1);
             justify-content:space-around;
             text-align:center;
+            flex-direction:column;
             padding:10px;
             padding-bottom:15px;
             margin-bottom: 3rem;
-            .mobileImage {
-                width: 100px;
+            .mobileImage, .cartSelect,.amount, .sectionTwo {
+                img{
+                    width:100px;
+                }
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+            }
+            .amount{
+                .normalPrice{
+                    margin-right:20px;
+                }
+            }
+            .deletebutton{
+                margin-right:15px;
+                font-size:25px;
             }
         }
 
@@ -313,7 +330,7 @@ export const CartContainerStyled = styled.div`
         }
 
         .sectionTwo {
-            margin-left: 1rem;
+            // margin-left: 1rem;
             margin-right: 0.5rem;
         }
 
@@ -333,6 +350,8 @@ export const CartContainerStyled = styled.div`
                     font-size:15px;
                     text-align:center;
                     color: #590a5b;
+                     transform:translate(0px, 7px);
+                    
                 }
                
             }
@@ -356,8 +375,7 @@ export const CartContainerStyled = styled.div`
             // margin-right: 0.4rem;
         }
         button {
-            width: 20px;
-            border: 1px solid #590a5b;
+            width: 30px;
             text-align:center;
             color: #590a5b;
             background: #ffff;

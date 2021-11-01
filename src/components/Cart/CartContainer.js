@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { CartContainerStyled } from './CartContainer.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
-import { MinusCircleFilled, MinusCircleTwoTone, PlusCircleFilled, PlusCircleTwoTone} from '@ant-design/icons';
+import { MinusCircleFilled, MinusCircleTwoTone, PlusCircleFilled, PlusCircleTwoTone } from '@ant-design/icons';
 import { Delete } from '@material-ui/icons';
 
 export default function CartContainer({ usersCart, addToCart, removeFromCart, delFromCart }) {
@@ -37,10 +37,13 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
 
                                     <div className="cart-quantity-md">
                                         <div className="cart-quantity-controls">
-                                            <button className='plus' onClick={(e) => removeFromCart(product, e)}><MinusCircleFilled style={{color:'#ffaf38'}} /></button>
-                                          <p>{product.quantity}</p>
-                                            <button onClick={(e) => addToCart(product, e)}><PlusCircleFilled style={{color:'#ffaf38'}}  /></button>
-                            
+                                            <button className="plus" onClick={(e) => removeFromCart(product, e)}>
+                                                <MinusCircleFilled style={{ color: '#ffaf38' }} />
+                                            </button>
+                                            <p>{product.quantity}</p>
+                                            <button onClick={(e) => addToCart(product, e)}>
+                                                <PlusCircleFilled style={{ color: '#ffaf38' }} />
+                                            </button>
                                         </div>
                                     </div>
 
@@ -48,7 +51,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                         <h4>
                                             {CURRENCY}
                                             {formatAmount(product.product.price)}
-                                             {/* <p>{product.product.description}</p>
+                                            {/* <p>{product.product.description}</p>
                                              <p>{product.product.specification}</p>
                                         <p>{product.product.keyFeatures}</p> */}
                                         </h4>
@@ -67,7 +70,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                         role="button"
                                         tabIndex={0}
                                     >
-                                        <Delete className='deletebutton'/>
+                                        <Delete className="deletebutton" />
                                     </div>
                                 </form>
                             </div>
@@ -113,34 +116,40 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                     <div key={product.productId}>
                         <div className="cartMobileWrapper">
                             <div className="mobileImage">
-                                <h5 className="productname">{product.product.name}</h5>
                                 <img src={product.product.images} className="sm-cartImage" alt="product" />
+                                <div>
+                                    <h5 className="productname">{product.product.name}</h5>
+                                    {/* <p>{product.product.description}</p> */}
+                                    <p>Product description</p>
+                                </div>
                             </div>
-                            <div className="cartSelect">
-                                <h5>Quantity</h5>
+                             <div className="cartSelect">
+                                <h3>Quantity</h3>
                                 <div className="cartSelectInfo">
-                                    <button onClick={() => removeFromCart(product)}>-</button>
-                                    <button onClick={() => addToCart(product)}>+</button>
+                                    <button className="plus" onClick={(e) => removeFromCart(product, e)}>
+                                        <MinusCircleFilled style={{ color: '#ffaf38' }} />
+                                    </button>
+                                    <p>{product.quantity}</p>
+                                    <button onClick={(e) => addToCart(product, e)}>
+                                        <PlusCircleFilled style={{ color: '#ffaf38' }} />
+                                    </button>
                                 </div>
                             </div>
                             <div className="amount">
-                                <h4>Price</h4>
+                                <h3>Price</h3>
                                 <h4 className="normalPrice">{product.product.price}</h4>
-                                <p>{product.product.description}</p>
-                                        {/* <p>{productdetails?.specification}</p>
-                                        <p>{productdetails?.keyFeatures}</p> */}
                             </div>
                             <div className="sectionTwo">
-                                <h5>Delete</h5>
+                                <h3>Delete</h3>
                                 <div
-                                        className="deleteIcon"
-                                        onClick={() => delFromCart(product)}
-                                        onKeyDown={() => delFromCart(product)}
-                                        role="button"
-                                        tabIndex={0}
-                                    >
-                                      <Delete className='deletebutton'/>
-                                    </div>
+                                    className="deleteIcon"
+                                    onClick={() => delFromCart(product)}
+                                    onKeyDown={() => delFromCart(product)}
+                                    role="button"
+                                    tabIndex={0}
+                                >
+                                    <Delete className="deletebutton" />
+                                </div>
                             </div>
 
                             {/* <div className="cartmobileDetail">
