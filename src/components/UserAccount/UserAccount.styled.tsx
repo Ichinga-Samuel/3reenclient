@@ -15,6 +15,7 @@ export const AuthHeader = styled.div`
 `;
 
 export const UserLoginContainer = styled.div`
+font-family: 'Made Tommy', sans-serif;
     position: relative;
     transition: ease all 0.5s;
     padding-bottom: 3rem;
@@ -124,7 +125,7 @@ export const UserLoginContainer = styled.div`
     }
     @media (max-width: 500px) {
         .login {
-            width: 99%;
+            width: 95%;
             &.register {
                 width: 95%;
             }
@@ -132,10 +133,13 @@ export const UserLoginContainer = styled.div`
                 font-size:13.5px;
             }
         }
+        .auth-cover{
+            width:100%;
+        }
     }
     @media (max-width: 380px) {
         .login {
-            width: 99%;
+            width: 95%;
             &.register {
                 width: 95%;
             }

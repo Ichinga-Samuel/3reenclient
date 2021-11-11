@@ -28,9 +28,11 @@ export const SignupStyled = styled.div`
     @media (max-width: 500px) {
         height: 200vh;
         min-width: 380px;
-
         .intro {
             margin-top: 60px;
+            p{
+                font-size:1.5rem;
+            }
         }
     }
 
@@ -94,6 +96,9 @@ export const SignupForm = styled.form`
     img {
         width: 57px;
     }
+    .new-account-info, a{
+            font-size:20px !important;
+    }
     .header-div p {
         margin-top: 40px;
         margin-bottom: 40px;
@@ -102,6 +107,7 @@ export const SignupForm = styled.form`
         font-size: 18px;
         color: rgba(0, 0, 0, 0.57);
         font-style: normal;
+        text-align:center;
         font-weight: 500;
         line-height: 20px;
         letter-spacing: 0em;
@@ -136,7 +142,7 @@ export const SignupForm = styled.form`
     @media (max-width: 500px) {
         width: 90%;
         height: 160vh;
-        margin-top: 130px;
+        margin-top: 20px;
 
         .logo-div {
             width: 90px;
@@ -152,20 +158,22 @@ export const SignupForm = styled.form`
             margin-top: 20px;
             margin-bottom: 20px;
             font-size: 14px;
-            line-height: 15px;
+            line-height: 20px;
             font-weight: 500;
         }
-
+        .new-account-info, a{
+            font-size:15px !important;
+    }
         button {
-            height: 52px;
-            width: 70%;
-            border-radius: 30px;
+            height: 40px;
+            width: 100%;
+            border-radius: 0px;
             font-size: 14px;
             font-weight: 600;
         }
 
         p {
-            font-size: 14px;
+            font-size: 20px;
             color: #590a5b;
             font-weight: 400;
             margin-bottom: 0;
@@ -174,8 +182,14 @@ export const SignupForm = styled.form`
 
         p a {
             color: #ffaf38;
-            margin-left: 10px;
+            margin-left: 0px;
             font-weight: 500;
         }
+    }
+    @media(max-width:380px){
+        height: 180vh;
+        .new-account-info, a{
+            font-size:13px !important;
+    }
     }
 `;

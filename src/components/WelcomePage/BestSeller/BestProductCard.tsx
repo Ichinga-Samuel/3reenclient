@@ -32,12 +32,12 @@ const BestProductCard = (props) => {
                             {formatAmount(productObject?.price)}
                         </span>
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <span className="price">
                             {CURRENCY}
                             {formatAmount(0)}
                         </span>
-                    </Col>
+                    </Col> */}
                 </Row>
             </div>
             <div className="actions">

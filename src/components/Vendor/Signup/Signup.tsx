@@ -132,8 +132,8 @@ const Signup = () => {
 
                         <div className="header-div">
                             <p>
-                                To become a part of the 3reen Shop,{' '}
-                                <span>please fill out and submit the form below.</span>
+                                To become a part of the 3reen Shop,
+                                please fill out and submit the form below.
                             </p>
                         </div>
                         <div className="form-details">

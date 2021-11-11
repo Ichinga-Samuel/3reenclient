@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
-import { AuthHeader, BodyContainer, UserLoginContainer } from '@/components/UserAccount/UserAccount.styled';
+import { AuthHeader,  UserLoginContainer } from '@/components/UserAccount/UserAccount.styled';
 import { Button, Col, Input, notification, Row } from 'antd';
 import Link from 'next/link';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { APP_BASE, USER } from '@/utils/ApiList';
+import router from 'next/router';
 
 const ForgotPassword = () => {
     const [loading, setloading] = useState(false);
@@ -23,9 +24,15 @@ const ForgotPassword = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.forgotPassword}`, details);
             const { data } = response;
+            console.log(data);
             if (data.status === 'success') {
-                notification.close('error');
+                notification.success({
+                    message: 'Your Reset Token Has been sent succesfully, check your mail',
+                });
                 setloading(false);
+                setTimeout(() => {
+                    router.push('/account/password-reset-token');
+                }, 2000);
             }
         } catch (err) {
             notification.error({
@@ -40,10 +47,9 @@ const ForgotPassword = () => {
     return (
         <>
             <UserWebLayout webtitle="Forgot Password">
-                <BodyContainer>
                     <UserLoginContainer data-aos="zoom-in">
                         <AuthHeader>RESET YOUR PASSWORD</AuthHeader>
-                        <div className="login">
+                        <div className="login form">
                             {token === null ? (
                                 <>
                                     <h4>Enter your registered Email</h4>
@@ -92,7 +98,6 @@ const ForgotPassword = () => {
                             )}
                         </div>
                     </UserLoginContainer>
-                </BodyContainer>
             </UserWebLayout>
         </>
     );

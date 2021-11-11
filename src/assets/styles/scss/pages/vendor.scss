@@ -99,8 +99,7 @@
 // other auth pages
 .auth-cover {
     width: 100%;
-    height: 100vh;
-    background: var(--background-color);
+    height: 70vh;
     margin: 0;
     padding: 0;
     display: flex;
@@ -160,7 +159,7 @@
             border-color: var(--secondary-color);
         }
     }
-}
+ }
 
 .emailsent {
     width: 100%;
@@ -198,7 +197,6 @@
             border-color: var(--secondary-color);
             border-radius: 0;
             animation: 1s ease-out 2s 1 slideInUp;
-            
         }
         h3 {
             color: var(--white-color);
@@ -214,8 +212,9 @@
     }
 }
 
-// Enter Reset Code
-.resetpass, .create-new {
+// // Enter Reset Code
+.resetpass,
+.create-new {
     background: var(--white-color);
     width: 30%;
     margin: auto;
@@ -225,16 +224,19 @@
     transition: ease all 0.5s;
     animation: 1s ease-out 0s 1 zoomIn;
     h2 {
-        font-family: 'MADE TOMMY';
+        font-family: 'MADE TOMMY', sans-serif;
         font-size: 1.4rem;
         text-align: center;
+    }
+    @media(max-width:768px){
+        width: 90%;
     }
     form {
         margin: 4rem 0;
     }
     .ant-input {
         height: 46px;
-        background-color: #EBEBEB;
+        background-color: #ebebeb;
         display: flex;
         border: none;
         text-align: center;
@@ -258,9 +260,8 @@
 }
 
 .create-new {
-    
     h3 {
-        font-size: .9rem;
+        font-size: 0.9rem;
         text-align: center;
     }
     .ant-input {

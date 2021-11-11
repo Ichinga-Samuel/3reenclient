@@ -60,10 +60,12 @@ export const CartContainerStyled = styled.div`
         }
     }
     .deletebutton {
-        width: 10px;
+        font-size:30px;
         display: flex;
+        color:#ffaf38;
         align-items: center;
-        margin-right: 0.5rem;
+        margin-top:10px;
+        justify-content:center;
         margin-bottom: 0.6rem;
     }
 
@@ -77,17 +79,26 @@ export const CartContainerStyled = styled.div`
         display: flex;
     }
 
-    .cart-quantity-controls button,
-    .cart-quantity-controls input {
-        height: 20px;
-        width: 20px;
-        border: none;
-        outline: none;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.1rem;
+    // .cart-quantity-controls input {
+    //     // height: 20px;
+    //     // width: 20px;
+    //     // border: none;
+    //     // outline: none;
+    //     // text-align: center;
+    //     // font-weight: bold;
+    //     // font-size: 1.1rem;
+    // }
+    .cart-quantity-controls button{
+        clip-path:circle();
+        color:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
     }
-
+    .cart-quantity-controls .minus{
+        font-size:23px;
+    }
     .cartMobile {
         display: none;
     }
@@ -181,6 +192,7 @@ export const CartContainerStyled = styled.div`
             align-items: center;
             justify-content: center;
             width: 10rem;
+            margin-left:20px;
         }
         .deleteIcon{
             display: flex;
@@ -219,13 +231,25 @@ export const CartContainerStyled = styled.div`
         }
         .cart-quantity-controls {
             margin-top: 2.2rem;
-            > button {
-                background: #ffffff;
+            display:flex;
+            align-items:center;
+            justify-content:space-around;
+            width:85px;
+            .plus{
+                transform:translateX(10px);
             }
-            input {
-                border: 1px solid #590a5b;
-                width: 3rem;
+            p{
+
+
+                transform:translate(5px, 5px);
             }
+            // > button {
+            //     background: #ffffff;
+            // }
+            // input {
+            //     border: 1px solid #590a5b;
+            //     width: 3rem;
+            // }
         }
 
         .cart-unit-price{
@@ -265,11 +289,28 @@ export const CartContainerStyled = styled.div`
             box-shadow: 0 4px 5px rgba(79, 0, 81, 0.1);
             justify-content:space-around;
             text-align:center;
+            flex-direction:column;
             padding:10px;
             padding-bottom:15px;
             margin-bottom: 3rem;
-            .mobileImage {
-                width: 100px;
+            .mobileImage, .cartSelect,.amount, .sectionTwo {
+                img{
+                    width:100px;
+
+                }
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+            }
+            .amount{
+                .normalPrice{
+                    margin-right:25px;
+                    text-align:center;
+                }
+            }
+            .deletebutton{
+                margin-right:15px;
+                font-size:25px;
             }
         }
 
@@ -291,7 +332,7 @@ export const CartContainerStyled = styled.div`
         }
 
         .sectionTwo {
-            margin-left: 1rem;
+            // margin-left: 1rem;
             margin-right: 0.5rem;
         }
 
@@ -311,6 +352,8 @@ export const CartContainerStyled = styled.div`
                     font-size:15px;
                     text-align:center;
                     color: #590a5b;
+                     transform:translate(0px, 7px);
+                    
                 }
                
             }
@@ -334,8 +377,7 @@ export const CartContainerStyled = styled.div`
             // margin-right: 0.4rem;
         }
         button {
-            width: 20px;
-            border: 1px solid #590a5b;
+            width: 30px;
             text-align:center;
             color: #590a5b;
             background: #ffff;
