@@ -4,6 +4,7 @@ import { CURRENCY, formatAmount } from '@/utils/helpers';
 
 const OrderPaymentSummary = ({ total, shipping, discount }) => {
     const allTotal = parseFloat(total) + parseFloat(shipping) + parseFloat(discount);
+    console.log(total)
     return (
         <div className="carttotal">
             <Row gutter={28} align="middle" justify="space-between" className="pb">

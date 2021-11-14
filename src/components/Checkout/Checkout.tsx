@@ -50,9 +50,13 @@ export default function Checkout() {
             try {
                 const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
                 const usersCart = data.cart;
-                setcartTotal(data?.total);
-                console.log(cartTotal);
-                setUserCart(usersCart);
+                if (usersCart.length === 1) {
+                    usersCart.map((total) => setcartTotal(total.totalPrice));
+                } else {
+                    setcartTotal(data?.total);
+                    console.log(cartTotal);
+                    setUserCart(usersCart);
+                }
             } catch (err) {
                 notification.error({
                     message: 'Error',
@@ -88,7 +92,7 @@ export default function Checkout() {
                                                                 value={addr?.id}
                                                                 // checked={addr?.selected}
                                                             />
-                                                            <div className='select'>
+                                                            <div className="select">
                                                                 <div className="selected">
                                                                     {addr.selected ? 'selected' : ''}
                                                                 </div>
@@ -152,9 +156,9 @@ export default function Checkout() {
                                 {/* <Button type="primary" block size="large">
                                     CONFIRM ORDER
                                 </Button> */}
-                               <div>
-                               <UserPayment cartTotal={cartTotal} />
-                               </div>
+                                <div>
+                                    <UserPayment cartTotal={cartTotal} />
+                                </div>
                             </div>
                         </Col>
                         <Col xs={24} xl={8} lg={8}>
