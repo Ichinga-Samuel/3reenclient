@@ -142,11 +142,17 @@ const Header = (props) => {
                 </div>
                 <div className="nav hidden">
                     <div className="cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
-                        <div className="cart__count">
-                            <span>{cartCount}</span>
-                        </div>
-                        <CartIcon />
-                        Cart
+                        {token === null ? (
+                            ''
+                        ) : (
+                            <>
+                                <div className="cart__count">
+                                    <span>{cartCount}</span>
+                                </div>
+                                <CartIcon />
+                                Cart
+                            </>
+                        )}
                     </div>
                     {token !== null ? (
                         <>
