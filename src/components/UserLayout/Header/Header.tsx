@@ -204,12 +204,16 @@ const Header = (props) => {
                     <div onClick={showSearch} onKeyDown={showSearch} role="button" tabIndex={0}>
                         <SearchOutlined />
                     </div>
-                    <div className="cartmobile" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
+                   {
+                       token === null ? '' : (
+                        <div className="cartmobile" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                         <div className="cartmobile__count">
                             <span>{cartCount || 0}</span>
                         </div>
                         <ShoppingCartOutlined />
                     </div>
+                       )
+                   }
                     {token !== null ? (
                         <>
                             <div
