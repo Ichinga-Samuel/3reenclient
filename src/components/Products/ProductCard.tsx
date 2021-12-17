@@ -37,6 +37,7 @@ const ProductCard = (props) => {
                         <span className="price">
                             {CURRENCY}
                             {formatAmount('0' || '0')}
+                            
                         </span>
                     </Col>
                 </Row>

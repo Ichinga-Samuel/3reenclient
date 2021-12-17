@@ -110,7 +110,7 @@ const Header = (props) => {
 
     return (
         <>
-            <HeaderContainer>
+            <HeaderContainer className='red'>
                 <div
                     onClick={showSider}
                     onKeyDown={showSider}

@@ -7,6 +7,11 @@ export const HomeBannerContainer = styled.div`
     background: url('/img/home/3reen-banner.jpg') no-repeat;
     background-position: center;
     background-size: cover;
+    @media (max-width: 1024px) {
+        width: 100%;
+        height: 45vh;
+        background-position: bottom center;
+    }
     @media (max-width: 768px) {
         width: 100%;
         height: 45vh;
@@ -75,6 +80,21 @@ export const HomeBannerContainer = styled.div`
             }
         }
     }
+    @media (max-width: 380px) {
+        .welcome {
+            padding: 8rem 0 1rem 3rem;
+            h3 {
+                font-size: 3.2rem;
+            }
+            .btn-shop {
+                padding: 10px 4rem;
+                height: 35px;
+                margin-top: 20px;
+                font-size: 12px;
+            }
+        }
+    }
+    
 `;
 
 export const BannerProduct = styled.div`

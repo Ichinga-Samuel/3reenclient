@@ -13,7 +13,6 @@ export const HeaderContainer = styled.header`
     .userlogo {
         cursor: pointer;
         transition: ease all 0.5s;
-        margin: 0 9rem 0 2rem;
     }
     .productsearch {
         display: flex;
@@ -248,6 +247,12 @@ export const HeaderContainer = styled.header`
             font-size: 4rem;
         }
     }
+    @media(max-width:1024px){
+        .userlogo{
+            margin-left:20px;
+        }
+
+    }
     @media (max-width: 768px) {
         padding: 10px 0.7rem;
         .userlogo {
@@ -255,7 +260,7 @@ export const HeaderContainer = styled.header`
             flex: 1;
         }
         .productsearch {
-            display: none;
+            display:none ;
         }
         .nav {
             margin: 0 1rem 0 1rem;
