@@ -17,6 +17,9 @@ export const HomeBannerContainer = styled.div`
         height: 45vh;
         background-position: bottom center;
     }
+    @media (max-width: 540px) {
+
+    }
     .welcome {
         position: relative;
         transition: ease all 0.5s;
@@ -66,7 +69,7 @@ export const HomeBannerContainer = styled.div`
             }
         }
     }
-    @media (max-width: 420px) {
+    @media (max-width: 540px) {
         .welcome {
             padding: 8rem 0 1rem 3rem;
             h3 {
