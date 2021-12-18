@@ -60,7 +60,13 @@ const Header = (props) => {
     };
 
     const openUserMenu = () => setmenuopen(!menuopen);
-    const hideNav = () => setmenuopen(false);
+    const hideSearch = () => setmenuopen(false);
+    //Hide The Search Bar
+    if(menuopen){
+        window.addEventListener('click', () => {
+            hideSearch();
+        })
+    }
     const SearchAllProduct = (data) => {
         console.log(data);
         setsearching(true);
