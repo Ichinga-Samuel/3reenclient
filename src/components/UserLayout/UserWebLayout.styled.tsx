@@ -7,6 +7,8 @@ export const HomeBannerContainer = styled.div`
     background: url('/img/home/3reen-banner.jpg') no-repeat;
     background-position: center;
     background-size: cover;
+    display:flex;
+    align-items:center;
     @media (max-width: 1024px) {
         width: 100%;
         height: 45vh;
@@ -14,16 +16,15 @@ export const HomeBannerContainer = styled.div`
     }
     @media (max-width: 768px) {
         width: 100%;
-        height: 45vh;
-        background-position: bottom center;
+        height: 100vh;
     }
-    @media (max-width: 540px) {
-
+    @media(max-width:540px){
+        height:55vh;
     }
     .welcome {
         position: relative;
         transition: ease all 0.5s;
-        padding: 8rem 0 2rem 5rem;
+        padding: 0rem 0 2rem 5rem;
         font-family: 'Made Tommy', sans-serif;
         h3 {
             color: var(--background-color);
@@ -63,15 +64,7 @@ export const HomeBannerContainer = styled.div`
     }
     @media (max-width: 768px) {
         .welcome {
-            padding: 10rem 0 1rem 3rem;
-            h3 {
-                font-size: 5.5rem;
-            }
-        }
-    }
-    @media (max-width: 540px) {
-        .welcome {
-            padding: 8rem 0 1rem 3rem;
+            padding: 0rem 0 1rem 3rem;
             h3 {
                 font-size: 3.5rem;
             }
@@ -85,7 +78,7 @@ export const HomeBannerContainer = styled.div`
     }
     @media (max-width: 380px) {
         .welcome {
-            padding: 8rem 0 1rem 3rem;
+            padding: 0rem 0 1rem 3rem;
             h3 {
                 font-size: 3.2rem;
             }

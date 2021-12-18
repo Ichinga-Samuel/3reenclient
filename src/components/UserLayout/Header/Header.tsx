@@ -60,7 +60,7 @@ const Header = (props) => {
     };
 
     const openUserMenu = () => setmenuopen(!menuopen);
-
+    const hideNav = () => setmenuopen(false);
     const SearchAllProduct = (data) => {
         console.log(data);
         setsearching(true);

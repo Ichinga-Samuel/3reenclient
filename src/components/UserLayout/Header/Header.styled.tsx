@@ -311,6 +311,7 @@ export const MobileSearch = styled.div`
     @media(max-width:770px){
     transition: ease all 0.5s;
     border-radius: 4px;
+    display:block;
     overflow: hidden;
     margin-top: 0.41rem;
     position: absolute;
