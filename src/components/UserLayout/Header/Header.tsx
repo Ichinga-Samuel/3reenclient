@@ -123,7 +123,7 @@ const Header = (props) => {
                 <div className="userlogo" onClick={returnHome} onKeyDown={returnHome} role="button" tabIndex={0}>
                     <LogoIcon />
                 </div>
-                <div className="productsearch">
+                    <form className="productsearch"  onSubmit={handleSubmit(SearchAllProduct)}>
                     <input
                         {...register('search')}
                         name="search"
@@ -132,14 +132,14 @@ const Header = (props) => {
                     />
                     <Button
                         loading={searching}
-                        onClick={handleSubmit(SearchAllProduct)}
                         className="searchbtn"
                         type="primary"
+                        htmlType='submit'
                         size="large"
                     >
                         Search
                     </Button>
-                </div>
+                </form>
                 <div className="nav hidden">
                     <div className="cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                         {token === null ? (

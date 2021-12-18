@@ -307,6 +307,8 @@ export const HeaderContainer = styled.header`
 
 export const MobileSearch = styled.div`
     //border: 1px solid rgba(0, 128, 128, 0.9);
+    display:none;
+    @media(max-width:770px){
     transition: ease all 0.5s;
     border-radius: 4px;
     overflow: hidden;
@@ -347,6 +349,7 @@ export const MobileSearch = styled.div`
         z-index: 2;
         transform: translateY(0px);
     }
+}
 `;
 
 export const SideBarCategory = styled.div`
