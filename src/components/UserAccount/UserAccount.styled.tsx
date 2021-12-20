@@ -123,7 +123,7 @@ font-family: 'Made Tommy', sans-serif;
             }
         }
     }
-    @media (max-width: 500px) {
+    @media (max-width: 650px) {
         .login {
             width: 95%;
             &.register {
