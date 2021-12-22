@@ -33,6 +33,7 @@ const UserRegister = () => {
                 });
                 addToLocalStorage('usertoken', response.data.token);
                 addToLocalStorage('userdetails', response.data.user);
+                console.log(response.data)
                 setloading(false);
                 router.push('/');
                 return;
@@ -115,7 +116,7 @@ const UserRegister = () => {
                                                         required: true,
                                                         minLength: {
                                                             value: 8,
-                                                            message: 'Password must have at least 8 characters',
+                                                            message: 'Password must be the same 8 characters',
                                                         },
                                                     })}
                                                     size="large"

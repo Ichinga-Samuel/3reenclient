@@ -60,7 +60,13 @@ const Header = (props) => {
     };
 
     const openUserMenu = () => setmenuopen(!menuopen);
-
+    const hideSearch = () => setmenuopen(false);
+    //Hide The Search Bar
+    if(menuopen){
+        window.addEventListener('click', () => {
+            hideSearch();
+        })
+    }
     const SearchAllProduct = (data) => {
         console.log(data);
         setsearching(true);
@@ -110,7 +116,7 @@ const Header = (props) => {
 
     return (
         <>
-            <HeaderContainer>
+            <HeaderContainer className='red'>
                 <div
                     onClick={showSider}
                     onKeyDown={showSider}
@@ -123,7 +129,7 @@ const Header = (props) => {
                 <div className="userlogo" onClick={returnHome} onKeyDown={returnHome} role="button" tabIndex={0}>
                     <LogoIcon />
                 </div>
-                <div className="productsearch">
+                    <form className="productsearch"  onSubmit={handleSubmit(SearchAllProduct)}>
                     <input
                         {...register('search')}
                         name="search"
@@ -132,14 +138,14 @@ const Header = (props) => {
                     />
                     <Button
                         loading={searching}
-                        onClick={handleSubmit(SearchAllProduct)}
                         className="searchbtn"
                         type="primary"
+                        htmlType='submit'
                         size="large"
                     >
                         Search
                     </Button>
-                </div>
+                </form>
                 <div className="nav hidden">
                     <div className="cart" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                         {token === null ? (
@@ -204,12 +210,16 @@ const Header = (props) => {
                     <div onClick={showSearch} onKeyDown={showSearch} role="button" tabIndex={0}>
                         <SearchOutlined />
                     </div>
-                    <div className="cartmobile" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
+                   {
+                       token === null ? '' : (
+                        <div className="cartmobile" onClick={cartPage} onKeyDown={cartPage} role="button" tabIndex={0}>
                         <div className="cartmobile__count">
                             <span>{cartCount || 0}</span>
                         </div>
                         <ShoppingCartOutlined />
                     </div>
+                       )
+                   }
                     {token !== null ? (
                         <>
                             <div

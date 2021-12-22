@@ -2,19 +2,19 @@ import React, { useState } from 'react';
 import { SignupStyled } from './Signup.styled';
 import { SignupForm } from './Signup.styled';
 import Link from 'next/link';
-import { Row, Col, Button, Spin, Input, notification, Radio } from 'antd';
+import { Row, Col, Button,  Input, notification, Radio } from 'antd';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 // import { EmailValidation } from '@/utils/helpers';
 import { useForm } from 'react-hook-form';
-import { LoadingOutlined } from '@ant-design/icons';
+// import { LoadingOutlined } from '@ant-design/icons';
 import { addToLocalStorage /*isUserLoggedIn*/ } from '@/utils/browserStorage';
 import { USER } from '@/utils/ApiList';
 
 const Signup = () => {
-    const [isProcessing, setIsProcessing] = useState(false);
+    // const [isProcessing, setIsProcessing] = useState(false);
     const [loading, setloading] = useState(false);
-    const [tipContent, setContent] = useState('');
+    // const [tipContent, setContent] = useState('');
 
     const APP_BASE = process.env.APP_BASE_URL;
     const router = useRouter();
@@ -81,16 +81,16 @@ const Signup = () => {
             });
             return;
         }
-        setIsProcessing(true);
+        // setIsProcessing(true);
         setloading(true);
-        setContent('Processing Data. Please wait...');
+        // setContent('Processing Data. Please wait...');
         await axios
             .post(`${APP_BASE}${USER.register}`, data)
             .then((response) => {
                 const { data } = response;
                 console.log(data);
                 if (data.status === 'success' && data.user.role === 'user') {
-                    setContent('Registration Successful. Authenticating In Progress...');
+                    // setContent('Registration Successful. Authenticating In Progress...');
                     addToLocalStorage('token', response.data.token);
                     addToLocalStorage('user', response.data.user);
                     notification.success({
@@ -105,7 +105,7 @@ const Signup = () => {
                 }
             })
             .catch((err) => {
-                setIsProcessing(false);
+                // setIsProcessing(false);
                 console.log(err)
                 setloading(false);
                 notification.error({
@@ -118,7 +118,7 @@ const Signup = () => {
 
     return (
         <div className="login">
-            <Spin spinning={isProcessing} indicator={<LoadingOutlined />} tip={tipContent}>
+            {/* <Spin spinning={isProcessing} indicator={<LoadingOutlined />} tip={tipContent}> */}
                 <SignupStyled>
                     <div className="intro">
                         <p>
@@ -251,7 +251,7 @@ const Signup = () => {
                         </div>
                     </SignupForm>
                 </SignupStyled>
-            </Spin>
+            {/* </Spin> */}
         </div>
     );
 };

@@ -13,7 +13,6 @@ export const HeaderContainer = styled.header`
     .userlogo {
         cursor: pointer;
         transition: ease all 0.5s;
-        margin: 0 9rem 0 2rem;
     }
     .productsearch {
         display: flex;
@@ -248,6 +247,12 @@ export const HeaderContainer = styled.header`
             font-size: 4rem;
         }
     }
+    @media(max-width:1024px){
+        .userlogo{
+            margin-left:20px;
+        }
+
+    }
     @media (max-width: 768px) {
         padding: 10px 0.7rem;
         .userlogo {
@@ -255,7 +260,7 @@ export const HeaderContainer = styled.header`
             flex: 1;
         }
         .productsearch {
-            display: none;
+            display:none ;
         }
         .nav {
             margin: 0 1rem 0 1rem;
@@ -302,8 +307,11 @@ export const HeaderContainer = styled.header`
 
 export const MobileSearch = styled.div`
     //border: 1px solid rgba(0, 128, 128, 0.9);
+    display:none;
+    @media(max-width:770px){
     transition: ease all 0.5s;
     border-radius: 4px;
+    display:block;
     overflow: hidden;
     margin-top: 0.41rem;
     position: absolute;
@@ -342,6 +350,7 @@ export const MobileSearch = styled.div`
         z-index: 2;
         transform: translateY(0px);
     }
+}
 `;
 
 export const SideBarCategory = styled.div`

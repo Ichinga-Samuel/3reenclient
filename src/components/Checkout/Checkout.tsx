@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 import { CheckoutContainer } from '@/components/Checkout/Checkout.styled';
-import { Row, Col, Input, Button, notification } from 'antd';
+import { Row, Col,  notification } from 'antd';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import CheckoutCarts from '@/components/Checkout/CheckoutCarts';
 import OrderPaymentSummary from '@/components/Checkout/OrderPaymentSummary';
 import { Home, PaymentOutlined } from '@material-ui/icons';
-import { CarFilled, PlusCircleFilled } from '@ant-design/icons';
+import { CarFilled } from '@ant-design/icons';
 import axios from 'axios';
 import { APP_BASE } from '@/utils/ApiList';
 import { getFromLocalStorage } from '@/utils/browserStorage';
@@ -15,7 +15,7 @@ import { UserAddress } from '@/components/Checkout/fakeData';
 import UserPayment from '../FlutterPayment/UserPayment';
 
 export default function Checkout() {
-    const [applying, setApplying] = useState(false);
+    // const [applying, setApplying] = useState(false);
     const [userCart, setUserCart] = useState([]);
     const [cartTotal, setcartTotal] = useState(0);
 
@@ -27,20 +27,20 @@ export default function Checkout() {
     };
 
     const {
-        register,
-        reset,
-        handleSubmit,
-        formState: { errors },
+        // register,
+        // reset,
+        // handleSubmit,
+        // formState: { errors },
     } = useForm();
 
-    const ApplyNewCoupon = (data) => {
-        setApplying(true);
-        console.log(data, 'coupon');
-        setTimeout(() => {
-            setApplying(false);
-            reset();
-        }, 1000);
-    };
+    // const ApplyNewCoupon = (data) => {
+    //     setApplying(true);
+    //     console.log(data, 'coupon');
+    //     setTimeout(() => {
+    //         setApplying(false);
+    //         reset();
+    //     }, 1000);
+    // };
 
     useEffect(() => {
         const getUserCart = async () => {
@@ -106,12 +106,12 @@ export default function Checkout() {
                                                     </Col>
                                                 );
                                             })}
-                                            <Col xs={24} xl={5} lg={5}>
+                                            {/* <Col xs={24} xl={5} lg={5}>
                                                 <div className="addNewAddress">
                                                     <PlusCircleFilled />
                                                     <small>Add New</small>
                                                 </div>
-                                            </Col>
+                                            </Col> */}
                                         </Row>
                                     </div>
                                 </div>
@@ -128,8 +128,8 @@ export default function Checkout() {
                                 </h4>
                                 <div className="detailsInner">
                                     <div className="cartops">
-                                        <span>Do you have a coupon code?</span>
-                                        <form autoComplete="off" autoCorrect="off" autoCapitalize="off">
+                                        {/* <span>Do you have a coupon code?</span> */}
+                                        {/* <form autoComplete="off" autoCorrect="off" autoCapitalize="off">
                                             <Row>
                                                 <Col xs={17} xl={17} lg={17}>
                                                     <Input
@@ -148,8 +148,8 @@ export default function Checkout() {
                                                     </Button>
                                                 </Col>
                                             </Row>
-                                        </form>
-                                        {errors.coupon && <small className="error">Please, Enter a valid coupon</small>}
+                                        </form> */}
+                                        {/* {errors.coupon && <small className="error">Please, Enter a valid coupon</small>} */}
                                     </div>
                                     <OrderPaymentSummary total={cartTotal} shipping="500" discount="0" />
                                 </div>

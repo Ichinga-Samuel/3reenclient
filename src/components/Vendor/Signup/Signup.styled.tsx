@@ -139,7 +139,7 @@ export const SignupForm = styled.form`
         }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 685px) {
         width: 90%;
         height: 160vh;
         margin-top: 20px;

@@ -7,7 +7,6 @@ import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 import { ProductDetailsContainer } from '@/components/Products/Products.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import BeautyStars from 'beauty-stars';
-import Slider from 'react-slick';
 import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 
 const SingleProductDetails = () => {
@@ -37,7 +36,7 @@ const SingleProductDetails = () => {
     const id = getTheID?.pop();
     console.log('detailss', productdetails);
 
-    const settings = {
+   /* const settings = {
         dots: true,
         infinite: true,
         speed: 1000,
@@ -70,8 +69,7 @@ const SingleProductDetails = () => {
               }
             }
           ]
-    };
-
+    }; */
     const addToCart = async (product) => {
         let inCart = false;
         const productId = product._id;
@@ -155,8 +153,14 @@ const SingleProductDetails = () => {
                             <Row gutter={20}>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
-                                        <Slider {...settings}>
+                                    <div>
+                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
+                                            </div>
+                                        {/* <Slider {...settings}>
                                 
+                                             <div>
+                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
+                                            </div>
                                              <div>
                                                 <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
                                             </div>
@@ -165,11 +169,8 @@ const SingleProductDetails = () => {
                                             </div>
                                             <div>
                                                 <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
-                                            </div>
-                                            <div>
-                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
                                             </div> 
-                                        </Slider>
+                                        </Slider> */}
                                     </div>
                                 </Col>
                                 <Col xs={24} xl={12} lg={12}>
@@ -211,11 +212,11 @@ const SingleProductDetails = () => {
                                         <p>{productdetails?.keyFeatures}</p>
                                     </div>
                                 </Col>
-                                <Col xs={24} xl={12} lg={12}>
+                                {/* <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
                                         <img src="/img/phone.png" alt="umgidi" />
                                     </div>
-                                </Col>
+                                </Col> */}
                             </Row>
                         </div>
                         {/* <div className="rowdetails">
