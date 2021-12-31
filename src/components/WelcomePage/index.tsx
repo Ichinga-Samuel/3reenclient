@@ -44,9 +44,7 @@ const WelcomePage = () => {
                                 </Button>
                             </div>
                         </Col>
-                        {/* <Col xs={24} xl={12} lg={12}>
-                            <div className="lowerbanner" />
-                        </Col> */}
+                      
                     </Row>
                 </LowerBannerSection>
             </UserWebLayout>
