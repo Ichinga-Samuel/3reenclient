@@ -35,41 +35,6 @@ const SingleProductDetails = () => {
     // const id = getTheID?.[getTheID?.length - 1];
     const id = getTheID?.pop();
     console.log('detailss', productdetails);
-
-   /* const settings = {
-        dots: true,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        responsive: [
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true
-              }
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]
-    }; */
     const addToCart = async (product) => {
         let inCart = false;
         const productId = product._id;
@@ -111,10 +76,8 @@ const SingleProductDetails = () => {
                 });
             }
         }
-
-        setUserCart(cartItems);
-        addToLocalStorage('cartItems', cartItems);
-        // localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        addToLocalStorage('cartItems', userCart);
+        localStorage.setItem('cartItems', JSON.stringify(userCart));
     };
 
     useEffect(() => {
@@ -153,9 +116,9 @@ const SingleProductDetails = () => {
                             <Row gutter={20}>
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
-                                    <div>
-                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
-                                            </div>
+                                        <div>
+                                            <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
+                                        </div>
                                         {/* <Slider {...settings}>
                                 
                                              <div>

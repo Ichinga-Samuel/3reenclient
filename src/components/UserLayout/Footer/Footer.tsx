@@ -59,7 +59,7 @@ const Footer = () => {
                     <Col xs={24} xl={6} lg={6}>
                         <div className="foothead">Payment Method</div>
                         <div>
-                            <img src="/img/flutterwave-logo-1.png" className="footerPayment" alt="contact" />
+                            <img src="/img/Paystack.png" className="footerPayment" alt="contact" />
                         </div>
                     </Col>
                     <Col xs={24} xl={6} lg={6}>
