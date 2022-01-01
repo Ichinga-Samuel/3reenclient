@@ -76,6 +76,7 @@ const SingleProductDetails = () => {
                 });
             }
         }
+        setUserCart(userCart)
         addToLocalStorage('cartItems', userCart);
         localStorage.setItem('cartItems', JSON.stringify(userCart));
     };
