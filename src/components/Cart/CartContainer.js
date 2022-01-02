@@ -23,7 +23,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                         </div>
                         {usersCart?.map((product) => (
                             <div className="cart-item" key={product.productId}>
-                                <form action="">
+                                <form action="" onSubmit={(e) => e.preventDefault()}>
                                     <div className="cart-productSystemm">
                                         <div className="cart-image">
                                             <img src={product.product.images} alt="crt" />
@@ -37,12 +37,13 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
 
                                     <div className="cart-quantity-md">
                                         <div className="cart-quantity-controls">
-                                            <button className="plus" onClick={(e) => removeFromCart(product, e)}>
-                                                <MinusCircleFilled style={{ color: '#ffaf38' }} />
+                                            <button  onClick={(e) => removeFromCart(product, e)}>
+                                                {/* <MinusCircleFilled style={{ color: '#ffaf38' }} /> */}
                                             </button>
                                             <p>{product.quantity}</p>
-                                            <button onClick={(e) => addToCart(product, e)}>
+                                            <button onClick={() => addToCart(product)}>
                                                 <PlusCircleFilled style={{ color: '#ffaf38' }} />
+                                                {console.log(product.productId)}
                                             </button>
                                         </div>
                                     </div>

@@ -4,69 +4,15 @@ import { Row, Col, notification, Pagination } from 'antd';
 import BestProductCard from '@/components/WelcomePage/BestSeller/BestProductCard';
 import axios from 'axios';
 import { APP_BASE, PRODUCT } from '@/utils/ApiList';
-import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
 import { useRouter } from 'next/router';
 import SkeletonLoader from '@/components/Products/Skeleton';
 
 const BestSectionProducts = () => {
     const [loading, setloading] = useState(false);
     const [bestProduct, setbestProduct] = useState([]);
-    const [userCart, setUserCart] = useState([]);
     const [pages, setPages] = useState([]);
     console.log('page', pages);
     const router = useRouter();
-
-    const token = getFromLocalStorage('usertoken');
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    };
-
-    const addToCart = async (product) => {
-        let inCart = false;
-        //get particular product's id
-        const productId = product._id;
-        // duplicate of existing usercart
-        const cartItems = userCart.slice();
-        // loop through items and check if product to add already exist
-        cartItems.forEach((item) => {
-            if (item.productId === productId) {
-                //increment count and update user cart endpoint
-                const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
-                // const { data } = resp;
-                console.log(resp, 'cart rsponse');
-                item.count++;
-                inCart = true;
-            }
-        });
-
-        // if new product
-        if (!inCart) {
-            //add it to cart endpoint
-            try {
-                const { data } = await axios.post(`${APP_BASE}/cart/${productId}`, { productId }, config);
-                //add to usercart duplicate array
-                console.log('cart', data);
-                cartItems.push({ ...product, count: 1 });
-                notification.success({
-                    message: 'Success',
-                    description: 'Item Added to Cart',
-                    duration: 10,
-                });
-            } catch (err) {
-                notification.error({
-                    message: 'Error',
-                    description: err?.response?.data?.message,
-                    duration: 10,
-                });
-            }
-        }
-
-        setUserCart(cartItems);
-        addToLocalStorage('cartItems', cartItems);
-        // localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    };
 
     const getProductByCat = async (cat) => {
         setloading(true);
@@ -157,38 +103,6 @@ const BestSectionProducts = () => {
                 >
                     All
                 </div>
-                {/* <div
-                    onClick={() => getProductByCat('mac')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    Mac
-                </div>
-                <div
-                    onClick={() => getProductByCat('iphone')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    iPhone
-                </div>
-                <div
-                    onClick={() => getProductByCat('ipad')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    iPad
-                </div>
-                <div
-                    onClick={() => getProductByCat('ipod')}
-                    onKeyDown={() => getProductByCat('all')}
-                    role="button"
-                    tabIndex={0}
-                >
-                    iPod
-                </div> */}
                 <div
                     onClick={() => getProductByCat('ipod')}
                     onKeyDown={() => getProductByCat('all')}
@@ -226,7 +140,6 @@ const BestSectionProducts = () => {
                                             <BestProductCard
                                                 key={product?.id}
                                                 productObject={product}
-                                                addToCart={addToCart}
                                                 getProductDetails={getProductDetails}
                                             />
                                         </Col>

@@ -47,6 +47,7 @@ const UserLogin = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.login}`, details);
             const { data } = response;
+            console.log(data)
             if (data.status === 'success' && data.user.role === 'user') {
                 notification.success({
                     message: 'Success',

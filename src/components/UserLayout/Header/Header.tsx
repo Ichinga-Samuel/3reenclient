@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { HeaderContainer, MobileSearch, SideBarCategory } from '@/components/UserLayout/Header/Header.styled';
 import { CartIcon, LogoIcon } from '@/utils/Icons';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined} from '@ant-design/icons';
 import { Button, Row, Col } from 'antd';
 import { ArrowDropDown, Menu, PersonOutline, SearchOutlined } from '@material-ui/icons';
 import { useRouter } from 'next/router';
@@ -12,7 +12,6 @@ import {
     removeFromLocalStorage,
     removeFromSessionStorage,
 } from '@/utils/browserStorage';
-import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { APP_BASE, PRODUCT } from '@/utils/ApiList';
 import { LOGGER } from '@/utils/helpers';
@@ -25,10 +24,11 @@ const Header = (props) => {
     const [mobileSearch, setMobileSearch] = useState(false);
     const [catSider, setcatSider] = useState(false);
     const [allcategory, setallCategory] = useState([]);
+    const [data, setData] = useState({
+        search: '',
+    });
     const userRef = useRef(null);
     const sideRef = useRef(null);
-
-    const { register, handleSubmit } = useForm();
 
     const router = useRouter();
     const cartPage = () => {
@@ -60,15 +60,12 @@ const Header = (props) => {
     };
 
     const openUserMenu = () => setmenuopen(!menuopen);
-    const hideSearch = () => setmenuopen(false);
-    //Hide The Search Bar
-    if(menuopen){
-        window.addEventListener('click', () => {
-            hideSearch();
-        })
-    }
-    const SearchAllProduct = (data) => {
-        console.log(data);
+    const onChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value });
+    };
+    const { search } = data;
+    const onSubmit = (e) => {
+        e.preventDefault();
         setsearching(true);
         setTimeout(() => {
             router.push({
@@ -84,18 +81,29 @@ const Header = (props) => {
     };
 
     useEffect(() => {
+        //Hide The Search Bar
+        console.log(catSider);
         const catEffectClick = (e) => {
             if (sideRef.current !== null && !sideRef.current.contains(e.target)) {
                 setcatSider(!catSider);
             }
         };
+        const hideSearch = (e) => {
+            if (sideRef.current !== null && !sideRef.current.contains(e.target)) {
+                setcatSider(!menuopen);
+            }
+        }
+        if (menuopen) {
+            window.addEventListener('click', hideSearch);
+        }
         if (catSider) {
             window.addEventListener('click', catEffectClick);
         }
         return () => {
             window.removeEventListener('click', catEffectClick);
+            window.removeEventListener('click', hideSearch);
         };
-    }, [catSider]);
+    }, [catSider, menuopen]);
 
     useEffect(() => {
         const fetchCategory = async () => {
@@ -129,10 +137,11 @@ const Header = (props) => {
                 <div className="userlogo" onClick={returnHome} onKeyDown={returnHome} role="button" tabIndex={0}>
                     <LogoIcon />
                 </div>
-                    <form className="productsearch"  onSubmit={handleSubmit(SearchAllProduct)}>
+                    <form className="productsearch" onSubmit={onSubmit}>
                     <input
-                        {...register('search')}
+                        onChange={onChange}
                         name="search"
+                        value={search}
                         className="ant-input ant-input-lg"
                         placeholder="Enter Products"
                     />
@@ -260,25 +269,29 @@ const Header = (props) => {
             </HeaderContainer>
             <MobileSearch className={mobileSearch ? 'open' : ''}>
                 {/* eslint-disable-next-line react/jsx-no-undef */}
-                <Row>
+              <form onSubmit={onSubmit}>
+              <Row>
                     <Col xs={24} xl={24} lg={24}>
                         <input
-                            {...register('search')}
+                            onChange={onChange}
+                            value={search}
                             name="search"
                             className="ant-input ant-input-lg"
                             placeholder="Enter Products"
                         />
                         <Button
                             loading={searching}
-                            onClick={handleSubmit(SearchAllProduct)}
+                           
                             className="searchbtn"
                             type="primary"
+                            htmlType='submit'
                             size="large"
                             block
                             icon={<SearchOutlined />}
                         />
                     </Col>
                 </Row>
+              </form>
             </MobileSearch>
             <SideBarCategory className={catSider ? 'open' : ''} ref={sideRef}>
                 <div className="catside">

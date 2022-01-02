@@ -67,7 +67,7 @@ export default function Cart({}) {
         try {
             let inCart = false;
             //get particular product's id
-            const productId = product._id;
+            const productId = product.productId;
             // duplicate of existing usercart
             const cartItems = userCart.slice();
             // loop through items and check if product to add already exist
@@ -116,7 +116,7 @@ export default function Cart({}) {
 
     const delFromCart = async (product) => {
         //get particular product's id
-        const productId = product._id;
+        const productId = product.productId;
         try {
             // duplicate of existing usercart
             const cartItems = userCart.slice();
