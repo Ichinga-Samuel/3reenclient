@@ -18,7 +18,6 @@ import { LOGGER } from '@/utils/helpers';
 
 const Header = (props) => {
     const { token, userDetail, cartCount } = props;
-    const details = JSON.parse(userDetail);
     const [searching, setsearching] = useState(false);
     const [menuopen, setmenuopen] = useState(false);
     const [mobileSearch, setMobileSearch] = useState(false);
@@ -179,9 +178,9 @@ const Header = (props) => {
                                 tabIndex={0}
                             >
                                 <div className="user-prof">
-                                    <div className="userprofile__avatar">{details?.fullName?.split(' ')[0][0]}</div>
+                                    <div className="userprofile__avatar">{userDetail?.split(' ')[0][0]}</div>
                                     <div className="userprofile__name">
-                                        <span>Hi, {details?.fullName?.split(' ')[0]}</span>
+                                        <span>Hi, {userDetail?.split(' ')[0]}</span>
                                         <ArrowDropDown />
                                     </div>
                                 </div>
@@ -238,7 +237,7 @@ const Header = (props) => {
                                 role="button"
                                 tabIndex={0}
                             >
-                                <div className="userprofile__avatar">{details?.fullName?.split(' ')[0][0]}</div>
+                                <div className="userprofile__avatar">{userDetail?.split(' ')[0][0]}</div>
                                 <ArrowDropDown />
                                 <div className={`usermenu ${menuopen ? 'isOpen' : ''}`} ref={userRef}>
                                     <ul>

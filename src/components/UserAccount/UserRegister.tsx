@@ -25,6 +25,7 @@ const UserRegister = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.onlyUser}`, details);
             const { data } = response;
+            console.log(data)
             if (data.status === 'success') {
                 notification.success({
                     message: 'Success',
