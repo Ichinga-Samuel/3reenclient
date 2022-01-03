@@ -33,7 +33,7 @@ const UserRegister = () => {
                     duration: 5,
                 });
                 addToLocalStorage('usertoken', response.data.token);
-                addToLocalStorage('userdetails', response.data.user);
+                addToLocalStorage('userdetails', response.data.fullName);
                 console.log(response.data)
                 setloading(false);
                 router.push('/');
