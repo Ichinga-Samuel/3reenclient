@@ -89,7 +89,7 @@ const Signup = () => {
             .then((response) => {
                 const { data } = response;
                 console.log(data);
-                if (data.status === 'success' && data.user.role === 'user') {
+                if (data.status === 'success' && data.user.role === 'vendor') {
                     // setContent('Registration Successful. Authenticating In Progress...');
                     addToLocalStorage('token', response.data.token);
                     addToLocalStorage('user', response.data.user);

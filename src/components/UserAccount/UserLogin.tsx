@@ -47,14 +47,15 @@ const UserLogin = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.login}`, details);
             const { data } = response;
-            if (data.status === 'success' && data.user.role === 'user') {
+            console.log(data)
+            if (data.role === 'user') {
                 notification.success({
                     message: 'Success',
                     description: 'Login Successfully',
                     duration: 5,
                 });
                 addToLocalStorage('usertoken', response.data.token);
-                addToLocalStorage('userdetails', response.data.user);
+                addToLocalStorage('userdetails', response.data.fullName);
                 setloading(true);
                 setTimeout(() => {
                     fetchUserCart(response.data.token);

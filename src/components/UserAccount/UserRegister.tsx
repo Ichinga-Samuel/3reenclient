@@ -25,6 +25,7 @@ const UserRegister = () => {
         try {
             const response = await axios.post(`${APP_BASE}${USER.onlyUser}`, details);
             const { data } = response;
+            console.log(data)
             if (data.status === 'success') {
                 notification.success({
                     message: 'Success',
@@ -32,7 +33,7 @@ const UserRegister = () => {
                     duration: 5,
                 });
                 addToLocalStorage('usertoken', response.data.token);
-                addToLocalStorage('userdetails', response.data.user);
+                addToLocalStorage('userdetails', response.data.fullName);
                 console.log(response.data)
                 setloading(false);
                 router.push('/');

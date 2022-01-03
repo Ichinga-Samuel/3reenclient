@@ -23,14 +23,6 @@ const Profile = () => {
                     <div className="profile-title">CUSTOMER PROFILE</div>
                     <form onSubmit={Submit} className="profile-box">
                         <div className="edit-text">Edit your informations below</div>
-                        <div className="upload-pic">
-                            <div className="pic-upload"></div>
-                            <div className="pic-details">
-                                <p className="primary-color">Hi,</p>
-                                <p>Jack Helmet</p>
-                                <div className="upload">Upload picture</div>
-                            </div>
-                        </div>
                         <div className="user-form">
                             <div className="mgtop15">
                                 <label htmlFor="fullname">FULL NAME</label>

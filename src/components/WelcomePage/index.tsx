@@ -4,7 +4,6 @@ import { EmptyDiv, HomeBannerContainer, LowerBannerSection } from '@/components/
 import { Row, Col, Button } from 'antd';
 import { useRouter } from 'next/router';
 import TopBannerProductHolder from '@/components/WelcomePage/TopBannerProductHolder';
-import FeaturedProducts from '@/components/WelcomePage/Featured/FeaturedProducts';
 import BestSectionProducts from '@/components/WelcomePage/BestSeller/BestSectionProducts';
 
 const WelcomePage = () => {
@@ -33,7 +32,7 @@ const WelcomePage = () => {
                 </HomeBannerContainer>
                 <TopBannerProductHolder />
                 <EmptyDiv />
-                <FeaturedProducts />
+                {/* <FeaturedProducts /> */}
                 <BestSectionProducts />
                 <LowerBannerSection>
                     <Row data-aos="zoom-in-right">
@@ -44,9 +43,7 @@ const WelcomePage = () => {
                                 </Button>
                             </div>
                         </Col>
-                        {/* <Col xs={24} xl={12} lg={12}>
-                            <div className="lowerbanner" />
-                        </Col> */}
+                      
                     </Row>
                 </LowerBannerSection>
             </UserWebLayout>

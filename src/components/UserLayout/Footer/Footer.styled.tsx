@@ -34,6 +34,9 @@ export const FooterContainer = styled.footer`
         .innerfooter {
             margin-top: 2rem;
         }
+        .footerPayment{
+            width:125px;
+        }
     }
 `;
 
