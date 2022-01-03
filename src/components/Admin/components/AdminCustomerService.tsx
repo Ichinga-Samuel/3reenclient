@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+eimport React, { useEffect, useState } from 'react';
 import DefaultLayout from '@/components/Admin/Layout/DefaultLayout';
 import { InventoryContainer } from '@/components/Admin/styles/AdminStyle.styled';
 import { Col, notification, Row } from 'antd';
@@ -11,7 +11,7 @@ import CustomerMessage from './customerservice/CustomerMessages';
 const AdminCustomerService = () => {
     const title = 'Customer Service';
     const [active, setactive] = useState(false);
-    const [msgActive, setMsgActive] = useState(false);
+    const [msgActive, setMsgActive] = useState(false);p
     const [catactive, setcatactive] = useState(false);
     const [fetching, setfetching] = useState(false);
     const [userRecord, setuserRecord] = useState([]);

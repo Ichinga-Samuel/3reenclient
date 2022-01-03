@@ -7,7 +7,7 @@ import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 import { ProductDetailsContainer } from '@/components/Products/Products.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import BeautyStars from 'beauty-stars';
-import { addToLocalStorage, getFromLocalStorage } from '@/utils/browserStorage';
+import { getFromLocalStorage } from '@/utils/browserStorage';
 
 const SingleProductDetails = () => {
     const [showdetail, setshowdetails] = useState(false);
@@ -37,20 +37,22 @@ const SingleProductDetails = () => {
     console.log('detailss', productdetails);
     const addToCart = async (product) => {
         let inCart = false;
-        const productId = product._id;
-        // duplicate of existing usercart
-        const cartItems = userCart.slice();
-        // loop through items and check if product to add already exist
-        cartItems.forEach((item) => {
-            if (item.productId === productId) {
-                //increment count and update user cart endpoint
-                const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
-                // const { data } = resp;
-                console.log(resp, 'cart rsponse');
-                item.count++;
-                inCart = true;
-            }
-        });
+        const productId = product.id;
+        // // duplicate of existing usercart
+        // const cartItems = userCart.slice();
+        // setUserCart(cartItems)
+        // // loop through items and check if product to add already exist
+        // cartItems.forEach((item) => {
+        //     if (item.productId === productId) {
+        //         //increment count and update user cart endpoint
+        //         console.log(item.productId)
+        //         const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
+        //         // const { data } = resp;
+        //         console.log(resp, 'cart rsponse');
+        //         item.count++;
+        //         inCart = true;
+        //     }
+        // });
 
         // if new product
         if (!inCart) {
@@ -59,14 +61,32 @@ const SingleProductDetails = () => {
                 const { data } = await axios.post(`${APP_BASE}/cart/${productId}`, { productId }, config);
                 //add to usercart duplicate array
                 console.log('cart', data);
+                const usersCart = data.cartItem;
+                localStorage.setItem('cartItems', JSON.stringify([usersCart]));
                 setadding(true);
-                cartItems.push({ ...product, count: 1 });
+                // cartItems.push({ ...product, count: 1 });
                 notification.success({
                     message: 'Success',
                     description: 'Item Added to Cart',
                     duration: 10,
                 });
                 setadding(false);
+                inCart = true;
+                console.log(inCart)
+                    const cartItems = userCart.slice();
+                    setUserCart(cartItems)
+                    // loop through items and check if product to add already exist
+                    // cartItems.forEach((item) => {
+                    //     if (item.productId === productId) {
+                    //         //increment count and update user cart endpoint
+                    //         console.log(item.productId)
+                    //         const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
+                    //         // const { data } = resp;
+                    //         console.log(resp, 'cart rsponse');
+                    //         item.count++;
+                    //     }
+                    // });
+                
             } catch (err) {
                 setadding(false);
                 notification.error({
@@ -76,9 +96,6 @@ const SingleProductDetails = () => {
                 });
             }
         }
-        setUserCart(userCart)
-        addToLocalStorage('cartItems', userCart);
-        localStorage.setItem('cartItems', JSON.stringify(userCart));
     };
 
     useEffect(() => {
