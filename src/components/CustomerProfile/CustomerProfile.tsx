@@ -90,10 +90,11 @@ const Profile = () => {
                                 <Row gutter={24}>
                                     <Col xs={24} xl={12} lg={12}>
                                         <div className="form-group">
-                                            <label htmlFor="fullname">Full Name</label>
+                                            <label htmlFor="fullname">Phone Number</label>
                                             <Input
                                                 {...register('fullName', { required: true })}
                                                 size="large"
+                                              
                                                 style={{ height: '46px' }}
                                             />
                                             {errors.fullName && (
@@ -103,7 +104,7 @@ const Profile = () => {
                                     </Col>
                                     <Col xs={24} xl={12} lg={12}>
                                         <div className="form-group">
-                                            <label htmlFor="email">Email</label>
+                                            <label htmlFor="email">STATE</label>
                                             <Input
                                                 {...register('email', { required: true })}
                                                 size="large"
@@ -116,19 +117,18 @@ const Profile = () => {
                                 <Row gutter={30}>
                                     <Col xs={24} xl={12} lg={12}>
                                         <div className="form-group">
-                                            <label htmlFor="password">Password</label>
-                                                <Input
-                                                    {...register('password', {
-                                                        required: true,
-                                                        minLength: {
-                                                            value: 8,
-                                                            message: 'Password must have     at least 8 characters',
-                                                        },
-                                                    })}
-                                                    size="large"
-                                                    
-                                                    style={{ height: '40px', width:'100%' }}
-                                                />
+                                            <label htmlFor="password">Address</label>
+                                            <Input.TextArea
+                                                {...register('password', {
+                                                    required: true,
+                                                    minLength: {
+                                                        value: 8,
+                                                        message: 'Password must have at least 8 characters',
+                                                    },
+                                                })}
+                                                size="large"
+                                                style={{ height: 'auto' }}
+                                            />
                                             {errors.password && <span className="error">Password is required</span>}
                                         </div>
                                     </Col>
@@ -140,9 +140,9 @@ const Profile = () => {
                                             xl={{ span: 8, offset: 7 }}
                                             lg={{ span: 8, offset: 7 }}
                                         >
-                                          <Link href='/profile/user-update-profile'>
+                                          <Link href='/profile/update-user-profile'>
                                           <Button type="primary" size="large" block>
-                                                UPDATE PROFILE
+                                                EDIT PROFILE
                                             </Button>
                                           </Link>
                                         </Col>

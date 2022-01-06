@@ -15,7 +15,7 @@ const UpdateProfile = () => {
         <>
             <UserWebLayout webtitle="My Account">
                 <UserLoginContainer data-aos="zoom-in">
-                    <AuthHeader>CUSTOMER PROFILE</AuthHeader>
+                    <AuthHeader>UPDATE YOUR PROFILE</AuthHeader>
                     <div className="login register">
                         <>
                             <form
@@ -90,9 +90,10 @@ const UpdateProfile = () => {
                                 <Row gutter={24}>
                                     <Col xs={24} xl={12} lg={12}>
                                         <div className="form-group">
-                                            <label htmlFor="fullname">Full Name</label>
+                                            <label htmlFor="fullname">Phone Number</label>
                                             <Input
                                                 {...register('fullName', { required: true })}
+                                              
                                                 size="large"
                                                 style={{ height: '46px' }}
                                             />
@@ -103,7 +104,7 @@ const UpdateProfile = () => {
                                     </Col>
                                     <Col xs={24} xl={12} lg={12}>
                                         <div className="form-group">
-                                            <label htmlFor="email">Email</label>
+                                            <label htmlFor="email">STATE</label>
                                             <Input
                                                 {...register('email', { required: true })}
                                                 size="large"
@@ -116,7 +117,7 @@ const UpdateProfile = () => {
                                 <Row gutter={24}>
                                     <Col xs={24} xl={12} lg={12}>
                                         <div className="form-group">
-                                            <label htmlFor="password">Password</label>
+                                            <label htmlFor="password">Address</label>
                                             <Input.TextArea
                                                 {...register('password', {
                                                     required: true,
