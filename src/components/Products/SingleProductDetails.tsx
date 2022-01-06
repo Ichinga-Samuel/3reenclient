@@ -38,21 +38,29 @@ const SingleProductDetails = () => {
     const addToCart = async (product) => {
         let inCart = false;
         const productId = product.id;
+        console.log(productId);
         // // duplicate of existing usercart
-        // const cartItems = userCart.slice();
-        // setUserCart(cartItems)
-        // // loop through items and check if product to add already exist
-        // cartItems.forEach((item) => {
-        //     if (item.productId === productId) {
-        //         //increment count and update user cart endpoint
-        //         console.log(item.productId)
-        //         const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
-        //         // const { data } = resp;
-        //         console.log(resp, 'cart rsponse');
-        //         item.count++;
-        //         inCart = true;
-        //     }
-        // });
+        const cartItems = userCart.slice();
+        console.log(cartItems)
+        setUserCart(cartItems)
+        // loop through items and check if product to add already exist
+        cartItems.forEach((item) => {
+            console.log(item.productId)
+            if (item.productId === productId) {
+                //increment count and update user cart endpoint
+                console.log(item.productId)
+                const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
+                // const { data } = resp;
+                console.log(resp, 'cart rsponse');
+                notification.success({
+                    message:'Success',
+                    description:'Item Updated',
+                    duration:10
+                })
+                item.count++;
+                inCart = true;
+            }
+        });
 
         // if new product
         if (!inCart) {
@@ -64,6 +72,9 @@ const SingleProductDetails = () => {
                 const usersCart = data.cartItem;
                 localStorage.setItem('cartItems', JSON.stringify([usersCart]));
                 setadding(true);
+                cartItems.forEach((item) => {
+                    console.log(item.productId)
+                })
                 // cartItems.push({ ...product, count: 1 });
                 notification.success({
                     message: 'Success',
@@ -72,21 +83,6 @@ const SingleProductDetails = () => {
                 });
                 setadding(false);
                 inCart = true;
-                console.log(inCart)
-                    const cartItems = userCart.slice();
-                    setUserCart(cartItems)
-                    // loop through items and check if product to add already exist
-                    // cartItems.forEach((item) => {
-                    //     if (item.productId === productId) {
-                    //         //increment count and update user cart endpoint
-                    //         console.log(item.productId)
-                    //         const resp = axios.patch(`${APP_BASE}/cart/${item.productId}`, config);
-                    //         // const { data } = resp;
-                    //         console.log(resp, 'cart rsponse');
-                    //         item.count++;
-                    //     }
-                    // });
-                
             } catch (err) {
                 setadding(false);
                 notification.error({

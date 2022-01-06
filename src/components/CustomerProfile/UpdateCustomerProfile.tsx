@@ -4,8 +4,8 @@ import { AuthHeader, UserLoginContainer } from '@/components/UserAccount/UserAcc
 import UserWebLayout from '@/components/UserLayout/UserWebLayout';
 import { Row, Col, Input, Button} from 'antd';
 import { useForm } from 'react-hook-form';
-import Link from 'next/link';
-const Profile = () => {
+
+const UpdateProfile = () => {
     const {
         register,
         formState: { errors },
@@ -113,22 +113,21 @@ const Profile = () => {
                                         </div>
                                     </Col>
                                 </Row>
-                                <Row gutter={30}>
+                                <Row gutter={24}>
                                     <Col xs={24} xl={12} lg={12}>
                                         <div className="form-group">
                                             <label htmlFor="password">Password</label>
-                                                <Input
-                                                    {...register('password', {
-                                                        required: true,
-                                                        minLength: {
-                                                            value: 8,
-                                                            message: 'Password must have     at least 8 characters',
-                                                        },
-                                                    })}
-                                                    size="large"
-                                                    
-                                                    style={{ height: '40px', width:'100%' }}
-                                                />
+                                            <Input.TextArea
+                                                {...register('password', {
+                                                    required: true,
+                                                    minLength: {
+                                                        value: 8,
+                                                        message: 'Password must have at least 8 characters',
+                                                    },
+                                                })}
+                                                size="large"
+                                                style={{ height: 'auto' }}
+                                            />
                                             {errors.password && <span className="error">Password is required</span>}
                                         </div>
                                     </Col>
@@ -140,11 +139,9 @@ const Profile = () => {
                                             xl={{ span: 8, offset: 7 }}
                                             lg={{ span: 8, offset: 7 }}
                                         >
-                                          <Link href='/profile/user-update-profile'>
-                                          <Button type="primary" size="large" block>
+                                            <Button type="primary" size="large" block>
                                                 UPDATE PROFILE
                                             </Button>
-                                          </Link>
                                         </Col>
                                     </Row>
                                 </div>
@@ -157,4 +154,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default UpdateProfile;

@@ -42,34 +42,34 @@ export default function Checkout() {
     //     }, 1000);
     // };
 
-    useEffect(() => {
-        const getUserCart = async () => {
-            if (!token) {
-                return;
-            }
-            try {
-                const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
-                const usersCart = data.cart;
-                if (usersCart.length === 1) {
-                    usersCart.map((total) => setcartTotal(total.totalPrice));
-                } else {
-                    setcartTotal(data?.total);
-                    console.log(cartTotal);
-                    setUserCart(usersCart);
-                }
-            } catch (err) {
-                notification.error({
-                    message: 'Error',
-                    description: err?.response?.data?.message,
-                });
-            }
-        };
-        getUserCart();
-    }, []);
+    // useEffect(() => {
+    //     const getUserCart = async () => {
+    //         if (!token) {
+    //             return;
+    //         }
+    //         try {
+    //             const { data } = await axios.get(`${APP_BASE}/cart/myCart`, config);
+    //             const usersCart = data.cart;
+    //             if (usersCart.length === 1) {
+    //                 usersCart.map((total) => setcartTotal(total.totalPrice));
+    //             } else {
+    //                 setcartTotal(data?.total);
+    //                 console.log(cartTotal);
+    //                 setUserCart(usersCart);
+    //             }
+    //         } catch (err) {
+    //             notification.error({
+    //                 message: 'Error',
+    //                 description: err?.response?.data?.message,
+    //             });
+    //         }
+    //     };
+    //     getUserCart();
+    // }, []);
 
     return (
         <UserWebLayout webtitle="Checkout">
-            <CheckoutContainer>
+            {/* <CheckoutContainer>
                 <h3>Checkout</h3>
                 <div className="checkoutPage">
                     <Row gutter={28}>
@@ -106,12 +106,7 @@ export default function Checkout() {
                                                     </Col>
                                                 );
                                             })}
-                                            {/* <Col xs={24} xl={5} lg={5}>
-                                                <div className="addNewAddress">
-                                                    <PlusCircleFilled />
-                                                    <small>Add New</small>
-                                                </div>
-                                            </Col> */}
+                                         
                                         </Row>
                                     </div>
                                 </div>
@@ -128,34 +123,9 @@ export default function Checkout() {
                                 </h4>
                                 <div className="detailsInner">
                                     <div className="cartops">
-                                        {/* <span>Do you have a coupon code?</span> */}
-                                        {/* <form autoComplete="off" autoCorrect="off" autoCapitalize="off">
-                                            <Row>
-                                                <Col xs={17} xl={17} lg={17}>
-                                                    <Input
-                                                        {...register('coupon', { required: true })}
-                                                        placeholder="Enter Coupon"
-                                                    />
-                                                </Col>
-                                                <Col xs={7} xl={7} lg={7}>
-                                                    <Button
-                                                        loading={applying}
-                                                        onClick={handleSubmit(ApplyNewCoupon)}
-                                                        block
-                                                        type="primary"
-                                                    >
-                                                        {applying ? 'Validating...' : 'Apply'}
-                                                    </Button>
-                                                </Col>
-                                            </Row>
-                                        </form> */}
-                                        {/* {errors.coupon && <small className="error">Please, Enter a valid coupon</small>} */}
                                     </div>
                                     <OrderPaymentSummary total={cartTotal} shipping="500" discount="0" />
                                 </div>
-                                {/* <Button type="primary" block size="large">
-                                    CONFIRM ORDER
-                                </Button> */}
                                 <div>
                                     <UserPayment cartTotal={cartTotal} />
                                 </div>
@@ -188,7 +158,7 @@ export default function Checkout() {
                         </Col>
                     </Row>
                 </div>
-            </CheckoutContainer>
+            </CheckoutContainer> */}
         </UserWebLayout>
     );
 }
