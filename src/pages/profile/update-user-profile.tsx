@@ -1,9 +1,9 @@
-import UserProfile from '@/components/UserAccount/UserProfile';
+import UpdateProfile from '@/components/CustomerProfile/UpdateCustomerProfile';
 import React from 'react';
 
 const CustomerProfile = () => {
     return <div>
-        <UserProfile></UserProfile>
+       <UpdateProfile></UpdateProfile>
     </div>;
 };
 
