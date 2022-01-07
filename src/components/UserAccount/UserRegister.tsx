@@ -114,7 +114,7 @@ const UserRegister = () => {
                                             <div className="form-group">
                                                 <label htmlFor="password">Confirm Password</label>
                                                 <Input.Password
-                                                    {...register('confirmPassword', {
+                                                    {...register('confirmpassword', {
                                                         required: true,
                                                         minLength: {
                                                             value: 8,
