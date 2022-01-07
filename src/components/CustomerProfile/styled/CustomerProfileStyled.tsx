@@ -2,20 +2,19 @@ import styled from 'styled-components';
 import { media } from './device';
 
 export const ProfileWrap = styled.div`
-    background-color: #ededed;
-    position: relative;
-    left: 0;
-    right: 0;
-    padding: 20px 80px;
+    
+    width: 70%;
+    margin: 0 auto;
 
     ${media.mobileL} {
         width: 100%;
         padding: 100px 0;
     }
 
-    & .mglf158 {
-        margin-left: 158px;
-    }
+    & .info{
+            width: 50%;
+            margin: 0 auto;
+        }
 
     & .col-green {
         color: green;
@@ -31,6 +30,7 @@ export const ProfileWrap = styled.div`
 
     & .profile-title {
         font-size: 25px;
+        margin-top: 10px;
     }
 
     & .profile-box {
@@ -75,36 +75,39 @@ export const ProfileWrap = styled.div`
                 height: 30px;
             }
         }
+        
+       
     }
+
+
 
     ${media.mobileL} {
         & .profile-box {
-            padding: 10px;
+            width: 80%;
+            margin: 3px auto;
+            padding: 15px;
         }
     }
 
-    ${media.tablet} {
-        .mglf158 {
-            margin-left: 0px;
-        }
-    }
+    
 
     & .user-form {
         margin-top: 50px;
 
         label {
             color: rgba(0, 0, 0, 0.57);
+            font-size: 16px;
         }
 
         input {
+            margin: 3px;
             width: 380px;
             height: 40px;
-            margin-left: 30px;
-            padding: 5px 20px;
-            border: 1px solid rgba(0, 0, 0, 0.38);
+            padding: 5px 10px;
+            border: 1px solid #302f2e;
 
             ${media.tablet} {
-                width: 85%;
+                width: 80%;
                 flex-direction: column;
                 margin-left: 0;
             }
@@ -128,13 +131,8 @@ export const ProfileWrap = styled.div`
                 font-size: 15px;
             }
         }
-        .city {
-            width: 232px;
-            margin-left: 10px;
-        }
-        .email {
-            width: 475px;
-        }
+        
+       
     }
 
     & .second {
@@ -168,7 +166,13 @@ export const ProfileWrap = styled.div`
             margin: 0;
         }
         .mgtop15 {
-            margin-top: 0;
+            margin-top: 5px;
+            display:flex;
+            flex-direction:column;
+            
+
         }
+        
     }
-`;
+;
+`

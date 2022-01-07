@@ -20,7 +20,8 @@ const UserRegister = () => {
     } = useForm();
 
     const performRegister = async (details, e) => {
-        setloading(true);
+        console.log(details)
+                setloading(true);
         e.preventDefault();
         try {
             const response = await axios.post(`${APP_BASE}${USER.onlyUser}`, details);
@@ -113,7 +114,7 @@ const UserRegister = () => {
                                             <div className="form-group">
                                                 <label htmlFor="password">Confirm Password</label>
                                                 <Input.Password
-                                                    {...register('passwordConfirm', {
+                                                    {...register('confirmpassword', {
                                                         required: true,
                                                         minLength: {
                                                             value: 8,
