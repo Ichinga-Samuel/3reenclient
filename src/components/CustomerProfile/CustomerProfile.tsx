@@ -13,7 +13,7 @@ const Profile = () => {
     useEffect(() => {
         const token = getFromLocalStorage('usertoken');
 
-        const getUserProfile =  async () => : string[] {
+        const getUserProfile = async () => {
             setLoading(true);
             try {
                 const { data } = await axios.get(`${APP_BASE}/users/me`, {
@@ -39,8 +39,8 @@ const Profile = () => {
             <UserWebLayout webtitle="My Account">
                 {loading ? (
                     <div className="fetchingloading">
-                      <Spin />
-                    <small>Fetching Data</small>
+                        <Spin />
+                        <small>Fetching Data</small>
                     </div>
                 ) : (
                     <UserLoginContainer data-aos="zoom-in">

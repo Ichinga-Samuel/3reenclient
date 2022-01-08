@@ -4,9 +4,34 @@ import { CartContainerStyled } from './CartContainer.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
 import { MinusCircleFilled, MinusCircleTwoTone, PlusCircleFilled, PlusCircleTwoTone } from '@ant-design/icons';
 import { Delete } from '@material-ui/icons';
+import { Select } from 'antd';
+import { Option } from 'antd/lib/mentions';
+import { getFromLocalStorage } from '@/utils/browserStorage';
+import axios from 'axios';
+import { APP_BASE } from '@/utils/ApiList';
 
-export default function CartContainer({ usersCart, addToCart, removeFromCart, delFromCart }) {
+export default function CartContainer({ usersCart, id, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
+    const [qyt, setQty] = useState({
+        quantity: 1,
+    });
+    const token = getFromLocalStorage('usertoken');
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    };
+    const onChange = async (e) => {
+        setQty({ ...qty, [e.target.name]: e.target.value });
+        try {
+            const updateQty = await axios.patch(`${APP_BASE}/cart/${id}`, config)
+            console.log(updateQty.data);
+        } catch (error) {
+         console.log(error)   
+        }
+    };
+    const { quantity } = qty;
+    console.log(quantity);
     return (
         <CartContainerStyled>
             <div className="product-cart">
@@ -16,7 +41,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                     <div className="cart-collection">
                         <div className="cart-header">
                             <p>Item</p>
-                            <p>Quantity</p>
+                            <p>Qty</p>
                             <p>Unit Price</p>
                             <p>Sub Total</p>
                             <p>Remove</p>
@@ -37,14 +62,13 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
 
                                     <div className="cart-quantity-md">
                                         <div className="cart-quantity-controls">
-                                            <button  onClick={(e) => removeFromCart(product, e)}>
-                                                {/* <MinusCircleFilled style={{ color: '#ffaf38' }} /> */}
-                                            </button>
-                                            <p>{product.quantity}</p>
-                                            <button onClick={() => addToCart(product)}>
-                                                <PlusCircleFilled style={{ color: '#ffaf38' }} />
-                                                {console.log(product.productId)}
-                                            </button>
+                                            <Select value={quantity}  onChange={(e) => onChange(e)} style={{ width: 70 }}>
+                                                <Option value="1">1</Option>
+                                                <Option value="2">2</Option>
+                                                <Option value="3">3</Option>
+                                                <Option value="4">4</Option>
+                                                <Option value="5">5</Option>
+                                            </Select>
                                         </div>
                                     </div>
 
@@ -124,7 +148,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                     <p>Product description</p>
                                 </div>
                             </div>
-                             <div className="cartSelect">
+                            <div className="cartSelect">
                                 <h3>Quantity</h3>
                                 <div className="cartSelectInfo">
                                     <button className="plus" onClick={(e) => removeFromCart(product, e)}>
@@ -152,37 +176,6 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                     <Delete className="deletebutton" />
                                 </div>
                             </div>
-
-                            {/* <div className="cartmobileDetail">
-                                <div className="detail">
-                                    <div className="sectionOne">
-                                         <div className="sectionOneDetails">
-                                            <h5 className="productname">{product.product.name}</h5>
-                                        </div> *
-                                        <div className="sectionOneCat">
-                                            <p className="cat">Vendor</p> 
-                                            <p className="reducedPrice">N700</p>
-                                        </div>
-                                    </div>
-                                    <div className="sectionTwo">
-                                        <img src="img/MobileDelete.png" alt="ing" />
-                                    </div> 
-                                </div>
-
-                                <div className="downPart">
-                                    <div className="amount">
-                                        <h4>Price</h4>
-                                        <h4 className="normalPrice">{product.product.price}</h4>
-                                    </div>
-
-                                     <div className="cartSelect">
-                                        <button onClick={() => removeFromCart(product)}>-</button>
-                                        <input type="number" value={product.count} readOnly />
-                                        <input type="number" value="2" readOnly />
-                                        <button onClick={() => addToCart(product)}>+</button>
-                                    </div> 
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 ))}

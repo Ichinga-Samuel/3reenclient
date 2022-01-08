@@ -69,8 +69,9 @@ const SingleProductDetails = () => {
                 const { data } = await axios.post(`${APP_BASE}/cart/${productId}`, { productId }, config);
                 //add to usercart duplicate array
                 console.log('cart', data);
-                const usersCart = data.cartItem;
-                localStorage.setItem('cartItems', JSON.stringify([usersCart]));
+                const usersCart = data.cart;
+                console.log(userCart)
+                localStorage.setItem('cartItems', JSON.stringify(usersCart));
                 setadding(true);
                 cartItems.forEach((item) => {
                     console.log(item.productId)

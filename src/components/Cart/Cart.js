@@ -12,13 +12,13 @@ export default function Cart({}) {
     // if cart exists in local set state else state is empty array
     const [userCart, setUserCart] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [id, setId] = useState('');
     const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     };
-
     const fetchUserCart = async () => {
         if (!token) {
             return;
@@ -68,6 +68,7 @@ export default function Cart({}) {
             let inCart = false;
             //get particular product's id
             const productId = product.productId;
+            setId(productId);
             // duplicate of existing usercart
             const cartItems = userCart.slice();
             // loop through items and check if product to add already exist
@@ -113,7 +114,6 @@ export default function Cart({}) {
             }
         });
     };
-
     const delFromCart = async (product) => {
         //get particular product's id
         const productId = product.productId;
@@ -123,7 +123,7 @@ export default function Cart({}) {
             // delete cart with filter
             const filteredCart = cartItems.filter((item) => item.productId !== productId);
             //delete particular product from db
-            const res = axios.delete(`${APP_BASE}/cart/${productId}`, config);
+            const res = axios.delete(`${APP_BASE}/cart/deleteCart/${productId}`, config);
             console.log('delete', res.status);
             notification.success({
                 message: 'Error',
@@ -153,6 +153,7 @@ export default function Cart({}) {
                         addToCart={addToCart}
                         removeFromCart={removeFromCart}
                         delFromCart={delFromCart}
+                        id={id}
                     />
                 </CartStyled>
             </div>
