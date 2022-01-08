@@ -5,6 +5,12 @@ export const CartContainerStyled = styled.div`
         margin-top: 4.5rem;
         padding: 1rem;
     }
+    select{
+        background:#f4f4f4;
+    }
+    select:focus{
+        outline:none;
+    }
     .cart-collection {
         width: 65%;
         transition: ease all 0.5s;

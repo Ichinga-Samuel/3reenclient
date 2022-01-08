@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Link from 'next/link';
 import { CartContainerStyled } from './CartContainer.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
@@ -12,7 +12,8 @@ import { APP_BASE } from '@/utils/ApiList';
 
 export default function CartContainer({ usersCart, id, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
-    const [qyt, setQty] = useState({
+    console.log(id)
+    const [qty, setQty] = useState({
         quantity: 1,
     });
     const token = getFromLocalStorage('usertoken');
@@ -21,14 +22,17 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
             Authorization: `Bearer ${token}`,
         },
     };
-    const onChange = async (e) => {
+    const onChange = (e) => {
         setQty({ ...qty, [e.target.name]: e.target.value });
-        try {
-            const updateQty = await axios.patch(`${APP_BASE}/cart/${id}`, config)
-            console.log(updateQty.data);
-        } catch (error) {
-         console.log(error)   
-        }
+        const updateQty = async () => {
+            try {
+                const updateQty = await axios.patch(`${APP_BASE}/cart/`, config);
+                console.log(updateQty.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        updateQty();
     };
     const { quantity } = qty;
     console.log(quantity);
@@ -62,16 +66,21 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
 
                                     <div className="cart-quantity-md">
                                         <div className="cart-quantity-controls">
-                                            <Select value={quantity}  onChange={(e) => onChange(e)} style={{ width: 70 }}>
-                                                <Option value="1">1</Option>
-                                                <Option value="2">2</Option>
-                                                <Option value="3">3</Option>
-                                                <Option value="4">4</Option>
-                                                <Option value="5">5</Option>
-                                            </Select>
+                                            <select
+                                                name='quantity'
+                                                value={quantity}
+                                                onChange={(e) => onChange(e)}
+                                                style={{ width: 50 }}
+                                            >
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
                                         </div>
                                     </div>
-
+                                    {console.log(product.productId)}
                                     <div className="cart-unit-price">
                                         <h4>
                                             {CURRENCY}
@@ -150,15 +159,18 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
                             </div>
                             <div className="cartSelect">
                                 <h3>Quantity</h3>
-                                <div className="cartSelectInfo">
-                                    <button className="plus" onClick={(e) => removeFromCart(product, e)}>
-                                        <MinusCircleFilled style={{ color: '#ffaf38' }} />
-                                    </button>
-                                    <p>{product.quantity}</p>
-                                    <button onClick={(e) => addToCart(product, e)}>
-                                        <PlusCircleFilled style={{ color: '#ffaf38' }} />
-                                    </button>
-                                </div>
+                                <select
+                                                name='quantity'
+                                                value={quantity}
+                                                onChange={(e) => onChange(e)}
+                                                style={{ width: 50 }}
+                                            >
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
                             </div>
                             <div className="amount">
                                 <h3>Price</h3>

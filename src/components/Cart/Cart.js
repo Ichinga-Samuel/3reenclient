@@ -123,7 +123,7 @@ export default function Cart({}) {
             // delete cart with filter
             const filteredCart = cartItems.filter((item) => item.productId !== productId);
             //delete particular product from db
-            const res = axios.delete(`${APP_BASE}/cart/deleteCart/${productId}`, config);
+            const res = axios.delete(`${APP_BASE}/cart/${productId}`, config);
             console.log('delete', res.status);
             notification.success({
                 message: 'Error',
