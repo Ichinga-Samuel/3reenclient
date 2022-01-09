@@ -13,20 +13,27 @@ import { APP_BASE } from '@/utils/ApiList';
 export default function CartContainer({ usersCart, id, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
     console.log(id)
-    const [qty, setQty] = useState({
-        quantity: 1,
-    });
+    const [qty, setQty] = useState(0);
     const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
+
             Authorization: `Bearer ${token}`,
         },
     };
-    const onChange = (e) => {
-        setQty({ ...qty, [e.target.name]: e.target.value });
+    const usesrCartt = usersCart.map(product => {
+        console.log(product.quantity)
+    })
+    const quantity = JSON.stringify({
+        "quantity": "8"
+    })
+    console.log(quantity)
+    const onClick = ( product) => {
+        product.quantity++;
+        console.log(product.quantity)
         const updateQty = async () => {
             try {
-                const updateQty = await axios.patch(`${APP_BASE}/cart/`, config);
+                const updateQty = await axios.patch(`${APP_BASE}/cart/${product._id}`, quantity,  config);
                 console.log(updateQty.data);
             } catch (error) {
                 console.log(error);
@@ -34,8 +41,6 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
         };
         updateQty();
     };
-    const { quantity } = qty;
-    console.log(quantity);
     return (
         <CartContainerStyled>
             <div className="product-cart">
@@ -63,21 +68,12 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
                                             <div className="actionDelete"></div>
                                         </div>
                                     </div>
-
                                     <div className="cart-quantity-md">
                                         <div className="cart-quantity-controls">
-                                            <select
-                                                name='quantity'
-                                                value={quantity}
-                                                onChange={(e) => onChange(e)}
-                                                style={{ width: 50 }}
-                                            >
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
+                                            <button onClick={() => onClick(product)}>
+                                                Add
+                                            </button>
+                                          {product.quantity}
                                         </div>
                                     </div>
                                     {console.log(product.productId)}
@@ -159,18 +155,7 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
                             </div>
                             <div className="cartSelect">
                                 <h3>Quantity</h3>
-                                <select
-                                                name='quantity'
-                                                value={quantity}
-                                                onChange={(e) => onChange(e)}
-                                                style={{ width: 50 }}
-                                            >
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
+                                
                             </div>
                             <div className="amount">
                                 <h3>Price</h3>
