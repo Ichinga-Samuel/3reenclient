@@ -29,11 +29,12 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
     })
     console.log(quantity)
     const onClick = ( product) => {
-        product.quantity++;
+
         console.log(product.quantity)
         const updateQty = async () => {
+            setQty(product.quantity)
             try {
-                const updateQty = await axios.patch(`${APP_BASE}/cart/${product._id}`, quantity,  config);
+                const updateQty = await axios.patch(`${APP_BASE}/cart/${product._id}`,   qty,  config);
                 console.log(updateQty.data);
             } catch (error) {
                 console.log(error);

@@ -16,7 +16,6 @@ export default function Cart({}) {
     const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
-            'content-type': 'application/json',
             Authorization: `Bearer ${token}`,
         },
     };
@@ -117,40 +116,33 @@ export default function Cart({}) {
     };
     const delFromCart = async (product) => {
         //get particular product's id
+        const productId = product.productId;
         try {
-                  const res = axios.post(`https://treen-api.herokuapp.com/api/v1/cart/deleteCart/61d621f4be03622640d6f0d9`, config);
-        //     console.log('delete', res.data);
-        } catch (error) {
-            
+            // duplicate of existing usercart
+            const cartItems = userCart.slice();
+            // delete cart with filter
+            const filteredCart = cartItems.filter((item) => item.productId !== productId);
+            //delete particular product from db
+            const res = axios.delete(`${APP_BASE}/cart/deleteCart/${productId}`, config);
+            console.log('delete', res.status);
+            notification.success({
+                message: 'Error',
+                description: 'Item removed from your cart',
+                duration: 10,
+            });
+            //delete from state and localstorage
+            setUserCart(filteredCart);
+            localStorage.setItem('cartItems', JSON.stringify(filteredCart));
+            setTimeout(() => {
+                fetchUserCart();
+            }, 500);
+        } catch (err) {
+            notification.error({
+                message: 'Error',
+                description: err?.response?.data?.message,
+                duration: 10,
+            });
         }
-        // const productId = product.productId;
-        // console.log(productId)
-        // try {
-        //     // duplicate of existing usercart
-        //     const cartItems = userCart.slice();
-        //     // delete cart with filter
-        //     const filteredCart = cartItems.filter((item) => item.productId !== productId);
-        //     //delete particular product from db
-        //     const res = axios.post(`${APP_BASE}/cart/deleteCart/${productId}`, config);
-        //     console.log('delete', res.data);
-        //     notification.success({
-        //         message: 'Success',
-        //         description: 'Item removed from your cart',
-        //         duration: 10,
-        //     });
-        //     //delete from state and localstorage
-        //     setUserCart(filteredCart);
-        //     localStorage.setItem('cartItems', JSON.stringify(filteredCart));
-        //     setTimeout(() => {
-        //         fetchUserCart();
-        // //     }, 500);
-        // } catch (err) {
-        //     notification.error({
-        //         message: 'Error',
-        //         description: err?.response?.data?.message,
-        //         duration: 10,
-        //     });
-        // }
     };
     return userCart.length ? (
         <UserWebLayout webtitle="Cart">
