@@ -32,3 +32,10 @@ export default function EmptyCart() {
         </>
     );
 }
+
+
+// @media(max-width:500px){
+//     .cart-increment{
+//         transform:translate(-7px, 5px);
+//     }
+// }

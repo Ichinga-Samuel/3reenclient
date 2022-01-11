@@ -19,7 +19,8 @@ import { APP_BASE } from '@/utils/ApiList';
 
 export default function CartContainer({ usersCart, id, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
-    console.log(id);
+    
+    console.log(id)
     const [qty, setQty] = useState(0);
     const token = getFromLocalStorage('usertoken');
     const config = {
@@ -190,7 +191,7 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
                             <div className="cartSelect">
                                 <h3>Quantity</h3>
                                 <div className="cart-increment">
-                                    <button onClick={() => onAdd(product)}>
+                                    <button  onClick={() => onAdd(product)}>
                                         <PlusCircleOutlined />
                                     </button>
                                     {product.quantity}

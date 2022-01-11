@@ -60,4 +60,9 @@ export const CartEmptyStyled = styled.div`
             padding: 0.7rem 1.5rem;
         }
     }
+    @media only screen and (max-width: 375px) {
+        p{
+            font-size: small;
+        }
+    }
 `;
