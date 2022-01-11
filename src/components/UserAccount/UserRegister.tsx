@@ -37,7 +37,7 @@ const UserRegister = () => {
                 addToLocalStorage('userdetails', response.data.fullName);
                 console.log(response.data)
                 setloading(false);
-                router.push('/');
+                router.push('/login');
                 return;
             }
         } catch (err) {
@@ -114,7 +114,7 @@ const UserRegister = () => {
                                             <div className="form-group">
                                                 <label htmlFor="password">Confirm Password</label>
                                                 <Input.Password
-                                                    {...register('confirmpassword', {
+                                                    {...register('confirmPassword', {
                                                         required: true,
                                                         minLength: {
                                                             value: 8,

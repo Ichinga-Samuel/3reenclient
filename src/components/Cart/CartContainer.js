@@ -1,10 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { CartContainerStyled } from './CartContainer.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
-import { MinusCircleFilled, MinusCircleTwoTone, PlusCircleFilled, PlusCircleTwoTone } from '@ant-design/icons';
+import {
+    MinusCircleFilled,
+    MinusCircleOutlined,
+    MinusCircleTwoTone,
+    PlusCircleFilled,
+    PlusCircleOutlined,
+    PlusCircleTwoTone,
+} from '@ant-design/icons';
 import { Delete } from '@material-ui/icons';
-import { Select } from 'antd';
+import { notification, Select } from 'antd';
 import { Option } from 'antd/lib/mentions';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import axios from 'axios';
@@ -12,35 +19,58 @@ import { APP_BASE } from '@/utils/ApiList';
 
 export default function CartContainer({ usersCart, id, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
-    console.log(id)
+    console.log(id);
     const [qty, setQty] = useState(0);
     const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
-
             Authorization: `Bearer ${token}`,
         },
     };
-    const usesrCartt = usersCart.map(product => {
-        console.log(product.quantity)
-    })
-    const quantity = JSON.stringify({
-        "quantity": "8"
-    })
-    console.log(quantity)
-    const onClick = ( product) => {
-
-        console.log(product.quantity)
-        const updateQty = async () => {
-            setQty(product.quantity)
-            try {
-                const updateQty = await axios.patch(`${APP_BASE}/cart/${product._id}`,   qty,  config);
-                console.log(updateQty.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        updateQty();
+    // const usesrCartt = usersCart.map((product) => {
+    //     console.log(product.quantity);
+    // });
+    const onAdd = async (product) => {
+        const body = JSON.stringify({
+            quantity: product.quantity,
+        });
+        product.quantity++;
+        try {
+            window.location.reload();
+            const updateQty = await axios.patch(
+                `${APP_BASE}/cart/update/?id=${product.productId}&quantity=${product.quantity}`,
+                body,
+                config,
+            );
+            console.log(body);
+        } catch (error) {
+            console.log(error);
+            notification.error({
+                message: 'Error',
+                description: 'Something went very wrong Try Refreshing',
+            });
+        }
+    };
+    const onMinus = async (product) => {
+        const body = JSON.stringify({
+            quantity: product.quantity,
+        });
+        product.quantity--;
+        try {
+            window.location.reload();
+            const updateQty = await axios.patch(
+                `${APP_BASE}/cart/update/?id=${product.productId}&quantity=${product.quantity}`,
+                body,
+                config,
+            );
+            console.log(body);
+        } catch (error) {
+            notification.error({
+                message: 'Error',
+                description: 'Something went very wrong Try Refreshing',
+            });
+            console.log(error);
+        }
     };
     return (
         <CartContainerStyled>
@@ -69,12 +99,15 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
                                             <div className="actionDelete"></div>
                                         </div>
                                     </div>
-                                    <div className="cart-quantity-md">
-                                        <div className="cart-quantity-controls">
-                                            <button onClick={() => onClick(product)}>
-                                                Add
+                                    <div className="">
+                                        <div className="cart-increment">
+                                            <button className='plus' onClick={() => onAdd(product)}>
+                                                <PlusCircleOutlined style={{color:'#ffaf38'}} color='#ffaf38' />
                                             </button>
-                                          {product.quantity}
+                                            {product.quantity}
+                                            <button onClick={() => onMinus(product)}>
+                                                <MinusCircleOutlined style={{color:'#ffaf38'}} color='#ffaf38' />
+                                            </button>
                                         </div>
                                     </div>
                                     {console.log(product.productId)}
@@ -156,7 +189,15 @@ export default function CartContainer({ usersCart, id, addToCart, removeFromCart
                             </div>
                             <div className="cartSelect">
                                 <h3>Quantity</h3>
-                                
+                                <div className="cart-increment">
+                                    <button onClick={() => onAdd(product)}>
+                                        <PlusCircleOutlined />
+                                    </button>
+                                    {product.quantity}
+                                    <button onClick={() => onMinus(product)}>
+                                        <MinusCircleOutlined />
+                                    </button>
+                                </div>
                             </div>
                             <div className="amount">
                                 <h3>Price</h3>

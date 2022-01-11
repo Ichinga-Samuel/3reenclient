@@ -119,11 +119,11 @@ export default function Cart({}) {
         const productId = product.productId;
         try {
             // duplicate of existing usercart
-            const cartItems = userCart.slice();
-            // delete cart with filter
-            const filteredCart = cartItems.filter((item) => item.productId !== productId);
+            // const cartItems = userCart.slice();
+            // // delete cart with filter
+            // const filteredCart = cartItems.filter((item) => item.productId !== productId);
             //delete particular product from db
-            const res = axios.delete(`${APP_BASE}/cart/deleteCart/${productId}`, config);
+            const res = axios.post(`${APP_BASE}/cart/deleteCart/${productId}`, config);
             console.log('delete', res.status);
             notification.success({
                 message: 'Error',
@@ -131,11 +131,11 @@ export default function Cart({}) {
                 duration: 10,
             });
             //delete from state and localstorage
-            setUserCart(filteredCart);
-            localStorage.setItem('cartItems', JSON.stringify(filteredCart));
-            setTimeout(() => {
-                fetchUserCart();
-            }, 500);
+            // setUserCart(filteredCart);
+            // localStorage.setItem('cartItems', JSON.stringify(filteredCart));
+            // setTimeout(() => {
+            //     fetchUserCart();
+            // }, 500);
         } catch (err) {
             notification.error({
                 message: 'Error',
