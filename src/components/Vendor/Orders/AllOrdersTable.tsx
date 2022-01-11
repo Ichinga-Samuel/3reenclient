@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import VendorLayout from '@/components/Vendor/Layout/VendorLayout';
 import { OrderTableContainer } from '@/components/Vendor/Orders/Orders.styled';
-import { Button, Select, Pagination, notification, Table, Tag } from 'antd';
+import {  notification, Table, Tag } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { EyeOutlined, SearchOutlined, MoreOutlined } from '@ant-design/icons';
+import { EyeOutlined,  MoreOutlined } from '@ant-design/icons';
 import { getFromLocalStorage } from '@/utils/browserStorage';
 import { APP_BASE, VENDOR_ORDER } from '@/utils/ApiList';
 import axios from 'axios';
@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { formatAmount } from '@/utils/helpers';
 // import { VendorOrders } from './fakeOrder';
 
-const { Option } = Select;
+// const { Option } = Select;
 
 const AllOrdersTable = () => {
     // const testOrder = VendorOrders || [];
@@ -35,7 +35,9 @@ const AllOrdersTable = () => {
             const { doc, result } = response.data;
             setorders(doc);
             setTotal(result);
+            total
             setPagination(result);
+            pagination
             // setTotal(results);
             console.log('orders', orders);
             console.log('res', response);
@@ -52,42 +54,42 @@ const AllOrdersTable = () => {
         }
     };
 
-    const filterOrders = () => {
-        setFetching(true);
-        fetchAllOrders();
-        setTimeout(() => {
-            setFetching(false);
-        }, 1000);
-    };
+    // const filterOrders = () => {
+    //     setFetching(true);
+    //     fetchAllOrders();
+    //     setTimeout(() => {
+    //         setFetching(false);
+    //     }, 1000);
+    // };
 
-    const filterByStatus = async (value: string) => {
-        console.log('searc', value);
-        await axios
-            .get(`${APP_BASE}${VENDOR_ORDER.byStatus(value)}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then((response: any) => {
-                const { doc, data, pages, results } = response;
-                if (data.status === 'success') {
-                    console.log('record', orders);
-                    setPagination(pages);
-                    setorders(doc);
-                    setTotal(results);
-                    setFetching(false);
-                }
-            })
-            .catch((err) => {
-                setFetching(false);
-                // setorders([]);
-                notification.error({
-                    message: 'Error',
-                    description: err?.response?.data.message,
-                    duration: 0,
-                });
-            });
-    };
+    // const filterByStatus = async (value: string) => {
+    //     console.log('searc', value);
+    //     await axios
+    //         .get(`${APP_BASE}${VENDOR_ORDER.byStatus(value)}`, {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`,
+    //             },
+    //         })
+    //         .then((response: any) => {
+    //             const { doc, data, pages, results } = response;
+    //             if (data.status === 'success') {
+    //                 console.log('record', orders);
+    //                 setPagination(pages);
+    //                 setorders(doc);
+    //                 setTotal(results);
+    //                 setFetching(false);
+    //             }
+    //         })
+    //         .catch((err) => {
+    //             setFetching(false);
+    //             // setorders([]);
+    //             notification.error({
+    //                 message: 'Error',
+    //                 description: err?.response?.data.message,
+    //                 duration: 0,
+    //             });
+    //         });
+    // };
 
     const getOneRecord = (record: any) => {
         console.log('record', record);
@@ -109,7 +111,7 @@ const AllOrdersTable = () => {
     };
 
     interface orders {
-        _id: number | string;
+        name:  string;
         key: number | string;
         placedOn: string;
         quantity: number | string;
@@ -120,12 +122,12 @@ const AllOrdersTable = () => {
 
     const orderColumns: ColumnsType<orders> = [
         {
-            title: 'Ref ID',
-            dataIndex: '_id',
+            title: 'Name',
+            dataIndex: 'name',
         },
         {
             title: 'Placed On',
-            dataIndex: 'placedOn',
+            dataIndex: 'address',
         },
         {
             title: 'No Of Items',
@@ -214,12 +216,12 @@ const AllOrdersTable = () => {
         onChange: onSelectChange,
     };
 
-    const hasSelected = selectedRowKeys.length > 0;
+    // const hasSelected = selectedRowKeys.length > 0;
 
     return (
         <VendorLayout pageTitle={title} crumbName={title} dashboardTitle={title}>
             <OrderTableContainer data-aos="fade-up" data-aos-delay="2s" data-aos-duration="1s">
-                <div className="filter">
+                {/* <div className="filter">
                     <div className="product__view-filters">
                         <Button loading={fetching} type="primary" onClick={filterOrders}>
                             View Filters
@@ -239,8 +241,8 @@ const AllOrdersTable = () => {
                             <Option value="Pending">Pending</Option>
                         </Select>
                     </div>
-                </div>
-                <div className="export">
+                </div> */}
+                {/* <div className="export">
                     <div>
                         {!hasSelected ? (
                             <Button type="primary">Export all</Button>
@@ -259,7 +261,7 @@ const AllOrdersTable = () => {
                             }
                         />
                     </div>
-                </div>
+                </div> */}
                 <div className="productdata">
                     <Table<orders>
                         rowSelection={rowSelection}

@@ -76,6 +76,7 @@ const VendorProducts = () => {
                     },
                 });
                 const { products, results, pages } = response.data;
+                console.log(response.data)
                 setPagination(pages);
                 setProductData(products);
                 setTotal(results);
