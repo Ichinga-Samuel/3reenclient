@@ -12,6 +12,7 @@ import { APP_BASE } from '@/utils/ApiList';
 
 export default function CartContainer({ usersCart, id, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
+    
     console.log(id)
     const [qty, setQty] = useState({
         quantity: 1,
