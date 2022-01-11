@@ -18,7 +18,7 @@ const LogisticCategory = () => {
     console.log(state);
     const token = getFromLocalStorage('admintoken');
     const getCompanyByState = async () => {
-        setFetching(true);
+    setFetching(true);
         try {
             const response = await axios.get(`${APP_BASE}${ADMIN.getCompanyByState(state)}`, {
                 headers: {

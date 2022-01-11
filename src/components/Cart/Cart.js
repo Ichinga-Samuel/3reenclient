@@ -12,13 +12,13 @@ export default function Cart({}) {
     // if cart exists in local set state else state is empty array
     const [userCart, setUserCart] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [id, setId] = useState('');
     const token = getFromLocalStorage('usertoken');
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
         },
     };
-
     const fetchUserCart = async () => {
         if (!token) {
             return;
@@ -68,6 +68,7 @@ export default function Cart({}) {
             let inCart = false;
             //get particular product's id
             const productId = product.productId;
+            setId(productId);
             // duplicate of existing usercart
             const cartItems = userCart.slice();
             // loop through items and check if product to add already exist
@@ -113,17 +114,16 @@ export default function Cart({}) {
             }
         });
     };
-
     const delFromCart = async (product) => {
         //get particular product's id
         const productId = product.productId;
         try {
             // duplicate of existing usercart
-            const cartItems = userCart.slice();
-            // delete cart with filter
-            const filteredCart = cartItems.filter((item) => item.productId !== productId);
+            // const cartItems = userCart.slice();
+            // // delete cart with filter
+            // const filteredCart = cartItems.filter((item) => item.productId !== productId);
             //delete particular product from db
-            const res = axios.delete(`${APP_BASE}/cart/${productId}`, config);
+            const res = axios.post(`${APP_BASE}/cart/deleteCart/${productId}`, config);
             console.log('delete', res.status);
             notification.success({
                 message: 'Error',
@@ -131,11 +131,11 @@ export default function Cart({}) {
                 duration: 10,
             });
             //delete from state and localstorage
-            setUserCart(filteredCart);
-            localStorage.setItem('cartItems', JSON.stringify(filteredCart));
-            setTimeout(() => {
-                fetchUserCart();
-            }, 500);
+            // setUserCart(filteredCart);
+            // localStorage.setItem('cartItems', JSON.stringify(filteredCart));
+            // setTimeout(() => {
+            //     fetchUserCart();
+            // }, 500);
         } catch (err) {
             notification.error({
                 message: 'Error',
@@ -153,6 +153,7 @@ export default function Cart({}) {
                         addToCart={addToCart}
                         removeFromCart={removeFromCart}
                         delFromCart={delFromCart}
+                        id={id}
                     />
                 </CartStyled>
             </div>

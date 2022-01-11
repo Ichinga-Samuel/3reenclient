@@ -1,7 +1,6 @@
 import React from 'react';
 import VendorLayout from '@/components/Vendor/Layout/VendorLayout';
 import { Row, Col, Button } from 'antd';
-import DraftProducts from './DraftProducts';
 import { useRouter } from 'next/router';
 
 const VendorCreateProduct = () => {
@@ -40,7 +39,7 @@ const VendorCreateProduct = () => {
                                 </Row>
                             </div>
                         </Col>
-                        <Col xs={24} xl={12} lg={12}>
+                        {/* <Col xs={24} xl={12} lg={12}>
                             <div className="createProductCol">
                                 <h3 className="createProductHeader">Combo Product</h3>
                                 <h4>
@@ -62,16 +61,11 @@ const VendorCreateProduct = () => {
                                         </Button>
                                     </Col>
                                 </Row>
-                                {/* <div className="createProductButtonContainer">
-                                    <Button type="primary" className="createProductButton">
-                                        Create Product
-                                    </Button>
-                                </div> */}
                             </div>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </div>
-                <DraftProducts />
+                {/* <DraftProducts /> */}
             </div>
         </VendorLayout>
     );

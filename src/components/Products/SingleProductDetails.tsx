@@ -69,8 +69,9 @@ const SingleProductDetails = () => {
                 const { data } = await axios.post(`${APP_BASE}/cart/${productId}`, { productId }, config);
                 //add to usercart duplicate array
                 console.log('cart', data);
-                const usersCart = data.cartItem;
-                localStorage.setItem('cartItems', JSON.stringify([usersCart]));
+                const usersCart = data.cart;
+                console.log(userCart)
+                localStorage.setItem('cartItems', JSON.stringify(usersCart));
                 setadding(true);
                 cartItems.forEach((item) => {
                     console.log(item.productId)
@@ -131,23 +132,8 @@ const SingleProductDetails = () => {
                                 <Col xs={24} xl={12} lg={12}>
                                     <div className="prdimg">
                                         <div>
-                                            <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
+                                            <img src={'img/mackbook3x.png'} alt={productdetails?.name} />
                                         </div>
-                                        {/* <Slider {...settings}>
-                                
-                                             <div>
-                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
-                                            </div>
-                                             <div>
-                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
-                                            </div>
-                                            <div>
-                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
-                                            </div>
-                                            <div>
-                                                <img src={productdetails?.images?.[0]} alt={productdetails?.name} />
-                                            </div> 
-                                        </Slider> */}
                                     </div>
                                 </Col>
                                 <Col xs={24} xl={12} lg={12}>

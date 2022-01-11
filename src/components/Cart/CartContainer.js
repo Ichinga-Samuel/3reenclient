@@ -1,12 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { CartContainerStyled } from './CartContainer.styled';
 import { CURRENCY, formatAmount } from '@/utils/helpers';
-import { MinusCircleFilled, MinusCircleTwoTone, PlusCircleFilled, PlusCircleTwoTone } from '@ant-design/icons';
+import {
+    MinusCircleFilled,
+    MinusCircleOutlined,
+    MinusCircleTwoTone,
+    PlusCircleFilled,
+    PlusCircleOutlined,
+    PlusCircleTwoTone,
+} from '@ant-design/icons';
 import { Delete } from '@material-ui/icons';
+import { notification, Select } from 'antd';
+import { Option } from 'antd/lib/mentions';
+import { getFromLocalStorage } from '@/utils/browserStorage';
+import axios from 'axios';
+import { APP_BASE } from '@/utils/ApiList';
 
-export default function CartContainer({ usersCart, addToCart, removeFromCart, delFromCart }) {
+export default function CartContainer({ usersCart, id, addToCart, removeFromCart, delFromCart }) {
     const totalPrice = usersCart ? usersCart.reduce((a, b) => a + b.product.price * b.quantity, 0) : 0;
+    
+    console.log(id)
+    const [qty, setQty] = useState(0);
+    const token = getFromLocalStorage('usertoken');
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    };
+    // const usesrCartt = usersCart.map((product) => {
+    //     console.log(product.quantity);
+    // });
+    const onAdd = async (product) => {
+        const body = JSON.stringify({
+            quantity: product.quantity,
+        });
+        product.quantity++;
+        try {
+            window.location.reload();
+            const updateQty = await axios.patch(
+                `${APP_BASE}/cart/update/?id=${product.productId}&quantity=${product.quantity}`,
+                body,
+                config,
+            );
+            console.log(body);
+        } catch (error) {
+            console.log(error);
+            notification.error({
+                message: 'Error',
+                description: 'Something went very wrong Try Refreshing',
+            });
+        }
+    };
+    const onMinus = async (product) => {
+        const body = JSON.stringify({
+            quantity: product.quantity,
+        });
+        product.quantity--;
+        try {
+            window.location.reload();
+            const updateQty = await axios.patch(
+                `${APP_BASE}/cart/update/?id=${product.productId}&quantity=${product.quantity}`,
+                body,
+                config,
+            );
+            console.log(body);
+        } catch (error) {
+            notification.error({
+                message: 'Error',
+                description: 'Something went very wrong Try Refreshing',
+            });
+            console.log(error);
+        }
+    };
     return (
         <CartContainerStyled>
             <div className="product-cart">
@@ -16,7 +82,7 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                     <div className="cart-collection">
                         <div className="cart-header">
                             <p>Item</p>
-                            <p>Quantity</p>
+                            <p>Qty</p>
                             <p>Unit Price</p>
                             <p>Sub Total</p>
                             <p>Remove</p>
@@ -34,20 +100,18 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                             <div className="actionDelete"></div>
                                         </div>
                                     </div>
-
-                                    <div className="cart-quantity-md">
-                                        <div className="cart-quantity-controls">
-                                            <button  onClick={(e) => removeFromCart(product, e)}>
-                                                {/* <MinusCircleFilled style={{ color: '#ffaf38' }} /> */}
+                                    <div className="">
+                                        <div className="cart-increment">
+                                            <button className='plus' onClick={() => onAdd(product)}>
+                                                <PlusCircleOutlined style={{color:'#ffaf38'}} color='#ffaf38' />
                                             </button>
-                                            <p>{product.quantity}</p>
-                                            <button onClick={() => addToCart(product)}>
-                                                <PlusCircleFilled style={{ color: '#ffaf38' }} />
-                                                {console.log(product.productId)}
+                                            {product.quantity}
+                                            <button onClick={() => onMinus(product)}>
+                                                <MinusCircleOutlined style={{color:'#ffaf38'}} color='#ffaf38' />
                                             </button>
                                         </div>
                                     </div>
-
+                                    {console.log(product.productId)}
                                     <div className="cart-unit-price">
                                         <h4>
                                             {CURRENCY}
@@ -124,15 +188,15 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                     <p>Product description</p>
                                 </div>
                             </div>
-                             <div className="cartSelect">
+                            <div className="cartSelect">
                                 <h3>Quantity</h3>
-                                <div className="cartSelectInfo">
-                                    <button className="plus" onClick={(e) => removeFromCart(product, e)}>
-                                        <MinusCircleFilled style={{ color: '#ffaf38' }} />
+                                <div className="cart-increment">
+                                    <button  onClick={() => onAdd(product)}>
+                                        <PlusCircleOutlined />
                                     </button>
-                                    <p>{product.quantity}</p>
-                                    <button onClick={(e) => addToCart(product, e)}>
-                                        <PlusCircleFilled style={{ color: '#ffaf38' }} />
+                                    {product.quantity}
+                                    <button onClick={() => onMinus(product)}>
+                                        <MinusCircleOutlined />
                                     </button>
                                 </div>
                             </div>
@@ -152,37 +216,6 @@ export default function CartContainer({ usersCart, addToCart, removeFromCart, de
                                     <Delete className="deletebutton" />
                                 </div>
                             </div>
-
-                            {/* <div className="cartmobileDetail">
-                                <div className="detail">
-                                    <div className="sectionOne">
-                                         <div className="sectionOneDetails">
-                                            <h5 className="productname">{product.product.name}</h5>
-                                        </div> *
-                                        <div className="sectionOneCat">
-                                            <p className="cat">Vendor</p> 
-                                            <p className="reducedPrice">N700</p>
-                                        </div>
-                                    </div>
-                                    <div className="sectionTwo">
-                                        <img src="img/MobileDelete.png" alt="ing" />
-                                    </div> 
-                                </div>
-
-                                <div className="downPart">
-                                    <div className="amount">
-                                        <h4>Price</h4>
-                                        <h4 className="normalPrice">{product.product.price}</h4>
-                                    </div>
-
-                                     <div className="cartSelect">
-                                        <button onClick={() => removeFromCart(product)}>-</button>
-                                        <input type="number" value={product.count} readOnly />
-                                        <input type="number" value="2" readOnly />
-                                        <button onClick={() => addToCart(product)}>+</button>
-                                    </div> 
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 ))}

@@ -5,10 +5,19 @@ export const CartContainerStyled = styled.div`
         margin-top: 4.5rem;
         padding: 1rem;
     }
+    select{
+        background:#f4f4f4;
+    }
+    select:focus{
+        outline:none;
+    }
     .cart-collection {
-        width: 65%;
+        width: 85%;
         transition: ease all 0.5s;
         margin: 1rem auto;
+    }
+    button{
+        background:#fff;
     }
     .cart-productSystem {
         display: grid;
@@ -20,7 +29,7 @@ export const CartContainerStyled = styled.div`
         width: 50px;
         height: 50px;
         border-radius: 7px;
-        background-size: cover;se
+        background-size: cover;
     }
     .cart-header {
         display: flex;
@@ -29,6 +38,7 @@ export const CartContainerStyled = styled.div`
         p {
             font-weight: bold;
             color: #333;
+            font-size: large;
             // width: 14.1%;
             // margin-left: -0.3rem;
             // &:first-child {
@@ -129,6 +139,7 @@ export const CartContainerStyled = styled.div`
     @media only screen and (min-width: 650px) {
         .cart-total {
             justify-content: flex-end;
+            font-weight: bold;
         }
 
         .cart-action-button {
@@ -216,8 +227,20 @@ export const CartContainerStyled = styled.div`
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             padding: 13px;
         }
-
-        .cart-quantity-md,
+        .cart-increment{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            width:50px;
+            margin-top:15px;
+            transform:translate(-12px, 5px);
+            button{
+                padding-left:5px;
+            }
+            .plus{
+                padding-right:5px;
+            }
+        }
         .cart-unit-price,
         .deleteIcon,
         .cart-product-total {
@@ -280,8 +303,22 @@ export const CartContainerStyled = styled.div`
         .cart-total-holder {
             display: none;
         }
+        .deleteIcon{
+            margin-top: 2rem;
+            transform:translate(-10px, -10px);
+        }
         .cart-productSystem {
             display: none;
+        }
+        .cart-increment{
+            margin-top:0px;
+            transform:translate(-20px, 0px);
+            button{
+                padding-left:3px;
+            }
+            .plus{
+                padding-right:0px;
+            }
         }
 
         .cartMobileWrapper {
@@ -290,7 +327,10 @@ export const CartContainerStyled = styled.div`
             justify-content:space-around;
             text-align:center;
             flex-direction:column;
-            padding:10px;
+            padding:5px;
+            width: 100%;
+            margin-right: 5px;
+            margin-left: 5px;
             padding-bottom:15px;
             margin-bottom: 3rem;
             .mobileImage, .cartSelect,.amount, .sectionTwo {
@@ -319,7 +359,7 @@ export const CartContainerStyled = styled.div`
         }
 
         .cartMobile {
-            width: 90%;
+            width: 70%;
             margin: auto;
             display: flex;
             flex-wrap: wrap;
@@ -440,14 +480,20 @@ export const CartContainerStyled = styled.div`
             margin-bottom: 3rem;
             display: flex;
             justify-content: space-between;
+            font-weight:bold;
+            font-size:large;
         }
 
         .Total > h4 {
             color: #716b72;
+            font-weight:bold;
+
         }
 
         .productname {
             color: #590a5b;
+            font-weight: bold;
+            font-size: large;
         }
 
         .sectionTwo > img {
@@ -477,5 +523,12 @@ export const CartContainerStyled = styled.div`
             color: #bfb1c0;
             font-size: 1.2rem;
         }
-    }
-`;
+        @media(max-width:500px){
+            .cart-increment{
+                transform:translate(-7px, 5px);
+            }
+        }
+    
+`
+;
+

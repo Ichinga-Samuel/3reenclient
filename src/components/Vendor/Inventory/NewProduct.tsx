@@ -46,7 +46,8 @@ const NewProduct = () => {
         const formData = new FormData();
         const files = [...fileList];
         files.forEach((eachFile) => {
-            formData.append('images', eachFile.name);
+            formData.append('images', eachFile);
+            console.log(eachFile);
         });
         formData.append('name', name);
         formData.append('price', price);

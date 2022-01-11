@@ -61,7 +61,7 @@ const Signin = () => {
                         setLoading(false);
                         return;
                     }
-                    if (data.status === 'success' && data.user.role === 'user') {
+                    if (data.role === 'user') {
                         setContent('Authentication Successful. Redirecting...');
                         setTimeout(() => {
                             router.push('/vendor/dashboard');

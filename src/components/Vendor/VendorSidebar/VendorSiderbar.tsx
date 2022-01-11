@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import Link from 'next/link';
 import React, { useState, useEffect, useRef } from 'react';
-import { Dashboard, Order, Inventory, Ratings, CustomerService, LogoutIcon } from '@/utils/Icons';
+import { Dashboard, Order, Inventory, CustomerService, LogoutIcon } from '@/utils/Icons';
 import { VendorSidebarStyled } from './VendorSidebarStyled';
 import { useRouter } from 'next/router';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
@@ -118,14 +118,14 @@ const VendorSiderbar = () => {
                             </a>
                         </Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link href="/vendor/reviews">
                             <a>
                                 <Ratings />
                                 <span>Reviews</span>
                             </a>
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link href="/vendor/customerservices">
                             <a>

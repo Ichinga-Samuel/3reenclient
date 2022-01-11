@@ -48,9 +48,7 @@ const TermsCondition = () => {
                         currently in effect. Should you not agree to the updated, revised or modified terms, you must
                         stop using the provided Services forthwith.
                     </p>
-                    <div className="acceptanceofterms">
-                        <h2 className="text-center">Acceptance of terms</h2>
-                    </div>
+                    
                 </div>
             </TermsStyled>
         </UserWebLayout>
